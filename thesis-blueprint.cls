@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pracalicencjacka}[2018/04/20 v0.0.0 Praca licencjacka]
+\ProvidesClass{thesis-blueprint}[2021/10/24 v1.0.0 Praca licencjacka]
 \newif\ifmyclass@en
 \ExecuteOptions{pl}
 \ProcessOptions\relax
@@ -7,47 +7,6 @@
 \RequirePackage[polish]{babel}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{graphicx}
-\usepackage{savesym}
-\usepackage{nameref}
-\usepackage{indentfirst}
-\usepackage{float}
-\usepackage[export]{adjustbox}
-\usepackage{wrapfig}
-\usepackage{interval}
-\usepackage{amsmath}
-\usepackage{hyperref}
-\usepackage[utf8]{inputenc}
-\usepackage{dirtytalk}
-\usepackage{flexisym}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{url}
-\savesymbol{belowcaptionskip}
-\savesymbol{abovecaptionskip}
-\savesymbol{maketitle}
-\usepackage{varwidth}
-
-\lstset {
-    language=C++,
-    backgroundcolor=\color{yellow!5},
-    basicstyle=\footnotesize,
-}
-
-\lstdefinestyle{customCppStyle}{
-  language=C++,
-  backgroundcolor=\color{yellow!5},
-  numbers=left,
-  stepnumber=1,
-  numbersep=3pt,
-  tabsize=2,
-  showspaces=false,
-  showstringspaces=false
-}
-
-\graphicspath{ {resources/} }
 
 \def\@baseclass{report}
 \def\@stopien{licencjat}

@@ -1,3 +1,16 @@
-# Build artifacts
+# Build directories
 distribution
 auxilary
+
+# Build artifacts
+*.log
+*.aux
+*.pdf
+*.toc
+*.gz
+*.fls
+*.fdb_latexmk
+
+# Temporary files
+*.swp
+
