@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{thesis-blueprint}[2021/10/24 v1.0.0 Praca licencjacka]
+\ProvidesClass{thesis-blueprint}[2021/10/24 v1.0.0 Master degree]
 \newif\ifmyclass@en
 \ExecuteOptions{pl}
 \ProcessOptions\relax
@@ -9,8 +9,8 @@
 \RequirePackage[utf8]{inputenc}
 
 \def\@baseclass{report}
-\def\@stopien{licencjat}
-\def\@rodzajpracy{licencjacka}
+\def\@stopien{magister}
+\def\@rodzajpracy{magisterska}
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\@baseclass}}
 \PassOptionsToClass{a4paper,twoside,openright,11pt}{\@baseclass}
@@ -50,7 +50,7 @@
 		\let \footnote \thanks
 		\begin{center}
 		  {\LARGE\textbf{Uniwersytet Jagielloński}\\
-			Wydzia\l{} Fizyki, Astronomii i Informatyki Stosowanej\par}
+		  	Wydzia\l{} Matematyki i Informatyki \par}
 		  \vspace{1cm plus .5fill}
 		{
 			\setlength{\parindent}{0em}
@@ -96,19 +96,19 @@
 	}
 
 	\def\nralbumu#1{\gdef\@nralbumu{#1}}
-	\def\@nralbumu{???\ClassError{pracalicencjacka}{Brak numeru albumu}\@ehc}
+	\def\@nralbumu{???\ClassError{thesis}{Brak numeru albumu}\@ehc}
 	\def\kierunek#1{\gdef\@kierunek{#1}}
-	\def\@kierunek{???\ClassError{pracalicencjacka}{Nie podano kierunku studiow}\@ehc}
+	\def\@kierunek{???\ClassError{thesis}{Nie podano kierunku studiow}\@ehc}
 	\def\zakres#1{\gdef\@zakres{w zakresie \MakeUppercase{#1}}}
 	\def\@zakres{}
 	\def\opiekun#1{\gdef\@opiekun{#1}}
-	\def\@opiekun{???\ClassError{pracalicencjacka}{Brak danych opiekuna pracy}\@ehc}
+	\def\@opiekun{???\ClassError{thesis}{Brak danych opiekuna pracy}\@ehc}
 	\def\keywords#1{\gdef\@keywords{#1}}
-	\def\@keywords{???\ClassError{pracalicencjacka}{Brak slow kluczowych}\@ehc}
+	\def\@keywords{???\ClassError{thesis}{Brak slow kluczowych}\@ehc}
 	\def\dziedzina#1{\gdef\@dziedzina{#1}}
-	\def\@dziedzina{???\ClassError{pracalicencjacka}{Brak dziedziny Socrates-Erasmus}\@ehc}
+	\def\@dziedzina{???\ClassError{thesis}{Brak dziedziny Socrates-Erasmus}\@ehc}
 	\def\klasyfikacja#1{\gdef\@klasyfikacja{#1}}
-	\def\@klasyfikacja{???\ClassError{pracalicencjacka}{Brak klasyfikacji tematycznej}\@ehc}
+	\def\@klasyfikacja{???\ClassError{thesis}{Brak klasyfikacji tematycznej}\@ehc}
 
 	\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
 		\hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
