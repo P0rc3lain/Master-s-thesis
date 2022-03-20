@@ -7,7 +7,6 @@
 \RequirePackage[polish]{babel}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-
 \def\@baseclass{report}
 \def\@stopien{magister}
 \def\@rodzajpracy{magisterska}
@@ -17,7 +16,9 @@
 \ProcessOptions
 
 \LoadClass{\@baseclass}
-
+\usepackage{graphicx}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
 \textwidth\paperwidth
 \advance\textwidth -55mm
 \oddsidemargin-1in
@@ -31,15 +32,12 @@
 \marginparwidth15mm
 \def\autor#1#2{\def\@imienazwisko{#1}\def\@album{#2}}
 
-\newcommand*{\captionsource}[2]{
-  \caption[{#1}]{
-    #1
-  }
-  \textbf{Źródło:} #2
-  \par\smallskip
-  \begin{tabular}{|r|c|c|c|c|c|}
-
-    \end{tabular}
+\newcommand*{\fig}[3]{
+    \begin{figure}
+        \includegraphics[width=\linewidth]{#1}
+        \caption{#2}
+        \label{#3}
+    \end{figure}
 }
 
 \newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Nr albumu: #2\end{minipage}\ }
