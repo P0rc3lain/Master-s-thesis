@@ -8,6 +8,7 @@ auxilary
 # Build artifacts
 *.log
 *.aux
+*.lof
 *.pdf
 *.toc
 *.gz
