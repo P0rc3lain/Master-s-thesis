@@ -17,6 +17,7 @@
 
 \LoadClass{\@baseclass}
 \usepackage{graphicx}
+\usepackage{tocbibind}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 \textwidth\paperwidth
