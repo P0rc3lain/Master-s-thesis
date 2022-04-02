@@ -19,6 +19,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{tocbibind}
+\usepackage{listings}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
@@ -42,6 +43,13 @@
         \label{#3}
     \end{figure}
 }
+
+\lstdefinestyle{style}{
+    captionpos=b,                    
+}
+
+\lstset{style=style}
+
 
 \newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Nr albumu: #2\end{minipage}\ }
 	\renewcommand\maketitle{
@@ -115,6 +123,7 @@
 		\hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
 	\renewcommand*\@seccntformat[1]{\csname the#1\endcsname.\enspace}
+    \renewcommand\lstlistlistingname{Spis kodu źródłowego}
 	\def\numberline#1{\hb@xt@\@tempdima{#1.\hfil}}
 	\renewcommand*\l@chapter[2]{%
 	  \ifnum \c@tocdepth >\m@ne
