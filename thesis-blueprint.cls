@@ -42,8 +42,8 @@
 }
 
 \newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Nr albumu: #2\end{minipage}\ }
-	\renewcommand\maketitle{%
-	  \begin{titlepage}%
+	\renewcommand\maketitle{
+	  \begin{titlepage}
 		\let\footnotesize\small
 		\let\footnoterule\relax
 		\let \footnote \thanks
