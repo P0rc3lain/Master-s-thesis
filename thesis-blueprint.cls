@@ -20,6 +20,13 @@
 \usepackage{hyperref}
 \usepackage{tocbibind}
 \usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{commentcolour}{rgb}{0,0.6,0}
+\definecolor{numbercolour}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolour}{rgb}{0.58,0,0.82}
+\definecolor{backgroundcolour}{rgb}{0.975,0.975,0.975}
+\colorlet{keywordcolour}{magenta}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
@@ -45,7 +52,22 @@
 }
 
 \lstdefinestyle{style}{
-    captionpos=b,                    
+    numberstyle=\tiny\color{numbercolour},
+    captionpos=b,      
+    breaklines=true,
+    numbers=left,    
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{keywordcolour},     
+    stringstyle=\color{stringcolour},
+    keepspaces=true,      
+    xleftmargin=0.5cm,
+    frame=tlbr,
+    framesep=4pt,
+    framerule=0pt,
+    numbersep=8pt,
+    tabsize=2,
+    backgroundcolor=\color{backgroundcolour},
+    commentstyle=\color{commentcolour}
 }
 
 \lstset{style=style}
