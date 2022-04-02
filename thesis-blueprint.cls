@@ -14,10 +14,12 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\@baseclass}}
 \PassOptionsToClass{a4paper,twoside,openright,11pt}{\@baseclass}
 \ProcessOptions
-
 \LoadClass{\@baseclass}
+
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{tocbibind}
+
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 \textwidth\paperwidth
