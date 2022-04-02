@@ -12,6 +12,7 @@ auxilary
 *.pdf
 *.toc
 *.gz
+*.lol
 *.out
 *.fls
 *.fdb_latexmk

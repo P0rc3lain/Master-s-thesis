@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-AUX_EXTENSIONS="aux toc out log lof"
+AUX_EXTENSIONS="aux toc out log lof lol fdb_latexmk fls gz"
 DIST_DIR=distribution
 AUX_DIR=auxilary
 
