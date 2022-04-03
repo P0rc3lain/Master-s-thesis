@@ -15,7 +15,7 @@
 \PassOptionsToClass{a4paper,twoside,openright,11pt}{\@baseclass}
 \ProcessOptions
 \LoadClass{\@baseclass}
-
+\usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{tocbibind}
@@ -27,6 +27,12 @@
 \definecolor{stringcolour}{rgb}{0.58,0,0.82}
 \definecolor{backgroundcolour}{rgb}{0.975,0.975,0.975}
 \colorlet{keywordcolour}{magenta}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\rightmark}
+\fancyhead[R]{\thepage}
+\fancyheadoffset{0pt} 
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
