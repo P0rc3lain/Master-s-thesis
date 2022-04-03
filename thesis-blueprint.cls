@@ -106,7 +106,7 @@
 		  {\large \@date\par}
 		\end{center}
 		\@thanks
-	  \end{titlepage}%
+	  \end{titlepage}
 	  \begin{titlepage}
 		\c@page=2
 		\large
@@ -147,11 +147,11 @@
 	\renewcommand*\@seccntformat[1]{\csname the#1\endcsname.\enspace}
     \renewcommand\lstlistlistingname{Spis kodu źródłowego}
 	\def\numberline#1{\hb@xt@\@tempdima{#1.\hfil}}
-	\renewcommand*\l@chapter[2]{%
+	\renewcommand*\l@chapter[2]{
 	  \ifnum \c@tocdepth >\m@ne
-		\addpenalty{-\@highpenalty}%
+		\addpenalty{-\@highpenalty}
 		\vskip 1.0em \@plus\p@
-		\setlength\@tempdima{1.5em}%
+		\setlength\@tempdima{1.5em}
 		\begingroup
 		  \parindent \z@ \rightskip \@pnumwidth
 		  \parfillskip -\@pnumwidth
