@@ -20,6 +20,7 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{float}
 
 \definecolor{commentcolour}{rgb}{0,0.6,0}
 \definecolor{numbercolour}{rgb}{0.5,0.5,0.5}
