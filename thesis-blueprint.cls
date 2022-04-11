@@ -23,16 +23,12 @@
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{hyperref}
-\usepackage{listings}
-\usepackage{xcolor}
+
+
 \usepackage[nottoc,notlof]{tocbibind}
 \usepackage{float}
 
-\definecolor{commentcolour}{rgb}{0,0.6,0}
-\definecolor{numbercolour}{rgb}{0.5,0.5,0.5}
-\definecolor{stringcolour}{rgb}{0.58,0,0.82}
-\definecolor{backgroundcolour}{rgb}{0.975,0.975,0.975}
-\colorlet{keywordcolour}{magenta}
+
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -69,28 +65,6 @@
     \chapter*{#1}
     \addcontentsline{toc}{chapter}{#1}      
 }
-
-\lstdefinestyle{style}{
-    numberstyle=\tiny\color{numbercolour},
-    captionpos=b,      
-    breaklines=true,
-    numbers=left,    
-    basicstyle=\ttfamily\footnotesize,
-    keywordstyle=\color{keywordcolour},     
-    stringstyle=\color{stringcolour},
-    keepspaces=true,      
-    xleftmargin=0.5cm,
-    frame=tlbr,
-    framesep=4pt,
-    framerule=0pt,
-    numbersep=8pt,
-    tabsize=2,
-    backgroundcolor=\color{backgroundcolour},
-    commentstyle=\color{commentcolour}
-}
-
-\lstset{style=style}
-
 
 \newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Numer albumu: #2\end{minipage}\ }
 	\renewcommand\maketitle{
@@ -170,7 +144,6 @@
 		\hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
 	\renewcommand*\@seccntformat[1]{\csname the#1\endcsname.\enspace}
-    \renewcommand\lstlistlistingname{Spis kodu źródłowego}
 	\def\numberline#1{\hb@xt@\@tempdima{#1.\hfil}}
 	\renewcommand*\l@chapter[2]{
 	  \ifnum \c@tocdepth >\m@ne
