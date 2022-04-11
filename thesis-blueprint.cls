@@ -1,3 +1,7 @@
+%
+%  Copyright © 2022 Mateusz Stompór. All rights reserved.
+%
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{thesis-blueprint}[2021/10/24 v1.0.0 Master degree]
 \newif\ifmyclass@en

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#
+#  Copyright © 2022 Mateusz Stompór. All rights reserved.
+#
+
 AUX_EXTENSIONS="aux toc out log lof lol fdb_latexmk fls gz"
 DIST_DIR=distribution
 AUX_DIR=auxilary
