@@ -1,3 +1,60 @@
-\chapter{Wprowadzenie}
-\section{Wstęp}
-\section{Struktura pracy}
+\chapter{Grafika trójwymiarowa}
+\section{Początki}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=6cm]{images/people/william-fetter.jpg}    
+    \end{center}
+    \caption{William Fetter w momencie gdy pracował dla Boeing Aircraft, 1963}
+    \label{fig:william-fetter}
+\end{figure}
+
+\par % Wyjaśnienie terminu grafika komputerowa
+Powszechnie uznaje się, że termin \q{grafika komputerowa} po raz pierwszy został użyty w 1960 roku przez Williama Fetera, ówczesnego pracownika firmy Boeing.
+Pełniąc rolę menadżera w zespole zaawansowanych projektów graficznych otrzymał on zadanie wymyślenia nowego sposobu tworzenia rysunków technicznych za pomocą komputera.
+W swoim założeniu miały przedstawiać one różne przedmioty opisane za pomocą punktów w przestrzeni trójwymiarowej z uwzględnieniem zniekształceń perspektywy.
+Narzędzie miało nie tylko być w stanie stworzyć pojedynczy rysunek na papierze, ale także sekwencje przedstawiające animacje na taśmie filmowej.
+Przekucie idei w działający prototyp zajęło kilka miesięcy. 
+Zaprogramowane instrukcje interpretowane były przez autorski aparat matematyczny i przekładane na docelowy materiał za pomocą robotycznego ramienia.
+W obrębie firmy rozwiązanie początkowo wykorzystywano do wizualizacji wnętrz kokpitów i pracy nad ich ergonomią.
+Ważnym osiągnięciem będącym następstwem do generowania pojedynczych, niepowiązanych ze sobą scen było stworzenie serii rysunków przedstawiających animacje lądującego samolotu.
+Pomimo wielu wad, jakimi między innymi były długi czas oczekiwania na wynik czy losowe błędy sprawiające, że rysunek musiał być ponownie wytworzony Fetter dostrzegł potencjał i zdecydował się przedstawić efekt swojej pracy szerszemu gronu odbiorców.
+Swój pomysł pokazał światu posługując się sylwetką człowieka, który sięgając ręką do panelu sterowania wewnątrz samolotu ustanowił początek trójwymiarowej grafiki komputerowej jaką znamy dzisiaj.
+\par % Przedstawienie konceptu grafiki komputerowej czasu rzeczywistego
+W miarę upływu lat i postępującemu wzrostowi mocy obliczeniowej komputerów coraz krótszy stawał się czas oczekiwania na pojawienie się pożądanej grafiki na wybranym przez człowieka medium.
+Osiągalnym wydawało się być generowanie kolejnych fragmentów animacji wystarczająco szybko, aby ludzkie oko postrzegało proces jako płynny, nieprzerwany.
+Dziedziną, która wykorzystuje zjawisko jest grafika komputerowa czasu rzeczywistego.
+Choć we wspólną definicje wpisuje się zarówno prezentacja responsywnego interfejsu użytkownika, jak i dedukowanie treści obrazu w oparciu o analizę za pomocą algorytmów to najczęściej pojęcie \q{grafiki komputerowej czasu rzeczywistego} odnosi się do zamiany obiektów opisanych w przestrzeni trójwymiarowej na dwuwymiarowe obrazy za pomocą karty graficznej.
+Uznaje się, że metryką, którą można posłużyć się aby ocenić czy rozwiązanie spełnia założenia jest liczba klatek wygenerowanych w ciągu sekundy.
+Klatka rozumiana powinna być jako pojedynczy obraz dwuwymiarowy przedstawiający punkt animacji, jako próg ilości w ciągu sekundy przyjmuje się zaś 30 klatek.
+\par % Pokazanie przykładów i opowiedzenie do czego obecnie może być wykorzystywana
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=6cm]{images/battlezone.jpg}    
+        \caption{Battlezone, pierwsza produkcja wykorzystująca grafikę trójwymiarową, 1980}
+    \end{center}
+    \label{fig:battlezone}
+\end{figure}
+Trójwymiarowa grafika komputerowa, jak i wiele innych nowatorskich technologii niedługo po ujrzeniu światła dziennego stopniowo zaczęła przechodzić do masowego użytku.
+Kamieniem milowym w osi czasu kreślącej rozwój tej dziedziny była publikacja gry Battlezone, która w 1980 roku pozwoliła milionom odbiorców doświadczyć po raz pierwszy animacji przestrzennych brył na płaszczyźnie telewizora.
+Nie mniej ważne wydarzenie stanowiła premiera filmu \q{Toy story} z 1995 roku. 
+Studio Pixar przewodzone w owym czasie przez Steve'a Jobsa wykonało pełnometrażową produkcję opartą w całości o wykorzystanie technik modelowania komputerowego i generowania cyfrowego obrazu trójwymiarowego.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=6cm]{images/toy-story.jpeg}    
+        \caption{Klatka podglądu oraz finalna z filmu \q{Toy Story}, 1995}
+    \end{center}
+    \label{fig:toy-story}
+\end{figure}
+
+Zapisaniem się w historii i pionierstwem w dziedzinie projektowania w pełni cyfrowego powtórnie pochwalić może się firma Boeing.
+Składający się z ponad 3 milionów części samolot serii 777 pokazał swoim pierwszym lotem w 1994 roku, że za pomocą komputerów nie tylko skraca się czas projektowania, ale także zmniejsza ilość pomyłek i zwiększa bezpieczeństwo.
+Wymienione wydarzenia stanowiły przełom w swoich branżach.
+Nie sposób jednak określić jednoznacznej przynależności trójwymiarowej grafiki komputerowej.
+Niewątpliwymi filarami są napędzającymi rozwój są gry komputerowe, branża filmowa i przemysł projektowania wnętrz oraz budynków, szacowane na odpowiednio 220, 80 i 50 miliardów dolarów w rocznym ujęciu globalnym - dane szacunkowe na rok 2021 według statista.com.
+
+\section{Techniki renderowania}
+% Przedstaw trzy dostępne techniki - raytracing, scanline, raycasting
+
+% Zasygnalizuj, że do dnia dzisiejszego wszystkie są wykorzystywane

@@ -57,6 +57,8 @@
     \end{figure}
 }
 
+\newcommand*{\q}[1]{,,#1''}
+
 \lstdefinestyle{style}{
     numberstyle=\tiny\color{numbercolour},
     captionpos=b,      
