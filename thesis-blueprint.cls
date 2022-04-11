@@ -94,8 +94,14 @@
 			\centering
 			\ifx\@imienazwisko\empty\else\autorZAlbumem{\@imienazwisko}{\@album}\fi
 		}
-
-		  \vspace{8mm plus .5fill}
+        \vspace{8mm plus .5fill}
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[width=2.5cm]{images/ju-coat-of-arms.jpg}    
+            \end{center}
+        \end{figure}
+          
+		  \vspace{4mm plus .5fill}
 		  {\Huge\textbf{\@title}\par}
 		  \vspace{8mm plus .1fill}
 		  {\large\bf Praca \@rodzajpracy\\[3pt]
