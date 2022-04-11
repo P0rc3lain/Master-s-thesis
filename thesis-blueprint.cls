@@ -61,6 +61,11 @@
 
 \newcommand*{\q}[1]{,,#1''}
 
+\newcommand*{\uchapter}[1]{
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}      
+}
+
 \lstdefinestyle{style}{
     numberstyle=\tiny\color{numbercolour},
     captionpos=b,      
