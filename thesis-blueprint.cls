@@ -20,6 +20,7 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage[nottoc,notlof]{tocbibind}
 \usepackage{float}
 
 \definecolor{commentcolour}{rgb}{0,0.6,0}
