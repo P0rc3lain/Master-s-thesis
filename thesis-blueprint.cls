@@ -79,14 +79,14 @@
 \lstset{style=style}
 
 
-\newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Nr albumu: #2\end{minipage}\ }
+\newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Numer albumu: #2\end{minipage}\ }
 	\renewcommand\maketitle{
 	  \begin{titlepage}
 		\let\footnotesize\small
 		\let\footnoterule\relax
 		\let \footnote \thanks
 		\begin{center}
-		  {\LARGE\textbf{Uniwersytet Jagielloński}\\
+		  {\LARGE\textbf{Uniwersytet Jagielloński w Krakowie}\\
 		  	Wydzia\l{} Matematyki i Informatyki \par}
 		  \vspace{1cm plus .5fill}
 		{
