@@ -1,0 +1,20 @@
+%
+%  Copyright © 2022 Mateusz Stompór. All rights reserved.
+%
+
+\newcommand*{\fig}[3] {
+    \begin{figure}
+        \includegraphics[width=\linewidth]{#1}
+        \caption{#2}
+        \label{#3}
+    \end{figure}
+}
+
+\newcommand*{\q}[1] {
+    ,,#1''
+}
+
+\newcommand*{\uchapter}[1] {
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}      
+}

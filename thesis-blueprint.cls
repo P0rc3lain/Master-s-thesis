@@ -51,21 +51,6 @@
 \marginparwidth15mm
 \def\autor#1#2{\def\@imienazwisko{#1}\def\@album{#2}}
 
-\newcommand*{\fig}[3]{
-    \begin{figure}
-        \includegraphics[width=\linewidth]{#1}
-        \caption{#2}
-        \label{#3}
-    \end{figure}
-}
-
-\newcommand*{\q}[1]{,,#1''}
-
-\newcommand*{\uchapter}[1]{
-    \chapter*{#1}
-    \addcontentsline{toc}{chapter}{#1}      
-}
-
 \newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Numer albumu: #2\end{minipage}\ }
 	\renewcommand\maketitle{
 	  \begin{titlepage}
