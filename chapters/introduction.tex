@@ -51,6 +51,20 @@ Wymienione wydarzenia stanowiły przełom w swoich branżach.
 Nie sposób jednak określić jednoznacznej przynależności trójwymiarowej grafiki komputerowej.
 Niewątpliwymi filarami są napędzającymi rozwój są gry komputerowe, branża filmowa i przemysł projektowania wnętrz, szacowane na odpowiednio 220~\cite{games_market_share}, 80~\cite{movies_market_share} i 50~\cite{interior_design_market_share} miliardów dolarów w rocznym ujęciu globalnym.
 
+\section{Podział grafiki}
+Wspomniane gałęzie rozwoju - gry komputerowe oraz filmy - kładą nacisk na wykluczające się między sobą czynniki.
+Pierwsza z nich skupia się na wydajności koniecznej do zapewnienia interaktywności.
+Kluczowym jest więc określenie grupy docelowej w znaczeniu możliwości sprzętu.
+Produkt jest skrojony pod uprzednio określone zasoby, a w sytuacji gdy dany efekt skutkuje w spadkach wydajności jest usuwany.
+Z drugiej strony branża filmowa kładzie nacisk na jakość.
+Odbiorca nie ma wpływu na wydarzenia, odtwarzana animacja za każdym razem wyglądać będzie w ten sam sposób.
+Restrykcja czasowa, której podlega generowanie kolejnych klatek jest praktycznie zaniedbywalna.
+Generowanie kolejnych fragmentów animacji wystarczająco szybko, aby ludzkie oko postrzegało proces jako płynny, nieprzerwany, przy jednoczesnym zapewnieniu wpływu na przedstawione wydarzenia nazywamy grafiką czasu rzeczywistego.
+Uznaje się, że metryką, którą można posłużyć się aby ocenić czy rozwiązanie spełnia założenia jest liczba klatek wygenerowanych w ciągu sekundy.
+Klatka rozumiana powinna być jako pojedynczy obraz dwuwymiarowy przedstawiający punkt animacji.
+Jako minimalny próg ilości w ciągu sekundy przyjmuje się często 30 klatek.
+Słowo interaktywność jest kluczem odróżniającym grafikę czasu rzeczywistego od nierzeczywistego.
+
 \section{Organizacja obiektów}
 Generowania dwuwymiarowych obrazów za pomocą komputera przypomina proces tworzenia filmów.
 Nie dziwi więc fakt, że znaczna część pojęć używanych w odniesieniu do zawartości klatki czerpie właśnie z niego.
@@ -69,10 +83,13 @@ W tym celu rozważony zostanie fragment krótkiego scenariusza.
     \centering 
     \q{Człowiek porusza się po lesie zbierając jagody do koszyka}
 \end{quote}
-Pragnąc zrealizować animację za pomocą komputera należałoby przygotować kilka modeli - las, człowieka, koszyk oraz jagody.
+Pragnąc zrealizować animację za pomocą komputera należałoby przygotować kilka modeli - lasu, człowieka, koszyk oraz jagody.
+Podział w ten sposób podyktowany jest chęcią sprawienia, aby modele były możliwe do użycia w innych konfiguracjach - sceneria pola zamiast lasu.
+Dodatkowo, uczynienie ich niezależnymi od siebie sprawia, że modyfikacja ich położenia jest ułatwiona. 
 Zakładając, że nie istnieje relacja posiadania pomiędzy obiektami ruch jagód, człowieka oraz koszyka byłby od siebie niezależny.
 W celu zachowania immersji koniecznym byłoby nanoszenie korekt pozycji jagód i koszyka za każdym razem gdy pozycja człowieka ulegnie zmianie.
 Jasnym staje się, że pomiędzy obiektami zachodzi relacja i ruch nadrzędnego elementu - człowieka - powinien mieć wpływ na podrzędne - koszyk, jagody.
+W efekcie ruchu człowieka zmiana położenia koszyka, jak i znajdujących się w nim jagód powinna następować automatycznie.
 Realizacja tego pomysłu dała początek hierarchicznym grafom sceny, które wynaleziono w latach 90-tych i wykorzystywane są do dzisiaj.
 \begin{figure}[H]
     \begin{center}
@@ -81,6 +98,24 @@ Realizacja tego pomysłu dała początek hierarchicznym grafom sceny, które wyn
     \end{center}
     \label{fig:scene-graph}
 \end{figure}
+\section{Grafika akcelerowana sprzętowo}
+Posiadając uprzednio zaaranżowaną scenę możliwe jest jej uwiecznienie.
+Przekład modeli opisanych w trójwymiarowym układzie współrzędnych na dwuwymiarowy obraz nazywamy renderowaniem.
+Początkowo algorytmy realizujące to zadanie w całości oparte były o wykorzystanie procesora CPU.
+Charakter operacji matematycznych wykonywanych na poszczególnych modelach występujących w ramach kadru pokazywał jednak, że są one powtarzalne i nie występują między nimi zależności.
+Naturalnym krokiem mającym na celu przyspieszenie operacji było stworzenie modułu, który za pomocą predefiniowanych operacji zrealizuje zadanie.
+Urządzenia spełniające tę role nazywane są GPU \normalfont{\textit{(ang. graphics processing unit)}}.
+Ze względu na fakt, że oddzielone są od procesora, koniczne było także zapewnienie drogi komunikacji pomiędzy programistami, a jednostką.
+Pierwsze API \normalfont{\textit{(ang. application programming interface)}} realizowały stosunkowo szeroki zakres funkcjonalności.
+Zadanie twórcy sprowadzało się do zapewnienia modeli i rozmieszczenia ich na scenie, kalkulacja wpływu światła na poszczególne obiekty lub zasób materiałów wpływających na charakterystykę pokrywających ich powierzchni spoczywał na module akceleracyjnym.
+Choć z początku podejście wydawało się być wygodne bowiem programista nie musiał rozumieć aparatu matematycznego stanowiącego bazę dla technologii, to szybko okazało się, że wysoko poziomowy interfejs jest ograniczeniem.
+Artyści nie byli w stanie realizować swoich wizji.
+Akceleratory zapewniały możliwość tworzenie grafik tylko i wyłącznie w oparciu o pewien charakter.
+Nie istniała możliwość zmiany algorytmu kalkulacji wpływu światła na obiekt czy choćby dodanie filtra na obraz.
+W efekcie wiele produkcji z lat początków sprzętowej akceleracji jest podobna do siebie pod względem wyglądu.
+Odpowiedzią na to zjawisko było wprowadzenie jawnego potoku renderowania, którego część kroków podlegała modyfikacji.
+W szczególności niektóre z nich mogą być w pełni programowane przy użyciu specjalnego języka.
+
 \section{Potok renderowania}
 \begin{figure}[H]
     \begin{center}
