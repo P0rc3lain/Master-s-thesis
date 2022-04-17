@@ -23,14 +23,7 @@ Zaprogramowane instrukcje interpretowane były przez autorski aparat matematyczn
 W obrębie firmy rozwiązanie początkowo wykorzystywano do wizualizacji wnętrz kokpitów i pracy nad ich ergonomią.
 Ważnym osiągnięciem będącym następstwem do generowania pojedynczych, niepowiązanych ze sobą scen było stworzenie serii rysunków przedstawiających animacje lądującego samolotu.
 Pomimo wielu wad, jakimi między innymi były długi czas oczekiwania na wynik czy losowe błędy sprawiające, że rysunek musiał być ponownie wytworzony Fetter dostrzegł potencjał i zdecydował się przedstawić efekt swojej pracy szerszemu gronu odbiorców.
-Swój pomysł pokazał światu posługując się sylwetką człowieka, który sięgając ręką do panelu sterowania wewnątrz samolotu ustanowił początek trójwymiarowej grafiki komputerowej jaką znamy dzisiaj.
-\par % Przedstawienie konceptu grafiki komputerowej czasu rzeczywistego
-W miarę upływu lat i postępującemu wzrostowi mocy obliczeniowej komputerów coraz krótszy stawał się czas oczekiwania na pojawienie się pożądanej grafiki na wybranym przez człowieka medium.
-Osiągalnym wydawało się być generowanie kolejnych fragmentów animacji wystarczająco szybko, aby ludzkie oko postrzegało proces jako płynny, nieprzerwany.
-Dziedziną, która wykorzystuje zjawisko jest grafika komputerowa czasu rzeczywistego.
-Choć we wspólną definicje wpisuje się zarówno prezentacja responsywnego interfejsu użytkownika, jak i dedukowanie treści obrazu w oparciu o analizę za pomocą algorytmów to najczęściej pojęcie \q{grafiki komputerowej czasu rzeczywistego} odnosi się do zamiany obiektów opisanych w przestrzeni trójwymiarowej na dwuwymiarowe obrazy za pomocą karty graficznej.
-Uznaje się, że metryką, którą można posłużyć się aby ocenić czy rozwiązanie spełnia założenia jest liczba klatek wygenerowanych w ciągu sekundy.
-Klatka rozumiana powinna być jako pojedynczy obraz dwuwymiarowy przedstawiający punkt animacji, jako próg ilości w ciągu sekundy przyjmuje się zaś 30 klatek.
+Swój pomysł pokazał światu posługując się sylwetką człowieka, która sięgając ręką do panelu sterowania wewnątrz samolotu ustanowiła początek trójwymiarowej grafiki komputerowej jaką znamy dzisiaj.
 \par % Pokazanie przykładów i opowiedzenie do czego obecnie może być wykorzystywana
 \begin{figure}[H]
     \begin{center}
@@ -58,15 +51,36 @@ Wymienione wydarzenia stanowiły przełom w swoich branżach.
 Nie sposób jednak określić jednoznacznej przynależności trójwymiarowej grafiki komputerowej.
 Niewątpliwymi filarami są napędzającymi rozwój są gry komputerowe, branża filmowa i przemysł projektowania wnętrz, szacowane na odpowiednio 220~\cite{games_market_share}, 80~\cite{movies_market_share} i 50~\cite{interior_design_market_share} miliardów dolarów w rocznym ujęciu globalnym.
 
-\section{Techniki renderowania}
-
-\section{Techniki cieniowania}
-% Przedstaw trzy dostępne techniki - raytracing, scanline, raycasting
-
-% Zasygnalizuj, że do dnia dzisiejszego wszystkie są wykorzystywane
-
 \section{Organizacja obiektów}
-
+Generowania dwuwymiarowych obrazów za pomocą komputera przypomina proces tworzenia filmów.
+Nie dziwi więc fakt, że znaczna część pojęć używanych w odniesieniu do zawartości klatki czerpie właśnie z niego.
+Nadrzędnym elementem zawierającym w sobie wszystkie pomniejsze jest scena.
+W niej zorganizowani są aktorzy rozumiani jako postacie bezpośrednio mające wpływ na akcje, jak i pozostałe fragmenty scenerii stanowiące tło.
+Za uwiecznienie trwających wydarzeń odpowiedzialne są kamery, które przedstawiają świat z różnych perspektyw.
+W zależności od wizji twórczej może być ich różna ilość, zawsze jednak tylko jedna rozpatrywana jest jako aktywna, a więc przekazująca aktualny obraz.
+Niezbędnym elementem, który konieczny jest, aby obserwator był w stanie dostrzec cokolwiek jest źródło światła.
+Zaliczamy do nich wszystkie emitery, takie jak słońce, księżyc, ogień, czy żarówki elektryczne.
+\par Początkowo implementacja idei była bezpośrednia. 
+Struktura sceny była płaska, a obiekty były od siebie niezależne.
+Podejście obarczone było pewnymi negatywnymi konsekwencjami.
+Najłatwiej dostrzec je posługując się przykładem.
+W tym celu rozważony zostanie fragment krótkiego scenariusza.
+\begin{quote} 
+    \centering 
+    \q{Człowiek porusza się po lesie zbierając jagody do koszyka}
+\end{quote}
+Pragnąc zrealizować animację za pomocą komputera należałoby przygotować kilka modeli - las, człowieka, koszyk oraz jagody.
+Zakładając, że nie istnieje relacja posiadania pomiędzy obiektami ruch jagód, człowieka oraz koszyka byłby od siebie niezależny.
+W celu zachowania immersji koniecznym byłoby nanoszenie korekt pozycji jagód i koszyka za każdym razem gdy pozycja człowieka ulegnie zmianie.
+Jasnym staje się, że pomiędzy obiektami zachodzi relacja i ruch nadrzędnego elementu - człowieka - powinien mieć wpływ na podrzędne - koszyk, jagody.
+Realizacja tego pomysłu dała początek hierarchicznym grafom sceny, które wynaleziono w latach 90-tych i wykorzystywane są do dzisiaj.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=15cm]{images/scene-graph.png}    
+        \caption{Graf sceny przedstawiający hierarchię pomiędzy obiektami}
+    \end{center}
+    \label{fig:scene-graph}
+\end{figure}
 \section{Potok renderowania}
 \begin{figure}[H]
     \begin{center}
