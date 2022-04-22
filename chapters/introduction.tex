@@ -52,6 +52,7 @@ Nie sposób jednak określić jednoznacznej przynależności trójwymiarowej gra
 Niewątpliwymi filarami napędzającymi rozwój są przytoczone gry komputerowe, branża filmowa i szeroko rozumiany przemysł projektowania, szacowane na odpowiednio 220~\cite{games_market_share}, 80~\cite{movies_market_share} i 50~\cite{interior_design_market_share} miliardów dolarów w rocznym ujęciu globalnym.
 
 \section{Podział grafiki}
+% Rozróżnienie pomiędzy grafiką czasu rzeczywistego a nierzeczywistego
 Wspomniane gałęzie rozwoju - gry komputerowe oraz filmy - kładą nacisk na wykluczające się między sobą czynniki.
 Pierwsza z nich skupia się na wydajności koniecznej do zapewnienia interaktywności.
 Kluczowym jest więc określenie grupy docelowej w znaczeniu możliwości sprzętu.
@@ -63,6 +64,7 @@ W przeciwieństwie do gier komputerowych animacja wytworzona może być raz, a n
 Interaktywność jest cechą, która odróżnia grafikę czasu rzeczywistego od nierzeczywistego i wprowadza główne rozróżnienie pomiędzy technologiami służącymi do produkcji obrazu.
 
 \section{Organizacja obiektów}
+% Wyjaśnienie podstawowych pojęć opisu elementów na scenie
 Generowania dwuwymiarowych obrazów za pomocą komputera przypomina proces tworzenia filmów.
 Nie dziwi więc fakt, że znaczna część pojęć używanych w odniesieniu do zawartości klatki czerpie właśnie z niego.
 Nadrzędnym elementem zawierającym w sobie wszystkie pomniejsze jest scena.
@@ -112,6 +114,34 @@ Nie istniała możliwość zmiany algorytmu kalkulacji wpływu światła na obie
 W efekcie wiele produkcji z lat początków sprzętowej akceleracji jest podobna do siebie pod względem wyglądu.
 Odpowiedzią na to zjawisko było wprowadzenie jawnego potoku renderowania, którego część kroków podlegała modyfikacji.
 W szczególności niektóre z nich mogą być w pełni programowane przy użyciu specjalnego języka.
+\section{API}
+Niezmiennie od początku istnienia technologii do zakresu nałożonych nań obowiązków zaliczamy przekazywanie polecań wydanych przez programistę za pośrednictwem sterownika karty graficznej do jej procesora.
+Współczesne rozwiązania, takie jak Metal, Direct X oraz Vulkan pochwalić mogą się szerszym wachlarzem funkcjonalności.
+Przede wszystkim wprowadzają dodatkową warstwę abstrakcji.
+Choć producenci stosują różne architektury to API sprawia, że różnice te mogą być dla twórców oprogramowania zaniedbywalne.
+Pełne uspójnienie interfejsu jest niemożliwe, ze względu na występujące sprzętowe różnice, jednak w znacznej mierze dostępne instrukcje stanowiące trzon nie podlegają zmianom.
+\par 
+Używane obecnie technologie opisywane są jako niskopoziomowe.
+W odróżnieniu od koncepcji przypadających na pierwsze lata rozwoju pomysłu współcześnie użytkownicy operują na buforach, programach cieniujących czy kolejkach komend zamiast pierwotnych, wysokopoziomowych rozkazów dotyczących zarządzania sceną.
+Te choć nadal obecne są we współczesnych programach stanowią inwencję programistów korzystających z api w celu budowania łatwiejszego do zrozumienia dlań kodu.
+\par
+Pomimo różnic pomiędzy dostępnymi API, a także ich wariantami główny schemat wykorzystania pozostaje spójny.
+Może zostać opisany następujących algorytmem:
+\begin{enumerate}
+    \item Inicjalizacja API
+    \item Wczytywanie asetów
+    \item Aktualizacja asetów
+    \item Prezentacja
+    \item Powtórzenie kroków 2, 3 oraz 4 do momentu sygnału zatrzymania programu
+    \item Destrukcja
+\end{enumerate}
+Ważnym atutem jest możliwość tworzenia kodu wykorzystującego zasoby karty graficznej i testowania go na konsumenckim sprzęcie.
+Jeśli jednostka graficzna obsługuje technologię API, wówczas zakładając posiadanie podstawowych narzędzi developerskich można jej użyć.
+
+% Opisz:
+% * wsparcie dla wielu kart graficznych
+% * wskaż komendy asynchroniczne
+% * programy cieniujące
 
 \section{Potok renderowania}
 \begin{figure}[H]
@@ -121,7 +151,6 @@ W szczególności niektóre z nich mogą być w pełni programowane przy użyciu
     \end{center}
     \label{fig:metal-rendering-pipeline}
 \end{figure}
-\section{Współczesne algorytmy renderowania}
 \section{Aparat matematyczny}
 \section{Koncept biblioteki graficznej}
 % Opisz jakie zadanie pełni biblioteka graficzna
