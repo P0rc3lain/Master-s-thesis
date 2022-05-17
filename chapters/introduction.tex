@@ -147,11 +147,11 @@ Jeśli jednostka graficzna obsługuje technologię API, wówczas zakładając po
 
 \section{Potok renderowania}
 Moc obliczeniowa karty graficznej wykorzystywana może być w dwojaki sposób.
-Pierwszy, coraz częściej wykorzystywany polega na użyciu procesora grafiki w celu przeprowadzenia dowolnych obliczeń o charakterze współbieżnym.
-Służy to odciążeniu zasobów procesora CPU przy jednoczesnym zwiększeniu wydajności ze względu na oddelegowanie pracy do jednostki będącej lepiej przystosowaną do typu zadania.
-Idea ta nazywana jest GPGPU \eng{General-Purpose GPU}, a więc skupia się na oddaniu w ręce karty graficznej pracy nienastawionej bezpośrednio na tworzenie grafiki.
-Drugi, tradycyjny typ zadań to skorzystanie z wbudowanego potoku renderowania.
-Choć skorzystaniu z niego z poziomu różnych API towarzyszą subtelne różnice, to kroki obecne podczas procesu pozostają niezmienne.
+Pierwszy, coraz częściej spotykany polega na użyciu procesora grafiki w celu przeprowadzenia dowolnych rachunków o charakterze współbieżnym.
+Służy to odciążeniu zasobów procesora CPU przy jednoczesnym zwiększeniu wydajności ze względu na oddelegowanie pracy do jednostki będącej lepiej przystosowaną do tego typu zadania.
+Idea określana jest mianem GPGPU \eng{General-Purpose GPU}, a więc służy wykonaniu pracy nienastawionej bezpośrednio na tworzenie grafiki.
+Drugi, tradycyjny typ użycia to skorzystanie z wbudowanego potoku renderowania.
+Choć interfejsy API charakteryzują się subtelnymi różnicami, to kroki obecne podczas procesu pozostają niezmienne.
 \par
 Potok renderowania przedstawiony i omówiony zostanie na podstawie ilustracji dotyczącej specyfikacji technicznej technologii Metal.
 Etapy będące jego częścią następują bezpośrednio po sobie i mają charakter sekwencyjny.
