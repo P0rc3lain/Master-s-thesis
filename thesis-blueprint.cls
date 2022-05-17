@@ -11,6 +11,7 @@
 \RequirePackage[polish]{babel}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
+
 \def\@baseclass{report}
 \def\@stopien{magister}
 \def\@rodzajpracy{magisterska}
@@ -19,16 +20,14 @@
 \PassOptionsToClass{a4paper,twoside,openright,11pt}{\@baseclass}
 \ProcessOptions
 \LoadClass{\@baseclass}
+
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{hyperref}
-
-
+\usepackage{xurl}
 \usepackage[nottoc,notlof]{tocbibind}
 \usepackage{float}
-
-
 
 \pagestyle{fancy}
 \fancyhf{}
