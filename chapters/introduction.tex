@@ -164,6 +164,36 @@ Te kluczowe są w pełni modyfikowalne, a logika ich działania dostarczana jest
     \end{center}
     \label{fig:metal-rendering-pipeline}
 \end{figure}
+\paragraph*{Primitives}
+Pierwszy krok stanowi wejście do potoku renderowania.
+Dane pobierane są z określonego przez użytkownika bufora danych i interpretowane jako punkty, w przestrzeni dwu, trzy lub czterowymiarowej.
+Dalszemu procesowaniu podlegać mogą w niezmienionej formie, interpretowane jako linie, trójkąty lub łączone w kilka innych figur.
+Określenie w jaki sposób mają być ze sobą łączone ma kluczowy wpływ na ich dalszy wygląd po procesie rasteryzacji.
+\paragraph*{Vertex Function}
+Cieniowanie wierzchołków jest pierwszym w pełni konfigurowalnym etapem potoku.
+Użytkownik dostarcza kod źródłowy realizujący zadanie w postaci pliku \textit{.metal}, który kompilowany jest do instrukcji maszynowych procesora GPU.
+Rdzenie uruchamiają program niezależnie dla każdego wierzchołka znajdującego się w buforze danych do momentu przeprocesowania każdego z nich.
+Oczekiwanym wynikiem będącym bezpośrednim efektem działania algorytmu jest określenie ostatecznej pozycji wierzchołka w odniesieniu do obiektywu kamery.
+Przez wzgląd na fakt, że aranżacja sceny i jej wymiary są cechami indywidualnymi dla poszczególnych projektów zachodzi potrzeba wykorzystania generycznego mechanizmu, który pozwoli określić jak pozycja wierzchołka koresponduje do powierzchni na której jest wyrysowywana.
+Zadanie to realizowane jest za pomocą użycia znormalizowanego układu współrzędnych urządzenia.
+W tym celu pozycja wierzchołka w układzie współrzędnych kamery rzutowana jest na wspominany układ urządzenia.
+Jeśli pozycja wierzchołka znajduje się wewnątrz graniastosłupa definiującego ten układ wierzchołek kontynuuje drogę przez potok, w przeciwnym razie jest odrzucany.
+\paragraph*{Rasterization}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=4cm]{images/pipeline/rasterization.png}    
+        \caption{Przedstawienie idei procesu rasteryzacji}
+    \end{center}
+    \label{fig:pipeline-rasterization}
+\end{figure}
+\paragraph*{Fragment Function}
+\paragraph*{Scissor}
+\paragraph*{Multisample}
+\paragraph*{Stencil Test}
+\paragraph*{Depth Test}
+\paragraph*{Visibility Result}
+\paragraph*{Blend}
+\paragraph*{Attachment}
 \section{Aparat matematyczny}
 \section{Koncept biblioteki graficznej}
 % Opisz jakie zadanie pełni biblioteka graficzna
