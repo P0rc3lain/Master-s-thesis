@@ -179,6 +179,13 @@ Zadanie to realizowane jest za pomocą użycia znormalizowanego układu współr
 W tym celu pozycja wierzchołka w układzie współrzędnych kamery rzutowana jest na wspominany układ urządzenia.
 Jeśli pozycja wierzchołka znajduje się wewnątrz graniastosłupa definiującego ten układ wierzchołek kontynuuje drogę przez potok, w przeciwnym razie jest odrzucany.
 \paragraph*{Rasterization}
+Zadaniem rasteryzacji jest rozwiązanie problemu widzialności~\cite{rasterization_implementation}.
+Aktualnie procesowane koordynaty wierzchołków rzutowane są na dyskretny układ współrzędnych obrazu wyjściowego.
+W zależności od wybranego typu figury geometrycznej, która ma zostać stworzona na podstawie wierzchołków algorytm przybiera nieco inną formę.
+W przypadku trójkątów jeżeli pole figury ma kontakt z pikselem obrazu wyjściowego wówczas jest on włączany do dalszego procesowania, w przeciwnym razie algorytm kończy działanie.
+Dodatkowo, jeżeli uprzednio obraz wyjściowy posiadał dla zadanego piksela dane odnoszące się do innego trójkąta następuje sprawdzenie, czy piksel powinien zostać zaktualizowany.
+Decyzja podejmowana jest na podstawie odległości fragmentu od kamery. 
+Jako aktualny przyjmowany jest ten, który znajduje się bliżej, a więc nieprzesłonięty przez inny.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=4cm]{images/pipeline/rasterization.png}    
