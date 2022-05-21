@@ -29,11 +29,13 @@
 \usepackage[nottoc,notlof]{tocbibind}
 \usepackage{float}
 
+% Fancy HDR configuration
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\rightmark}
 \fancyhead[R]{\thepage}
 \fancyheadoffset{0pt} 
+\setlength{\headheight}{14pt}
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
