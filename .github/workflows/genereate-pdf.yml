@@ -3,18 +3,26 @@ name: Generate-PDF
 on: push
 
 jobs:
- generate-pdf:
-   name: Generate pdf with thesis
-   runs-on: ubuntu-latest
-   steps:
-   - name: Checkout code
-     uses: actions/checkout@v2
-   - name: Compile LaTeX document
-     uses: xu-cheng/latex-action@v2
-     with:
-       root_file: master-s-thesis.tex
-   - name: Upload the document
-     uses: actions/upload-artifact@v2
-     with:
-       name: PDF
-       path: master-s-thesis.pdf
+  generate-pdf:
+    name: Generate pdf with thesis
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: master-s-thesis.tex
+    - name: Set name
+      shell: bash
+      run: |
+        BUILD_DATE=$(TZ=Europe/Warsaw date +"%m%d%H%M")
+        AUTHOR_NAME="Mateusz Stompór"
+        TITLE="Projekt i Implementacja Silnika Grafiki Trójwymiarowej w Środowisku Sprzętowym Apple"
+        FILE_NAME="${AUTHOR_NAME} - ${TITLE} - ${BUILD_DATE}"
+        mv master-s-thesis.pdf "${FILE_NAME}.pdf"
+    - name: Upload the document
+      uses: actions/upload-artifact@v2
+      with:
+        name: PDF
+        path: "*.pdf"
