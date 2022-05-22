@@ -230,10 +230,38 @@ Cieniowanie fragmentów wciąż wykonywane jest tylko i wyłącznie dla pojedync
     \label{fig:multisampling}
 \end{figure}
 \paragraph*{Test szablonu \eng{Stencil Test}}
+Poza wspomnianym przycinaniem użytkownik ma dodatkową możliwość, aby ograniczyć powierzchnie obrazu, która zostanie zaprezentowana.
+Operacja dokonywana jest z wysoką ziarnistością - dla każdego piksela obrazu.
+W tym celu wykorzystywane są maski binarne.
+Idea działania algorytmu jest prosta.
+Jeśli dla zadanego fragmentu wartość w buforze maski wynosi \textit{1} wówczas kontynuuje on drogę przez potok, w przeciwnym wypadku jest odrzucany.
 \paragraph*{Test głębi \eng{Depth Test}}
+W dalszej kolejności wykonywany jest test widoczności.
+Jego celem jest sprawdzenie czy dany fragment nie jest przesłonięty przez inne.
+Z tego względu karta graficzna musi skorzystać z dodatkowe bufora.
+Wartości w nim przechowywane odpowiadają odległości poszczególnych fragmentów od obiektywu kamery.
+Im dalej się on znajduje - tym liczba jest większa.
+W najczęstszym przypadku zadanie testu polega na wykonaniu pojedynczego porównania - wartości obecnej w buforze z aktualną obliczoną dla obecnie procesowanego fragmentu.
 \paragraph*{Wynik widoczności \eng{Visibility Result}}
+Wynik z działania testu głębi zachowany jest w postaci liczby binarnej.
+Widoczny fragment powiązywany jest z wartością \textit{prawda}, \textit{fałsz} przypisywany jest w przeciwnym przypadku.
 \paragraph*{Mieszanie \eng{Blend}}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=6cm]{images/pipeline/blending.png}
+        \caption{Mieszanie kolorów. Zobrazowanie braku przemienności operacji}
+    \end{center}
+    \label{fig:blending}
+\end{figure}
+Ostatnim krokiem w procesie renderowania jest mieszanie.
+Wykonywane jest ono zawsze, jednak widoczne rezultaty przynosi w przypadku gdy kolor zadanego fragmentu charakteryzuje się stopniem przeźroczystości.
+W celu wykonania obliczenia rozpatrywany jest wynik widoczności po procesie testowania głębi, kolor nowo wygenerowanego fragmentu oraz ten, który już znajduje się w buforze.
 \paragraph*{Bufor wyjścia \eng{Attachment}}
-\section{Aparat matematyczny}
+W podstawowym przypadku na bufor wyjścia składają się bufory koloru, głębi oraz szablonu. 
+Nie jest jednak to jedyna dozwolona kombinacja.
+Bufory głębi oraz szablonu są opcjonalne i o ile aktywne są unikalne.
+Załączników koloru natomiast może występować większa ilość.
+% Opisz jakie gałęzie matematyki są najczęściej wykorzystywane
+% \section{Aparat matematyczny}
 \section{Koncept biblioteki graficznej}
 % Opisz jakie zadanie pełni biblioteka graficzna
