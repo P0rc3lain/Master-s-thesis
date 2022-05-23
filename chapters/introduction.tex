@@ -178,7 +178,7 @@ Oczekiwanym wynikiem będącym bezpośrednim efektem działania algorytmu jest o
 Przez wzgląd na fakt, że aranżacja sceny i jej wymiary są cechami indywidualnymi dla poszczególnych projektów zachodzi potrzeba wykorzystania generycznego mechanizmu, który pozwoli określić jak pozycja wierzchołka koresponduje do powierzchni na której jest wyrysowywana.
 Zadanie to realizowane jest za pomocą użycia znormalizowanego układu współrzędnych urządzenia.
 W tym celu pozycja wierzchołka w układzie współrzędnych kamery rzutowana jest na wspominany układ urządzenia.
-Jeśli pozycja wierzchołka znajduje się wewnątrz graniastosłupa definiującego ten układ wierzchołek kontynuuje drogę przez potok, w przeciwnym razie jest odrzucany.
+Jeśli pozycja wierzchołka znajduje się wewnątrz graniastosłupa ograniczającego ten układ wierzchołek kontynuuje drogę przez potok, w przeciwnym razie jest odrzucany.
 \paragraph*{Rasteryzacja \eng{Rasterization}}
 Zadaniem rasteryzacji jest rozwiązanie problemu widzialności~\cite{rasterization_implementation}.
 Aktualnie procesowane koordynaty wierzchołków rzutowane są na dyskretny układ współrzędnych obrazu wyjściowego.
@@ -220,7 +220,7 @@ Fragmenty usytuowane poza nim nie będą zapisywane na wyjściu.
 Następnym, opcjonalnym krokiem w potoku renderowania jest wielopróbkowanie.
 Celem, którym ma być zrealizowany jest wygładzenie krawędzi pomiędzy różnymi obiektami na obrazie wyjściowym.
 Efekt osiągany jest za pomocą zmiany sposobu działania algorytmu rasteryzacji.
-Zamiast używać pojedynczego punktu do określenia czy figura pokrywa dany fragment używana jest ich większa ilość.
+Zamiast opierać się na pojedynczym punkcie do określenia czy figura pokrywa dany fragment używana jest ich większa ilość.
 Cieniowanie fragmentów wciąż wykonywane jest tylko i wyłącznie dla pojedynczego elementu, jednak kolor wyjściowy który został uzyskany mieszany jest z tłem w oparciu o dane z próbkowania dla większej liczby punktów.
 \begin{figure}[H]
     \begin{center}
