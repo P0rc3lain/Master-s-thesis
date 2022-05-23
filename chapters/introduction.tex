@@ -244,13 +244,13 @@ Jeśli dla zadanego fragmentu wartość w buforze maski wynosi \textit{1} wówcz
 \end{figure}
 \paragraph*{Test głębi \eng{Depth Test}}
 W dalszej kolejności wykonywany jest test widoczności.
-Jego celem jest sprawdzenie czy dany fragment nie jest przesłonięty przez inne.
-Z tego względu karta graficzna musi skorzystać z dodatkowe bufora.
+Jego celem jest sprawdzenie czy dany fragment nie został przesłonięty przez inny.
+Zachodzi potrzeba, aby karta graficzna skorzystała z dodatkowego bufora.
 Wartości w nim przechowywane odpowiadają odległości poszczególnych fragmentów od obiektywu kamery.
 Im dalej się on znajduje - tym liczba jest większa.
-W najczęstszym przypadku zadanie testu polega na wykonaniu pojedynczego porównania - wartości obecnej w buforze z aktualną obliczoną dla obecnie procesowanego fragmentu.
+W najczęstszym przypadku zadanie testu polega na wykonaniu pojedynczej operacji porównania - wartości zapisanej w buforze z aktualną, obliczoną dla obecnie procesowanego fragmentu.
 \paragraph*{Wynik widoczności \eng{Visibility Result}}
-Wynik z działania testu głębi zachowany jest w postaci liczby binarnej.
+Uprzednio wyliczony wynik z działania testu głębi zachowany jest w postaci liczby binarnej.
 Widoczny fragment powiązywany jest z wartością \textit{prawda}, \textit{fałsz} przypisywany jest w przeciwnym przypadku.
 \paragraph*{Mieszanie \eng{Blend}}
 \begin{figure}[H]
