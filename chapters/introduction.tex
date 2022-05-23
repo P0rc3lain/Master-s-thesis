@@ -235,6 +235,13 @@ Operacja dokonywana jest z wysoką ziarnistością - dla każdego piksela obrazu
 W tym celu wykorzystywane są maski binarne.
 Idea działania algorytmu jest prosta.
 Jeśli dla zadanego fragmentu wartość w buforze maski wynosi \textit{1} wówczas kontynuuje on drogę przez potok, w przeciwnym wypadku jest odrzucany.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=6cm]{images/pipeline/binary-mask.png}
+        \caption{Przykład maski binarnej opisującej kształtem balon}
+    \end{center}
+    \label{fig:binary-mask}
+\end{figure}
 \paragraph*{Test głębi \eng{Depth Test}}
 W dalszej kolejności wykonywany jest test widoczności.
 Jego celem jest sprawdzenie czy dany fragment nie jest przesłonięty przez inne.
