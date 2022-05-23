@@ -269,6 +269,15 @@ W podstawowym przypadku na bufor wyjścia składają się bufory koloru, głębi
 Nie jest jednak to jedyna dozwolona kombinacja.
 Bufory głębi oraz szablonu są opcjonalne i o ile aktywne są unikalne.
 Załączników koloru natomiast może występować większa ilość.
+\newline
+\par
+Opisany powyżej przepływ wierzchołków modelu przez poszczególne etapy generowania klatki utożsamiany powinien być z pojęciem \textit{single-pass rendering}. 
+Termin oznacza, że stworzenie obrazu z modelem reprezentowanym w finalnej formie potrzebuje uruchomienie potoku dokładnie jeden raz.
+Współcześnie tego rodzaju podejście jest rzadko stosowane.
+Wynika to zarówno z wynalezienia bardziej efektywnych sposobów renderowania - poprzez zwiększenie ilości wywołania potoku z mniej wymagającymi obliczeniami, co charakteryzuje się wyższą wydajnością.
+Dodatkowo, chęć polepszenia walorów wizualnych wymaga generowania dodatkowych, tymczasowych klatek pośrednich.
+W efekcie okazuje się, że stworzenie pojedynczego wycinka animacji wymaga dziesiątek wywołań potoku.
+Nie mniej jednak przywołanie podstawowej formy algorytmu pozwala wyjaśnić jaka koncepcja stoi za utylizacją GPU.
 % Opisz jakie gałęzie matematyki są najczęściej wykorzystywane
 % \section{Aparat matematyczny}
 \section{Koncept biblioteki graficznej}
