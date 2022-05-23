@@ -167,9 +167,9 @@ Te kluczowe są w pełni modyfikowalne, a logika ich działania dostarczana jest
 \end{figure}
 \paragraph*{Figury \eng{Primitives}}
 Pierwszy krok stanowi wejście do potoku renderowania.
-Dane pobierane są z określonego przez użytkownika bufora danych i interpretowane jako punkty, w przestrzeni dwu, trzy lub czterowymiarowej.
-Dalszemu procesowaniu podlegać mogą w niezmienionej formie, interpretowane jako linie, trójkąty lub łączone w kilka innych figur.
-Określenie w jaki sposób mają być ze sobą łączone ma kluczowy wpływ na ich dalszy wygląd po procesie rasteryzacji.
+Dane pobierane są z określonego przez użytkownika bufora danych i przetwarzane jako punkty, w przestrzeni dwu, trzy lub czterowymiarowej.
+Dalszemu procesowaniu podlegać mogą w niezmienionej formie, być interpretowane jako linie, trójkąty lub łączone w kilka innych figur.
+Określenie w jaki sposób mają być ze sobą spajane, o ile taka potrzeba zachodzi, ma kluczowy wpływ na ich dalszy wygląd po procesie rasteryzacji.
 \paragraph*{Cieniowanie wierzchołkowe \eng{Vertex Function}}
 Cieniowanie wierzchołków jest pierwszym w pełni konfigurowalnym etapem potoku.
 Użytkownik dostarcza kod źródłowy realizujący zadanie w postaci pliku \textit{.metal}, który kompilowany jest do instrukcji maszynowych procesora GPU.
