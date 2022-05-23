@@ -261,8 +261,9 @@ Widoczny fragment powiązywany jest z wartością \textit{prawda}, \textit{fałs
     \label{fig:blending}
 \end{figure}
 Ostatnim krokiem w procesie renderowania jest mieszanie.
-Wykonywane jest ono zawsze, jednak widoczne rezultaty przynosi w przypadku gdy kolor zadanego fragmentu charakteryzuje się stopniem przeźroczystości.
+Uruchamiane jest ono zawsze, jednak zauważalne rezultaty przynosi w przypadku gdy kolor zadanego fragmentu charakteryzuje się stopniem przeźroczystości.
 W celu wykonania obliczenia rozpatrywany jest wynik widoczności po procesie testowania głębi, kolor nowo wygenerowanego fragmentu oraz ten, który już znajduje się w buforze.
+Przez wzgląd na brak przemienności operacji istotnym jest aby charakteryzujące się przeźroczystością modele wyrysowywane były od znajdującego się najdalej kamery do najbliższego.
 \paragraph*{Bufor wyjścia \eng{Attachment}}
 W podstawowym przypadku na bufor wyjścia składają się bufory koloru, głębi oraz szablonu. 
 Nie jest jednak to jedyna dozwolona kombinacja.
