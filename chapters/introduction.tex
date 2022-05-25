@@ -98,8 +98,48 @@ Realizacja tego pomysłu dała początek hierarchicznym grafom sceny, które wyn
     \end{center}
     \label{fig:scene-graph}
 \end{figure}
-% Omów różne układy współrzędnych
-% \section{Układy współrzędnych}
+
+\section{Układy współrzędnych}
+Wspominając o dwuwymiarowym układzie kartezjańskim przywołać można obraz dwóch osi prostopadłych do sobie.
+Oś \textit{x} usytuowana jest w taki sposób, że wartości opisujące współrzędne punktu rosną w prawą stronę.
+W przypadku osi \textit{y} kolejne, następujące po sobie liczby idą w górę.
+Wprowadzenie trzeciej koordynaty i rozszerzenie układu na potrzeby trójwymiarowości pozostawia pewną dowolność.
+Dodatkowa oś - \textit{z} - będąca prostopadłą do dwóch poprzednich może skierowana być \textit{do ekranu} lub \textit{od ekranu}.
+W zależności od wybranej opcji mówić można o praworęcznym lub leworęcznym układzie współrzędnych - kciuk oraz palec wskazujący tworzą osie \textit{xy}, zaś środkowy \textit{z}.
+Żadna nie przewyższa drugiej w kontekście użycia, natomiast istotnym jest aby w obliczeniach pozostać przy raz wybranej konwencji.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=10cm]{images/lh-rh-coordinate-systems.png}
+        \caption{Wizualizacja idei leworęcznego oraz praworęcznego układu współrzędnych}
+    \end{center}
+    \label{fig:lh-rh-cs}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5cm]{images/coordinate-spaces.jpg}    
+        \caption{Przedstawienie mnogości układów współrzędnych na scenie}
+    \end{center}
+    \label{fig:coordinate-spaces}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5cm]{images/coordinate-systems/ndc.png}
+        \caption{Prostopadłościan opisujący znormalizowany układ współrzędnych w Metal}
+    \end{center}
+    \label{fig:ndc-metal}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=5cm]{images/coordinate-systems/device-viewport.png}
+        \caption{Układ współrzędnych reprezentujący ekran urządzenia}
+    \end{center}
+    \label{fig:device-viewport}
+\end{figure}
+
 \section{Grafika akcelerowana sprzętowo}
 Posiadając uprzednio zaaranżowaną scenę możliwe jest jej uwiecznienie.
 Przekład modeli opisanych w trójwymiarowym układzie współrzędnych na dwuwymiarowy obraz nazywamy renderowaniem.
