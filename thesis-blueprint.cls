@@ -25,6 +25,7 @@
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{hyperref}
+\usepackage{forest}
 \usepackage{xurl}
 \usepackage[nottoc,notlof]{tocbibind}
 \usepackage{float}
