@@ -62,6 +62,8 @@
 		\begin{center}
 		  {\LARGE\textbf{Uniwersytet Jagielloński w Krakowie}\\
 		  	Wydzia\l{} Matematyki i Informatyki \par}
+		  \vspace{0cm plus .5fill}
+		  {Studia stacjonarne \par}
 		  \vspace{1cm plus .5fill}
 		{
 			\setlength{\parindent}{0em}
