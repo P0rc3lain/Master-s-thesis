@@ -3,7 +3,7 @@
 %
 
 \chapter{Przegląd dostępnych rozwiązań}
-Rozumiejąc główne idee stojące za generowaniem grafiki trójwymiarowej możliwe jest dalsze zgłębienie gałęzki informatyki odnoszącej się do tego zagadnienia.
+Rozumiejąc główne koncepcje stojące za generowaniem grafiki trójwymiarowej możliwe jest dalsze zgłębienie gałęzki informatyki odnoszącej się do tego zagadnienia.
 Na przestrzeni lat powstał niemały zasób literatury poruszający tematykę.
 Rozwiązania - silniki - będące implementacją idei rozwinięto do tego stopnia, że same w sobie nie są już komponentami aplikacji, ale wyewoluowały do samodzielnych, pełnoprawnych produktów.
 Choć realizowane cele wydają się być identyczne - tworzenie obrazu na podstawie opisu sceny - to podejścia, które stosują różnią się znacząco od siebie.
@@ -33,15 +33,15 @@ Bezsprzecznie zagwarantować mogą silne podstawy i nakreślić idee, jednak chc
 Warto pamiętać również o literaturze poruszającej kwestie rzucania promieni. 
 Można przytoczyć tutaj między innymi \textit{Ray Tracing Gems}~\cite{ray_tracing_gems} oraz \textit{An Introduction to Ray Tracing}~\cite{ray_tracing_introduction}.
 Zakres, który opisują jest znacznie szerszy niż współcześnie można wykorzystać w silniku czasu rzeczywistego, natomiast wiedza, która jest tam zawarta jest konieczna do uzyskania rozwiązania hybrydowego.
+W szczególności tyczy się to algorytmów generowania odbić światła (refleksji), rzucania cienia czy okluzji ambientowej.
 \par
 Zrozumienie zasad generowania grafiki nie jest jednak wystarczająca do stworzenia biblioteki graficznej, ani bardziej obszernego wcielenia - silnika gry.
 W tym celu należy zapoznać się z architekturą owocy branży rozrywkowej\cite{game_programming_patterns}.
 Na rynku dostępne są produkcje stworzone wprost przez pracowników takich studiów jak \textit{Naughty Dog}\cite{game_engine_architecture} czy \textit{Electornic Arts}\cite{game_programming_patterns} opisujące problemy jakie twórcy mogą doświadczyć oraz propozycje ich rozwiązania.
-Stonowi to nieodłączny suplement, ponieważ biblioteki graficzne czy też silniki gry mają za zadanie wyabstrahować skomplikowane techniki renderowania i zapewnić użytkownikowi środowisku w którym będzie w stanie realizować wizję artystyczną bez konieczności rozumienia o detale implementacyjne.
+Stonowi to nieodłączny suplement, ponieważ biblioteki graficzne czy też silniki gry mają za zadanie wyabstrahować skomplikowane techniki renderowania i zapewnić użytkownikowi środowisku w którym będzie w stanie realizować wizję artystyczną bez konieczności rozumienia detali implementacyjnych.
 Jeśli chodzi o sam interfejs programistyczny trudno wytypować konkretne tytuły mogące pomóc w procesie projektowania.
-Odwołać należy się do ogólnie przyjętych "dobrych" praktyk programistycznych, co w tym kontekście oznaczać może przejrzysty interfejs i możliwie dużą hermetyzację.
+Odwołać należy się do ogólnie przyjętych \q{dobrych} praktyk programistycznych, co w tym kontekście oznaczać może przejrzysty interfejs i możliwie wysoką hermetyzację.
 \par 
-% Opisać też środowisko programistyczne XCode - będzie potrzebna ta wiedza w dalszej części pracy
 Kolejnym ważnym elementem są źródła, które pozwalają przekuć idee związaniem z generowaniem grafiki w program komputerowy.
 Z racji na platformę, oczekiwanie wysokiej wydajności wybór ogranicza się do języków takich jak Swift, Objective-C - natywnych dla macOS - oraz C++.
 W przypadku C++ oraz Swift liczyć można na literaturę wprost od autorów \cite{cpp_bjorne}\cite{swift_docs}.
@@ -68,6 +68,7 @@ Nie jest to wiedza niezbędna dla osoby chcącej zbudować silnik, ale pozwala z
 \par
 Równie użyteczne są wystąpienia pojedynczych osób - pracowników z branży gier - którzy opowiadają o podejściu, jakie należy stosować w celu uzyskania aplikacji o optymalnej wydajności.
 Z uwagi na formę - zwykle jest to pojedynczy wykład nieprzekraczający godziny czasu - są one zwięzłe i jedynie nakreślają kierunek, jednak z racji iż branża gier potrzebuje najwyższej klasy wydajności to wzorce projektowe i podejście do programowania aplikacji niejednokrotnie budzi kontrowersje.
+Podpierając opinie przykładem można tutaj odwołać się do dwóch nagrań z konwencji \textit{CppCon}, które górują w listach popularności 
 \par 
 W przypadku platform Apple źródłem, które nie może być pominięte są wydarzenia WWDC~\cite{wwdc_conferences}.
 Ich siłą jest możliwość zapoznania się z nowinkami technologicznymi, jakie twórcy udostępniają dla użytkowników swojego sprzętu.
