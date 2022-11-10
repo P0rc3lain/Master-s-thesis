@@ -3,6 +3,7 @@
 %
 
 \chapter{Przegląd dostępnych rozwiązań}
+\section*{Wprowadzenie}
 Rozumiejąc główne koncepcje stojące za generowaniem grafiki trójwymiarowej możliwe jest dalsze zgłębienie gałęzki informatyki odnoszącej się do tego zagadnienia.
 Na przestrzeni lat powstał niemały zasób literatury poruszający tematykę.
 Rozwiązania - silniki - będące implementacją idei rozwinięto do tego stopnia, że same w sobie nie są już komponentami aplikacji, ale wyewoluowały do samodzielnych, pełnoprawnych produktów.
@@ -84,7 +85,6 @@ Filmy same w sobie nie posiadają ograniczenia czasowego, nagrywający nie ponos
 Podsumowując, Globalizacja, otwartość uczelni, a także korporacji sprawia, że dostęp do informacji nie stanowi żadnego problemu.
 Dziedzina obfituje w wysokiej jakości źródła i wydaje się, że stworzenie rozwiązania bazującego na współczesnych trendach nie powinno stanowić wyzwania.
 Problemem będzie natomiast nakład pracy potrzebny do uzyskania dzieła kompletnego pod względem funkcjonalnym oraz dobór technologii.
-\clearpage
 \section{Silniki 3D}
 % Powinienem nakreślić że mamy rozwiązania multiplatformowe jak i te natywne.
 % Wśród nich możemy wyróżnić silniki, które są open source, jak i te closed source.
@@ -94,6 +94,14 @@ Problemem będzie natomiast nakład pracy potrzebny do uzyskania dzieła komplet
 % Napisać jaka w ogóle jest grupa odbiorców silnika, do jakich produkcji śa skierowane
 \subsection{Biblioteki multiplatformowe}
 \subsubsection{Unity}
+% Unity is all but tailor-made for mobile
+% requires optimization, takes lots of space
+% lots of poor performance assets
+% Not so good visuals
+% Lack of support for networking
+% Uses mono for scripting, so engine is in c++ but scripting in c#
+% performance issues related to mono
+% closed source - access is possible but fees are great 
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=10cm]{images/engines/unity/example-game.png}
@@ -126,6 +134,27 @@ Problemem będzie natomiast nakład pracy potrzebny do uzyskania dzieła komplet
 \end{figure}
 
 \subsubsection{Unreal Engine}
+% low end devices
+% small teams
+% open source
+% 5 procent od sprzedaży unita powyżej pewnej sumy gross
+% good performance
+% May be overwhelming for a single person
+% Constant patches
+% Visual programming may be difficult and less visible for merges
+% Inefficient use of data
+
+% " UE4 is not intended to visualise and manage the sheer number of weapons, armor, consumables, conversations, and so on, needed for an RPG."
+
+% UE4 is well suited to bigger games, so think carefully if you're aiming for a smaller project -- various aspects could run slowly, from the editor itself to official support. Unity may be better suited to your needs if you're working on a small game or a mobile game.
+
+% "UE4 comes with the background of being an engine for large AAA titles supporting tons of features for all kinds of advanced systems," Hazelight's Coulianos says. "Therefore the editor can run slow, and seem a bit overkill if you are making a very small and simple game -- for a phone, for example."
+
+% not very popular in simulation/racing games
+% super grafika
+% good for large, complex game
+% blueprints - visual programming
+%  lots of materials for learning
 \fig{images/engines/ue/blueprints.png}{Kreator tworzenia logiki w silniku Unreal Engine 4}{fig:ue-blueprint}
 
 \begin{figure}[H]
@@ -180,7 +209,7 @@ Problemem będzie natomiast nakład pracy potrzebny do uzyskania dzieła komplet
 % Tutaj mogę napisać, że to jest nowe wcielenie, które lepiej oddaje obecne podejście firmy do projektowania - nacisk na luźne powiązania, sprawienie, że
 % osoby korzystające z biblioteki mają ułatwione testowanie
 \section{Pozostałe silniki}
-% Napisz o jmonkey, urho3d, Amazon Lumberyard
+% Napisz o jmonkey, urho3d, Amazon Lumberyard, panda 3d
 \subsection{Zestawienie}
 \section{Języki programowania}
 % Idea jest taka, żeby trochę "bezpłciowo" opowiedzieć o tych językach
