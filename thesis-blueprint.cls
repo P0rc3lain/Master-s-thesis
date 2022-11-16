@@ -132,6 +132,7 @@
 	\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
 		\hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
+	\let\olditemize=\itemize \let\endolditemize=\enditemize \renewenvironment{itemize}{\olditemize \itemsep0em}{\endolditemize}
 	\renewcommand*\@seccntformat[1]{\csname the#1\endcsname.\enspace}
 	\def\numberline#1{\hb@xt@\@tempdima{#1.\hfil}}
 	\renewcommand*\l@chapter[2]{
