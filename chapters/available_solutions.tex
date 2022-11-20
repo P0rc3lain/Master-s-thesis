@@ -91,30 +91,34 @@ Problemem będzie natomiast nakład pracy potrzebny do uzyskania dzieła komplet
 Mnogość źródeł jednoznacznie wskazuje, że gałąź jest dojrzała i oczekiwać można równie obfitej puli dostępnych rozwiązań.
 Jest to w pełni prawidłowe założenie.
 Rynek jest na tyle obszerny, że początkowo trudno zorientować się kto stanowi grono odbiorców dla poszczególnych produktów.
-Poniższa sekcja ma na celu przybliżenie rozwiązanie tego problemu.
+Poniższa sekcja ma na celu przybliżenie rozwiązania tego problemu.
 \par
-W celu dokonania klasyfikacji konieczne będzie przygotowanie listy charakterystyk na podstawie których poszczególne przykłady rozwiązań zostaną porównane.
-Wśród wielu możliwych do najważniejszych zaklasyfikować możemy cechy stanowiące odpowiedzi na pytanie takie jak:
+W celu dokonania klasyfikacji konieczne będzie przygotowanie listy charakterystyk na podstawie których przykłady zostaną porównane.
+Wśród wielu możliwych do najważniejszych zaklasyfikować możemy cechy produktu stanowiące odpowiedzi na pytanie takie jak:
+\vspace{-0.5\topsep}
 \begin{itemize}
-    \item Czy produkt jest multiplatformowy?
+    \setlength{\parskip}{5pt plus 0pt}
+    \setlength{\itemsep}{5pt plus 5pt}
+    \item Czy jest multiplatformowy?
     \item Na zasadach jakiej licencji jest dystrybuowany?
-    \item Czy produkt jest aktywnie rozwijany?
+    \item Czy jest aktywnie rozwijany?
     \item Czy dostępna jest dokumentacja i przykłady wykorzystania?
     \item Czy kod źródłowy jest otwarty?
     \item Jakie przypadki użycia realizuje?
     \item Jak wygląda kwestia rozszerzalności?
 \end{itemize}
+\vspace{-0.5\topsep}
 Znalezienie odpowiedzi pozwoli oszacować, które obszary branży pokryte są przez istniejące rozwiązania.
 Dodatkowo, umożliwi dostrzeżenie nie tylko silnych stron, ale także nisz, które kryją w sobie potencjał i mogłyby skorzystać z ulepszeń.
 \subsection{Biblioteki multiplatformowe}
 Jedną z dwóch możliwości dystrybucji oprogramowania jest forma multiplatformowa.
 W założeniu polega ona stworzeniu jednego rozwiązania dostępnego na co najmniej dwóch platformach.
-Warto podkreślić, że chodzi tutaj o architekturę w której istnieje część wspólna pomiędzy platformami - w rozpatrywanym znaczeniu nie należy uwzględniać tworzenia oprogramowania realizującego identyczne funkcje, ale za pomocą ponownej implementacji przy użyciu natywnych technologii.
+Warto podkreślić, że chodzi tutaj o architekturę w której istnieje część wspólna - w rozpatrywanym znaczeniu nie należy uwzględniać oprogramowania realizującego identyczne funkcje, ale za pomocą ponownej implementacji przy użyciu natywnych technologii.
 Obszar współdzielony tworzony jest w technologi dostępnej na każdej ze wspieranych platform.
 Dodatkowo, ponad warstwą centralną znajduje się wartwa specyficzna dla platformy.
 Ma ona za zadanie oddać do użytku oprogramowanie uwzględniając różnice wynikające z innego systemu operacyjnego, a także technologii.
 Przykładowo programista systemu Android oczekiwał będzie API w formie biblioteki JAVA lub Kotlin, zaś twórca aplikacji iOS powinien mieć dostęp za pośrednictwem języków Swift czy Objective-C.
-\begin{figure}[H]
+\begin{figure}
     \begin{center}
         \includegraphics[width=10cm]{images/multiplatform-architecture.png}
     \end{center}
@@ -143,12 +147,12 @@ Choć od strony funkcjonalnej rozwijany jest w języku C++ to użytkownik dokonu
 W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja, której użytkownik chce dokonać w rozgrywce gry jest błyskawiczna.
 Mono - framework wykorzystywany przez Unity w tym celu - ma jednak pewne mankamenty.
 Przede wszystkim użytkownicy narzekają na okazjonalne przycięcia w grach wynikające ze sposobem zarządzania pamięci przez technologię.
-Drziwić może także sama obecność C\#.
-Unity deklaruje, że najlepiej odnajduje się na mobilnych platformach, ale język skryptowy nie pokrywa się z żadnym wiodącą technologią ze świata smartfonów.
+Dziwić może także sama obecność C\#.
+Unity deklaruje, że najlepiej odnajduje się na mobilnych platformach, ale język skryptowy nie pokrywa się z żadną wiodącą technologią ze świata smartfonów.
 Na obronę jednak przyznać należy, że grę w unity można stworzyć bez znajomości platformy docelowej.
 \par
 Dodatkowo, Unity jest rozszerzalne. 
-Dokonać możne tego za pomocą pluginów występujących w dwóch formach.
+Dokonać można tego za pomocą pluginów występujących w dwóch formach.
 Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgeneralizowany oferujący zgeneralizowaną funkcjonalność.
 \par
 Pomimo faktu, że Unity jest stale rozwijane to brakuje grafika wydaje się odstawać od konkurencji.
@@ -279,7 +283,7 @@ Dodatkowo, pozwalają na dostęp do wszystkich funkcjonalności platformy i są 
 Debiut rozwiązania nastąpił w 2012 roku. 
 Za projekt i wykonanie odpowiedzialna jest firma Apple, której urządzenia stanowią jedyną decelową grupę odbiorców oprogramowania.
 Początkowo wsparcie ograniczało się do platformy OS X, rozszerzenie dostępności na urządzenia mobilne została odroczone do 2014 roku.
-Na przestrzeni lat dodano również wsparcie dla watchOS, tvOS
+Na przestrzeni lat dodano również wsparcie dla watchOS oraz tvOS.
 \par
 Pragnąc zaklasyfikować SceneKit najtrafniej byłoby określić, iż jest to biblioteka graficzna realizująca dodatkowo pewne funkcjonalności silnika do gier.
 Jest to możliwość kontroli audio oraz integracja silnika fizycznego. 
@@ -309,6 +313,7 @@ Jednym w takich chwil jest spojrzenie na dokumentację SceneKit.
 Przyznać należy, że w siecie dostępnych jest wiele projektów demonstrujących działanie.
 Natomiast pozytywny obraz przyćmiewają wszyechobecne lakoniczne opisy odnoszące się do zawartości biblioteki.
 Niejednokrotnie klasy oraz ich zmienne posiadają wyjaśnienia w formie pojedynczych zdań, nie nadających im szerszego kontekstu.
+Odnieść można wrażenie, że jedyną drogą do zrozumienia pewnej puli z zaimplementowanych mechanizmów będzie wysnucie własnych wniosków na podstawie empirycznych doświadczeń.
 \subsubsection{ARKit}
 Wydanie ARKit było odpowiedzią na rosnące zainteresowanie branży technologią rozszerzonej rzeczywistości.
 Idea polega na wzbogacanie obrazu przechytywanego z kamery urządzenia o dodatkowe elementy 2D oraz 3D.
@@ -317,7 +322,7 @@ Choć część funkcjonalności współdzielona jest z SceneKit to firma deklaru
 \par
 ARKit poprawia wiele problemów, które obecne są w SceneKit.
 Przede wszystkim jest ona aktywnie rozwijana, na bieżące publikowane są poprawki, a także rozszerzenia funkcjonalności.
-Bibliotekę pochwalić należy za ulepszony model oświetlenia
+Bibliotekę pochwalić należy za ulepszony model oświetlenia i wydajność.
 \par
 Interfejs ARKit jest kolejnym czynnikiem zaskakującym pozytywnie.
 Dostosowany jest on do współczesnych konwencji firmy i dobrze integruje się z resztą systemu.
@@ -325,7 +330,7 @@ Tak jak wspomniano wcześniej interakcje oparte o luźne powiązania pozytywnie 
 \par
 Podobnie jednak jak w przypadku innych bibliotek Apple ARKit nie jest otwarta.
 Nie istnieje możliwość wglądu do kodu, ani jego modyfikacji, jednak technologia może być w nieodpłatny sposób wykorzystana i przeznaczona do celów komercyjnych.
-\begin{figure}[H]
+\begin{figure}
     \begin{center}
         \includegraphics[width=15cm]{images/engines/ar-kit/example-app.jpg}
     \end{center}
@@ -337,27 +342,96 @@ Zaskakiwać może również, że w ARKit obsługuje jedynie iOS.
 Na pozostałych platformach nie występuje lub tak jak przypadku międzyplatformowej technologii \textit{mac catalyst} wywołania są ignorowane.
 Z jednej strony to zrozumiałe, ponieważ tylko telefony i tablety posiadają stosowne kamery spełniające wymagania.
 Z drugiej wyklucza to możliwośc wykorzystania ARKit do użycia w celu wygenerowania prostych scen 3D bez AR.
-\subsection{Zestawienie}
 \subsection{Pozostałe silniki}
-Warto wspomnieć, że poza wymienionymi przykładami bibliotek oraz silników istnieje wiele innych alternatyw.
-Jako najpopularniejsze można przytoczyć tutaj jmonkey, urho3d, Amazon Lumberyard czy panda 3d.
-Były to rozwiązania niegdyś popularne lub stale zwiększające swoje zasięgi jednak ze względu na konentracja pracy wokół platform Apple wyłączono je z dalszej analizy.
-\par
 W celu dokonania rzetelnej oceny rynku dokonano także przeglądu projektów open source udostępnionych za pomocą platform github.com oraz gitlab.com.
 Kryterium, którego spełnienia oczekiwano była dostępność na wszystkie platformy Apple i możliwość uruchomienia biblioteki na najnowszych systemach operacyjnych.
 W rezultacie wyszukiwania znaleziono wiele projektów, niestety żaden z nich nie mógł określony być jako stabilne rozwiązanie godne do polecenia.
 Natywnych dostępnych było poniżej dziesięciu.
 Jako te będące w zaawansowanej formie rozwoju wyróżnić można https://github.com/Hi-Rez/Satin czy https://github.com/Hongtae/SwiftVVD.
 \par
-% Opisz silniki zamknięte
+Warto wspomnieć, że poza wymienionymi przykładami bibliotek oraz silników istnieje wiele innych alternatyw.
+Jako najpopularniejsze można przytoczyć tutaj jmonkey, urho3d, OGRE 3D, Amazon Lumberyard czy panda 3d.
+Wszystkie z nich oparte są o podejście open-source.
+Były to rozwiązania niegdyś popularne lub stale zwiększające swoje zasięgi jednak ze względu na konentracja pracy wokół platform Apple wyłączono je z dalszej analizy.
+Głównie za sprawą skierowania jedynie na platformy stacjonarne lub wybrakowane wsparcie spowodowane zamknięciem się firmy Apple na API inne niż Metal.
+\par
+Sytuacja podobnie wygląda w przypadku produkcji takich jak CryEngine, Frostbite, RAGE czy Naughty Dog Game Engine.
+Wszystkie z nich cieszą się niemałą popularnością i sukcesem w świecie gier.
+Niestety są one skierowane tylko i wyłącznie na stacjonarne platformy.
+Dodatkowo, część podlega opłatą licencyjnym, zaś inne nie mogą być w ogóle użyte z uwagi na fakt, że ich źródła są niepubliczne, a pliki binarne dystrybuowane są jedynie do projektów na potrzeby firmy.
+\subsection{Zestawienie}
+% Podsumować wszystko
 \section{Języki programowania}
-% Idea jest taka, żeby trochę "bezpłciowo" opowiedzieć o tych językach
-% Pokazać dobre i słabe strony, bez sugestii, który zostanie wybrany
+Dokonując skrupulatnej analizy należy zastanowić się również nad technologiami, które używane są w popularnych projektach.
+Jako podstawą - czynnik fundamentalny - wytypować można język programowania.
+Obecnie szacuje się, że liczba dojrzałych wynosi około 300~\cite{programming_languages}.
+Pomimo, że grono wszystkich języków jest liczne to tylko kilka z nich używanych jest produkcyjnie w branży gier.
+Przesłankami, które najczęściej usłyszeć można jest konieczność uzyskania optymalnej wydajności i wsparcia możliwie dużej liczby platform.
 \subsection{C++}
-\subsection{Swift}
+Decyzję o stworzeniu rozszerzenia do języka C, Bjarne Stroustrup - twórca C++ - motywował chęcia otworzenia się na paradygmat programowania obiektowego.
+Jego dzieło zachowywało wszystkie dotychczasowe korzyścia wynikające z użycia niskopoziomowego języka, ale sprawiało, że dużo łatwiej programiści byli w stanie tworzyć elastyczne architektury.
+Pomimo upłynięcia blisko 40 lat od publikacji pierwszej wersji standardu C++ dowiódł swojej wartości i do dzisiaj jest jednym z najpopularniejszych języków programowania.
+\par
+Największą siłą, którą w sobie kryje jest mnogość platform na których jest obecny.
+Począwszy od telefony komórkowe, samochody, kończąc na branży lotniczej i medycznej.
+Użytkownicy - w postaci firm, ale także i osób prywatnych - wskazują, że w głównej mierze chodzi o bezpieczeństwo.
+Przez lata kompilatory uzyskały stabilność, a miliony użytkowników pozwalają zachować pewność, nawet w sytuacjach gdzie na szali stoi życie ludzkie.
+\par
+Długa obecność na rynku niesie za sobą dodatkową wartość.
+Pula bibliotek bogata jest w sprawdzone rozwiązania, pokrywające problemy z bardzo wielu dziedzin.
+Ponadto, kompatybilność z C sprawia, że szerokie już grono natywnych dla języka bibliotek powiększane jest o te stworzone z myślą o języku C.
+\par
+Nie jest regułą, że C++ stanowi natywny język dla platformy.
+Wręcz to rzadkie zjawisko.
+Często programy C++ odpowiedzialne są za wykonywanie tylko i wyłacznie zadań intensywnych obliczeniowo lub ukierunkowanych na niską latencję.
+Natomiast same wywołania i odpowiedzi dokonywane są za pośrednictwem języka operującego na wyższym poziomie abstrakcji - takim jak C\#, Java czy Swift.
+W razie potrzeby wspomniane interfejsowania może zachodzić także w drugą stronę - z C++ do języka maszynowego.
+Możliwość wplatywania C++ w inne technologie niewątpliwie pozwolił utrzymać popularność i uniknąć wyparcia z rynku.
+\par
+Wreszcie, koncepcją stojącą za stworzeniem języka C była chęć uzyskania technologii będącej w stanie zastąpić język maszynowy, ale zachowując przy tym poziom abstrakcji możliwie jak najniżej.
+C++ podtrzymuje to podejście.
+W swej istocie oba z nich posiadają proste mechanizmy.
+Co za tym idzie mają bardzo niewielki narzut w stosunku do języka maszynowego.
+Często, przez wzgląd na wbudowane w kompilator mechanizmy do optymalizacji kod C++ jest lepszy niż równowazny odpowiednik napisany przez człowieka.
+\lstinputlisting[language=C++, caption=Przykład kodu w języku C++]{code/example.cpp}
 \subsection{Objective-C}
+Bjarne Stroustrup nie był jedynym, który dostrzegał braki w języku C i pragnął zmienić stosowane podejście.
+We wczesnych latach 80 Tom Love and Brad Cox opracowali własną odpowiedź na ukłon w stronę obiektowości.
+Ich dzieło - Objective-C - w pierwszej wersji ukazało się w 1984 roku.
+Wybrane zostało przez firmę NeXT jako technologia, którą posłużą się do stworzenia ich autorskiego systemu operacyjnego NeXTSTEP.
+Jest on podstawą, którą użyło Apple do rozwijania własnego systemu - znanego dzisiaj pod nazwą macOS - za sprawą przejęcia firmy NeXT w 1996 roku.
+\par
+W przeciwieństwie do C++ Objective-C nie zyskało tak licznego grona odbiorców jak C++.
+Głównie za sprawą faktu, że w głównej mierze prawa do technologii spoczywały w rękach Apple.
+W efekcie jest to technologia nadal szeroko-stosowana na ich własnych środowiskach, ale wybrakowana i niemalże nieobecna na innych.
+Użycie i wybór Objective-C często podyktowany był koniecznością, a nie rozważną decyzją podpartą argumentami.
+\par
+Choć język realizuje swoją funkcje to w stosunku do C++ charakteryzuje się gorszą wydajnością.
+Wynika to z faktu, że zastosowana tutaj podejście zaczerpnięte ze SmallTalka - wywołanie funkcji za pośrednictwem przesyłania wiadomości do obiektu z nazwą w postaci łańcucha znakowego i listą argumentów.
+W tym calu C++ wykorzystuje tablice funkcji wirtualnych, które do wywołania metody wymagają wykonania mniejszej liczby operacji lub niekiedy mogą być całkowicie pomijane.
+\par
+Dodatkowo, Objective-C zniechęca do siebie swoją składnią, niespotykaną w żadnym innym języku.
+Wywołania metod przypominają nieco język naturalny.
+W przeciwieństwie do C czy C++ każdy parametr opatrzony jest stosowną nazwą.
+Programista w teorii powinien być lepiej zrozumieć działanie algorytmu jednak podejście takie ma także negatywne skutki.
+Przede wszystkim wywołania metod są długie, a konieczność zamykania każdego wywołania w nawiasy kwadratowe sprawia, że niekiedy sekwencja wywołań zabiera wiele linii.
+\lstinputlisting[language={[Objective]C}, caption=Przykład kodu w języku Objective-C]{code/example.m}
+\subsection{Swift}
+Debiut Swift nastąpił w 2014 roku.
+W przeciwieństwie do wcześniej wymienionych języków Swift nie jest ukierunkowany w pojedynczy paradygmat programowania.
+Wykorzystywany może być do podejścia zorientowanego obiektowo, interfejsowo, a także programowania proceduralnego i funkcyjnego.
+Decyzja o jego stworzeniu i inwestycja w technologie była inicjatywą Apple.
+Jego kluczowe cechy były bezpośrednią odpowiedzią na zarzuty w stosunku do bolączek Objective-C.
+% \par
+% Swift jest 
+% \par
+% napisz, że jest open source
+% napisz, że jest szybki
+% napisz, że jest popularny
+% napisz, że w sumie objective c jest nadal potrzebny
+% napisz, że bardzo mocno na jego odbiór wpłynęła książka opisująca jego działanie
+\lstinputlisting[language=Swift, caption=Przykład kodu w języku Swift]{code/example.swift}
 \section{Interfejsy programistyczne}
 \subsection{DirectX, OpenGL, Vulkan}
 \subsection{Metal}
 \subsection{Metal-C++}
-\subsection{SPIRV}
