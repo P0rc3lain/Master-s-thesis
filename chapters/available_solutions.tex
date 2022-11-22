@@ -430,7 +430,8 @@ W efekcie Swift obecny także na systemach Linux oraz Windows, a przypadek użyc
 Apple chciało zerwać z dotychczasowym wizerunkiem, który obecny był w Objective-C.
 Użytkownicy dostrzegali, że platforma producenta jest jedyną w której technologia ma zastosowania.
 Strategia sprawdziła się.
-w 2020 roku - https://www.ideamotive.co/blog/swift-vs-objective-c-which-should-you-pick-for-your-next-ios-mobile-app - szacowano, że Swift jest trzykrotnie częściej wykorzystywany niż swój starszy brat.
+w 2020 roku -  - szacowano, że Swift jest trzykrotnie częściej wykorzystywany niż swój starszy brat.
+% https://www.ideamotive.co/blog/swift-vs-objective-c-which-should-you-pick-for-your-next-ios-mobile-app
 \par
 Sytuacją, którą traktować można jako punkt zapalny do sworzenia języka była premiera pierwszego iPhone'a w 2007 roku.
 Urządzenie odniosło ogromny sukces, a każdy kolejny model pomimo stale rosnącej produkcji wciąż nie był w stanie wysycić potrzeb rynku.
@@ -444,7 +445,7 @@ Apple dostrzegło, że ich trudności odstrasza programistów i w efekcie projek
 Jedna z kluczowych zalet języka jest prędkość.
 Statystyki, poświadczone przez twórców wskazują na 2.6x wzrost wydajności w stosunku do pierwotnego rozwiązania.
 Swift nie jest tak dobry jak C czy C++, nie mniej jednak jego narzut jest niewielki.
-https://www.cometchat.com/blog/ios-swift-objective-c-comparison
+% https://www.cometchat.com/blog/ios-swift-objective-c-comparison
 \par
 Nie można przeoczyć także faktu, że nowy język jest czytelny.
 W tym znaczeniu można jednak rozpatrywać łatwość w rozumieniu jako ekspresyjność języka.
@@ -465,7 +466,25 @@ Producent nabiera wody w usta ilekroć temat jest poruszany, ale widoczne są pr
 Tak jak wyjaśniono w stosunku do języka C++ nadal istnieją scenariusze w których odczuć można wyraźna korzyść z oparcia technologii o niskopoziomowe programowanie.
 Jeśli taka potrzeba zajdzie w ramach ekosystemu Apple użycie Objective-C jest jedyną drogą dzięki której połączyć można C++ oraz Swift.
 \lstinputlisting[language=Swift, caption=Przykład kodu w języku Swift]{code/example.swift}
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=15cm]{images/language-interoperability.png}
+    \end{center}
+    \caption{Schemat łączenia wielu języków na przykładzie platformy iOS}
+    \label{fig:language-interoperability}
+\end{figure}
 \section{Interfejsy programistyczne}
+Ostatnim aspektem, który wymaga analizy jest przegląd dostępnych interfejsów programistycznych kart graficznych. 
+% napisać o tensor processing i acceleration structures
+% Podkreślić to co już zrobiłem - kiedys były fixed, teraz są programowalne
+% Napisać, że w sumie zaczęło się od podejścia immediate
+% w miarę postępu czasu mamy kolejki
+% api starają się oddać to jak działają współczesne karty graficzne
+% w sumie to wszystkie są podobne
+% można powiedziec, że każde api ma dwie główne częście
+% pierwsza z nich służy do wydawania rozkazów, druga to prgramy cieniujące
+%  napisać, że w sumie nowe api przerzucają więcej pracy ze sterownika na programiste
 \subsection{DirectX, OpenGL, Vulkan}
 \subsection{Metal}
 % Napisz o % \subsection{Metal-C++}
+% https://alain.xyz/blog/comparison-of-modern-graphics-apis
