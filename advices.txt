@@ -1,21 +1,23 @@
-Wstęp - Cel i zakres pracy
+Spotkanie 23.11 - Podsumowanie
+
+Wstęp
 - Opisać dlaczego moja praca ma wartość - na podstawie tego co jest dostępne, a czego nie ma na rynku
-- Wstęp ma za zadanie zaciekawić czytelnika i ma charakter marketingowy
+- Wstęp ma za zadanie zaciekawić czytelnika i kolokwialnie ma charakter marketingowy
 - Opisać jak dużo udało się zrobić, jaki jest zakres
 - Opisać jasno jaki jest cel pierwszego i drugiego rozdziału
+- Zakres pracy i cel powinien być zaraz na wstępie
+- Tutaj powinienem opisać jak będzie wyglądać struktura pracy
+- Mogę wprost opisać na czym każdy rozdział się koncentruje
+- W założeniach projektu opisać bardzo dokładnie na czym polegać będzie mój projekt i dokładnie zakres
+- Struktura pracy powinna być opisana na końcu
+- Założyć, że na podstawie wstępu czytelnik będzie w stanie dokładnie stwierdzić jaka zawartość jest pracy
 
-Zakres pracy i cel powinien być zaraz na wstępie
-+ Tutaj powinienem opisać jak będzie wyglądać struktura pracy
-+ Mogę wprost opisać na czym każdy rozdział się koncentruje
-+ W założeniach projektu opisać bardzo dokładnie na czym polegać będzie mój projekt i dokładnie zakres
+Wprowadzenie/Przegląd
+- Rozdziały powinny być maksymalnie krótkie
+- Spróbować zrobić podsumowanie w drugim rozdziale w którym przedstawię dlaczego użyłem takie, a nie inne technologie
+- Spróbować przyłożyć się mocno do argumentacji 2 rozdziału 
 
-Rozdziały 1 i 2 powinny być maksymalnie krótkie
-
-Spróbować zrobić podsumowanie w drugim rozdziale w którym przedstawię dlaczego użyłem takie, a nie inne technologie
-
-Rozdział 1 -
-Struktura pracy powinna być opisana na końcu
-
-Założyć, że na podstawie wstępu czytelnik będzie w stanie dokładnie stwierdzić jaka zawartość jest pracy
-
-Spróbować przyłożyć się mocno do argumentacji 2 rozdziału 
+TBD:
+* Czy powinna być sekcja załączniki?
+* Czy powinien być spis rysunków, kodu źródłowego 
+* Czy praca powinna zawierać słowniczek?
