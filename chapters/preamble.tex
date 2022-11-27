@@ -3,7 +3,64 @@
 %
 
 \uchapter{Wstęp}
-\section{Cel}
-\chapter{Zakres pracy}
-\section{Założenia projektu}
-\section{Struktura pracy}
+
+% Napisac, że nieustannie od lat 80 grafika 3d jest coraz bardziej popularna i wykorzystywana jest w coraz większej liczbie branż - sprzedasz mebli, wizualizacje
+% Napisać, że w zasadzie teraz jeśli ktoś ma ochotę wykorzystać grafikę 3d to zwykle po prostu zaczyna korzystać z czegoś dostępnego
+% Napisać, że praca koncentruje się na ekosystemie Apple
+\section*{Cel i założenia projektu}
+% Celem pracy jest stworzenie biblioteki graficznej na platformy
+
+
+% Napisz, że to jest biblioteka czasu rzeczywistego na środowisko apple
+% Napisz czym biblioteka będzie się charakteryzowała - będzie podejmowała trendy obecne w apple, to znaczy protocol oriented programming,
+% W idei ma to sprawić, że pozostała część aplikacji będzie testowalna, a same powiązania będą luźne
+% dodatkowo, będzie miała interfejs który ułatwiał będzie programowanie reaktywne
+% na jej potrzeby przygotowana zostanie aplikacja demo prezentująca działanie i udowadniająca zasadność
+% W założeniach będzie miała też spełniać standardy współczesnych proejktów - ma dokumentację, pipeline'y, unit testy
+% Napisz o motywacji - scenekit został porzucowny, arkit nie realizuje zadania, potrzeba rozwiązać ten problem
+% dodatkowo nawet jeśli chcieć korzystać z scenekita to nie da się go rozwinąć
+% \section*{Założenia projektu}
+% Tu napisać, że to projekt natywny
+% Napisać, że operuje na eksoystemie apple z wyłaczeniem watchos - co wyjaśnione będzie w dalszej części pracy.
+% Napisać, że będzie to open source i wykorzystywać będzie swift + metal
+% Napisać, że w idei będzie wykorzystywało graf sceny do operowania na tym co jest renderowane, a reszta będzie niewidoczna dla użytkownika
+% żeby dobrze wpasować się obecne trendy oparte będzie to o programowanie reaktywne 
+\section*{Zakres pracy}
+% Napisać, że z uwagi na formę i ilość zaangażowanych osób zakres projektu jest dość ograniczony.
+% Decyzja o stworzeniu biblioteki implikuje, że zakres będzie stosunkowo duży - należy zaprojektować interfejs, funkcjonalności, a także pomyśleć nad dokumentają oraz jakością.
+% Samo to implikuje, że jest dużo kwestii do rozważenia - z tego względu podjęta będzie próba, żeby wszystko stało na wysokim poziomie, ale może nie być state of the art.
+% Napisz, że zostanie przygotowana biblioteka, a poza nim aplikacja demo w formie gry, która będzie miała za zadanie sprawdzić w prawdziwym życiu jak biblioteka sobie radzi
+% Natomiast rynek, który praca stara się wypełnić wymaga dość małego rozwiązania, co dobrze wpasowuje się w ograniczenia
+\section*{Struktura pracy}
+Praca podzielona jest jest na pięć rozdziałów. 
+W idei ma to pomóc czytelnikowi płynnie przejść od zrozumienia rynku, przez dostępne rozwiązania do ich analizy i refleksji nad możliwościami.
+Pozwoli to lepiej oddać problem, który postawiono w pracy i cel będący reakcją na braki istniejące w współcześnie używanych produktach.
+\par
+Pierwszy rozdział pełni rolę wprowadzenia do grafiki komputerowej.
+Przybliża on nieco jak wyglądała ewolucja dziedziny.
+Charakteryzuje główne nurty widoczne w branży, pojawiające się na przestrzeni czasu.
+Stara się także przekazać abstrakcje na których operują biblioteki graficzne i wykorzystywane przez nie akcelatory sprzętowe.
+Wyjaśnia przebieg potoku renderowania i etapów, które wchodzą w jego skład.
+\par
+Kolejny rozdział stanowi przejście do właściwiej części pracy.
+Opisuje kolejno źródła, które użyto do zgromadzenia wiedzy.
+Przedstawia obecne rozwiązania zebrane na podstawie przeglądu i sposób ich klasyfikacji, dokonując przy tym porównania.
+Zagłebia się także w technologie dostępne w ekosystemie Apple, służące zarówno do tworzenia aplikacji, jak i używane do interakcji z procesorem graficznym.
+Podjęte kroki pozwolą obnażą braki występujących na rynku produktów, jednocześnie argumentując sens rozwijania pracy.
+\par
+Dalszy rozdział odpowiada za opis najistotniejszej części pracy.
+Przedstawiona zostanie w nim autorska wizja współczesnej biblioteki graficznej.
+Omówienie dotknie najważniejsze aspekty z punktu widzenia użytkownika takie jak forma dystrybucji, interfejs programistyczny, a także dokumentację projektu.
+W celu oddania pełnego obrazu wyjaśniona zostanie architektura w formie interakcji między komponentami, a także sam potok renderowania wykonywany na GPU. 
+Naturalnie, zadaniem bibliotek jest rozwiązywanie pewnych problemów, więc pokazane zostaną możliwości funkcjonalne.
+Wreszcie rozprawa podejmię tematykę jakości, optymalizację procesów i potrzebnej do niej automatyzacji.
+\par
+Czwarty rozdział demonstruje przykład użycia.
+W tym celu stworzona została natywna aplikacja macOS będąca kompletną implementacją gry szachowej.
+Stanowi to formę weryfikacji możliwości projektu zarówno pod kątem funkcjonalnym, wydajnościowym jak i jakościowym.
+Przedstawione zostaną także wnioski, które nasunęły się podczas rozwoju.
+\par 
+Ostatni rozdział podsumowuje pracę.
+Ma za zadanie subiektywnie ocenić czy postawione zadanie spełniło pierwotne założenia.
+Jest jednocześnie momentem na krytyczne spojrzenie w kierunku wykonanych prac.
+Ponownie rozważony zostanie dobór technologii, decyzji architektonicznych by następnie wskazać wszelkie uchybienia i sugestie co do dalszego kierunku rozwoju.
