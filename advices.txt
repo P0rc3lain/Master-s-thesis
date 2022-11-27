@@ -1,16 +1,16 @@
 Spotkanie 23.11 - Podsumowanie
 
 Wstęp
-- Opisać dlaczego moja praca ma wartość - na podstawie tego co jest dostępne, a czego nie ma na rynku
-- Wstęp ma za zadanie zaciekawić czytelnika i kolokwialnie ma charakter marketingowy
-- Opisać jak dużo udało się zrobić, jaki jest zakres
-- Opisać jasno jaki jest cel pierwszego i drugiego rozdziału
-- Zakres pracy i cel powinien być zaraz na wstępie
-- Tutaj powinienem opisać jak będzie wyglądać struktura pracy
-- Mogę wprost opisać na czym każdy rozdział się koncentruje
++ Opisać dlaczego moja praca ma wartość - na podstawie tego co jest dostępne, a czego nie ma na rynku
++ Wstęp ma za zadanie zaciekawić czytelnika i kolokwialnie ma charakter marketingowy
++ Opisać jak dużo udało się zrobić, jaki jest zakres
++ Opisać jasno jaki jest cel pierwszego i drugiego rozdziału
++ Zakres pracy i cel powinien być zaraz na wstępie
++ Tutaj powinienem opisać jak będzie wyglądać struktura pracy
++ Mogę wprost opisać na czym każdy rozdział się koncentruje
 - W założeniach projektu opisać bardzo dokładnie na czym polegać będzie mój projekt i dokładnie zakres
-- Struktura pracy powinna być opisana na końcu
-- Założyć, że na podstawie wstępu czytelnik będzie w stanie dokładnie stwierdzić jaka zawartość jest pracy
++ Struktura pracy powinna być opisana na końcu
++ Założyć, że na podstawie wstępu czytelnik będzie w stanie dokładnie stwierdzić jaka zawartość jest pracy
 
 Wprowadzenie/Przegląd
 - Rozdziały powinny być maksymalnie krótkie
@@ -20,4 +20,4 @@ Wprowadzenie/Przegląd
 TBD:
 * Czy powinna być sekcja załączniki?
 * Czy powinien być spis rysunków, kodu źródłowego 
-* Czy praca powinna zawierać słowniczek?
+* Czy praca powinna zawierać słowniczek pojęć i aberracji?

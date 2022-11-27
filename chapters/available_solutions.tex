@@ -176,7 +176,7 @@ Za minus można uznać też narzut w kwestii wagi aplikacji.
 Szablon pustego projektu wiąże się z koniecznością posiadania około 20 MB wolnej przestrzeni.
 Natywny, pusty projekt iOS to zaledwie około 1 MB.
 Wydawać może się, że to niestotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie narzut wagi powinien być ograniczony do minimum.
-
+% Napisać, że zwykle unity wykorzystuje się do stworzenia aplikacji wykorzystująca silnik do rozważenia każdego aspektu, rzadko jako wstawkę
 % Unity is all but tailor-made for mobile
 % requires optimization, takes lots of space
 % lots of poor performance assets
@@ -359,8 +359,6 @@ Sytuacja podobnie wygląda w przypadku produkcji takich jak CryEngine, Frostbite
 Wszystkie z nich cieszą się niemałą popularnością i sukcesem w świecie gier.
 Niestety są one skierowane tylko i wyłącznie na stacjonarne platformy.
 Dodatkowo, część podlega opłatą licencyjnym, zaś inne nie mogą być w ogóle użyte z uwagi na fakt, że ich źródła są niepubliczne, a pliki binarne dystrybuowane są jedynie do projektów na potrzeby firmy.
-\subsection{Zestawienie}
-% Podsumować wszystko
 \section{Języki programowania}
 Dokonując skrupulatnej analizy należy zastanowić się również nad technologiami, które używane są w popularnych projektach.
 Jako podstawą - czynnik fundamentalny - wytypować można język programowania.
@@ -485,16 +483,51 @@ Współczesne API w miarę upływu czasu wydają się zbliżać do siebie coraz 
 Wynika to bezpośrednio ze wspólnego trendu wraz z którym podążają dostępne rozwiązania.
 Wnikliwe porównanie obrazujące skalę podobieństw odnaleźc można między innymi jako publikację na łamach blogu \textit{alain.xyz}~\cite{alain_modern_graphics_comparison}.
 Wspomnianym trendem tak - jak wyjaśniono we wprowadzeniu - jest chęć oddania możliwie jak najniżejpoziomowo sposób w który operują jednoski graficzne.
-Asynchroniczna natura wykonywania operacji na GPU i chęć minimalizacji ilości synchronizacji pomiędzy GPU i SPU sprawia, że wszystkie nowoczesne API kolejkują zadania i wysyłają je batchach.
-\subsection{DirectX, OpenGL, Vulkan}
-% Napisać, że w zasadzie to są najpopularniejsze API
-% Napisać, że DirectX został zmodernizowany w celu użycia nowego podejścia
-% Wspomnieć, że OpenGL zostało porzucone na rzecz vulkana.
-% Powiedzieć, ze w zasadzie te rozwiązania są nieobecne na platformie apple
+Asynchroniczna natura wykonywania operacji na GPU i chęć minimalizacji ilości synchronizacji pomiędzy GPU i CPU sprawia, że wszystkie nowoczesne API kolejkują zadania i wysyłają je partiach.
+\par
+Obecnie do dyspozyji programistów Apple oddana jest możliwość skorzystania z dwóch API.
+Są to OpenGL będący ogólnym standardem wspieranym przez wiele platform oraz Metal, który zaprojektowany został jako autorskie rozwiązanie Apple.
+Pomimo popularności na innych platformach najświęższy standard graficzny opublikowany przez grupę Khronos - Vulkan - pozostaje niedostępny.
+\subsection{OpenGL}
+Najnowsza wersja dostępna na stacjonarnej platformie to opublikowane w 2010 roku OpenGL 4.1.
+W przypadku urządzeń mobilnych jest to OpenGL ES 3.0, które pomimo zbieżności wielu zbieżności pozostaje podzbiorem stacjonarnego odpowiednika.
+W 2022 roku nadal istnieje możliwośc stworzenia aplikacji opartej o OpenGL, choć rozwiązanie uznane jest jako przestarzałe i niewspierane od 2018 roku.
+\par
+Brak wsparcia nie musi stanowić o słabości produktu jednak w przypadku OpenGL największą wadą jest przestarzałe podejście do komunikacji z GPU.
+W przeciwieństwie do nowoczesnych API, które synchronizują zadania CPU oraz GPU w zminimalizowany sposób OpenGL dokonuje tego znacznie częściej.
+Każdorazowe wywołanie funkcji oznacza wykonanie zapytania do GPU.
+\par
+Pewną niedogoność stanowi także fakt, iż OpenGL oparty był o język C.
+Z tego względu wszystkie jego wywołania mają proceduralny charakter i powodują dysonans w obiektowym kodzie stworzonym w Objective-C czy Swift.
+Korzystania nie ułatwia także fakt, że zasoby uzyskane z GPU bez względu na przeznaczenie i typ przekazywane są do użytkownika za pomocą zmiennej całkowitej.
+Na programiście spoczywa konieczność stworzenia abstrakcji wokół pozyskanego numeru.
+\par
+Kolejną niewątpliwą wadą rozwiązania jest sama jego architektura.
+OpenGL zaprojektowane jest jako globalna maszyna stanów.
+Choć nie jest to jawnie zabronione podejście sprawia, że nie istnieje efektywna możliwość komunikacja z API w sposób wielowątkowy.
+W teorii dwa lub więcej wątków jest w stanie operować na API, ale współbieżne operacje są niemożliwe ponieważ wątki wpływają na siebie nawzajem za pośrednictwem zmiany stanu API.
 \subsection{Metal}
-% Napisz, że w sumie często ludzie korzystają z Vulkana - bo otwiera im to drogę na linuxa i windowsa.
+Obecnie jedynym dostępnym API za pośrednictwem którego programować można GPU w ekosystemie Apple jest Metal.
+Jego premiera miała miejsce w 2014 roku.
+Początkowo współistniał on wraz z OpenGL 4.1, natomiast wraz z premierą macOS Mojave traktowany jest jako główne API.
+\par
+Funkcjonalnie nie wyróżnia się w stosunku do innych popularnych API, takich jak Vulkan czy DirectX.
+Wszystkie obecnie stosują podejście kolejkowego przetwarzania zadań i minimalizują ilość udostępnianch funkcji.
+Z punktu widzenia producenta obecna sytuacja jest jednak wyjątkowo korzystna.
+Apple samo zarządza standardem, a fakt, że stało się także architektem układów graficznych sprawia, że są oni w stanie uzyskać optymalna wydajność.
+\par
+Wraz z interfejsem dla języków wysokiego poziomu biblioteka wprowadza swój język do tworzenia programów cieniujących - MSL.
+Jako bazę do jego stworzenia posłużył C++14, jednak z uwagi na wyspecjalizowane użycie technologii część możliwości została ograniczona.
+\par
+Dostęp do API realizowany jest podobnie jak w przypadku innych funkcjonalności za pomocą biblioteki.
+Odbywa się to nie tylko pośrednictwem Swifta czy Objective-C.
+W 2022 roku opublikowano oficjalne wsparcie dla języka \textit{C++} realizowane przy pomocy \textit{Metal-C++}.
+Choć na pierwszy rzut oka wydaje się być to doskonały krok w kierunku uzyskania najlepszej możliwej wydajności, to wiążą się z tym pewne niedogodności.
+\textit{Metal-C++} łączy w sobie świat automatycznego zarządzania pamięcią zaczerpniętego z natywnych języków, a także C++, który pozwala na pewną dowolność w tej kwestii.
+W efekcie użytkownik decydujący się na korzystanie z API zmuszony będzie w trakcie interakcji z API jawnie przenosić obiekty pomiędzy zarządzaniem Objective-c oraz C++.
+Dodatkowo, należy pamiętać, że użycie wspomnianej technologii rozszerza tylko zakres w którym C++ może zostać wykorzystany. 
+Nadal należy pamiętać o konieczności interfejsowania kodu do Objective-C w celu wykorzystania go w aplikacji ekosystemu Apple.
 % Z tej popularności wzięły się też biblioteki do iOS, które wyglądają jak vulkan ale są wrapperem na metala
 % Napisz, że metal jest super bo pozwala na doskonałe debugowanie
 % Napisz, że fajne jest profilowanie kodu shaderów
-% Napisz, że w zasadzie nafajniejsze jest to, że Metal to tak naprawdę okrojone C++14
-% Napisz o % \subsection{Metal-C++}
+\section{Wnioski}
