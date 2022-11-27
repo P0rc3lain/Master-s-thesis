@@ -7,7 +7,7 @@ Lata siedemdziesiąte dały początek trójwymiarowej grafice komputerowej, jak�
 Wynalazek jeszcze w tym samym dziesięcioleciu ewoluował z prototypu do techniki będącej wykorzystywaną w konsumenckim oprogramowaniu.
 Przez lata znajdowano kolejne zastosowania dla technologii, a wzrost mocy obliczeniowej dodatkowo polepszył przystępność.
 Branże charakteryzujące się największym udziałem to kolejno filmowa, gier komputerowych, architektoniczna oraz wirtualnej rzeczywistości.
-Każda z wymienionych gałęzi pochwalić może się co najmniej kilkoma produktami uwzględniającymi najnowsze nowinki spełniając przy tym kryterium płynności na szerokiej gamie sprzętu.
+Każda z wymienionych gałęzi pochwalić może się co najmniej kilkoma produktami uwzględniającymi najnowsze nowinki, spełniając przy tym kryterium płynności na szerokiej gamie sprzętu.
 W tym kontekście produkt rozumiany powinien być jako biblioteka, pozwalająca za pomocą wysokopoziomowego interfejsu na tworzenie obrazów trójwymiarowych scen.
 \par
 Platformami stanowiącymi trzon uruchomieniowy dla technologii są Windows, Linux, macOS, a także mobilne Android oraz iOS.
@@ -17,32 +17,34 @@ Istniejąca tendencja motywuje do bliższego przyjrzenia się możliwością pla
 Powierzchowne spojrzenie na dostępne produkty stworzone z myślą o generowaniu grafiki sugerować może, że ekosystem jest obfity w rozwiązania.
 Dokładniejsza analiza pozwala jednak wysnuć, że w środowisku brakuje natywnej biblioteki, która byłaby w stanie posłużyć do tworzenia prostych gier, a także trójwymiarowych wstawek do aplikacji użytkowych.
 Natywność w tym kontekście powinna odnosić się nie tylko do samej technologii, która posłużyła do stworzenia, ale także podejścia architektonicznego do interfejsu biblioteki.
-Twórcy, którzy pokryć pragną wspomniany przypadek zmuszeni są zaakceptowania wysokiego narzutu rozwiązania  - obejmuje to konieczność wykorzystania odmiennego języka programowania, a także zaakceptowania znacznie bardziej skompilkowanego zarządzania projektem.
-W przeciwnym razie zmuszeni są oni skorzystać z porzuconych przez producenta alternatyw, odbiegających od współczesnych standardów do których przyzwyczajeni są pod względem projektu interfejsu i jego podatności na testowanie.
+Twórcy, którzy pokryć pragną wspomniany przypadek zmuszeni są zaakceptowania wysokiego narzutu rozwiązania będącego silnikiem do gier - obejmuje to konieczność wykorzystania odmiennego języka programowania, a także negatywnie wpływa na zarządzanie projektem.
+W przeciwnym razie skorzystać musieli będą z porzuconej przez producenta alternatywy, lepiej wpasowującej się w okazajonalne renderowanie, ale odbiegającej od współczesnych standardów do których przyzwyczajeni są pod względem projektu interfejsu i jego podatności na testowanie.
 \section*{Cel i założenia projektu}
-% Celem pracy jest stworzenie biblioteki graficznej na platformy
-
-
-% Napisz, że to jest biblioteka czasu rzeczywistego na środowisko apple
-% Napisz czym biblioteka będzie się charakteryzowała - będzie podejmowała trendy obecne w apple, to znaczy protocol oriented programming,
-% W idei ma to sprawić, że pozostała część aplikacji będzie testowalna, a same powiązania będą luźne
-% dodatkowo, będzie miała interfejs który ułatwiał będzie programowanie reaktywne
-% na jej potrzeby przygotowana zostanie aplikacja demo prezentująca działanie i udowadniająca zasadność
-% W założeniach będzie miała też spełniać standardy współczesnych proejktów - ma dokumentację, pipeline'y, unit testy
-% Napisz o motywacji - scenekit został porzucowny, arkit nie realizuje zadania, potrzeba rozwiązać ten problem
-% dodatkowo nawet jeśli chcieć korzystać z scenekita to nie da się go rozwinąć
-% \section*{Założenia projektu}
-% Tu napisać, że to projekt natywny
-% Napisać, że operuje na eksoystemie apple z wyłaczeniem watchos - co wyjaśnione będzie w dalszej części pracy.
-% Napisać, że będzie to open source i wykorzystywać będzie swift + metal
-% Napisać, że w idei będzie wykorzystywało graf sceny do operowania na tym co jest renderowane, a reszta będzie niewidoczna dla użytkownika
-% żeby dobrze wpasować się obecne trendy oparte będzie to o programowanie reaktywne 
+Celem pracy jest stworzenie natywnej biblioteki do generowania grafiki trójwymiarowej czasu rzeczywistego.
+Gama wspieranych urządzeń obejowała będzie systemy z ekosystemu Apple takie jak macOS, iOS oraz tvOS.
+Rozwiązanie oparte zostanie o język Swift 5 oraz interfejs programistyczny GPU Metal 3.
+Dystrybuowane zostanie w formie open source wraz z dokumentacją opisującą założenia w sposobie interakcji.
+Projekt charakteryzował będzie się utylizacją trendów, takich jak otwarcie na programowanie reaktywne czy zorganizowanie interfejsu wokół podejścia programowania zorientowanego na protokoły.
+W założeniu pozwoli to nie tylko nadać charakter podobny do dostępnych bibliotek wykonujących odmienne funkcje, ale wpłynie pozytywnie na testowalność samej biblioteki, jak i rozwiązań ją wykorzystujących.
+\par
+Renderowanie grafiki udostępnione zostanie za pomocą interfejsu pozwalającego na aranżacie sceny.
+Użytkownik w zamyśle komponował będzie hierarchiczny, acykliczny graf skierowany, a elementy odpowiedzialne za węzły reprezentować będą odpowiednio siatki, transformacje, kamery i podlegać będą rozszerzaniu.
+Do dyspozycji zostanie oddany także moduł umożliwiający animacje szkieletową oraz bryły sztywnej.
+Silnik obsługiwał będzie najpopularniejsz rodzaje swiateł takie jak punktowe o pełnym oraz ograniczonym kącie świecenia oraz światło kierunkowe.
+Model oświetlenia operował będzie na podstawach fizycznych i uwzględniał okluzje ambientową, a także rzucanie cieni przez obiekty blokujące promienie świetlne.
+Wreszcie stworzony zostanie importer pozwalający na wygodne wczytywanie modeli oraz generowanie siatek na podstawie map wysokości.
+Logika renderowania wraz ze wszystkimi pośrednimi krokami stworzonymi na potrzeby potoku pozostanie niewidoczna, podlegać będzie jednak koniguracji.
+\par
+Na potrzeby pracy stworzona zostanie aplikacja demo, stanowiąca weryfikację używalności biblioteki.
+Przybierze ona formę trójwymiarowej gry szachowej.
+Zaimplementowana logika będzie kompletna pod względem funkcjonalności.
+Będzie to równocześnie moment na refleksje na temat wyników, które udało się uzyskać i szansą na wskazanie kierunku dalszego rozwoju.
 \section*{Zakres pracy}
-% Napisać, że z uwagi na formę i ilość zaangażowanych osób zakres projektu jest dość ograniczony.
-% Decyzja o stworzeniu biblioteki implikuje, że zakres będzie stosunkowo duży - należy zaprojektować interfejs, funkcjonalności, a także pomyśleć nad dokumentają oraz jakością.
-% Samo to implikuje, że jest dużo kwestii do rozważenia - z tego względu podjęta będzie próba, żeby wszystko stało na wysokim poziomie, ale może nie być state of the art.
-% Napisz, że zostanie przygotowana biblioteka, a poza nim aplikacja demo w formie gry, która będzie miała za zadanie sprawdzić w prawdziwym życiu jak biblioteka sobie radzi
-% Natomiast rynek, który praca stara się wypełnić wymaga dość małego rozwiązania, co dobrze wpasowuje się w ograniczenia
+Ze względu na formę pracy magisterskiej i stosunkowo krótki czas rozwoju zakres projektu jest ograniczony.
+Same decyzja o stworzeniu biblioteki implikuje mnogość zagadnień do pokrycia - projektu interfejsu, funkcjonalności, ale także konieczność zapewnienia dokumentacji i jakości.
+Podjęta zostanie próbowa spełnienia każdego ze wspomnianych aspektów na zaawansowanym poziomie.
+Prawdopodobnym jest natomiast, że optymalna wydajność i wcielenie wszystkich wymagań, które współcześnie spełniają biblioteki do generowania grafiki wiązało będzie się z koniecznością dalszego rozwoju.
+Nie mniej jednak przypadek użycia, który podjęto się w pracy spełnić wymaga stosunkowo niedużego rozwiązania, co pozytywnie wpłynie na szansę spełnienia celów postawionych w pracy.
 \section*{Struktura pracy}
 Praca podzielona jest jest na pięć rozdziałów. 
 W idei ma to pomóc czytelnikowi płynnie przejść od zrozumienia rynku, przez dostępne rozwiązania do ich analizy i refleksji nad możliwościami.
@@ -58,7 +60,7 @@ Kolejny rozdział stanowi przejście do właściwiej części pracy.
 Opisuje kolejno źródła, które użyto do zgromadzenia wiedzy.
 Przedstawia obecne rozwiązania zebrane na podstawie przeglądu i sposób ich klasyfikacji, dokonując przy tym porównania.
 Zagłebia się także w technologie dostępne w ekosystemie Apple, służące zarówno do tworzenia aplikacji, jak i używane do interakcji z procesorem graficznym.
-Podjęte kroki pozwolą obnażą braki występujących na rynku produktów, jednocześnie argumentując sens rozwijania pracy.
+Podjęte kroki pozwolą obnażyć braki występujących na rynku produktów, jednocześnie argumentując sens rozwijania pracy.
 \par
 Dalszy rozdział odpowiada za opis najistotniejszej części pracy.
 Przedstawiona zostanie w nim autorska wizja współczesnej biblioteki graficznej.
