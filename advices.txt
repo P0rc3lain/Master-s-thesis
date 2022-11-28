@@ -8,7 +8,7 @@ Wstęp
 + Zakres pracy i cel powinien być zaraz na wstępie
 + Tutaj powinienem opisać jak będzie wyglądać struktura pracy
 + Mogę wprost opisać na czym każdy rozdział się koncentruje
-- W założeniach projektu opisać bardzo dokładnie na czym polegać będzie mój projekt i dokładnie zakres
++ W założeniach projektu opisać bardzo dokładnie na czym polegać będzie mój projekt i dokładnie zakres
 + Struktura pracy powinna być opisana na końcu
 + Założyć, że na podstawie wstępu czytelnik będzie w stanie dokładnie stwierdzić jaka zawartość jest pracy
 
