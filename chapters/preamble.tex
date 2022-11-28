@@ -25,8 +25,8 @@ Za cel pracy obrano stworzenie natywnej biblioteki do generowania grafiki czasu 
 Projekt pomagał będzie zaimplementować proste gra oraz wzbogacić szeroko rozumiane aplikacje użytkowe o warstwę trójwymiarową.
 Gama wspieranych urządzeń obejmowała będzie systemy z ekosystemu Apple takie jak macOS, iOS oraz tvOS.
 Rozwiązanie oparte zostanie o język Swift 5 oraz interfejs programistyczny GPU Metal 3.
-Dystrybuowane zostanie w formie open source wraz z dokumentacją opisującą założenia w sposobie interakcji.
-Projekt charakteryzował będzie się utylizacją trendów, takich jak otwarcie na programowanie reaktywne czy zorganizowanie interfejsu wokół podejścia programowania zorientowanego na protokoły.
+Dystrybuowane zostanie w formie otwartej, wraz z dokumentacją opisującą założenia w sposobie interakcji.
+Projekt charakteryzował będzie się utylizacją trendów, takich jak wsparcie dla programowania reaktywnego czy zorganizowanie interfejsu wokół podejścia zorientowanego na protokoły.
 W założeniu pozwoli to nie tylko nadać charakter podobny do dostępnych bibliotek wykonujących odmienne funkcje, ale wpłynie pozytywnie na testowalność samej biblioteki, jak i rozwiązań ją wykorzystujących.
 \par
 Renderowanie grafiki udostępnione zostanie za pomocą interfejsu pozwalającego na aranżacje sceny.
@@ -35,21 +35,21 @@ Do dyspozycji zostanie oddany także moduł umożliwiający animacje szkieletow�
 Silnik obsługiwał będzie najpopularniejsze rodzaje świateł takie jak punktowe o pełnym oraz ograniczonym kącie świecenia, oraz światło kierunkowe.
 Model oświetlenia operował będzie na podstawach fizycznych i uwzględniał okluzje ambientową, a także rzucanie cieni przez obiekty blokujące promienie świetlne.
 Wreszcie stworzony zostanie importer pozwalający na wygodne wczytywanie modeli oraz generowanie siatek na podstawie map wysokości.
-Logika renderowania wraz ze wszystkimi pośrednimi krokami stworzonymi na potrzeby potoku pozostanie niewidoczna, podlegać będzie jednak konfiguracji.
+Logika renderowania wraz ze wszystkimi pośrednimi krokami stworzonymi w ramach potoku pozostanie niewidoczna, podlegać będzie jednak konfiguracji.
 \par
 Na potrzeby pracy stworzona zostanie aplikacja demo, stanowiąca weryfikację używalności biblioteki.
 Przybierze ona formę trójwymiarowej gry szachowej.
 Zaimplementowana logika będzie kompletna pod względem funkcjonalności.
 Będzie to równocześnie moment na refleksje na temat wyników, które udało się uzyskać i szansą na wskazanie kierunku dalszego rozwoju.
 \section*{Zakres pracy}
-Ze względu na formę pracy magisterskiej i stosunkowo krótki czas rozwoju zakres projektu jest ograniczony.
+Ze względu na formę pracy magisterskiej i stosunkowo krótki czas rozwoju zakres przedsięwzięcia jest ograniczony.
 Same decyzja o stworzeniu biblioteki implikuje mnogość zagadnień do pokrycia - projektu interfejsu, funkcjonalności, ale także konieczność zapewnienia dokumentacji i jakości.
 Podjęta zostanie próba spełnienia każdego ze wspomnianych aspektów na zaawansowanym poziomie.
 Prawdopodobnym jest natomiast, że optymalna wydajność i wcielenie wszystkich wymagań, które współcześnie spełniają biblioteki do generowania grafiki wiązało będzie się z koniecznością dalszego rozwoju.
 Nie mniej jednak przypadek użycia, który podjęto się w pracy spełnić wymaga stosunkowo niedużego rozwiązania, co pozytywnie wpłynie na szansę spełnienia postawionych celów.
 \section*{Struktura pracy}
 Praca podzielona jest na pięć rozdziałów. 
-W idei ma to pomóc czytelnikowi płynnie przejść od zrozumienia rynku, przez dostępne rozwiązania do ich analizy i refleksji nad możliwościami.
+W idei ma to pomóc czytelnikowi płynnie przejść od nakreślenia podstaw, przez zrozumienia rynku, dostępne rozwiązania do ich analizy i refleksji nad możliwościami.
 Pozwoli to lepiej oddać problem, który postawiono w pracy i cel będący reakcją na braki istniejące we współcześnie używanych produktach.
 \par
 Pierwszy rozdział pełni rolę wprowadzenia do grafiki komputerowej.
@@ -64,9 +64,9 @@ Przedstawia obecne rozwiązania zebrane na podstawie przeglądu i sposób ich kl
 Zagłębia się także w technologie dostępne w ekosystemie Apple, służące zarówno do tworzenia aplikacji, jak i używane do interakcji z procesorem graficznym.
 Podjęte kroki pozwolą obnażyć braki występujących na rynku produktów, jednocześnie argumentując sens rozwijania pracy.
 \par
-Dalszy rozdział odpowiada za opis najistotniejszej części pracy.
+Dalszy rozdział odpowiada za opis najistotniejszej części.
 Przedstawiona zostanie w nim autorska wizja współczesnej biblioteki graficznej.
-Omówienie dotknie najważniejsze aspekty z punktu widzenia użytkownika takie jak forma dystrybucji, interfejs programistyczny, a także dokumentację projektu.
+Omówienie dotknie najważniejszych aspektów z punktu widzenia użytkownika, takich jak forma dystrybucji, interfejs programistyczny, a także dokumentacja projektu.
 W celu oddania pełnego obrazu wyjaśniona zostanie architektura w formie interakcji między komponentami, a także sam potok renderowania wykonywany na GPU. 
 Naturalnie, zadaniem bibliotek jest rozwiązywanie pewnych problemów, więc pokazane zostaną możliwości funkcjonalne.
 Wreszcie rozprawa podejmie tematykę jakości, optymalizację procesów i potrzebnej do niej automatyzacji.
@@ -74,9 +74,9 @@ Wreszcie rozprawa podejmie tematykę jakości, optymalizację procesów i potrze
 Czwarty rozdział demonstruje przykład użycia.
 W tym celu stworzona została natywna aplikacja macOS będąca kompletną implementacją gry szachowej.
 Stanowi to formę weryfikacji możliwości projektu zarówno pod kątem funkcjonalnym, wydajnościowym, jak i jakościowym.
-Przedstawione zostaną także wnioski, które nasunęły się podczas rozwoju.
 \par 
-Ostatni rozdział podsumowuje pracę.
-Ma za zadanie subiektywnie ocenić czy postawione zadanie spełniło pierwotne założenia.
-Jest jednocześnie momentem na krytyczne spojrzenie w kierunku wykonanych prac.
+Ostatni rozdział ma charakter podsumowujący.
+Subiektywnie oceni czy owoc wykonanej pracy spełnił pierwotne założenia.
+Przemyślenia w głównej mierze oparte będą o wnioski, które nasunęły się podczas rozwoju aplikacji demonstracyjnej.
+Będzie to jednocześnie moment na krytyczne spojrzenie.
 Ponownie rozważony zostanie dobór technologii, decyzji architektonicznych, by następnie wskazać wszelkie uchybienia i sugestie co do dalszego kierunku rozwoju.
