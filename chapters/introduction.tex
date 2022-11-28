@@ -22,7 +22,7 @@ Przekucie idei w działający prototyp zajęło kilka miesięcy.
 Zaprogramowane instrukcje interpretowane były przez autorski aparat matematyczny i przekładane na docelowy materiał za pomocą robotycznego ramienia.
 W obrębie firmy rozwiązanie początkowo wykorzystywano do wizualizacji wnętrz kokpitów i pracy nad ich ergonomią.
 Ważnym osiągnięciem będącym następstwem do generowania pojedynczych, niepowiązanych ze sobą scen było stworzenie serii rysunków przedstawiających animacje lądującego samolotu.
-Pomimo wielu wad, jakimi między innymi były długi czas oczekiwania na wynik czy losowe błędy sprawiające, że rysunek musiał być ponownie wytworzony Fetter dostrzegł potencjał i zdecydował się przedstawić efekt swojej pracy szerszemu gronu odbiorców.
+Pomimo wielu wad, jakimi między innymi był długi czas oczekiwania na wynik czy losowe błędy sprawiające, że rysunek musiał być ponownie wytworzony Fetter dostrzegł potencjał i zdecydował się przedstawić efekt swojej pracy szerszemu gronu odbiorców.
 Swój pomysł pokazał światu posługując się sylwetką człowieka, która sięgając ręką do panelu sterowania wewnątrz samolotu ustanowiła początek ery trójwymiarowej grafiki komputerowej jaką znamy dzisiaj.
 \par % Pokazanie przykładów i opowiedzenie do czego obecnie może być wykorzystywana
 \begin{figure}[H]
@@ -62,7 +62,7 @@ Odbiorca nie ma wpływu na akcję, przebieg sekwencji wydarzeń każdorazowo wyg
 Restrykcja czasowa, której podlega generowanie kolejnych klatek jest praktycznie zaniedbywalna.
 Wynika to z faktu, że fragmenty animacji tworzone mogą być niezależnie od siebie, równolegle, na wielu maszynach.
 W przeciwieństwie do gier komputerowych ich wytwarzanie dokonywane jest dokładnie raz, a następnie tylko podlega odtwarzaniu.
-Interaktywność jest cechą, która odróżnia grafikę czasu rzeczywistego od nierzeczywistego i wprowadza główne rozróżnienie pomiędzy technologiami służącymi do produkcji obrazu.
+Interaktywność jest cechą, która odróżnia grafikę czasu rzeczywistego od nierzeczywistego i wprowadza główny podział pomiędzy technologiami służącymi do produkcji obrazu.
 
 \section{Organizacja obiektów}
 % Wyjaśnienie podstawowych pojęć opisu elementów na scenie
@@ -70,8 +70,8 @@ Generowania dwuwymiarowych obrazów za pomocą komputera przypomina proces tworz
 Nie dziwi więc fakt, że znaczna część pojęć używanych w odniesieniu do zawartości klatki czerpie właśnie z niego.
 Nadrzędnym elementem zawierającym w sobie wszystkie pomniejsze jest scena.
 W niej zorganizowani są aktorzy rozumiani jako postacie bezpośrednio mające wpływ na akcje, jak i pozostałe fragmenty scenerii stanowiące tło.
-Za uwiecznienie trwających wydarzeń odpowiedzialne są kamery, które przedstawiają świat z różnych perspektyw.
-W zależności od wizji twórczej może być ich różna ilość, zawsze jednak tylko jedna rozpatrywana jest jako aktywna, a więc przekazująca aktualny obraz.
+Za uwiecznienie toczących się wydarzeń odpowiedzialne są kamery, które przedstawiają świat z różnych perspektyw.
+W zależności od wizji twórczej ich ilość może być zmienna, zawsze jednak tylko jedna rozpatrywana jest jako aktywna, a więc przekazująca aktualny obraz.
 Niezbędnym elementem, który konieczny jest, aby obserwator był w stanie dostrzec cokolwiek jest źródło światła.
 Zaliczamy do nich wszystkie emitery, takie jak słońce, księżyc, ogień, czy żarówki elektryczne.
 \par Początkowo implementacja idei była bezpośrednia. 
@@ -141,7 +141,7 @@ Pomimo występującej hierarchii w samym modelu pomniejsze układy nie rozróżn
 \paragraph{Układ świata \eng{World Space}} Tworzy korzeń hierarchii w odniesieniu do którego opisane są pozostałe układy.
 \paragraph{Układ kamery \eng{Camera Space}} Osadza kamerę w początku układu współrzędnych. Z jego poziomu generowana jest klatka obrazu.
 \paragraph{Układ przycinania \eng{Clip Space}} Jest bezpośrednim następcą układu kamery, z którego przejście nastąpiło na skutek projekcji.
-W przypadku metal jest to leworęczny układ współrzędnych zadany prostopadłościanem o głębokości \textit{1} i powierzchni bocznej opisanej przy pomocy kwadratu o boku \textit{2}.
+W przypadku biblioteki Metal jest to leworęczny układ współrzędnych zadany prostopadłościanem o głębokości \textit{1} i powierzchni bocznej opisanej przy pomocy kwadratu o boku \textit{2}.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=5cm]{images/coordinate-systems/ndc.png}
@@ -264,8 +264,9 @@ Dzięki temu obserwator jest w stanie dostrzec w jaki sposób oświetlenie usytu
 \end{figure}
 \paragraph*{Przycinanie \eng{Scissor}}
 Zdarza się, że generowany obraz powinien być zaprezentowany w częściowej formie.
-W takim wypadku programista może określić obszar obrazu, który powinien zostać utrwalony.
+W takim wypadku programista może określić prostokątny obszar, który powinien zostać utrwalony.
 Fragmenty usytuowane poza nim nie będą zapisywane na wyjściu.
+
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=6cm]{images/pipeline/scissoring.png}
