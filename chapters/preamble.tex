@@ -5,35 +5,37 @@
 \uchapter{Wstęp}
 Lata siedemdziesiąte dały początek trójwymiarowej grafice komputerowej, jaką znamy dzisiaj.
 Wynalazek jeszcze w tym samym dziesięcioleciu ewoluował z prototypu do techniki będącej wykorzystywaną w konsumenckim oprogramowaniu.
-Przez lata znajdowano kolejne zastosowania dla technologii, a wzrost mocy obliczeniowej dodatkowo polepszył przystępność.
-Branże charakteryzujące się największym udziałem to kolejno filmowa, gier komputerowych, architektoniczna oraz wirtualnej rzeczywistości.
+Przez lata znajdowano kolejne zastosowania dla technologii, a wzrost mocy obliczeniowej dodatkowo polepszał jej przystępność.
+Wśród branż charakteryzujących się największym udziałem wyróżnić można filmową, gier komputerowych, architektoniczną oraz wirtualnej rzeczywistości.
 Każda z wymienionych gałęzi pochwalić może się co najmniej kilkoma produktami uwzględniającymi najnowsze nowinki, spełniając przy tym kryterium płynności na szerokiej gamie sprzętu.
 W tym kontekście produkt rozumiany powinien być jako biblioteka, pozwalająca za pomocą wysokopoziomowego interfejsu na tworzenie obrazów trójwymiarowych scen.
 \par
 Platformami stanowiącymi trzon uruchomieniowy dla technologii są Windows, Linux, macOS, a także mobilne Android oraz iOS.
 Największym wzrostem popularności wśród użytkowników zadeklarować mogą się te operujące w ekosystemie Apple, między innymi ze względu na rewolucję jaką przyniosły procesory z serii \textit{M} w 2020 roku.
-Istniejąca tendencja motywuje do bliższego przyjrzenia się możliwością platform skłądających się na ekosystem i zastanowienia nad przypadkami użycia, które są w stanie pokryć biblioteki na nie dostępne.
+Istniejąca tendencja motywuje do bliższego przyjrzenia się możliwością platform składających się na ekosystem i zastanowienia nad przypadkami użycia, które są w stanie pokryć biblioteki na nie przeznaczone.
 \par
 Powierzchowne spojrzenie na dostępne produkty stworzone z myślą o generowaniu grafiki sugerować może, że ekosystem jest obfity w rozwiązania.
 Dokładniejsza analiza pozwala jednak wysnuć, że w środowisku brakuje natywnej biblioteki, która byłaby w stanie posłużyć do tworzenia prostych gier, a także trójwymiarowych wstawek do aplikacji użytkowych.
-Natywność w tym kontekście powinna odnosić się nie tylko do samej technologii, która posłużyła do stworzenia, ale także podejścia architektonicznego do interfejsu biblioteki.
-Twórcy, którzy pokryć pragną wspomniany przypadek zmuszeni są zaakceptowania wysokiego narzutu rozwiązania będącego silnikiem do gier - obejmuje to konieczność wykorzystania odmiennego języka programowania, a także negatywnie wpływa na zarządzanie projektem.
-W przeciwnym razie skorzystać musieli będą z porzuconej przez producenta alternatywy, lepiej wpasowującej się w okazajonalne renderowanie, ale odbiegającej od współczesnych standardów do których przyzwyczajeni są pod względem projektu interfejsu i jego podatności na testowanie.
+Natywność w tym kontekście powinna odnosić się nie tylko do samej technologii na której bazowano, ale także podejścia architektonicznego do interfejsu biblioteki.
+Twórcy, którzy mają potrzebę obsłużyć wspomniany przypadek zmuszeni są do zaakceptowania wysokiego narzutu silników do gier. 
+Obejmuje to konieczność wykorzystania odmiennego języka programowania, a także negatywnie wpływa na zarządzanie projektem przez wzgląd na potrzebę wykorzystania mnogiej liczby środowisk programistycznych.
+W przeciwnym razie skorzystać musieli będą z porzuconej przez producenta platformy alternatywy, lepiej wpasowującej się w okazjonalne renderowanie, ale odbiegającej od współczesnych standardów, które sam wdraża.
 \section*{Cel i założenia projektu}
-Celem pracy jest stworzenie natywnej biblioteki do generowania grafiki trójwymiarowej czasu rzeczywistego.
-Gama wspieranych urządzeń obejowała będzie systemy z ekosystemu Apple takie jak macOS, iOS oraz tvOS.
+Za cel pracy obrano stworzenie natywnej biblioteki do generowania grafiki czasu rzeczywistego.
+Projekt pomagał będzie zaimplementować proste gra oraz wzbogacić szeroko rozumiane aplikacje użytkowe o warstwę trójwymiarową.
+Gama wspieranych urządzeń obejmowała będzie systemy z ekosystemu Apple takie jak macOS, iOS oraz tvOS.
 Rozwiązanie oparte zostanie o język Swift 5 oraz interfejs programistyczny GPU Metal 3.
 Dystrybuowane zostanie w formie open source wraz z dokumentacją opisującą założenia w sposobie interakcji.
 Projekt charakteryzował będzie się utylizacją trendów, takich jak otwarcie na programowanie reaktywne czy zorganizowanie interfejsu wokół podejścia programowania zorientowanego na protokoły.
 W założeniu pozwoli to nie tylko nadać charakter podobny do dostępnych bibliotek wykonujących odmienne funkcje, ale wpłynie pozytywnie na testowalność samej biblioteki, jak i rozwiązań ją wykorzystujących.
 \par
-Renderowanie grafiki udostępnione zostanie za pomocą interfejsu pozwalającego na aranżacie sceny.
+Renderowanie grafiki udostępnione zostanie za pomocą interfejsu pozwalającego na aranżacje sceny.
 Użytkownik w zamyśle komponował będzie hierarchiczny, acykliczny graf skierowany, a elementy odpowiedzialne za węzły reprezentować będą odpowiednio siatki, transformacje, kamery i podlegać będą rozszerzaniu.
 Do dyspozycji zostanie oddany także moduł umożliwiający animacje szkieletową oraz bryły sztywnej.
-Silnik obsługiwał będzie najpopularniejsz rodzaje swiateł takie jak punktowe o pełnym oraz ograniczonym kącie świecenia oraz światło kierunkowe.
+Silnik obsługiwał będzie najpopularniejsze rodzaje świateł takie jak punktowe o pełnym oraz ograniczonym kącie świecenia, oraz światło kierunkowe.
 Model oświetlenia operował będzie na podstawach fizycznych i uwzględniał okluzje ambientową, a także rzucanie cieni przez obiekty blokujące promienie świetlne.
 Wreszcie stworzony zostanie importer pozwalający na wygodne wczytywanie modeli oraz generowanie siatek na podstawie map wysokości.
-Logika renderowania wraz ze wszystkimi pośrednimi krokami stworzonymi na potrzeby potoku pozostanie niewidoczna, podlegać będzie jednak koniguracji.
+Logika renderowania wraz ze wszystkimi pośrednimi krokami stworzonymi na potrzeby potoku pozostanie niewidoczna, podlegać będzie jednak konfiguracji.
 \par
 Na potrzeby pracy stworzona zostanie aplikacja demo, stanowiąca weryfikację używalności biblioteki.
 Przybierze ona formę trójwymiarowej gry szachowej.
@@ -42,24 +44,24 @@ Będzie to równocześnie moment na refleksje na temat wyników, które udało s
 \section*{Zakres pracy}
 Ze względu na formę pracy magisterskiej i stosunkowo krótki czas rozwoju zakres projektu jest ograniczony.
 Same decyzja o stworzeniu biblioteki implikuje mnogość zagadnień do pokrycia - projektu interfejsu, funkcjonalności, ale także konieczność zapewnienia dokumentacji i jakości.
-Podjęta zostanie próbowa spełnienia każdego ze wspomnianych aspektów na zaawansowanym poziomie.
+Podjęta zostanie próba spełnienia każdego ze wspomnianych aspektów na zaawansowanym poziomie.
 Prawdopodobnym jest natomiast, że optymalna wydajność i wcielenie wszystkich wymagań, które współcześnie spełniają biblioteki do generowania grafiki wiązało będzie się z koniecznością dalszego rozwoju.
 Nie mniej jednak przypadek użycia, który podjęto się w pracy spełnić wymaga stosunkowo niedużego rozwiązania, co pozytywnie wpłynie na szansę spełnienia postawionych celów.
 \section*{Struktura pracy}
-Praca podzielona jest jest na pięć rozdziałów. 
+Praca podzielona jest na pięć rozdziałów. 
 W idei ma to pomóc czytelnikowi płynnie przejść od zrozumienia rynku, przez dostępne rozwiązania do ich analizy i refleksji nad możliwościami.
-Pozwoli to lepiej oddać problem, który postawiono w pracy i cel będący reakcją na braki istniejące w współcześnie używanych produktach.
+Pozwoli to lepiej oddać problem, który postawiono w pracy i cel będący reakcją na braki istniejące we współcześnie używanych produktach.
 \par
 Pierwszy rozdział pełni rolę wprowadzenia do grafiki komputerowej.
 Przybliża on nieco jak wyglądała ewolucja dziedziny.
 Charakteryzuje główne nurty widoczne w branży, pojawiające się na przestrzeni czasu.
-Stara się także przekazać abstrakcje na których operują biblioteki graficzne i wykorzystywane przez nie akcelatory sprzętowe.
+Stara się także przekazać abstrakcje, na których operują biblioteki graficzne i wykorzystywane przez nie akcelatory sprzętowe.
 Wyjaśnia przebieg potoku renderowania i etapów, które wchodzą w jego skład.
 \par
 Kolejny rozdział stanowi przejście do właściwiej części pracy.
-Opisuje kolejno źródła, które użyto do zgromadzenia wiedzy.
+Opisuje kolejno źródła użyte do zgromadzenia wiedzy.
 Przedstawia obecne rozwiązania zebrane na podstawie przeglądu i sposób ich klasyfikacji, dokonując przy tym porównania.
-Zagłebia się także w technologie dostępne w ekosystemie Apple, służące zarówno do tworzenia aplikacji, jak i używane do interakcji z procesorem graficznym.
+Zagłębia się także w technologie dostępne w ekosystemie Apple, służące zarówno do tworzenia aplikacji, jak i używane do interakcji z procesorem graficznym.
 Podjęte kroki pozwolą obnażyć braki występujących na rynku produktów, jednocześnie argumentując sens rozwijania pracy.
 \par
 Dalszy rozdział odpowiada za opis najistotniejszej części pracy.
@@ -67,14 +69,14 @@ Przedstawiona zostanie w nim autorska wizja współczesnej biblioteki graficznej
 Omówienie dotknie najważniejsze aspekty z punktu widzenia użytkownika takie jak forma dystrybucji, interfejs programistyczny, a także dokumentację projektu.
 W celu oddania pełnego obrazu wyjaśniona zostanie architektura w formie interakcji między komponentami, a także sam potok renderowania wykonywany na GPU. 
 Naturalnie, zadaniem bibliotek jest rozwiązywanie pewnych problemów, więc pokazane zostaną możliwości funkcjonalne.
-Wreszcie rozprawa podejmię tematykę jakości, optymalizację procesów i potrzebnej do niej automatyzacji.
+Wreszcie rozprawa podejmie tematykę jakości, optymalizację procesów i potrzebnej do niej automatyzacji.
 \par
 Czwarty rozdział demonstruje przykład użycia.
 W tym celu stworzona została natywna aplikacja macOS będąca kompletną implementacją gry szachowej.
-Stanowi to formę weryfikacji możliwości projektu zarówno pod kątem funkcjonalnym, wydajnościowym jak i jakościowym.
+Stanowi to formę weryfikacji możliwości projektu zarówno pod kątem funkcjonalnym, wydajnościowym, jak i jakościowym.
 Przedstawione zostaną także wnioski, które nasunęły się podczas rozwoju.
 \par 
 Ostatni rozdział podsumowuje pracę.
 Ma za zadanie subiektywnie ocenić czy postawione zadanie spełniło pierwotne założenia.
 Jest jednocześnie momentem na krytyczne spojrzenie w kierunku wykonanych prac.
-Ponownie rozważony zostanie dobór technologii, decyzji architektonicznych by następnie wskazać wszelkie uchybienia i sugestie co do dalszego kierunku rozwoju.
+Ponownie rozważony zostanie dobór technologii, decyzji architektonicznych, by następnie wskazać wszelkie uchybienia i sugestie co do dalszego kierunku rozwoju.
