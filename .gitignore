@@ -6,9 +6,6 @@
 distribution
 auxilary
 
-# IDE
-.vscode
-
 # Build artifacts
 *.log
 *.aux
