@@ -1,30 +1,30 @@
 \section{Interfejsy programistyczne}
 Ostatnim aspektem wymagającym uwagi podczas analizy bibliotek wykorzystujących akcelerację sprzętową jest interfejs dostępu do zasobów karty graficznej.
-Interakcja z akcelarotorem podzielona może być na dwa obszary.
+Interakcja z akceleratorem podzielona może być na dwa obszary.
 Pierwszy to faktyczne wykorzystanie mocy obliczeniowej do wykonania spersonalizowanych programów - shaderów lub coraz bardziej popularnych obliczeń na tensorach czy strukturach akceleracji dla ray tracingu.
 W tym celu posłużyć należy się także wyspecjalizowanym językiem.
-Posostała część API odpowiedzialna jest za umożliwienie użytkownikowi dostarczenie ów programu, a także wszystkich zasobów potrzebnych do jego działania w formie buforów oraz tekstur.
+Pozostała część API odpowiedzialna jest za umożliwienie użytkownikowi dostarczenie ów programu, a także wszystkich zasobów potrzebnych do jego działania w formie buforów oraz tekstur.
 Ta część oddana jest za pośrednictwem biblioteki do języka wysokiego poziomu.
 \par
 Współczesne API w miarę upływu czasu wydają się zbliżać do siebie coraz bardziej.
 Wynika to bezpośrednio ze wspólnego trendu wraz z którym podążają dostępne rozwiązania.
-Wnikliwe porównanie obrazujące skalę podobieństw odnaleźc można między innymi jako publikację na łamach blogu \textit{alain.xyz}~\cite{alain_modern_graphics_comparison}.
-Wspomnianym trendem tak - jak wyjaśniono we wprowadzeniu - jest chęć oddania możliwie jak najniżejpoziomowo sposób w który operują jednoski graficzne.
+Wnikliwe porównanie obrazujące skalę podobieństw odnaleźć można między innymi jako publikację na łamach blogu \textit{alain.xyz}~\cite{alain_modern_graphics_comparison}.
+Wspomnianym trendem tak - jak wyjaśniono we wprowadzeniu - jest chęć oddania możliwie jak najniżejpoziomowo sposób w który operują jednostki graficzne.
 Asynchroniczna natura wykonywania operacji na GPU i chęć minimalizacji ilości synchronizacji pomiędzy GPU i CPU sprawia, że wszystkie nowoczesne API kolejkują zadania i wysyłają je partiach.
 \par
-Obecnie do dyspozyji programistów Apple oddana jest możliwość skorzystania z dwóch API.
+Obecnie do dyspozycji programistów Apple oddana jest możliwość skorzystania z dwóch API.
 Są to OpenGL będący ogólnym standardem wspieranym przez wiele platform oraz Metal, który zaprojektowany został jako autorskie rozwiązanie Apple.
-Pomimo popularności na innych platformach najświęższy standard graficzny opublikowany przez grupę Khronos - Vulkan - pozostaje niedostępny.
+Pomimo popularności na innych platformach najświeższy standard graficzny opublikowany przez grupę Khronos - Vulkan - pozostaje niedostępny.
 \subsection{OpenGL}
 Najnowsza wersja dostępna na stacjonarnej platformie to opublikowane w 2010 roku OpenGL 4.1.
 W przypadku urządzeń mobilnych jest to OpenGL ES 3.0, które pomimo zbieżności wielu zbieżności pozostaje podzbiorem stacjonarnego odpowiednika.
-W 2022 roku nadal istnieje możliwośc stworzenia aplikacji opartej o OpenGL, choć rozwiązanie uznane jest jako przestarzałe i niewspierane od 2018 roku.
+W 2022 roku nadal istnieje możliwość stworzenia aplikacji opartej o OpenGL, choć rozwiązanie uznane jest jako przestarzałe i niewspierane od 2018 roku.
 \par
 Brak wsparcia nie musi stanowić o słabości produktu jednak w przypadku OpenGL największą wadą jest przestarzałe podejście do komunikacji z GPU.
 W przeciwieństwie do nowoczesnych API, które synchronizują zadania CPU oraz GPU w zminimalizowany sposób OpenGL dokonuje tego znacznie częściej.
 Każdorazowe wywołanie funkcji oznacza wykonanie zapytania do GPU.
 \par
-Pewną niedogoność stanowi także fakt, iż OpenGL oparty był o język C.
+Pewną niedogodność stanowi także fakt, iż OpenGL oparty był o język C.
 Z tego względu wszystkie jego wywołania mają proceduralny charakter i powodują dysonans w obiektowym kodzie stworzonym w Objective-C czy Swift.
 Korzystania nie ułatwia także fakt, że zasoby uzyskane z GPU bez względu na przeznaczenie i typ przekazywane są do użytkownika za pomocą zmiennej całkowitej.
 Na programiście spoczywa konieczność stworzenia abstrakcji wokół pozyskanego numeru.
@@ -39,7 +39,7 @@ Jego premiera miała miejsce w 2014 roku.
 Początkowo współistniał on wraz z OpenGL 4.1, natomiast wraz z premierą macOS Mojave traktowany jest jako główne API.
 \par
 Funkcjonalnie nie wyróżnia się w stosunku do innych popularnych API, takich jak Vulkan czy DirectX.
-Wszystkie obecnie stosują podejście kolejkowego przetwarzania zadań i minimalizują ilość udostępnianch funkcji.
+Wszystkie obecnie stosują podejście kolejkowego przetwarzania zadań i minimalizują ilość udostępnianych funkcji.
 Z punktu widzenia producenta obecna sytuacja jest jednak wyjątkowo korzystna.
 Apple samo zarządza standardem, a fakt, że stało się także architektem układów graficznych sprawia, że są oni w stanie uzyskać optymalna wydajność.
 \par

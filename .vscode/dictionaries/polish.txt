@@ -1,6 +1,8 @@
 akcelerowana
 bitangensa
 interfejsowania
+kolejkują
+najniżejpoziomowo
 obiektowości
 parametryzowane
 powiązywany
@@ -9,6 +11,9 @@ protokołowo
 robotycznego
 rasteryzacja
 rasteryzacji
+shaderów
+tracingu
+uniewrażliwi
 wersjonowaniu
 wielopróbkowanie
 wielopróbkowania
