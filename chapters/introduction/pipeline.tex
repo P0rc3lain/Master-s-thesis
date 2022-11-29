@@ -3,7 +3,7 @@ Moc obliczeniowa karty graficznej wykorzystywana może być w dwojaki sposób.
 Pierwszy, coraz częściej spotykany polega na użyciu procesora grafiki w celu przeprowadzenia dowolnych rachunków o charakterze współbieżnym.
 Służy to odciążeniu zasobów procesora CPU przy jednoczesnym zwiększeniu wydajności ze względu na oddelegowanie pracy do jednostki będącej lepiej przystosowaną do tego typu zadania.
 Idea określana jest mianem GPGPU \eng{General-Purpose GPU}, a więc służy wykonaniu pracy nienastawionej bezpośrednio na tworzenie obrazu.
-Drugi, tradycyjny typ użycia to skorzystanie z wbudowanego potoku renderowania.
+Drugi, tradycyjny typ użycia to skorzystanie ze wbudowanego potoku renderowania.
 Choć interfejsy API charakteryzują się subtelnymi różnicami, to kroki obecne podczas procesu pozostają niezmienne.
 \par
 Potok renderowania przedstawiony i omówiony zostanie na podstawie ilustracji dotyczącej specyfikacji technologii Metal.
@@ -97,7 +97,7 @@ Jeśli dla zadanego fragmentu wartość w buforze maski wynosi \textit{1} wówcz
 \end{figure}
 \paragraph*{Test głębi \eng{Depth Test}}
 W dalszej kolejności wykonywany jest test widoczności.
-Jego celem jest sprawdzenie czy dany fragment nie został przesłonięty przez inny.
+Jego celem jest sprawdzenie, czy dany fragment nie został przesłonięty przez inny.
 Zachodzi potrzeba, aby karta graficzna skorzystała z dodatkowego bufora.
 Wartości w nim przechowywane odpowiadają odległości poszczególnych fragmentów od obiektywu kamery.
 Im dalej się on znajduje - tym liczba jest większa.
@@ -116,7 +116,7 @@ Widoczny fragment powiązywany jest z wartością \textit{prawda}, \textit{fałs
 Ostatnim krokiem w procesie renderowania jest mieszanie.
 Uruchamiane jest ono zawsze, jednak zauważalne rezultaty przynosi w przypadku gdy kolor zadanego fragmentu charakteryzuje się stopniem przeźroczystości.
 W celu wykonania obliczenia rozpatrywany jest wynik widoczności po procesie testowania głębi, kolor nowo wygenerowanego fragmentu oraz ten, który już znajduje się w buforze.
-Przez wzgląd na brak przemienności operacji istotnym jest aby charakteryzujące się przeźroczystością modele wyrysowywane były od znajdującego się najdalej kamery do najbliższego.
+Przez wzgląd na brak przemienności operacji istotnym jest, aby charakteryzujące się przeźroczystością modele wyrysowywane były od znajdującego się najdalej kamery do najbliższego.
 \paragraph*{Bufor wyjścia \eng{Attachment}}
 W podstawowym przypadku na bufor wyjścia składają się bufory koloru, głębi oraz szablonu. 
 Nie jest jednak to jedyna dozwolona kombinacja.
@@ -126,11 +126,11 @@ Załączników koloru natomiast może występować większa ilość.
 \par
 Opisany powyżej przepływ wierzchołków modelu przez poszczególne etapy generowania klatki utożsamiany powinien być z pojęciem \textit{single-pass rendering}. 
 Termin oznacza, że stworzenie obrazu z modelem reprezentowanym w finalnej formie potrzebuje uruchomienia potoku dokładnie jeden raz.
-Współcześnie tego rodzaju podejście jest rzadko stosowane.
-Wynika to zarówno z wynalezienia bardziej efektywnych technik renderowania - poprzez zwiększenie ilości wywołania potoku z mniej wymagającymi obliczeniami, co charakteryzuje się wyższą wydajnością.
-Ponadto, chęć polepszenia walorów wizualnych wymaga generowania tymczasowych, pośrednich klatek.
+Podejście nadal wykorzystywane jest powszechnie w przypadku nanoszenia siatek opisanych przy pomocy materiałów charakteryzujących się przeźroczystością.
+Innym przykładem może być chęć zapewnienia obiektowi unikalnych w stosunku do reszty sceny, odmiennych od przyjętego standardowego modelu oświetlenia walorów wizualnych.
+\par
+Rozważając jednak przypadek, gdzie większość obiektów korzysta ze wspólnego oświetlenia, stwierdzić należy, że tego rodzaju podejście ma ograniczone zastosowanie.
+Wynika z faktu wynalezienia bardziej efektywnych technik renderowania - poprzez zwiększenie ilości wywołania potoku z mniej wymagającymi obliczeniami, co charakteryzuje się wyższą wydajnością.
+Ponadto, chęć polepszenia walorów wizualnych wymaga użycia tymczasowych, pośrednich klatek.
 W efekcie okazuje się, że stworzenie pojedynczego wycinka animacji wiązać się może z dziesiątkami wywołań potoku.
 Nie mniej jednak przywołanie podstawowej formy algorytmu pozwala wyjaśnić jaka koncepcja stoi za utylizacją GPU.
-% Tutaj opisać, że mimo wszystko nie tłumaczone było to na marne bo potok jest cały czas używany
-% Dodatkowo wskazać, że teraz te dwie formy renderowania się przenikają bo mamy rendering hybrydowy
-% Opisz jakie gałęzie matematyki są najczęściej wykorzystywane

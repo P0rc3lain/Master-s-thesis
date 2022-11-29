@@ -1,12 +1,11 @@
 \section{Organizacja obiektów}
-% Wyjaśnienie podstawowych pojęć opisu elementów na scenie
 Generowania dwuwymiarowych obrazów za pomocą komputera przypomina proces tworzenia filmów.
 Nie dziwi więc fakt, że znaczna część pojęć używanych w odniesieniu do zawartości klatki czerpie właśnie z niego.
 Nadrzędnym elementem zawierającym w sobie wszystkie pomniejsze jest scena.
 W niej zorganizowani są aktorzy rozumiani jako postacie bezpośrednio mające wpływ na akcje, jak i pozostałe fragmenty scenerii stanowiące tło.
 Za uwiecznienie toczących się wydarzeń odpowiedzialne są kamery, które przedstawiają świat z różnych perspektyw.
 W zależności od wizji twórczej ich ilość może być zmienna, zawsze jednak tylko jedna rozpatrywana jest jako aktywna, a więc przekazująca aktualny obraz.
-Niezbędnym elementem, który konieczny jest, aby obserwator był w stanie dostrzec cokolwiek jest źródło światła.
+Niezbędnym elementem, który konieczny jest, aby obserwator był w stanie dostrzec cokolwiek, jest źródło światła.
 Zaliczamy do nich wszystkie emitery, takie jak słońce, księżyc, ogień, czy żarówki elektryczne.
 \par Początkowo implementacja idei była bezpośrednia. 
 Struktura sceny była płaska, a obiekty były od siebie niezależne.
@@ -17,7 +16,7 @@ W tym celu rozważony zostanie fragment krótkiego scenariusza.
     \centering 
     \q{Człowiek porusza się po lesie zbierając jagody do koszyka}
 \end{quote}
-Pragnąc zrealizować animację za pomocą komputera należałoby przygotować kilka modeli - lasu, człowieka, koszyk oraz jagody.
+Realizując animację za pomocą komputera należałoby przygotować kilka modeli - lasu, człowieka, koszyk oraz jagody.
 Podział w ten sposób podyktowany jest chęcią sprawienia, aby modele były możliwe do użycia w innych konfiguracjach - sceneria pola zamiast lasu, poziomki w miejsce jagód.
 Dodatkowo, uczynienie ich niepodległymi sobie sprawia, że modyfikacja ich położenia jest ułatwiona. 
 Zakładając, że nie istnieje relacja posiadania pomiędzy obiektami ruch jagód, człowieka oraz koszyka byłby od siebie niezależny.
