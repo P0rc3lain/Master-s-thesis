@@ -17,13 +17,14 @@ Wśród wielu możliwych do najważniejszych zaklasyfikować możemy cechy produ
     \item Czy kod źródłowy jest otwarty?
     \item Jakie przypadki użycia realizuje?
     \item Jak wygląda kwestia rozszerzalności?
+    \item Jak przebiega integracja?
 \end{itemize}
 \vspace{-0.5\topsep}
 Znalezienie odpowiedzi pozwoli oszacować, które obszary branży pokryte są przez istniejące rozwiązania.
 Dodatkowo, umożliwi dostrzeżenie nie tylko silnych stron, ale także nisz, które kryją w sobie potencjał i mogłyby skorzystać z ulepszeń.
 \subsection{Biblioteki multiplatformowe}
 Jedną z dwóch możliwości dystrybucji oprogramowania jest forma multiplatformowa.
-W założeniu polega ona stworzeniu jednego rozwiązania dostępnego na co najmniej dwóch platformach.
+W założeniu polega ona na stworzeniu jednego rozwiązania dostępnego na co najmniej dwóch platformach.
 Warto podkreślić, że chodzi tutaj o architekturę w której istnieje część wspólna - w rozpatrywanym znaczeniu nie należy uwzględniać oprogramowania realizującego identyczne funkcje, ale za pomocą ponownej implementacji przy użyciu natywnych technologii.
 Obszar współdzielony tworzony jest w technologi dostępnej na każdej ze wspieranych platform.
 Dodatkowo, ponad warstwą centralną znajduje się warstwa specyficzna dla platformy.
@@ -39,9 +40,9 @@ Przykładowo programista systemu Android oczekiwał będzie API w formie bibliot
 \par
 Głównym argumentem stojącym za budowaniem oprogramowania w sposób multiplatformowy jest chęć zwiększenia grona odbiorców.
 Dla konsumenta technologii jest to niewątpliwa zaleta, natomiast narzuca to na twórców dodatkową prace związaną z koniecznością uwzględnienia wpływu zmiany na wszystkie dostępne warianty.
-Dodatkowo, konieczność wprowadzenia generalizacji wiąże się z narzutem związanym z wydajnością. 
+Dodatkowo, wprowadzenie generalizacji wiąże się z narzutem związanym z wydajnością. 
 Kolejnym aspektem, który należy wziąć pod uwagę jest sposób i jakość integracji z natywnym środowiskiem.
-Chodzi tutaj o kwestię czy interfejs biblioteki dla końcowej platformy uwzględnia konwencje na niej stosowane i jak łatwe możliwe jest jego zintegrowanie.
+Chodzi tutaj o kwestię czy interfejs biblioteki dla końcowej platformy uwzględnia konwencje na niej stosowane i jak łatwe jest jego zintegrowanie.
 \subsubsection{Unity}
 Najpopularniejszym silnikiem grafiki trójwymiarowej na platformie iOS jest Unity.
 Stworzony został z myślą o produkcji gier wideo.
@@ -54,8 +55,8 @@ Do najpoważniejszych zaliczyć można brak możliwości zmiany ekranu ładowani
 Z drugiej strony Unity to twór kompletny - pozwala na tworzenie w technologiach 2D, 3D, VR oraz AR.
 Posiada zintegrowane moduły do obsługi fizyki, dźwięku, kontrolerów, analityki użycia, a także reklam.
 \par
-Choć od strony funkcjonalnej rozwijany jest w języku C++ to użytkownik dokonuje interakcji za pomocą C\#.
-W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja, której użytkownik chce dokonać w rozgrywce gry jest błyskawiczna.
+Choć rozwijany jest w języku C++ to użytkownik dokonuje interakcji za pomocą C\#.
+W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja, której użytkownik chce dokonać w rozgrywce gry była błyskawiczna.
 Mono - framework wykorzystywany przez Unity w tym celu - ma jednak pewne mankamenty.
 Przede wszystkim użytkownicy narzekają na okazjonalne przycięcia w grach wynikające ze sposobem zarządzania pamięci przez technologię.
 Dziwić może także sama obecność C\#.
@@ -64,22 +65,22 @@ Na obronę jednak przyznać należy, że grę w unity można stworzyć bez znajo
 \par
 Dodatkowo, Unity jest rozszerzalne. 
 Dokonać można tego za pomocą pluginów występujących w dwóch formach.
-Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgeneralizowany oferujący zgeneralizowaną funkcjonalność.
+Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgeneralizowany oferujący funkcjonalność dla wielu platform.
 \par
-Pomimo faktu, że Unity jest stale rozwijane to brakuje grafika wydaje się odstawać od konkurencji.
-Podkreślić należy, że potok renderowania silnika jest konfigurowalny, więc jeśli grafika dla odbiorcy jest niezadowalający istnieje możliwość dokonania korekcji we własnym zakresie.
-Otwiera to także możliwość stworzenia zupełnie unikalnego stylu graficznego.
-Unity choć opiera się o PBR to za pomocą własnych programów cieniujących istnieje możliwość nadania własnego charakteru.
+Pomimo, że Unity jest stale rozwijane to grafiki wydaje się odstawać od konkurencji.
+Podkreślić należy, że potok renderowania silnika jest konfigurowalny, więc jeśli jakość dla odbiorcy jest niezadowalający istnieje możliwość dokonania korekcji we własnym zakresie.
+Otwiera to także możliwość stworzenia zupełnie unikalnego stylu graficznego, choć zaakceptować należy wysoki poziom wymaganej wiedzy do osiągnięcia tego celu.
+% Unity choć opiera się o PBR to za pomocą własnych programów cieniujących istnieje możliwość nadania własnego charakteru.
 \par
-Sama dokumentacja projektu stoi na wysokim poziomie.
+Sama dokumentacja stoi na wysokim poziomie.
 Obfita jest w liczne przykładowe projekty i zawiera sugestie co do sposobu implementacji pewnych funkcjonalności w sposób zgodny z pierwotną wizją autorów.
 % Napisać, że w sumie wymusza to wykorzystanie dodatkowego ide, a nawet dwóch
 \par
 Pierwotnie cała interakcja warstwy gry oraz silnika obsługiwana była za pomocą skryptów C\#.
 Na przestrzeni lat rozwinięto jednak interfejs graficzny środowiska, a także dodano możliwość konfigurowania przebiegu rozgrywki za pomocą programowania wizualnego.
 W założeniu podobne jest to nieco do schematów blokowych używanych w celu objaśniania algorytmów.
-Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier osobom nie będącym znajomym z programowaniem.
-Choć pomysł może wydawać się oszczędzać czas i ułatwiać rozwój to wiele osób nadal niechętnie korzysta z rozwiązania.
+Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier osobom niebędącym znajomym z programowaniem.
+Pozornie pomysł może wydawać się oszczędzać czas i ułatwiać rozwój to wiele osób nadal niechętnie korzysta z rozwiązania.
 W głównej mierze podyktowane jest to bardzo kiepską przejrzystością zmian dokonanych przez użytkowników w systemach kontroli wersji.
 Równie często przywoływany jest także argument wskazujący na trudność w odnajdywaniu się w logice stworzonej przy pomocy programowania wizualnego.
 Równoważna implementacja w formie skryptu przywoływana jest jako bardziej przejrzysta i łatwiejsza do objęcia zrozumieniem.
@@ -89,14 +90,19 @@ Szablon pustego projektu wiąże się z koniecznością posiadania około 20 MB 
 Natywny, pusty projekt iOS to zaledwie około 1 MB.
 Wydawać może się, że to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie narzut wagi powinien być ograniczony do minimum.
 % Napisać, że zwykle unity wykorzystuje się do stworzenia aplikacji wykorzystująca silnik do rozważenia każdego aspektu, rzadko jako wstawkę
-% Unity is all but tailor-made for mobile
-% requires optimization, takes lots of space
-% lots of poor performance assets
-% Not so good visuals
-% Lack of support for networking
-% Uses mono for scripting, so engine is in c++ but scripting in c#
-% performance issues related to mono
-% closed source - access is possible but fees are great 
+\par
+Pewną charakterystyką większości silników do gier, włącznie z Unity, jest zapewnianie użytkownikowi własnego środowiska programistycznego.
+Dodać należy, że nie jest ono alternatywą dla preferowanego edytora.
+Potrafi znacznie więcej niż pomoc w pisaniu skryptów.
+Za jego pomocą importować można zasoby takie jak modele czy muzyka i określać zależności pomiędzy nimi a obiektami używanymi w algorytmach skryptowych. 
+Oprogramowanie jest także kluczowe w momencie, kiedy przychodzi czas wygenerowania paczek dla platform docelowych. 
+Właściwie twórca nie musi znać nawet podstaw programowania każdego ze wspieranych systemów.
+Silnik gry jest w stanie za niego wykonać wszystkie pośrednie kroki i dostarczyć gotowy plik binarny.
+W przypadku platformy iOS czy macOS oznacza to, że projekty w formacie natywnym dla XCode są ulotne i generowane na nowo przy każdym eksporcie z Unity.
+\par
+Opisany powyżej sposób rozwijania aplikacji sprawia, że niebywale trudno wykorzystać jest silniki graficzne tylko w wycinku funkcjonalności.
+Dedykowane są one do obsłużenia całości aplikacji od interfejsu, po warstwę sieciową aż po interakcje z komponentami platformy jak kamera czy żyroskop.
+O ile w przypadku produkcji gier podejście nie budzi zastrzeżeń, o tyle niebywale nierozsądne byłoby opierać całą aplikację użytkową o silnik tylko w celu skorzystania z jego możliwości renderowania.
 \begin{figure}
     \begin{center}
         \includegraphics[width=10cm]{images/engines/unity/example-game.png}
