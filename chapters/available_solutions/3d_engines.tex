@@ -26,7 +26,7 @@ Jedną z dwóch możliwości dystrybucji oprogramowania jest forma multiplatform
 W założeniu polega ona stworzeniu jednego rozwiązania dostępnego na co najmniej dwóch platformach.
 Warto podkreślić, że chodzi tutaj o architekturę w której istnieje część wspólna - w rozpatrywanym znaczeniu nie należy uwzględniać oprogramowania realizującego identyczne funkcje, ale za pomocą ponownej implementacji przy użyciu natywnych technologii.
 Obszar współdzielony tworzony jest w technologi dostępnej na każdej ze wspieranych platform.
-Dodatkowo, ponad warstwą centralną znajduje się wartwa specyficzna dla platformy.
+Dodatkowo, ponad warstwą centralną znajduje się warstwa specyficzna dla platformy.
 Ma ona za zadanie oddać do użytku oprogramowanie uwzględniając różnice wynikające z innego systemu operacyjnego, a także technologii.
 Przykładowo programista systemu Android oczekiwał będzie API w formie biblioteki JAVA lub Kotlin, zaś twórca aplikacji iOS powinien mieć dostęp za pośrednictwem języków Swift czy Objective-C.
 \begin{figure}
@@ -69,16 +69,16 @@ Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgene
 Pomimo faktu, że Unity jest stale rozwijane to brakuje grafika wydaje się odstawać od konkurencji.
 Podkreślić należy, że potok renderowania silnika jest konfigurowalny, więc jeśli grafika dla odbiorcy jest niezadowalający istnieje możliwość dokonania korekcji we własnym zakresie.
 Otwiera to także możliwość stworzenia zupełnie unikalnego stylu graficznego.
-Unity choć opiera się o PBR to za pomocą własnych programów cieniujących istnieje możliwośc nadania własnego charakteru.
+Unity choć opiera się o PBR to za pomocą własnych programów cieniujących istnieje możliwość nadania własnego charakteru.
 \par
 Sama dokumentacja projektu stoi na wysokim poziomie.
 Obfita jest w liczne przykładowe projekty i zawiera sugestie co do sposobu implementacji pewnych funkcjonalności w sposób zgodny z pierwotną wizją autorów.
-% Napisać, że w sumie wymusz to wykorzystanie dodatkowego ide, a nawet dwóch
+% Napisać, że w sumie wymusza to wykorzystanie dodatkowego ide, a nawet dwóch
 \par
 Pierwotnie cała interakcja warstwy gry oraz silnika obsługiwana była za pomocą skryptów C\#.
 Na przestrzeni lat rozwinięto jednak interfejs graficzny środowiska, a także dodano możliwość konfigurowania przebiegu rozgrywki za pomocą programowania wizualnego.
 W założeniu podobne jest to nieco do schematów blokowych używanych w celu objaśniania algorytmów.
-Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwośc tworzenia gier osobom nie będącym znajomym z programowaniem.
+Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier osobom nie będącym znajomym z programowaniem.
 Choć pomysł może wydawać się oszczędzać czas i ułatwiać rozwój to wiele osób nadal niechętnie korzysta z rozwiązania.
 W głównej mierze podyktowane jest to bardzo kiepską przejrzystością zmian dokonanych przez użytkowników w systemach kontroli wersji.
 Równie często przywoływany jest także argument wskazujący na trudność w odnajdywaniu się w logice stworzonej przy pomocy programowania wizualnego.
@@ -87,7 +87,7 @@ Równoważna implementacja w formie skryptu przywoływana jest jako bardziej prz
 Za minus można uznać też narzut w kwestii wagi aplikacji.
 Szablon pustego projektu wiąże się z koniecznością posiadania około 20 MB wolnej przestrzeni.
 Natywny, pusty projekt iOS to zaledwie około 1 MB.
-Wydawać może się, że to niestotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie narzut wagi powinien być ograniczony do minimum.
+Wydawać może się, że to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie narzut wagi powinien być ograniczony do minimum.
 % Napisać, że zwykle unity wykorzystuje się do stworzenia aplikacji wykorzystująca silnik do rozważenia każdego aspektu, rzadko jako wstawkę
 % Unity is all but tailor-made for mobile
 % requires optimization, takes lots of space
@@ -110,7 +110,7 @@ Wydawać może się, że to niestotne, jednak z uwagi na fakt, że aplikacje mob
 % Posiada UI do tworzenia gry - node'y, animacje
 % Napisać, że jak chcemy interfejsować z silnikiem to trzeba pisać pluginy do godota
 % Posiada visual scripting za pomocą bloków
-% używa GDScript do skryptowania, można skryptowac C sharp albo C++
+% używa GDScript do skryptowania, można skryptować C sharp albo C++
 % Napisać, że obecnie jest w wersji 4
 % Napisać, że godot jest właściwie vulkan only
 % działa na macos i apple silicon od wersji 3.3 - ale wtedy opierało się to na opengl
@@ -176,10 +176,10 @@ Wydawać może się, że to niestotne, jednak z uwagi na fakt, że aplikacje mob
 
 \subsection{Biblioteki natywne}
 Alternatywą do multiplatformowych rozwiązań są biblioteki natywne.
-Zaliczyć do tej grupy możemy produkty dostępne tylko i wyłącznie na pojedynczej platformie lub te, które dostępne są na wielu, lecz każdy warient zbudowany jest od początku z myślą o platformie.
+Zaliczyć do tej grupy możemy produkty dostępne tylko i wyłącznie na pojedynczej platformie lub te, które dostępne są na wielu, lecz każdy wariant zbudowany jest od początku z myślą o platformie.
 Pomimo, że wsparcie pojedynczego środowiska stanowi ograniczenie przez wzgląd na dużo mniejszą grupę odbiorców w stosunku do wieloplatformowych odpowiedników to przynosi także korzyści.
-Do najwazniejszych zaliczyć możemy możliwośc uzyskania optymalnej wydajności, większą intuicyjność wynikającą z możliwości tworzenia interfejsu dostosowanego do przyjętych konwencji.
-Dodatkowo, pozwalają na dostęp do wszystkich funkcjonalności platformy i są łatwiejsze w debugowaniu przez wzląd na fakt, że stworzone są w oparciu o natywne technologie.
+Do najważniejszych zaliczyć możemy możliwość uzyskania optymalnej wydajności, większą intuicyjność wynikającą z możliwości tworzenia interfejsu dostosowanego do przyjętych konwencji.
+Dodatkowo, pozwalają na dostęp do wszystkich funkcjonalności platformy i są łatwiejsze w debugowaniu przez wzgląd na fakt, że stworzone są w oparciu o natywne technologie.
 
 \subsubsection{SceneKit}
 \begin{figure}
@@ -198,7 +198,7 @@ Dodatkowo, pozwalają na dostęp do wszystkich funkcjonalności platformy i są 
     \label{fig:scenekit-example-game}
 \end{figure}
 Debiut rozwiązania nastąpił w 2012 roku. 
-Za projekt i wykonanie odpowiedzialna jest firma Apple, której urządzenia stanowią jedyną decelową grupę odbiorców oprogramowania.
+Za projekt i wykonanie odpowiedzialna jest firma Apple, której urządzenia stanowią jedyną docelową grupę odbiorców oprogramowania.
 Początkowo wsparcie ograniczało się do platformy OS X, rozszerzenie dostępności na urządzenia mobilne została odroczone do 2014 roku.
 Na przestrzeni lat dodano również wsparcie dla watchOS oraz tvOS.
 \par
@@ -207,17 +207,17 @@ Jest to możliwość kontroli audio oraz integracja silnika fizycznego.
 W przeciwieństwie do wiodących rozwiązań skierowanych do branży gier SceneKit nie pozwala na skryptowanie, ani programowanie wizualne.
 Niewątpliwą zaletą takiego stanu rzeczy jest znacznie łatwiej użytkownik biblioteki jest w stanie przyswoić sobie możliwości biblioteki.
 \par
-Myśląc o grupie decelowej wskazać można deweloperów tworzących gry typu indie - w niewielkiej grupie, z małym budżetem.
+Myśląc o grupie docelowej wskazać można deweloperów tworzących gry typu indie - w niewielkiej grupie, z małym budżetem.
 Ponadto, SceneKit świetnie sprawdza się w roli generatora grafiki trójwymiarowej w aplikacjach innych niż gry wideo.
-Z uwagi na fakt, że jest to technologia natywna bardzo łatwo wkomponowac można widoki z animowanymi scenami w aplikacje pełniącą inną funkcje niż rozrywkowa.
+Z uwagi na fakt, że jest to technologia natywna bardzo łatwo wkomponować można widoki z animowanymi scenami w aplikacje pełniącą inną funkcje niż rozrywkowa.
 Sam narzut w kwestii wielkości paczki również jest niewielki, co tylko potwierdza tezę.
 % Kod źródłowy projektu nie jest publiczny, jednak uzyskanie dostępu do plików binarnych biblioteki jest darmowe.
-% Nie podlega opłacie także wykorzystanie jej we własnym projekcie bez względu czy jego dalsza dystrubucja jest odpłatna.
+% Nie podlega opłacie także wykorzystanie jej we własnym projekcie bez względu czy jego dalsza dystrybucja jest odpłatna.
 \par
 Nie bez przyczyny wspomniano o dacie wydania biblioteki.
 Choć jej interfejs ewoluował i rozrastał się w miarę upływu lat to założenia pozostały niezmienione.
 2015 był rokiem kiedy podczas konferencji WWDC Apple zaprezentowało koncepcje, które sugerują programistom wykorzystującym język Swift.
-W głównej mierze ogólnić można je na zestaw sugestii, które sprawią, że kod będzie reużywalny, testowalny oraz przejrzysty.
+W głównej mierze uogólnić można je na zestaw sugestii, które sprawią, że kod będzie reużywalny, testowalny oraz przejrzysty.
 Je same postanowili także wcielić w swoje biblioteki i w miarę uaktualniania języka Swift i tworzenia nowych bibliotek rozszerzających funkcjonalności iOS Apple stawiało na luźne powiązania pomiędzy komponentami i testowalność.
 Niestety reforma ta nie dotknęła SceneKit.
 \par
@@ -227,13 +227,13 @@ Sytuację komplikuje fakt, że kod źródłowy jest zamknięty, więc użytkowni
 \par
 Pomimo, że Apple jest gigantem, ma ogromne dochody i przez wielu programistów traktowane jest jako miejsce w którym jakość jest najważniejsza to nadal w pewnych kwestiach można poczuć się zawiedzionym.
 Jednym w takich chwil jest spojrzenie na dokumentację SceneKit.
-Przyznać należy, że w siecie dostępnych jest wiele projektów demonstrujących działanie.
-Natomiast pozytywny obraz przyćmiewają wszyechobecne lakoniczne opisy odnoszące się do zawartości biblioteki.
+Przyznać należy, że w sieci dostępnych jest wiele projektów demonstrujących działanie.
+Natomiast pozytywny obraz przyćmiewają wszechobecne lakoniczne opisy odnoszące się do zawartości biblioteki.
 Niejednokrotnie klasy oraz ich zmienne posiadają wyjaśnienia w formie pojedynczych zdań, nie nadających im szerszego kontekstu.
 Odnieść można wrażenie, że jedyną drogą do zrozumienia pewnej puli z zaimplementowanych mechanizmów będzie wysnucie własnych wniosków na podstawie empirycznych doświadczeń.
 \subsubsection{ARKit}
 Wydanie ARKit było odpowiedzią na rosnące zainteresowanie branży technologią rozszerzonej rzeczywistości.
-Idea polega na wzbogacanie obrazu przechytywanego z kamery urządzenia o dodatkowe elementy 2D oraz 3D.
+Idea polega na wzbogacanie obrazu przechwytywanego z kamery urządzenia o dodatkowe elementy 2D oraz 3D.
 Podobnie jak w przypadku SceneKit jest to autorska biblioteka Apple.
 Choć część funkcjonalności współdzielona jest z SceneKit to firma deklaruje, iż rozwiązania nie są w żadnym stopniu powiązane ze sobą.
 \par
@@ -258,7 +258,7 @@ Nie istnieje możliwość wglądu do kodu, ani jego modyfikacji, jednak technolo
 Zaskakiwać może również, że w ARKit obsługuje jedynie iOS.
 Na pozostałych platformach nie występuje lub tak jak przypadku międzyplatformowej technologii \textit{mac catalyst} wywołania są ignorowane.
 Z jednej strony to zrozumiałe, ponieważ tylko telefony i tablety posiadają stosowne kamery spełniające wymagania.
-Z drugiej wyklucza to możliwośc wykorzystania ARKit do użycia w celu wygenerowania prostych scen 3D bez AR.
+Z drugiej wyklucza to możliwość wykorzystania ARKit do użycia w celu wygenerowania prostych scen 3D bez AR.
 \subsection{Pozostałe silniki}
 W celu dokonania rzetelnej oceny rynku dokonano także przeglądu projektów open source udostępnionych za pomocą platform github.com oraz gitlab.com.
 Kryterium, którego spełnienia oczekiwano była dostępność na wszystkie platformy Apple i możliwość uruchomienia biblioteki na najnowszych systemach operacyjnych.
@@ -269,7 +269,7 @@ Jako te będące w zaawansowanej formie rozwoju wyróżnić można https://githu
 Warto wspomnieć, że poza wymienionymi przykładami bibliotek oraz silników istnieje wiele innych alternatyw.
 Jako najpopularniejsze można przytoczyć tutaj jmonkey, urho3d, OGRE 3D, Amazon Lumberyard czy panda 3d.
 Wszystkie z nich oparte są o podejście open-source.
-Były to rozwiązania niegdyś popularne lub stale zwiększające swoje zasięgi jednak ze względu na konentracja pracy wokół platform Apple wyłączono je z dalszej analizy.
+Były to rozwiązania niegdyś popularne lub stale zwiększające swoje zasięgi jednak ze względu na koncentracja pracy wokół platform Apple wyłączono je z dalszej analizy.
 Głównie za sprawą skierowania jedynie na platformy stacjonarne lub wybrakowane wsparcie spowodowane zamknięciem się firmy Apple na API inne niż Metal.
 \par
 Sytuacja podobnie wygląda w przypadku produkcji takich jak CryEngine, Frostbite, RAGE czy Naughty Dog Game Engine.

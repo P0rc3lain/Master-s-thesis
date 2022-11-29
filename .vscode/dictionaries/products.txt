@@ -1,9 +1,13 @@
 battlezone
 crytek
+iosa
+jmonkey
 khronos
+opengl
 nextstep
 ssao
 thecherno
 ubisoft
+urho3d
 vulkan
 wwdc
