@@ -1,0 +1,21 @@
+\section*{Cel i założenia projektu}
+Za cel pracy przyjęto stworzenie natywnej biblioteki do generowania grafiki czasu rzeczywistego.
+Projekt pomagał będzie w implementacji prostej gry oraz wzbogacał szeroko rozumiane aplikacje użytkowe o warstwę trójwymiarową.
+Gama wspieranych urządzeń obejmowała będzie systemy Apple takie jak macOS, iOS oraz tvOS.
+Rozwiązanie oparte zostanie o język Swift 5 oraz interfejs programistyczny GPU Metal 3.
+Dystrybuowane zostanie w formie otwartej, wraz z dokumentacją opisującą założenia w sposobie interakcji.
+Projekt charakteryzował będzie się utylizacją trendów, takich jak wsparcie dla programowania reaktywnego czy zorganizowanie interfejsu wokół podejścia zorientowanego na protokoły.
+W założeniu pozwoli to nie tylko nadać charakter podobny do dostępnych bibliotek wykonujących odmienne funkcje, ale wpłynie pozytywnie na testowalność samej biblioteki, jak i rozwiązań ją wykorzystujących.
+\par
+Renderowanie grafiki udostępnione zostanie za pomocą interfejsu pozwalającego na aranżacje sceny.
+Użytkownik w zamyśle komponował będzie hierarchiczny, acykliczny graf skierowany, a elementy odpowiedzialne za węzły reprezentować będą odpowiednio siatki, transformacje, kamery i podlegać będą rozszerzaniu.
+Do dyspozycji zostanie oddany także moduł umożliwiający animację szkieletową oraz bryły sztywnej.
+Silnik obsługiwał będzie najpopularniejsze rodzaje świateł takie jak punktowe o pełnym oraz ograniczonym kącie świecenia, oraz światło kierunkowe.
+Model oświetlenia operował będzie na podstawach fizycznych i uwzględniał okluzję ambientową, a także rzucanie cieni przez obiekty blokujące promienie świetlne.
+Wreszcie stworzony zostanie importer pozwalający na wygodne wczytywanie modeli oraz generowanie siatek w oparciu o mapy wysokości.
+Logika renderowania wraz ze wszystkimi pośrednimi krokami stworzonymi w ramach potoku pozostanie niewidoczna, podlegać będzie jednak konfiguracji.
+\par
+Na potrzeby pracy stworzona zostanie aplikacja demo, stanowiąca weryfikację używalności biblioteki.
+Przybierze ona formę trójwymiarowej gry szachowej.
+Zaimplementowana logika będzie kompletna pod względem funkcjonalności.
+Będzie to równocześnie moment na refleksje na temat wyników, które udało się uzyskać i szansą na wskazanie kierunku dalszego rozwoju.
