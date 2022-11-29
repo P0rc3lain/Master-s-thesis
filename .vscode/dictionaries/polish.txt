@@ -1,11 +1,15 @@
 akcelerowana
 bitangensa
+interfejsowania
+obiektowości
 parametryzowane
 powiązywany
 predefiniowanych
+protokołowo
 robotycznego
 rasteryzacja
 rasteryzacji
+wersjonowaniu
 wielopróbkowanie
 wielopróbkowania
 zaniedbywalna

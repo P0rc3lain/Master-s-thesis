@@ -1,6 +1,8 @@
 actona
+bjarne
 fetera
 nikoleva
 phonga
 stompór
 stoyana
+stroustrup
