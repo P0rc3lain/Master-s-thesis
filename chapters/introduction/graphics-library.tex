@@ -1,0 +1,26 @@
+\section{Koncept biblioteki graficznej}
+Utworzenie standardów obsługi GPU takich jak \textit{OpenGL} czy \textit{Direct X} znacznie odciążyło twórców oprogramowania wykorzystujących trójwymiarowość.
+Umożliwiło im rozwijanie swoich pomysłów bez konieczności zapewnienia osobnego wsparcia dla każdego z dostępnych na rynku urządzeń.
+Rozwiązanie problemu obnażyło jednak inny, coraz mocniej widoczny na horyzoncie.
+Deweloperzy aplikacji i gier w miarę upływu czasu wytwarzali nowe produkty.
+Te jednak miały między sobą pewne podobieństwo, jakim było generowanie obrazu trójwymiarowego.
+Nieefektywnym było tworzenie szablonu modułu graficznego od zera dla każdej produkcji.
+Zarówno przez wzgląd na czas jakiego wymaga rozwój, jak i fakt, że oczekiwania w stosunku do możliwości charakteryzowały się podobieństwem.
+Wydaje się, że optymalnym rozwiązaniem byłoby wytworzenie kodu odpowiedzialnego za obsługę renderowania raz, a następnie używanie go we wszystkich innych produkcjach potrzebujących tej funkcjonalności.
+Jawne kopiowanie wymaganych fragmentów programu byłoby naiwne i obarczone wieloma problemami.
+Powszechną praktyką w takiej sytuacji jest stworzenie osobnego projektu skupiającego się na realizacji ściśle ograniczonych funkcji i dystrybuowanie go w formie biblioteki.
+Twórcom gier oraz aplikacji daje to możliwość poświęcenia uwagi faktycznemu budowaniu ich produktu, a nie infrastruktury potrzebnej do jego działania.
+Jednocześnie biblioteka potencjalnie zapewnić może wysoką jakość oraz wydajność przez wzgląd na powszechne przyjęcie.
+\par
+Zakres wymagań, który stawiany jest bibliotekom różni się w zależności od projektu.
+Przywołać można jednak kilka najważniejszych, przewijających się zawsze:
+\begin{itemize}
+    \item Nieprzytłaczające złożonością API
+    \item Dokumentacja obejmująca sygnatury funkcji i przykłady użycia
+    \item Wczytywanie modeli z pliku za pośrednictwem różnych formatów
+    \item Kreowanie sceny za pomocą kamer, świateł, siatek oraz materiałów
+    \item Manipulowanie obiektami na scenie
+    \item Możliwość dokonywania interakcji w czasie rzeczywistym z raz utworzoną sceną
+\end{itemize}
+Z uwagi na fakt, że współczesny trend skupiający się na tworzenia coraz bardziej efektownych, wolnych od błędów produktów sprawia, że firmy chcące stworzyć tytuł rzadziej decydują się na własnoręczny rozwój modułu graficznego.
+Naturalnym wnioskiem jest spostrzeżenie, że warto inwestować w te technologie, ponieważ rzesza potencjalnych odbiorców stale rośnie.
