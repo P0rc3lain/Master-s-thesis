@@ -162,7 +162,7 @@ Posiadając uprzednio zaaranżowaną scenę możliwe jest jej uwiecznienie.
 Przekład modeli opisanych w trójwymiarowym układzie współrzędnych na dwuwymiarowy obraz nazywamy renderowaniem.
 Początkowo algorytmy realizujące to zadanie w całości oparte były o wykorzystanie procesora CPU.
 Charakter operacji matematycznych wykonywanych na poszczególnych modelach występujących w ramach kadru pokazywał jednak, że są one powtarzalne i nie występują między nimi zależności.
-Naturalnym krokiem mającym na celu przyspieszenie operacji było stworzenie modułu, który za pomocą predefiniowanych operacji zrealizuje zadanie.
+Naturalnym krokiem mającym na celu przyspieszenie operacji było stworzenie modułu, który za pomocą c operacji zrealizuje zadanie.
 Urządzenia spełniające tę role nazywane są GPU \eng{graphics processing unit}.
 Ze względu na fakt, że oddzielone są od procesora, koniczne było także zapewnienie drogi komunikacji pomiędzy programistami, a jednostką.
 Pierwsze API \eng{application programming interface} realizowały stosunkowo szeroki zakres funkcjonalności.
@@ -188,7 +188,7 @@ Te, choć nadal obecne są we współczesnych programach, stanowią inwencję pr
 Pomimo różnic pomiędzy dostępnymi API, a także ich wariantami główny schemat wykorzystania pozostaje spójny.
 Może zostać opisany następującym algorytmem:
 \begin{enumerate}
-    \item Inicjalizacja API
+    \item Inicjacja API
     \item Wczytywanie zewnętrznych zasobów - modele, tekstury, filmy, itp.
     \item Aktualizacja zasobów
     \item Prezentacja
@@ -238,7 +238,7 @@ W tym celu pozycja wierzchołka w układzie współrzędnych kamery rzutowana je
 Jeśli pozycja wierzchołka znajduje się wewnątrz graniastosłupa ograniczającego ten układ wierzchołek kontynuuje drogę przez potok, w przeciwnym razie jest odrzucany.
 \paragraph*{Rasteryzacja \eng{Rasterization}}
 Zadaniem rasteryzacji jest rozwiązanie problemu widzialności~\cite{rasterization_implementation}.
-Aktualnie procesowane koordynaty wierzchołków rzutowane są na dyskretny układ współrzędnych obrazu wyjściowego.
+Aktualnie przetwarzane koordynaty wierzchołków rzutowane są na dyskretny układ współrzędnych obrazu wyjściowego.
 W zależności od wybranego typu figury geometrycznej, która ma zostać stworzona na podstawie wierzchołków algorytm przybiera nieco inną formę.
 W przypadku trójkątów jeżeli pole figury ma kontakt z pikselem obrazu wyjściowego wówczas jest on włączany do dalszego procesowania, w przeciwnym razie algorytm kończy działanie.
 \begin{figure}[H]

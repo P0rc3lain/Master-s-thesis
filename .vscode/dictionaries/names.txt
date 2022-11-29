@@ -1,2 +1,3 @@
-Fetera
-Stompór
+fetera
+phonga
+stompór
