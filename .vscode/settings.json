@@ -1,3 +1,21 @@
 {
-    "cSpell.language": "en,pl"
+    "cSpell.language": "en,pl",
+    "cSpell.dictionaries": ["names", "polish", "acronyms", "products"],
+    "cSpell.dictionaryDefinitions": [{
+        "name": "names",
+        "path": "./.vscode/dictionaries/names.txt",
+        "addWords": true
+    }, {
+        "name": "acronyms",
+        "path": "./.vscode/dictionaries/acronyms.txt",
+        "addWords": true
+    }, {
+        "name": "products",
+        "path": "./.vscode/dictionaries/products.txt",
+        "addWords": true
+    }, {
+        "name": "polish",
+        "path": "./.vscode/dictionaries/polish.txt",
+        "addWords": true
+    }],
 }
