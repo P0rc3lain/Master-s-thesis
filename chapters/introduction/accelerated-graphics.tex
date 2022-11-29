@@ -1,17 +1,17 @@
 \section{Grafika akcelerowana sprzętowo}
-Posiadając uprzednio zaaranżowaną scenę możliwe jest jej uwiecznienie.
+Posiadanie uprzednio zaaranżowanej sceny otwiera możliwość na jej uwiecznienie.
 Przekład modeli opisanych w trójwymiarowym układzie współrzędnych na dwuwymiarowy obraz nazywamy renderowaniem.
 Początkowo algorytmy realizujące to zadanie w całości oparte były o wykorzystanie procesora CPU.
-Charakter operacji matematycznych wykonywanych na poszczególnych modelach występujących w ramach kadru pokazywał jednak, że są one powtarzalne i nie występują między nimi zależności.
-Naturalnym krokiem mającym na celu przyspieszenie operacji było stworzenie modułu, który za pomocą c operacji zrealizuje zadanie.
-Urządzenia spełniające tę role nazywane są GPU \eng{graphics processing unit}.
-Ze względu na fakt, że oddzielone są od procesora, koniczne było także zapewnienie drogi komunikacji pomiędzy programistami, a jednostką.
+Charakter operacji matematycznych wykonywanych na poszczególnych siatkach występujących w ramach kadru pokazywał jednak, że są one powtarzalne i nie występują między nimi zależności.
+Naturalnym krokiem mającym na celu przyspieszenie operacji było stworzenie modułu, który za pomocą predefiniowanych operacji zrealizuje zadanie.
+Urządzenia spełniające tę funkcję nazywane są GPU \eng{graphics processing unit}.
+Ze względu na fakt, że oddzielone są od procesora, konieczne było także zapewnienie drogi komunikacji pomiędzy programistami a jednostką.
 Pierwsze API \eng{application programming interface} realizowały stosunkowo szeroki zakres funkcjonalności.
 Zadanie twórcy sprowadzało się do zapewnienia modeli i rozmieszczenia ich na scenie, kalkulacja wpływu światła na poszczególne obiekty lub zasób materiałów wpływających na charakterystykę pokrywających ich powierzchni spoczywał na module akceleracyjnym.
-Choć z początku podejście wydawało się być wygodne bowiem programista nie musiał rozumieć aparatu matematycznego stanowiącego bazę dla technologii, to szybko okazało się, że wysoko poziomowy interfejs jest ograniczeniem.
+Choć z początku podejście wydawało się wygodne, ponieważ programista nie musiał rozumieć aparatu matematycznego stanowiącego bazę dla technologii, to szybko okazało się, że wysokopoziomowy interfejs jest ograniczeniem.
 Artyści nie byli w stanie realizować swoich wizji.
-Akceleratory zapewniały możliwość tworzenie grafik tylko i wyłącznie w oparciu o pewien charakter.
+Akceleratory zapewniały możliwość tworzenia grafik tylko i wyłącznie zadając pewien określony charakter.
 Nie istniała możliwość zmiany algorytmu kalkulacji wpływu światła na obiekt czy choćby dodanie filtra na obraz.
-W efekcie wiele produkcji z lat początków sprzętowej akceleracji jest podobna do siebie pod względem wyglądu.
-Odpowiedzią na to zjawisko było wprowadzenie jawnego potoku renderowania, którego część kroków podlegała modyfikacji.
-W szczególności niektóre z nich mogą być w pełni programowane przy użyciu specjalnego języka.
+W efekcie wiele produkcji z lat początków sprzętowej akceleracji jest podobna do siebie.
+Odpowiedzią na zjawisko było wprowadzenie jawnego potoku renderowania, którego część kroków podlegała modyfikacji.
+W szczególności niektóre z nich mogły być w pełni programowane przy użyciu specjalnego języka.
