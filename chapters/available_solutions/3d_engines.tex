@@ -76,11 +76,9 @@ Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgene
 Pomimo, że Unity jest stale rozwijane to grafika wydaje się odstawać od konkurencji.
 Podkreślić należy, że potok renderowania silnika jest konfigurowalny, więc jeśli jakość dla odbiorcy jest niezadowalający istnieje możliwość dokonania korekcji we własnym zakresie.
 Otwiera to także możliwość stworzenia zupełnie unikalnego stylu graficznego, choć zaakceptować należy wysoki poziom wymaganej wiedzy do osiągnięcia tego celu.
-% Unity choć opiera się o PBR to za pomocą własnych programów cieniujących istnieje możliwość nadania własnego charakteru.
 \par
 Sama dokumentacja stoi na wysokim poziomie.
 Obfita jest w liczne przykładowe projekty i zawiera sugestie co do sposobu implementacji pewnych funkcjonalności w sposób zgodny z wizją autorów.
-% Napisać, że w sumie wymusza to wykorzystanie dodatkowego ide, a nawet dwóch
 \par
 Pierwotnie cała interakcja warstwy gry oraz silnika obsługiwana była za pomocą skryptów C\#.
 Na przestrzeni lat rozwinięto jednak interfejs graficzny środowiska, a także dodano możliwość konfigurowania przebiegu rozgrywki za pomocą programowania wizualnego.
@@ -95,7 +93,6 @@ Za minus można uznać narzut w kwestii wagi aplikacji.
 Szablon pustego projektu wiąże się z koniecznością posiadania około 20 MB wolnej przestrzeni.
 Natywny, pusty projekt iOS to zaledwie 1 MB.
 Wydawać może się to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie narzut wagi powinien być ograniczony do minimum.
-% Napisać, że zwykle unity wykorzystuje się do stworzenia aplikacji wykorzystująca silnik do rozważenia każdego aspektu, rzadko jako wstawkę
 \par
 Pewną charakterystyką większości silników do gier, włącznie z Unity, jest zapewnianie użytkownikowi własnego środowiska programistycznego.
 Dodać należy, że nie jest ono alternatywą dla preferowanego edytora.
@@ -229,8 +226,6 @@ Z uwagi na fakt, że jest to technologia natywna bardzo łatwo wkomponować moż
 \par
 Narzut użycia biblioteki na wielkość paczki jest niewielki.
 W pesymistycznym przypadku wzrost wagi wynieść może 4 MB, jednak potencjalne usunięcie nieużywanych symboli przełożyć się może na znaczną redukcje tej wartości.
-% Kod źródłowy projektu nie jest publiczny, jednak uzyskanie dostępu do plików binarnych biblioteki jest darmowe.
-% Nie podlega opłacie także wykorzystanie jej we własnym projekcie bez względu czy jego dalsza dystrybucja jest odpłatna.
 \par
 Nie bez przyczyny wspomniano o dacie wydania biblioteki.
 Choć jej interfejs ewoluował i rozrastał się w miarę upływu lat to założenia pozostały niezmienione.
@@ -284,10 +279,9 @@ Z drugiej wyklucza to możliwość wykorzystania ARKit do użycia w celu wygener
 \subsection{Pozostałe silniki}
 W celu dokonania rzetelnej oceny rynku dokonano także przeglądu projektów open source udostępnionych za pomocą platform github.com oraz gitlab.com.
 Kryterium, którego spełnienia oczekiwano była dostępność na wszystkie platformy Apple i możliwość uruchomienia biblioteki na najnowszych systemach operacyjnych.
-W rezultacie wyszukiwania znaleziono wiele projektów, niestety żaden z nich nie mógł określony być jako stabilne rozwiązanie godne do polecenia.
-Natywnych dostępnych było poniżej dziesięciu.
-Jako te będące w zaawansowanej formie rozwoju wyróżnić można https://github.com/Hi-Rez/Satin czy https://github.com/Hongtae/SwiftVVD.
-% To trzeba jeszcze rozwinąć trochę
+W rezultacie wyszukiwania znaleziono około dziesięciu projektów, niestety żaden z nich nie mógł określony być jako stabilne rozwiązanie do zastosowania produkcyjnego.
+Do będących w zaawansowanej formie rozwoju zaliczyć można Satin~\cite{satin_project} oraz SwiftVVD~\cite{swiftvvd_project}.
+% Powinienem pokusić się o napisanie czegoś więcej
 \par
 Warto wspomnieć, że poza wymienionymi przykładami bibliotek oraz silników istnieje wiele innych alternatyw.
 Jako najpopularniejsze można przytoczyć tutaj jmonkey, urho3d, OGRE 3D, Amazon Lumberyard czy panda 3d.
