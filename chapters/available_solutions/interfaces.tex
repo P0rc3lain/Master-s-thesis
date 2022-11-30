@@ -14,7 +14,7 @@ Asynchroniczna natura wykonywania operacji na GPU i chęć minimalizacji ilości
 \par
 Obecnie do dyspozycji programistów Apple oddana jest możliwość skorzystania z dwóch API.
 Są to OpenGL będący ogólnym standardem wspieranym przez wiele platform oraz Metal, który zaprojektowany został jako autorskie rozwiązanie Apple.
-Pomimo popularności na innych platformach najświeższy standard graficzny opublikowany przez grupę Khronos - Vulkan - pozostaje niedostępny.
+Pomimo popularności na innych platformach najświeższy otwarty standard graficzny opublikowany przez grupę Khronos - Vulkan - pozostaje niedostępny.
 \subsection{OpenGL}
 Najnowsza wersja dostępna na stacjonarnej platformie to opublikowane w 2010 roku OpenGL 4.1.
 W przypadku urządzeń mobilnych jest to OpenGL ES 3.0, które pomimo zbieżności wielu zbieżności pozostaje podzbiorem stacjonarnego odpowiednika.
@@ -41,6 +41,7 @@ Początkowo współistniał on wraz z OpenGL 4.1, natomiast wraz z premierą mac
 Funkcjonalnie nie wyróżnia się w stosunku do innych popularnych API, takich jak Vulkan czy DirectX.
 Wszystkie obecnie stosują podejście kolejkowego przetwarzania zadań i minimalizują ilość udostępnianych funkcji.
 Z punktu widzenia producenta obecna sytuacja jest jednak wyjątkowo korzystna.
+% Wydajność wcale nie jest jakaś super,
 Apple samo zarządza standardem, a fakt, że stało się także architektem układów graficznych sprawia, że są oni w stanie uzyskać optymalna wydajność.
 \par
 Wraz z interfejsem dla języków wysokiego poziomu biblioteka wprowadza swój język do tworzenia programów cieniujących - MSL.
@@ -54,6 +55,10 @@ Choć na pierwszy rzut oka wydaje się być to doskonały krok w kierunku uzyska
 W efekcie użytkownik decydujący się na korzystanie z API zmuszony będzie w trakcie interakcji z API jawnie przenosić obiekty pomiędzy zarządzaniem Objective-c oraz C++.
 Dodatkowo, należy pamiętać, że użycie wspomnianej technologii rozszerza tylko zakres w którym C++ może zostać wykorzystany. 
 Nadal należy pamiętać o konieczności interfejsowania kodu do Objective-C w celu wykorzystania go w aplikacji ekosystemu Apple.
+\par
+Jedynym mankamentem dotyczącym zarówno Metal, jak i OpenGL jest brak wsparcia dla systemu watchOS.
+W jego przypadku skorzystać można tylko i wyłącznie ze stosunkowo wysokopoziomowyej biblioteki do rysowania - Core Graphics.
+Jedyną możliwością generowanie grafiki trójwymiarowej wydaje się być własnoręczne zaimplementowanie potoku renderowania opartego o CPU.
 % Z tej popularności wzięły się też biblioteki do iOS, które wyglądają jak vulkan ale są wrapperem na metala
 % Napisz, że metal jest super bo pozwala na doskonałe debugowanie
 % Napisz, że fajne jest profilowanie kodu shaderów

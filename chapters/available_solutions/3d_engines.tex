@@ -5,7 +5,7 @@ Rynek jest na tyle obszerny, że początkowo trudno zorientować się kto stanow
 Poniższa sekcja ma na celu przybliżenie rozwiązania tego problemu.
 \par
 W celu dokonania klasyfikacji konieczne będzie przygotowanie listy charakterystyk na podstawie których przykłady zostaną porównane.
-Wśród wielu możliwych do najważniejszych zaklasyfikować możemy cechy produktu stanowiące odpowiedzi na pytanie takie jak:
+Wśród wielu możliwych do najważniejszych zaklasyfikować możemy cechy produktu stanowiące odpowiedzi na pytania takie jak:
 \vspace{-0.5\topsep}
 \begin{itemize}
     \setlength{\parskip}{5pt plus 0pt}
@@ -24,12 +24,13 @@ Znalezienie odpowiedzi pozwoli oszacować, które obszary branży pokryte są pr
 Dodatkowo, umożliwi dostrzeżenie nie tylko silnych stron, ale także nisz, które kryją w sobie potencjał i mogłyby skorzystać z ulepszeń.
 \subsection{Biblioteki multiplatformowe}
 Jedną z dwóch możliwości dystrybucji oprogramowania jest forma multiplatformowa.
-W założeniu polega ona na stworzeniu jednego rozwiązania dostępnego na co najmniej dwóch platformach.
-Warto podkreślić, że chodzi tutaj o architekturę w której istnieje część wspólna - w rozpatrywanym znaczeniu nie należy uwzględniać oprogramowania realizującego identyczne funkcje, ale za pomocą ponownej implementacji przy użyciu natywnych technologii.
-Obszar współdzielony tworzony jest w technologi dostępnej na każdej ze wspieranych platform.
-Dodatkowo, ponad warstwą centralną znajduje się warstwa specyficzna dla platformy.
-Ma ona za zadanie oddać do użytku oprogramowanie uwzględniając różnice wynikające z innego systemu operacyjnego, a także technologii.
-Przykładowo programista systemu Android oczekiwał będzie API w formie biblioteki JAVA lub Kotlin, zaś twórca aplikacji iOS powinien mieć dostęp za pośrednictwem języków Swift czy Objective-C.
+W założeniu polega ona na stworzeniu jednego rozwiązania, dostępnego na co najmniej dwóch platformach.
+Warto podkreślić, że chodzi tutaj o architekturę w której istnieje część wspólna - w rozpatrywanym znaczeniu nie należy uwzględniać oprogramowania realizującego identyczne funkcje, ale za pomocą ponownej, natywnej implementacji.
+\par
+Wysokopoziomowy projekt zachowuję pewną prawidłowość i ma warstwowy charakter.
+Obszar współdzielony tworzony jest w technologii dostępnej na każdej ze wspieranych platform.
+Poniżej niego znajduje się strefa specyficzna dla systemu, która ma uwzględniać ewentualne różnice w interakcji z jego zasobami.
+Opcjonalnie, ponad nimi usytuowany jest natywny interfejs, mający za zadanie poprawić przystępność \longpause programista systemu Android oczekiwał będzie API w formie biblioteki JAVA lub Kotlin, zaś twórca aplikacji iOS powinien otrzymać dostęp za pośrednictwem języków Swift czy Objective-C.
 \begin{figure}
     \begin{center}
         \includegraphics[width=10cm]{images/multiplatform-architecture.png}
@@ -39,10 +40,15 @@ Przykładowo programista systemu Android oczekiwał będzie API w formie bibliot
 \end{figure}
 \par
 Głównym argumentem stojącym za budowaniem oprogramowania w sposób multiplatformowy jest chęć zwiększenia grona odbiorców.
-Dla konsumenta technologii jest to niewątpliwa zaleta, natomiast narzuca to na twórców dodatkową prace związaną z koniecznością uwzględnienia wpływu zmiany na wszystkie dostępne warianty.
-Dodatkowo, wprowadzenie generalizacji wiąże się z narzutem związanym z wydajnością. 
-Kolejnym aspektem, który należy wziąć pod uwagę jest sposób i jakość integracji z natywnym środowiskiem.
-Chodzi tutaj o kwestię czy interfejs biblioteki dla końcowej platformy uwzględnia konwencje na niej stosowane i jak łatwe jest jego zintegrowanie.
+Dla konsumenta technologii jest to niewątpliwa zaleta, natomiast narzuca to na twórców dodatkową prace związaną z koniecznością uwzględnienia wpływu poszczególnych zmian na wszystkie dostępne warianty.
+\par
+Wprowadzenie generalizacji wiąże się jednakże z narzutem wydajnościowym.
+Każdy istniejący poziom abstrakcji przekłada się na większą ilość wywołań pomiędzy obiektami wewnątrz biblioteki.
+Możliwe minimalizowanie zjawiska jest newraligczne, każda strata płynności wynikająca z wzmożonego nakładu obliczeń procesora implikować będzie konieczność obniżenia jakości grafiki celem utrzymania pożądanej prędkości animacji. 
+\par
+Kolejnym aspektem, który należy wziąć pod uwagę jest sposób integracji z natywnym środowiskiem.
+Oznacza to określenie czy interfejs biblioteki dla końcowej platformy uwzględnia powszechnie przyjęte konwencje.
+W idealnym przypadku użytkownik powinien być w stanie domyślić się klucza komunikacji na podstawie posiadanych doświadczeń, bez konieczności wspierania się dokumentacją. 
 \subsubsection{Unity}
 Najpopularniejszym silnikiem grafiki trójwymiarowej na platformie iOS jest Unity.
 Stworzony został z myślą o produkcji gier wideo.
@@ -52,13 +58,13 @@ Rozwiązanie należy zaliczyć do płatnych, choć rozwój aplikacji wykorzystuj
 Użytkownik, który jednak poważnie myśli o wydaniu komercyjnie rentownej aplikacji szybko dostrzeże mnogość ograniczeń.
 Do najpoważniejszych zaliczyć można brak możliwości zmiany ekranu ładowania aplikacji czy niemożność dostępu do kodu aplikacji silnika.
 \par
-Z drugiej strony Unity to twór kompletny - pozwala na tworzenie w technologiach 2D, 3D, VR oraz AR.
-Posiada zintegrowane moduły do obsługi fizyki, dźwięku, kontrolerów, analityki użycia, a także reklam.
+Z drugiej strony Unity to twór kompletny \longpause pozwala na tworzenie w technologiach 2D, 3D, VR oraz AR.
+Posiada zintegrowane moduły do obsługi fizyki, dźwięku, kontrolerów, sieci, analityki użycia, a także reklam.
 \par
 Choć rozwijany jest w języku C++ to użytkownik dokonuje interakcji za pomocą C\#.
-W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja, której użytkownik chce dokonać w rozgrywce gry była błyskawiczna.
-Mono - framework wykorzystywany przez Unity w tym celu - ma jednak pewne mankamenty.
-Przede wszystkim użytkownicy narzekają na okazjonalne przycięcia w grach wynikające ze sposobem zarządzania pamięci przez technologię.
+W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja, której użytkownik chce dokonać w rozgrywce gry była błyskawiczna pod względem przyrostowego czasu budowy.
+Mono \longpause framework wykorzystywany przez Unity w tym celu \longpause ma jednak pewne mankamenty.
+Przede wszystkim użytkownicy narzekają na okazjonalne przycięcia w grach wynikające ze specyfiki zarządzania pamięcią.
 Dziwić może także sama obecność C\#.
 Unity deklaruje, że najlepiej odnajduje się na mobilnych platformach, ale język skryptowy nie pokrywa się z żadną wiodącą technologią ze świata smartfonów.
 Na obronę jednak przyznać należy, że grę w unity można stworzyć bez znajomości platformy docelowej.
@@ -67,37 +73,37 @@ Dodatkowo, Unity jest rozszerzalne.
 Dokonać można tego za pomocą pluginów występujących w dwóch formach.
 Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgeneralizowany oferujący funkcjonalność dla wielu platform.
 \par
-Pomimo, że Unity jest stale rozwijane to grafiki wydaje się odstawać od konkurencji.
+Pomimo, że Unity jest stale rozwijane to grafika wydaje się odstawać od konkurencji.
 Podkreślić należy, że potok renderowania silnika jest konfigurowalny, więc jeśli jakość dla odbiorcy jest niezadowalający istnieje możliwość dokonania korekcji we własnym zakresie.
 Otwiera to także możliwość stworzenia zupełnie unikalnego stylu graficznego, choć zaakceptować należy wysoki poziom wymaganej wiedzy do osiągnięcia tego celu.
 % Unity choć opiera się o PBR to za pomocą własnych programów cieniujących istnieje możliwość nadania własnego charakteru.
 \par
 Sama dokumentacja stoi na wysokim poziomie.
-Obfita jest w liczne przykładowe projekty i zawiera sugestie co do sposobu implementacji pewnych funkcjonalności w sposób zgodny z pierwotną wizją autorów.
+Obfita jest w liczne przykładowe projekty i zawiera sugestie co do sposobu implementacji pewnych funkcjonalności w sposób zgodny z wizją autorów.
 % Napisać, że w sumie wymusza to wykorzystanie dodatkowego ide, a nawet dwóch
 \par
 Pierwotnie cała interakcja warstwy gry oraz silnika obsługiwana była za pomocą skryptów C\#.
 Na przestrzeni lat rozwinięto jednak interfejs graficzny środowiska, a także dodano możliwość konfigurowania przebiegu rozgrywki za pomocą programowania wizualnego.
 W założeniu podobne jest to nieco do schematów blokowych używanych w celu objaśniania algorytmów.
-Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier osobom niebędącym znajomym z programowaniem.
-Pozornie pomysł może wydawać się oszczędzać czas i ułatwiać rozwój to wiele osób nadal niechętnie korzysta z rozwiązania.
+Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier osobom niebędącym zaznajomionym z programowaniem.
+Pozornie pomysł może wydawać się oszczędzać czas i ułatwiać rozwój, mimo to grono osób nadal niechętnie korzysta z rozwiązania.
 W głównej mierze podyktowane jest to bardzo kiepską przejrzystością zmian dokonanych przez użytkowników w systemach kontroli wersji.
 Równie często przywoływany jest także argument wskazujący na trudność w odnajdywaniu się w logice stworzonej przy pomocy programowania wizualnego.
-Równoważna implementacja w formie skryptu przywoływana jest jako bardziej przejrzysta i łatwiejsza do objęcia zrozumieniem.
+Równoważna implementacja w formie skryptu traktowana jest jako bardziej przejrzysta, a więc łatwiejsza do zrozumienia.
 \par
-Za minus można uznać też narzut w kwestii wagi aplikacji.
+Za minus można uznać narzut w kwestii wagi aplikacji.
 Szablon pustego projektu wiąże się z koniecznością posiadania około 20 MB wolnej przestrzeni.
-Natywny, pusty projekt iOS to zaledwie około 1 MB.
-Wydawać może się, że to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie narzut wagi powinien być ograniczony do minimum.
+Natywny, pusty projekt iOS to zaledwie 1 MB.
+Wydawać może się to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie narzut wagi powinien być ograniczony do minimum.
 % Napisać, że zwykle unity wykorzystuje się do stworzenia aplikacji wykorzystująca silnik do rozważenia każdego aspektu, rzadko jako wstawkę
 \par
 Pewną charakterystyką większości silników do gier, włącznie z Unity, jest zapewnianie użytkownikowi własnego środowiska programistycznego.
 Dodać należy, że nie jest ono alternatywą dla preferowanego edytora.
-Potrafi znacznie więcej niż pomoc w pisaniu skryptów.
+Potrafi znacznie więcej niż asekurować w pisaniu skryptów.
 Za jego pomocą importować można zasoby takie jak modele czy muzyka i określać zależności pomiędzy nimi a obiektami używanymi w algorytmach skryptowych. 
 Oprogramowanie jest także kluczowe w momencie, kiedy przychodzi czas wygenerowania paczek dla platform docelowych. 
-Właściwie twórca nie musi znać nawet podstaw programowania każdego ze wspieranych systemów.
-Silnik gry jest w stanie za niego wykonać wszystkie pośrednie kroki i dostarczyć gotowy plik binarny.
+Tak jak wcześniej wspomniano \longpause twórca nie musi znać nawet podstaw programowania każdego ze wspieranych systemów.
+Silnik gry jest w stanie za niego wykonać wszystkie pośrednie kroki i dostarczyć gotowy plik binarny, będący finalnym produktem, gotowym do uruchomienia.
 W przypadku platformy iOS czy macOS oznacza to, że projekty w formacie natywnym dla XCode są ulotne i generowane na nowo przy każdym eksporcie z Unity.
 \par
 Opisany powyżej sposób rozwijania aplikacji sprawia, że niebywale trudno wykorzystać jest silniki graficzne tylko w wycinku funkcjonalności.
@@ -182,11 +188,17 @@ O ile w przypadku produkcji gier podejście nie budzi zastrzeżeń, o tyle nieby
 
 \subsection{Biblioteki natywne}
 Alternatywą do multiplatformowych rozwiązań są biblioteki natywne.
-Zaliczyć do tej grupy możemy produkty dostępne tylko i wyłącznie na pojedynczej platformie lub te, które dostępne są na wielu, lecz każdy wariant zbudowany jest od początku z myślą o platformie.
-Pomimo, że wsparcie pojedynczego środowiska stanowi ograniczenie przez wzgląd na dużo mniejszą grupę odbiorców w stosunku do wieloplatformowych odpowiedników to przynosi także korzyści.
-Do najważniejszych zaliczyć możemy możliwość uzyskania optymalnej wydajności, większą intuicyjność wynikającą z możliwości tworzenia interfejsu dostosowanego do przyjętych konwencji.
-Dodatkowo, pozwalają na dostęp do wszystkich funkcjonalności platformy i są łatwiejsze w debugowaniu przez wzgląd na fakt, że stworzone są w oparciu o natywne technologie.
-
+Włączyć do tej grupy można produkty dostępne tylko i wyłącznie na pojedynczym systemie lub te obecne na wielu, lecz posiadające wszystkie warianty zbudowane od podstaw.
+Pomimo, że wsparcie każdego środowiska z osobna może postrzegane być jako nieuzasadniona aprobata powtarzalności to przynosi ono także korzyści.
+\par
+Jedną z najważniejszych zalet jest możliwość osiągnięcia optymalnej wydajności.
+Kod źródłowy dostosowany pod konkretną platformę nie musi posiadać szeregu dodatkowych warstw.
+\par
+Natywność to również większa intuicyjność, wynikającą z możliwości tworzenia interfejsu dostosowanego do przyjętych konwencji.
+Pojęcie jest ogólne, składa się na nie nazewnictwo, schemat komunikacji czy hermetyzacja.
+\par
+Aplikacja spójna technologicznie zyskuje też w sytuacji analizy potencjalnych problemów.
+W przypadku otwartego kodu źródłowego przyczynić może się to do wzrostu kontrybucji ze strony społeczności.
 \subsubsection{SceneKit}
 \begin{figure}
     \begin{center}
@@ -238,6 +250,7 @@ Natomiast pozytywny obraz przyćmiewają wszechobecne lakoniczne opisy odnosząc
 Niejednokrotnie klasy oraz ich zmienne posiadają wyjaśnienia w formie pojedynczych zdań, nie nadających im szerszego kontekstu.
 Odnieść można wrażenie, że jedyną drogą do zrozumienia pewnej puli z zaimplementowanych mechanizmów będzie wysnucie własnych wniosków na podstawie empirycznych doświadczeń.
 \subsubsection{ARKit}
+% Napisz, że na podstawie semantycznej analizy
 Wydanie ARKit było odpowiedzią na rosnące zainteresowanie branży technologią rozszerzonej rzeczywistości.
 Idea polega na wzbogacanie obrazu przechwytywanego z kamery urządzenia o dodatkowe elementy 2D oraz 3D.
 Podobnie jak w przypadku SceneKit jest to autorska biblioteka Apple.
@@ -271,6 +284,7 @@ Kryterium, którego spełnienia oczekiwano była dostępność na wszystkie plat
 W rezultacie wyszukiwania znaleziono wiele projektów, niestety żaden z nich nie mógł określony być jako stabilne rozwiązanie godne do polecenia.
 Natywnych dostępnych było poniżej dziesięciu.
 Jako te będące w zaawansowanej formie rozwoju wyróżnić można https://github.com/Hi-Rez/Satin czy https://github.com/Hongtae/SwiftVVD.
+% To trzeba jeszcze rozwinąć trochę
 \par
 Warto wspomnieć, że poza wymienionymi przykładami bibliotek oraz silników istnieje wiele innych alternatyw.
 Jako najpopularniejsze można przytoczyć tutaj jmonkey, urho3d, OGRE 3D, Amazon Lumberyard czy panda 3d.
@@ -281,4 +295,4 @@ Głównie za sprawą skierowania jedynie na platformy stacjonarne lub wybrakowan
 Sytuacja podobnie wygląda w przypadku produkcji takich jak CryEngine, Frostbite, RAGE czy Naughty Dog Game Engine.
 Wszystkie z nich cieszą się niemałą popularnością i sukcesem w świecie gier.
 Niestety są one skierowane tylko i wyłącznie na stacjonarne platformy.
-Dodatkowo, część podlega opłatą licencyjnym, zaś inne nie mogą być w ogóle użyte z uwagi na fakt, że ich źródła są niepubliczne, a pliki binarne dystrybuowane są jedynie do projektów na potrzeby firmy.
+Dodatkowo, część podlega opłatą licencyjnym, zaś inne nie mogą być w ogóle użyte z uwagi na fakt, że ich źródła są niepubliczne, a pliki binarne dystrybuowane są jedynie do projektów na potrzeby firm posiadających prawa autorskie.
