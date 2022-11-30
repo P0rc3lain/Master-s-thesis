@@ -217,38 +217,38 @@ W przypadku otwartego kodu źródłowego przyczynić może się to do wzrostu ko
 \end{figure}
 Debiut rozwiązania nastąpił w 2012 roku. 
 Za projekt i wykonanie odpowiedzialna jest firma Apple, której urządzenia stanowią jedyną docelową grupę odbiorców oprogramowania.
-Początkowo wsparcie ograniczało się do platformy OS X, rozszerzenie dostępności na urządzenia mobilne została odroczone do 2014 roku.
-Na przestrzeni lat dodano również wsparcie dla watchOS oraz tvOS.
+Początkowo wsparcie ograniczało się do platformy OS X, rozszerzenie dostępności na urządzenia mobilne nadeszło w 2014 roku, a na przestrzeni lat objęło również watchOS oraz tvOS.
 \par
 Pragnąc zaklasyfikować SceneKit najtrafniej byłoby określić, iż jest to biblioteka graficzna realizująca dodatkowo pewne funkcjonalności silnika do gier.
-Jest to możliwość kontroli audio oraz integracja silnika fizycznego. 
-W przeciwieństwie do wiodących rozwiązań skierowanych do branży gier SceneKit nie pozwala na skryptowanie, ani programowanie wizualne.
-Niewątpliwą zaletą takiego stanu rzeczy jest znacznie łatwiej użytkownik biblioteki jest w stanie przyswoić sobie możliwości biblioteki.
+Jest to możliwość kontroli audio oraz integracja modelu fizycznego, będącego w stanie symulować wzajemny wpływ obiektów. 
+W przeciwieństwie do wiodących rozwiązań skierowanych do branży gier SceneKit nie posiada własnego IDE, nie pozwala na programowanie wizualne, ani zaawansowane skryptowanie.
 \par
 Myśląc o grupie docelowej wskazać można deweloperów tworzących gry typu indie - w niewielkiej grupie, z małym budżetem.
 Ponadto, SceneKit świetnie sprawdza się w roli generatora grafiki trójwymiarowej w aplikacjach innych niż gry wideo.
 Z uwagi na fakt, że jest to technologia natywna bardzo łatwo wkomponować można widoki z animowanymi scenami w aplikacje pełniącą inną funkcje niż rozrywkowa.
-Sam narzut w kwestii wielkości paczki również jest niewielki, co tylko potwierdza tezę.
+\par
+Narzut użycia biblioteki na wielkość paczki jest niewielki.
+W pesymistycznym przypadku wzrost wagi wynieść może 4 MB, jednak potencjalne usunięcie nieużywanych symboli przełożyć się może na znaczną redukcje tej wartości.
 % Kod źródłowy projektu nie jest publiczny, jednak uzyskanie dostępu do plików binarnych biblioteki jest darmowe.
 % Nie podlega opłacie także wykorzystanie jej we własnym projekcie bez względu czy jego dalsza dystrybucja jest odpłatna.
 \par
 Nie bez przyczyny wspomniano o dacie wydania biblioteki.
 Choć jej interfejs ewoluował i rozrastał się w miarę upływu lat to założenia pozostały niezmienione.
-2015 był rokiem kiedy podczas konferencji WWDC Apple zaprezentowało koncepcje, które sugerują programistom wykorzystującym język Swift.
+2015 był rokiem kiedy podczas konferencji WWDC Apple zaprezentowało koncepcje, które sugerowały programistom wykorzystującym język Swift podejście oparte o komunikacje zorganizowaną wokół protokołów.
 W głównej mierze uogólnić można je na zestaw sugestii, które sprawią, że kod będzie reużywalny, testowalny oraz przejrzysty.
-Je same postanowili także wcielić w swoje biblioteki i w miarę uaktualniania języka Swift i tworzenia nowych bibliotek rozszerzających funkcjonalności iOS Apple stawiało na luźne powiązania pomiędzy komponentami i testowalność.
-Niestety reforma ta nie dotknęła SceneKit.
+Producent stopniowo wcielał je w swoje biblioteki w miarę uaktualniania języka Swift.
+Niestety reforma ta nie dotknęła SceneKit, który współcześnie postrzegany jest już jako przestarzały.
 \par
 2018 rok był ostatnim kiedy wprowadzono usprawnienia do produktu.
 Od tamtego czasu użytkownicy nie otrzymali żadnych poprawek, ani stanowiska Apple wyjaśniającego przyszłość projektu.
-Sytuację komplikuje fakt, że kod źródłowy jest zamknięty, więc użytkownicy nie są w stanie na własną rękę skorzystać z nowinek technologicznych.
+Sytuację komplikuje fakt, że kod źródłowy jest zamknięty, więc nie istnieje szansa rozwoju na własną rękę.
 \par
-Pomimo, że Apple jest gigantem, ma ogromne dochody i przez wielu programistów traktowane jest jako miejsce w którym jakość jest najważniejsza to nadal w pewnych kwestiach można poczuć się zawiedzionym.
-Jednym w takich chwil jest spojrzenie na dokumentację SceneKit.
+Pomimo, że Apple jest gigantem, ma ogromne dochody i przez wielu programistów traktowane jest jako miejsce w którym jakość jest najważniejsza, to nadal w pewnych kwestiach można poczuć się zawiedzionym.
+Jedną z takich chwil jest spojrzenie na dokumentację SceneKit.
 Przyznać należy, że w sieci dostępnych jest wiele projektów demonstrujących działanie.
 Natomiast pozytywny obraz przyćmiewają wszechobecne lakoniczne opisy odnoszące się do zawartości biblioteki.
 Niejednokrotnie klasy oraz ich zmienne posiadają wyjaśnienia w formie pojedynczych zdań, nie nadających im szerszego kontekstu.
-Odnieść można wrażenie, że jedyną drogą do zrozumienia pewnej puli z zaimplementowanych mechanizmów będzie wysnucie własnych wniosków na podstawie empirycznych doświadczeń.
+Odnieść można wrażenie, że jedyną drogą do zrozumienia pewnej puli z zaimplementowanych mechanizmów będzie wysnucie własnych wniosków empirycznie.
 \subsubsection{ARKit}
 % Napisz, że na podstawie semantycznej analizy
 Wydanie ARKit było odpowiedzią na rosnące zainteresowanie branży technologią rozszerzonej rzeczywistości.
