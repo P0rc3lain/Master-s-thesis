@@ -250,22 +250,21 @@ Natomiast pozytywny obraz przyćmiewają wszechobecne lakoniczne opisy odnosząc
 Niejednokrotnie klasy oraz ich zmienne posiadają wyjaśnienia w formie pojedynczych zdań, nie nadających im szerszego kontekstu.
 Odnieść można wrażenie, że jedyną drogą do zrozumienia pewnej puli z zaimplementowanych mechanizmów będzie wysnucie własnych wniosków empirycznie.
 \subsubsection{ARKit}
-% Napisz, że na podstawie semantycznej analizy
 Wydanie ARKit było odpowiedzią na rosnące zainteresowanie branży technologią rozszerzonej rzeczywistości.
-Idea polega na wzbogacanie obrazu przechwytywanego z kamery urządzenia o dodatkowe elementy 2D oraz 3D.
+Idea polega na wzbogacaniu obrazu przechwytywanego z kamery urządzenia o dodatkowe elementy 2D oraz 3D.
 Podobnie jak w przypadku SceneKit jest to autorska biblioteka Apple.
-Choć część funkcjonalności współdzielona jest z SceneKit to firma deklaruje, iż rozwiązania nie są w żadnym stopniu powiązane ze sobą.
+Choć część funkcjonalności wydaje się być współdzielona jest z SceneKit to firma deklaruje, iż rozwiązania nie są w żadnym stopniu powiązane ze sobą.
 \par
 ARKit poprawia wiele problemów, które obecne są w SceneKit.
 Przede wszystkim jest ona aktywnie rozwijana, na bieżące publikowane są poprawki, a także rozszerzenia funkcjonalności.
-Bibliotekę pochwalić należy za ulepszony model oświetlenia i wydajność.
+Pochwalić ulepszony model oświetlenia.
 \par
 Interfejs ARKit jest kolejnym czynnikiem zaskakującym pozytywnie.
-Dostosowany jest on do współczesnych konwencji firmy i dobrze integruje się z resztą systemu.
+Dostosowany jest do współczesnych konwencji firmy i dobrze integruje się z resztą systemu.
 Tak jak wspomniano wcześniej interakcje oparte o luźne powiązania pozytywnie wpływają na testowalność kodu wykorzystującego bibliotekę.
 \par
-Podobnie jednak jak w przypadku innych bibliotek Apple ARKit nie jest otwarta.
-Nie istnieje możliwość wglądu do kodu, ani jego modyfikacji, jednak technologia może być w nieodpłatny sposób wykorzystana i przeznaczona do celów komercyjnych.
+Podobnie jednak jak w przypadku innych rozwiązań Apple ARKit nie jest otwarty.
+Nie istnieje możliwość wglądu do kodu, ani jego modyfikacji, technologia może być jednak w nieodpłatny sposób wykorzystana i przeznaczona do celów komercyjnych.
 \begin{figure}
     \begin{center}
         \includegraphics[width=15cm]{images/engines/ar-kit/example-app.jpg}
@@ -274,7 +273,11 @@ Nie istnieje możliwość wglądu do kodu, ani jego modyfikacji, jednak technolo
     \label{fig:arkit-example-app}
 \end{figure}
 \par
-Zaskakiwać może również, że w ARKit obsługuje jedynie iOS.
+Inteligentne suplementowanie obrazu obarczone jest jednak niemałym kosztem.
+Każda klatka analizowana jest pod kątem semantyki, a ewentualny ruch wpływający na generowane obiekty rozszerzonej rzeczywistości kompensowany.
+Spodziewać należy się, że mimo budzącego podziw modelu oświetlenia wydajność będzie przeciętna.
+\par
+Zaskakiwać może również, że ARKit obsługuje jedynie iOS.
 Na pozostałych platformach nie występuje lub tak jak przypadku międzyplatformowej technologii \textit{mac catalyst} wywołania są ignorowane.
 Z jednej strony to zrozumiałe, ponieważ tylko telefony i tablety posiadają stosowne kamery spełniające wymagania.
 Z drugiej wyklucza to możliwość wykorzystania ARKit do użycia w celu wygenerowania prostych scen 3D bez AR.
