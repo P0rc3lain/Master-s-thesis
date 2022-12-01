@@ -84,7 +84,7 @@ Cieniowanie fragmentów wciąż wykonywane jest tylko i wyłącznie dla pojedync
 \end{figure}
 \paragraph*{Test szablonu \eng{Stencil Test}}
 Poza wspomnianym przycinaniem użytkownik ma dodatkową możliwość, aby ograniczyć powierzchnie obrazu, która zostanie zaprezentowana.
-Operacja dokonywana jest z wysoką ziarnistością - dla każdego piksela obrazu.
+Operacja dokonywana jest z wysoką ziarnistością \longpause dla każdego piksela obrazu.
 W tym celu wykorzystywane są maski binarne.
 Idea działania algorytmu jest prosta.
 Jeśli dla zadanego fragmentu wartość w buforze maski wynosi \textit{1} wówczas kontynuuje on drogę przez potok, w przeciwnym wypadku jest odrzucany.
@@ -100,8 +100,8 @@ W dalszej kolejności wykonywany jest test widoczności.
 Jego celem jest sprawdzenie, czy dany fragment nie został przesłonięty przez inny.
 Zachodzi potrzeba, aby karta graficzna skorzystała z dodatkowego bufora.
 Wartości w nim przechowywane odpowiadają odległości poszczególnych fragmentów od obiektywu kamery.
-Im dalej się on znajduje - tym liczba jest większa.
-W najczęstszym przypadku zadanie testu polega na wykonaniu pojedynczej operacji porównania - wartości zapisanej w buforze z aktualną, obliczoną dla obecnie procesowanego fragmentu.
+Im dalej się on znajduje \longpause tym liczba jest większa.
+W najczęstszym przypadku zadanie testu polega na wykonaniu pojedynczej operacji porównania \longpause wartości zapisanej w buforze z aktualną, obliczoną dla obecnie procesowanego fragmentu.
 \paragraph*{Wynik widoczności \eng{Visibility Result}}
 Uprzednio wyliczony wynik z działania testu głębi zachowany jest w postaci liczby binarnej.
 Widoczny fragment powiązywany jest z wartością \textit{prawda}, \textit{fałsz} przypisywany jest w przeciwnym przypadku.
@@ -130,7 +130,7 @@ Podejście nadal wykorzystywane jest powszechnie w przypadku nanoszenia siatek o
 Innym przykładem może być chęć zapewnienia obiektowi unikalnych w stosunku do reszty sceny, odmiennych od przyjętego standardowego modelu oświetlenia walorów wizualnych.
 \par
 Rozważając jednak przypadek, gdzie większość obiektów korzysta ze wspólnego oświetlenia, stwierdzić należy, że tego rodzaju podejście ma ograniczone zastosowanie.
-Wynika z faktu wynalezienia bardziej efektywnych technik renderowania - poprzez zwiększenie ilości wywołania potoku z mniej wymagającymi obliczeniami, co charakteryzuje się wyższą wydajnością.
+Wynika z faktu wynalezienia bardziej efektywnych technik renderowania \longpause poprzez zwiększenie ilości wywołania potoku z mniej wymagającymi obliczeniami, co charakteryzuje się wyższą wydajnością.
 Ponadto, chęć polepszenia walorów wizualnych wymaga użycia tymczasowych, pośrednich klatek.
 W efekcie okazuje się, że stworzenie pojedynczego wycinka animacji wiązać się może z dziesiątkami wywołań potoku.
 Nie mniej jednak przywołanie podstawowej formy algorytmu pozwala wyjaśnić jaka koncepcja stoi za utylizacją GPU.
