@@ -169,19 +169,46 @@ O ile w przypadku produkcji gier podejście nie budzi zastrzeżeń, o tyle nieby
 %     \label{fig:ue5-photorealistic-temple}
 % \end{figure}
 
-% \subsubsection{Filament}
+\subsubsection{Filament}
+Android, którego rozwój prowadzi Google opiera się o nieco odmienne podejście na dostarczanie dodatkowych funkcjonalności.
+Producent aktywnie rozwija system, dostarcza komponenty w oparciu o które można budować aplikacje, ale długi czas pozostawiał społeczności projektowanie i rozwój bibliotek ułatwiających pracę w specyficznych dziedzinach.
+W przypadku chęci stworzenia gry dwu lub trzy wymiarowej producent sugerował skorzystanie wprost z API graficznego i własnego rozwiązania.
+Zmianę zainicjował wzrost popularności techniki AR po 2014 roku, kiedy urządzenia mobilne były w stanie zaspokoić potrzeby wydajnościowe.
+Wiedziano, że bez wsparcia wiele aplikacji ominie platformę lub nawet doprowadzi do migracji użytkowników na konkurencyjny iOS.
+W 2018 Google wydał ARCore.
+Bibliotekę do obsługi AR, a wraz z nią silnik graficzny Filament, stworzony na potrzeby projektu.
+\par
+Nadrzędnym celem jaki rozszerzona rzeczywistość powinna spełniać jest zapewnienie immersji.
+Oznacza to realistyczne odwzorowanie modelu oświetlenia przy zachowaniu podejścia czasu rzeczywistego.
+Filament stworzony został dokładnie z tym myślą o tym scenariuszu.
+\par
+Oferowany jest jako silnik do renderowania.
+Dodatkowo, aby ułatwić proces importu modeli posiada moduł do wczytywania.
+Są to główne, ale i jedyne funkcjonalności.
+\par
+Projekt posiada wsparcie dla szeregu systemów, ale największy nacisk położony jest na środowisko Android.
+Pomimo iż stworzony został w C++ integracja z Kotlinem stoi na wysokim poziomie.
+Użytkownik jest w stanie bezpośrednio wykonywać zapytania do API, bez pośrednich interfejsów.
+Sam projekt publicznych części biblioteki pokrywa się z schematami powszechnie przyjętymi w Androidzie.
+\par
+Dystrybucja prowadzona jest w oparciu o podejście open source.
+Użytkownicy mogą nieodpłatnie wykorzystać Filament do celów komercyjnych i wprowadzać w nim dalsze poprawki.
+Dziwi, że Google wprawdzie umiejscowiło projekt pod skrzydłami swojej organizacji, ale zaznacza, że nie jest on oficjalnie wspierany.
+% dokumentacja jest super
+% nastawiony jest na poprawne działanie w systemie andorid
+% Nie ma silnika fizycznego
 % manual memory management
 % good graphics, physically based,
 % c++, based
 % implies using objective-c in the project
 % everything is written in c++
-% \begin{figure}[H]
-%     \begin{center}
-%         \includegraphics[width=7cm]{images/engines/filament/helmet.jpeg}
-%     \end{center}
-%     \caption{Przykład klatki wygenerowanej przez silnik Filament}
-%     \label{fig:filament-helmet}
-% \end{figure}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=7cm]{images/engines/filament/helmet.jpeg}
+    \end{center}
+    \caption{Przykład klatki wygenerowanej przez silnik Filament}
+    \label{fig:filament-helmet}
+\end{figure}
 
 \subsection{Biblioteki natywne}
 Alternatywą do multiplatformowych rozwiązań są biblioteki natywne.
