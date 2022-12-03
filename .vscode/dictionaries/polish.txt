@@ -1,6 +1,7 @@
 akcelerowana
 bitangensa
 interfejsowania
+interfejsowanie
 kolejkują
 międzyplatformowej
 multiplatformowa
@@ -9,6 +10,7 @@ mulitplatformowego
 multiplatformowy
 multiplatformowych
 najniżejpoziomowo
+natywność
 obiektowości
 parametryzowane
 powiązywany
@@ -25,6 +27,7 @@ skryptować
 skryptowania
 skryptowanie
 smartfonów
+suplementowanie
 testowalność
 testowalny
 tracingu
