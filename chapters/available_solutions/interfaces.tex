@@ -9,7 +9,7 @@ Ta część oddana jest za pośrednictwem biblioteki do języka wysokiego poziom
 Współczesne API w miarę upływu czasu wydają się zbliżać do siebie coraz bardziej.
 Wynika to bezpośrednio ze wspólnego trendu wraz z którym podążają dostępne rozwiązania.
 Wnikliwe porównanie obrazujące skalę podobieństw odnaleźć można między innymi jako publikację na łamach blogu \textit{alain.xyz}~\cite{alain_modern_graphics_comparison}.
-Wspomnianym trendem tak \longpause jak wyjaśniono we wprowadzeniu \longpause jest chęć oddania możliwie jak najniżejpoziomowo sposób w który operują jednostki graficzne.
+Wspomnianym trendem tak \longpause jak wyjaśniono we wprowadzeniu \longpause jest chęć oddania możliwie jak najniżejpoziomowo sposobu w który operują jednostki graficzne.
 Asynchroniczna natura wykonywania operacji na GPU i chęć minimalizacji ilości synchronizacji pomiędzy GPU i CPU sprawia, że wszystkie nowoczesne API kolejkują zadania i wysyłają je partiach.
 \par
 Obecnie do dyspozycji programistów Apple oddana jest możliwość skorzystania z dwóch API.
@@ -18,9 +18,9 @@ Pomimo popularności na innych platformach najświeższy otwarty standard grafic
 \subsection{OpenGL}
 Najnowsza wersja dostępna na stacjonarnej platformie to opublikowane w 2010 roku OpenGL 4.1.
 W przypadku urządzeń mobilnych jest to OpenGL ES 3.0, które pomimo zbieżności wielu zbieżności pozostaje podzbiorem stacjonarnego odpowiednika.
-W 2022 roku nadal istnieje możliwość stworzenia aplikacji opartej o OpenGL, choć rozwiązanie uznane jest jako przestarzałe i niewspierane od 2018 roku.
+W 2022 roku nadal istnieje możliwość stworzenia aplikacji opartej o OpenGL, choć rozwiązanie uznane jest jako przestarzałe i nierekomendowane od 2018 roku.
 \par
-Brak wsparcia nie musi stanowić o słabości produktu jednak w przypadku OpenGL największą wadą jest przestarzałe podejście do komunikacji z GPU.
+Brak wsparcia nie musi stanowić o słabości produktu jednak w przypadku OpenGL największą wadą jest podejście do komunikacji z GPU.
 W przeciwieństwie do nowoczesnych API, które synchronizują zadania CPU oraz GPU w zminimalizowany sposób OpenGL dokonuje tego znacznie częściej.
 Każdorazowe wywołanie funkcji oznacza wykonanie zapytania do GPU.
 \par
