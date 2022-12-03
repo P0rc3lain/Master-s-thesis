@@ -1,25 +1,46 @@
 \section{Wnioski}
-Wykonany na potrzeby rozdziału przegląd pozwolił zbadać rynek i dostrzec jego mocne strony.
-Jednocześnie wskazano niedoskonałości i braki.
-Stwierdzono, że przypadek użycia w którym twórca rozważa stworzenie prostej gry lub wizualizacji obiektu 3D wkomponowanej w aplikację użytkową mógłby zostać obsłużony lepiej.
-Obecne produkty choć niewątpliwie są w stanie dostarczyć obraz wysokiej jakości to narzut w postaci osobnego języka programowania, który należy zastosować, ograniczonego wsparcia dla ekosystemu Apple, czy przestarzałego interfejsu, kłopotliwego w testowaniu motywują do zaproponowania autorskiego rozwiązania.
+Wykonany na potrzeby rozdziału przegląd pozwolił zbadać rynek i dostrzec jego mocne strony, jednocześnie wskazując niedoskonałości i braki.
+Stwierdzić można, że przypadek użycia w którym twórca rozważa stworzenie prostej gry lub wizualizacji obiektu 3D wkomponowanej w aplikację użytkową mógłby zostać obsłużony lepiej.
+Obecne produkty choć niewątpliwie dostarczają obraz wysokiej jakości to odbywa się to kosztem znacznego narzutu.
+\par
+Pełnoprawne silniki najlepiej realizują scenariusz stworzenia gry.
+Problematyczne jest, że same w sobie są ekosystemami.
+Posiadają własne IDE, a platforma docelowa jest tylko szczegółem z punktu widzenia programisty.
+Z tego powodu nie sprawdzą się dobrze w sytuacji, gdy projekt planuje wykonać osoba posiadająca doświadczenie tylko i wyłącznie pochodzące z ekosystemu Apple.
+Decyzja o wykorzystaniu silnika wiązać będzie się z koniecznością nauki całkowicie nowej technologii.
+\par
+Filament, jako przykład multiplatformowej biblioteki charakteryzuje się doskonałą jakością.
+Największą wadą jest konieczność zaprogramowania całej warstwy graficznej w oparciu o język C++.
+Dodatkowo, rozwiązanie stworzone jest z myślą o profesjonalistach w dziedzinie.
+Wykorzystuje manualne zarządzanie pamięcią i może okazać się przytłaczające w momencie potrzeby integracji niewielkiej sceny trójwymiarowej.
+\par
+SceneKit stworzony przez Apple z nastawieniem na obsługę ogólnego przypadku generowania grafiki trójwymiarowej jest najlepszym wyborem.
+Jego architektura jednakże ma 10 lat i przez wzgląd na brak jej modernizacji nie spełnia wymagań dzisiejszych standardów.
+Sama biblioteka, pomimo stałego rozwoju technik renderowania nie jest aktualizowana.
+\par
+ARKit podejmujący tematykę generowania grafiki wolny jest od bolączek SceneKit.
+Jego przeznaczenie jednak silnie ukierunkowane jest w stronę rozszerzonej rzeczywistości.
+Wykorzystanie biblioteki do wizualizacji czy prostej gry jest niemożliwe.
 \par
 Odpowiedzią na wspomniane niedogodności byłoby stworzenie biblioteki graficznej, generującej grafikę trójwymiarową, ukierunkowaną na niewielkie produkcje.
 W zamyśle powinna ona oparta być o konwencje, którymi obecnie kierują się architekci projektujący nowe biblioteki na potrzeby ekosystemu.
-Obejmuje to szereg założeń do których między innymi zaliczyć można interfejs oparty o luźne powiązania, wsparcie dla programowania reaktywnego, adekwatne nazewnictwo czy rodzaj dystrybucji.
 \par
-Jednocześnie zachowana powinna być przystępność.
-Koniecznym do oddania użytkownikom jest odpowiednia dokumentacja i dostęp za pośrednictwem języków najczęściej stosowanych w ekosystemie.
-Wsparte powinny być również wszystkie dostępne platformy Apple, tak aby twórcy mogli wykorzystać produkt zarówno w przypadku urządzeń stacjonarnych, jak i mobilnych.
+Przyjęty język programowania powinien odpowiadać trendom.
+Chęć ścisłej integracji z nowoczesnymi aplikacjami sprawia, że jedynym wyborem jest Swift.
 \par
-Oprogramowanie powinno być również dystrybuowane w formie open source.
-Pozwoli to zareagować aktywnym użytkownikom na wypadek napotkania problemu.
-Dodatkowo, sprawi, że kierunek rozwoju wspomagany będzie przez społeczność a nawet umożliwi jej aktywny udział.
+Koniecznym do oddania użytkownikom jest odpowiednia dokumentacja, kompletna pod względem merytorycznym, możliwie spójna w warstwie UI/UX z natywnymi bibliotekami. 
 \par
-Produkt powinien być oparty o nowoczesne API graficzne \longpause Metal.
-Może wygenerować to początkowo nieco większy narzut programistyczny.
-Zagwarantuje jednak wyższą wydajność i uniewrażliwi na wypadek usunięcia alternatywnego, starszego API.
-% Powinienem wspomnieć, że architektura opara będzie o protocol programing i w głównej mierze będę czerpał z książki game engine architecture
+Wsparte powinny być wszystkie dostępne platformy Apple, tak aby twórcy mogli wykorzystać produkt zarówno w przypadku urządzeń stacjonarnych, jak i mobilnych.
+\par
+Oprogramowanie powinno być dystrybuowane w formie open source.
+Sprawi to, że kierunek rozwoju wspomagany będzie przez społeczność i umożliwi jej aktywny udział na wypadek napotkania problemu.
+\par
+Interfejs programistyczny powinien projektowany być w oparciu o programowanie zorientowane protokołowo.
+Dodatkowo, uwzględnić należy wsparcie dla reaktywnego podejścia.
+\par
+Produkt oprzeć należy o nowoczesne API \longpause Metal.
+Zagwarantuje wysoką wydajność i uniewrażliwi na wypadek usunięcia alternatywnego, starszego OpenGL.
+% Powinienem wspomnieć, że w głównej mierze będę czerpał z książki game engine architecture
 % Jako referencja do obsługi API programistycznego skorzystam z Metal by tutorials
 % Sam model oświetlenia będzie zaczerpnięty z disneya
 % Samo programowanie języka to od apple
