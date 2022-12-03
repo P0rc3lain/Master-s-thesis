@@ -29,6 +29,8 @@ Z tego względu wszystkie jego wywołania mają proceduralny charakter i powoduj
 Korzystania nie ułatwia także fakt, że zasoby uzyskane z GPU bez względu na przeznaczenie i typ przekazywane są do użytkownika za pomocą zmiennej całkowitej.
 Na programiście spoczywa konieczność stworzenia abstrakcji wokół pozyskanego numeru.
 \par
+% To jest nie do końca prawda - można pracować na wielu wątkach, ale każdy musi mieć swój kontekst.
+% Zmiana kontekstu jest kosztowna czasowo
 Kolejną niewątpliwą wadą rozwiązania jest sama jego architektura.
 OpenGL zaprojektowane jest jako globalna maszyna stanów.
 Choć nie jest to jawnie zabronione podejście sprawia, że nie istnieje efektywna możliwość komunikacja z API w sposób wielowątkowy.
