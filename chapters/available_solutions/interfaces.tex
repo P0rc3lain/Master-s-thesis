@@ -26,6 +26,7 @@ Każdorazowe wywołanie funkcji oznacza wykonanie zapytania do GPU.
 \par
 Pewną niedogodność stanowi także fakt, iż OpenGL oparty był o język C.
 Z tego względu wszystkie jego wywołania mają proceduralny charakter i powodują dysonans w obiektowym kodzie stworzonym w Objective-C czy Swift.
+\par
 Korzystania nie ułatwia także fakt, że zasoby uzyskane z GPU bez względu na przeznaczenie i typ przekazywane są do użytkownika za pomocą zmiennej całkowitej.
 Na programiście spoczywa konieczność stworzenia abstrakcji wokół pozyskanego numeru.
 \par
@@ -33,8 +34,10 @@ Na programiście spoczywa konieczność stworzenia abstrakcji wokół pozyskaneg
 % Zmiana kontekstu jest kosztowna czasowo
 Kolejną niewątpliwą wadą rozwiązania jest sama jego architektura.
 OpenGL zaprojektowane jest jako globalna maszyna stanów.
-Choć nie jest to jawnie zabronione podejście sprawia, że nie istnieje efektywna możliwość komunikacja z API w sposób wielowątkowy.
-W teorii dwa lub więcej wątków jest w stanie operować na API, ale współbieżne operacje są niemożliwe ponieważ wątki wpływają na siebie nawzajem za pośrednictwem zmiany stanu API.
+Choć nie jest to jawnie zabronione, podejście sprawia, że nie istnieje efektywna możliwość komunikacji z API w sposób wielowątkowy.
+W teorii dwa lub więcej wątków jest w stanie pracować współbieżnie, ale operacje w sekcji krytycznej są nieefektywne, ponieważ każdorazowa zmiana stanu w GPU jest kosztowna czasowo.
+% Napisać, że opengl jest goły i dużo trzeba robić na własną rękę - tak jak kompilacja condiitonali
+% Kompilacja jest runtime, co jest słabe
 \subsection{Metal}
 Obecnie jedynym dostępnym API za pośrednictwem którego programować można GPU w ekosystemie Apple jest Metal.
 Jego premiera miała miejsce w 2014 roku.
@@ -59,8 +62,9 @@ Dodatkowo, należy pamiętać, że użycie wspomnianej technologii rozszerza tyl
 Nadal należy pamiętać o konieczności interfejsowania kodu do Objective-C w celu wykorzystania go w aplikacji ekosystemu Apple.
 \par
 Jedynym mankamentem dotyczącym zarówno Metal, jak i OpenGL jest brak wsparcia dla systemu watchOS.
-W jego przypadku skorzystać można tylko i wyłącznie ze stosunkowo wysokopoziomowyej biblioteki do rysowania \longpause Core Graphics.
+W jego przypadku skorzystać można tylko i wyłącznie ze stosunkowo wysokopoziomowej biblioteki do rysowania \longpause Core Graphics.
 Jedyną możliwością generowanie grafiki trójwymiarowej wydaje się być własnoręczne zaimplementowanie potoku renderowania opartego o CPU.
 % Z tej popularności wzięły się też biblioteki do iOS, które wyglądają jak vulkan ale są wrapperem na metala
 % Napisz, że metal jest super bo pozwala na doskonałe debugowanie
 % Napisz, że fajne jest profilowanie kodu shaderów
+% Statyczna kompilacja

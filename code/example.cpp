@@ -1,14 +1,14 @@
 #include <iostream>
 
-class Greater {
+class greater {
 public:
     void say_hello() {
-        std::cout<< "Hello World!" << std::endl;
+        std::cout << "Hello World!" << std::endl;
     }
 };
 
 int main() {
-    auto my_greator = Greater{};
+    auto my_greator = greater{};
     my_greator.say_hello();
     return 0;
 }
