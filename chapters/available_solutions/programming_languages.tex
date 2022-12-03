@@ -40,7 +40,7 @@ Wybrane zostało przez firmę NeXT jako technologia, którą posłużą się do 
 Jest on podstawą, którą użyło Apple do rozwijania własnego systemu \longpause znanego dzisiaj pod nazwą macOS \longpause za sprawą przejęcia firmy NeXT w 1996 roku.
 \par
 W przeciwieństwie do C++ Objective-C nie zyskało licznego grona odbiorców.
-Głównie za sprawą faktu, że prawa do technologii spoczywały w rękach Apple.
+Głównie za sprawą faktu, że prawa własności intelektualnej przynależały do Apple.
 Technologia jest szeroko-stosowana na ich własnych platformach, ale wybrakowana i niemalże nieobecna na innych.
 Użycie i wybór Objective-C często podyktowany był koniecznością, a nie rozważną decyzją podpartą argumentami.
 \par
@@ -49,7 +49,7 @@ Wynika to z faktu, że zastosowana tutaj podejście zaczerpnięte ze SmallTalka 
 C++ osiąga ten cel wykorzystując tablice funkcji wirtualnych, które do wywołania metody wymagają wykonania mniejszej liczby operacji.
 \par
 Dodatkowo, Objective-C zniechęca do siebie swoją składnią, niespotykaną w żadnym innym języku.
-Wywołania metod przypominają nieco język naturalny.
+Sygnatury metod przypominają nieco język naturalny.
 W przeciwieństwie do C czy C++ każdy parametr opatrzony jest stosowną etykietą.
 Programista w teorii powinien być w stanie lepiej zrozumieć działanie algorytmu, jednak podejście takie ma także negatywne skutki.
 Przede wszystkim wywołania metod są długie, a konieczność zamykania każdego z nich w nawiasy kwadratowe sprawia, że niekiedy sekwencja zabiera wiele linii w pliku źródłowym.
@@ -70,11 +70,11 @@ Kluczowe cechy były bezpośrednią odpowiedzią na zarzuty w stosunku do boląc
 W 2015, rok po premierze, zdecydowano o konwersji do formy open source.
 Projekt przeniesiony został na platformę GitHub wraz z bibliotekami standardowymi.
 Od tamtej pory producent aktywnie zachęca do zaangażowania się za pośrednictwem formularza zgłaszania błędów, przesłania propozycji rozwoju w formie notatek, czy bezpośrednich kontrybucji do kodu źródłowego.
-W rezultacie Swift zagościł na systemach Linux oraz Windows, a przypadek użycia zawiera nie tylko tworzenie aplikacji dla urządzeń Apple, ale język traktowany jest jako rozsądna technologio serwerowych.
-Chciało zerwać z dotychczasowym wizerunkiem, który obecny był w Objective-C.
-Użytkownicy dostrzegali, że platforma producenta jest jedyną, w której technologia ma zastosowania.
-Strategia sprawdziła się.
-w 2020 roku szacowano, że Swift jest trzykrotnie częściej wykorzystywany niż swój starszy odpowiednik.
+W rezultacie Swift zagościł na systemach Linux oraz Windows, a przypadek użycia zawiera nie tylko tworzenie aplikacji dla urządzeń Apple, ale język traktowany jest jako rozsądna technologia serwerowa.
+% Chciano również zerwać z dotychczasowym wizerunkiem, który obecny był w Objective-C.
+% Użytkownicy dostrzegali, że platforma producenta jest jedyną, w której technologia ma zastosowania.
+% Strategia sprawdziła się.
+% w 2020 roku szacowano, że Swift jest trzykrotnie częściej wykorzystywany niż swój starszy odpowiednik.
 \par
 Sytuacją, którą traktować można jako punkt zapalny do stworzenia języka była premiera pierwszego iPhone'a w 2007 roku.
 Urządzenie odniosło ogromny sukces, a każdy kolejny model pomimo stale rosnącej produkcji wciąż nie był w stanie wysycić potrzeb rynku.
@@ -86,8 +86,8 @@ Potencjalny deweloper musiał nie tylko zaopatrzyć się w telefon, ale także o
 Apple dostrzegło, że trudności odstraszają programistów i w efekcie projekt pomimo doskonałej rentowności nie jest w stanie dojść do swojego szczytu możliwości.
 \par
 Jedna z kluczowych zalet języka jest prędkość.
-Statystyki, poświadczone przez twórców wskazują na 2.6x wzrost wydajności w stosunku do pierwotnego rozwiązania.
-Swift nie jest tak dobry jak C czy C++, nie mniej jednak jego narzut jest niewielki.
+Statystyki, poświadczone przez twórców wskazują na 2.6-krotny wzrost wydajności w stosunku do pierwotnego rozwiązania.
+Swift nie jest tak dobry jak C czy C++, niemniej jednak jego narzut jest niewielki.
 \par
 Nie można przeoczyć także faktu, że nowy język jest czytelny.
 W tym znaczeniu należy rozpatrywać łatwość w rozumieniu jako ekspresyjność.
@@ -120,7 +120,7 @@ Na wstępie wyjaśniono, że język umożliwia programowanie w oparciu o wiele p
 Choć odgórny narzut nie występuje to producent wydaje się skłaniać ku reaktywnemu podejściu, podpartemu programowaniem zorientowanym na protokoły.
 Motywacja stojąca za drugim z paradygmatów została już wyjaśniona, natomiast wątpliwość budzić może argumentacja odpowiadająca reaktywnemu aspektowi.
 Współczesne aplikacji mobilne składają się zwykle z wielu ekranów o zróżnicowanym interfejsie.
-W większości przypadków są one stanowe \longpause zmiana dokonana na jednym z ekranów wpływa na inny lub pozostałą funkcjonalność.
+W większości przypadków są one stanowe \longpause interakcja dokonana na jednym z ekranów wpływa na inny lub pozostałą funkcjonalność.
 Z tego względu konieczne są mechanizmy w kodzie programu, które propagują zmianę do widoku oraz z niego do modułu logiki aplikacji.
 Pierwotnie ekosystem Apple stosował do tego mechanizm delegacji, ale w przypadku bardziej złożonej logiki, zawierającej liczne warunki funkcje stawały się obszerne.
 Wraz z wprowadzeniem nowej generacji biblioteki do tworzenia UI w ekosystemie \longpause SwiftUI \longpause Apple upubliczniło dodatkowy moduł \longpause Combine.

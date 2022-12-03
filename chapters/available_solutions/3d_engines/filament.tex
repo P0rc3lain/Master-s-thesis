@@ -1,5 +1,5 @@
 \subsubsection{Filament}
-Android, którego rozwój prowadzi Google opiera się o nieco odmienne podejście na dostarczanie dodatkowych funkcjonalności.
+Android, którego rozwój prowadzi Google opiera się o nieco odmienne podejście na dostarczanie dodatkowych funkcjonalności niż to, które przyjęto w Apple.
 Producent aktywnie rozwija system, dostarcza komponenty w oparciu o które można budować aplikacje, ale długi czas pozostawiał społeczności projektowanie i rozwój bibliotek ułatwiających pracę w wyspecjalizowanych dziedzinach.
 W przypadku chęci stworzenia gry dwu lub trzy wymiarowej sugerowano skorzystanie wprost z API graficznego i własnego rozwiązania.
 Zmianę zainicjował wzrost popularności techniki AR po 2014 roku, kiedy urządzenia mobilne były w stanie zaspokoić potrzeby wydajnościowe.
@@ -26,7 +26,7 @@ Użytkownicy mogą nieodpłatnie wykorzystać Filament do celów komercyjnych i 
 Dziwi, że Google wprawdzie umiejscowiło projekt pod skrzydłami swojej organizacji, ale zaznacza, że nie jest on oficjalnie wspierany.
 \par
 Podejście do renderowania oparte o fizyczne odwzorowanie zachowania światła stało sie powszechne.
-Zupełnie wyjątkowy jest jednak sposób w jaki zaimplementowane je w bibliotece.
+Zupełnie wyjątkowy jest jednak sposób w jaki zaimplementowano je w bibliotece.
 Zadbano, aby każdy konfigurowalny parametr miał fizyczne znaczenie.
 Nie ma możliwości nadania kierunkowemu światłu imitującemu słońce wartości na podstawie czynników koloru czerwonego, zielonego oraz niebieskiego.
 W tym wypadku należy posłużyć się temperaturą barwową w Kelvinach oraz natężeniem strumienia świetlnego w lumenach.
@@ -43,11 +43,11 @@ Jest ich kilka, w formie projektów początkowych dla każdej z platform.
 Nie budzą zastrzeżeń, bez problemu można je zmodyfikować i wykorzystać do swoich potrzeb.
 Ostatni aspekt dokumentacji - kodu oraz interfejsu niestety zawodzi.
 Nie udostępniono użytkownikom jej za pośrednictwem internetu, uzyskać można ją tylko przy budowie aplikacji.
-Niestety w głównej mierze ogranicza się ona do jednozdaniowych opisów.
+W głównej mierze ogranicza się ona do jednozdaniowych opisów.
 \par
 Największą wadą z punktu widzenia użytkownika iOS jest wsparcie dla platformy.
 Wprawdzie Filament zdolny jest do pracy zarówno na OpenGL, jak i Metal, natomiast tylko do rozszerzenia obsługi o wspomniane API wydaje się ograniczać włożony nakład pracy.
-Nie posiada ona dedytkowanego interfejsu dla platformy apple i wszystkie jej funkcjonalności wymagają użycia C++.
+Nie posiada ona dedykowanego interfejsu dla platformy apple i wszystkie jej funkcjonalności wymagają użycia C++.
 Wobec tego, aby skorzystać z biblioteki koniecznym jest oprzeć część aplikacji o Objective-C i zastosować interfejsowanie.
 \par
 Przystępności nie poprawia też sposób zarządzania pamięcią.
@@ -58,7 +58,7 @@ Nieco burzy to powszechne konwencje C++, które sugerują użycie podejścia RAI
 Decyzja o takim projekcie jest zrozumiała z punktu widzenia osiągnięcia optymalnej wydajności i wykorzystania pamięci.
 Zdradza jednak pośrednio grupę odbiorców.
 Filament jest silnikiem graficznym zrobionym przez grafików dla grafików.
-Przeciętny programista ekosystemu Apple, który chciałby tylko skorzystać z funkcjonalności może mieć trudności efektywnym wykorzystaniu.
+Przeciętny programista ekosystemu Apple, który chciałby tylko skorzystać z funkcjonalności może mieć trudności w efektywnym wykorzystaniu.
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=7cm]{images/engines/filament/helmet.jpeg}
@@ -66,3 +66,4 @@ Przeciętny programista ekosystemu Apple, który chciałby tylko skorzystać z f
     \caption{Przykład klatki wygenerowanej przez silnik Filament}
     \label{fig:filament-helmet}
 \end{figure}
+% Otrzymuje się osobno binarkę oraz pliki nagłówkowe, nie ma pojedynczego pliku
