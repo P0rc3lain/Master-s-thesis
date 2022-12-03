@@ -4,17 +4,17 @@ Stworzony został z myślą o produkcji gier wideo.
 Dostępny jest na większości platform, zarówno mobilnych, jak i stacjonarnych, ale w głównej mierze przeznaczony jest do mniejszych projektów.
 \par
 Rozwiązanie należy zaliczyć do płatnych, choć rozwój aplikacji wykorzystującej technologię można rozpocząć bezpłatnie.
-Użytkownik, który jednak poważnie myśli o wydaniu komercyjnie rentownej aplikacji szybko dostrzeże mnogość ograniczeń.
+Użytkownik, który jednak poważnie myśli o wydaniu komercyjnie rentownej aplikacji dostrzeże mnogość ograniczeń.
 Do najpoważniejszych zaliczyć można brak możliwości zmiany ekranu ładowania widocznego podczas startu na urządzeniu czy niemożność dostępu do kodu silnika.
 \par
 Z drugiej strony Unity jest kompletne \longpause pozwala na tworzenie w technologiach 2D, 3D, VR oraz AR.
 Posiada zintegrowane moduły do obsługi fizyki, dźwięku, kontrolerów, sieci, analityki użycia, a także reklam.
 \par
 Choć rozwijany jest w języku C++ to użytkownik dokonuje interakcji za pomocą C\#.
-W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja była błyskawicznie odzwierciedlana pod względem przyrostowego czasu budowy.
+W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja była natychmiastowo odzwierciedlana pod względem przyrostowego czasu budowy.
 Mono \longpause framework wykorzystywany przez Unity w tym celu \longpause ma jednak pewne mankamenty.
 Przede wszystkim użytkownicy narzekają na okazjonalne przycięcia w grach wynikające ze specyfiki zarządzania pamięcią.
-Dziwić może także sama obecność C\#.
+Zastanawiać może także sama obecność C\#.
 Unity deklaruje, że najlepiej odnajduje się na mobilnych platformach, ale język skryptowy nie pokrywa się z żadną wiodącą technologią ze świata smartfonów.
 Na obronę jednak przyznać należy, że grę w unity można stworzyć bez znajomości platformy docelowej.
 \par
@@ -31,17 +31,17 @@ Obfita jest w liczne przykładowe projekty i zawiera sugestie co do sposobu impl
 \par
 Pierwotnie cała interakcja warstwy gry oraz silnika obsługiwana była za pomocą skryptów C\#.
 Na przestrzeni lat rozwinięto jednak interfejs graficzny środowiska, a także dodano możliwość konfigurowania przebiegu rozgrywki za pomocą programowania wizualnego.
-W założeniu podobne jest to nieco do schematów blokowych używanych w celu objaśniania algorytmów.
+W założeniu podobne jest to nieco do schematów blokowych używanych do prezentacji algorytmów.
 Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier osobom niebędącym zaznajomionym z programowaniem.
 Pozornie pomysł może wydawać się oszczędzać czas i ułatwiać rozwój, mimo to grono osób nadal niechętnie korzysta z rozwiązania.
-W głównej mierze podyktowane jest to bardzo kiepską przejrzystością zmian dokonanych przez użytkowników w systemach kontroli wersji.
+W głównej mierze podyktowane jest to niską przejrzystością zmian dokonanych przez użytkowników w systemach kontroli wersji.
 Równie często przywoływany jest także argument wskazujący na trudność w odnajdywaniu się w logice stworzonej przy pomocy programowania wizualnego.
-Równoważna implementacja w formie skryptu traktowana jest jako bardziej przejrzysta, a więc łatwiejsza do zrozumienia.
+Równoważna implementacja w formie skryptu określana jest jako łatwiejsza do zrozumienia.
 \par
 Za minus można uznać narzut w kwestii wagi aplikacji.
 Szablon pustego projektu wiąże się z koniecznością posiadania około 20 MB wolnej przestrzeni.
-Natywny, pusty projekt iOS to zaledwie 1 MB.
-Wydawać może się to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej, a na jej efektywność wpływa wiele czynników, to naturalnie waga powinna być ograniczona do minimum.
+Dla porównania natywny, pusty projekt iOS to zaledwie 1 MB.
+Wydawać może się to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej to naturalnie waga powinna być ograniczona do minimum.
 \par
 Pewną charakterystyką większości silników do gier, włącznie z Unity, jest zapewnianie użytkownikowi własnego środowiska programistycznego.
 Dodać należy, że nie jest ono alternatywą dla preferowanego edytora.
