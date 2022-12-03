@@ -1,0 +1,32 @@
+\subsubsection{ARKit}
+Wydanie ARKit było odpowiedzią na rosnące zainteresowanie branży technologią rozszerzonej rzeczywistości.
+Idea polega na wzbogacaniu obrazu przechwytywanego z kamery urządzenia o dodatkowe elementy 2D oraz 3D.
+Podobnie jak w przypadku SceneKit jest to autorska biblioteka Apple.
+Choć część funkcjonalności wydaje się być współdzielona jest z SceneKit to firma deklaruje, iż rozwiązania nie są w żadnym stopniu powiązane ze sobą.
+\par
+ARKit poprawia wiele problemów, które obecne są w SceneKit.
+Przede wszystkim jest ona aktywnie rozwijana, na bieżąco publikowane są poprawki, rozszerzenia funkcjonalności i ulepszenia modelu oświetlenia.
+\par
+Interfejs ARKit jest kolejnym czynnikiem zaskakującym pozytywnie.
+Dostosowany jest do współczesnych konwencji firmy i dobrze integruje się z resztą systemu.
+Tak jak wspomniano wcześniej interakcje oparte o luźne powiązania pozytywnie wpływają na testowalność kodu wykorzystującego bibliotekę.
+\par
+Podobnie jednak jak w przypadku innych rozwiązań Apple ARKit nie jest otwarty.
+Nie istnieje możliwość wglądu do kodu, ani jego modyfikacji, technologia może być jednak w nieodpłatny sposób wykorzystana z uwzględnieniem przeznaczenia do celów komercyjnych.
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=15cm]{images/engines/ar-kit/example-app.jpg}
+    \end{center}
+    \caption{Rzeczywistość rozszerzona na przykładzie aplikacji mobilnej}
+    \label{fig:arkit-example-app}
+\end{figure}
+\par
+Inteligentne suplementowanie obrazu obarczone jest jednak niemałym kosztem.
+Każda klatka analizowana jest pod kątem semantyki, a ewentualny ruch wpływający na generowane obiekty rozszerzonej rzeczywistości kompensowany.
+Spodziewać należy się, że mimo budzącego podziw modelu oświetlenia wydajność będzie przeciętna.
+\par
+Zaskakiwać może, że ARKit obsługuje jedynie iOS.
+Na pozostałych platformach nie występuje lub tak jak przypadku międzyplatformowej technologii \textit{mac catalyst} wywołania są ignorowane.
+Z jednej strony to zrozumiałe, ponieważ tylko telefony i tablety posiadają stosowne kamery spełniające wymagania.
+Z drugiej wyklucza to możliwość wykorzystania ARKit do użycia w celu wygenerowania prostych scen 3D bez AR.
+% Napisać, że scenekit jest wyposażony w edytor sceny

@@ -1,0 +1,68 @@
+\subsubsection{Filament}
+Android, którego rozwój prowadzi Google opiera się o nieco odmienne podejście na dostarczanie dodatkowych funkcjonalności.
+Producent aktywnie rozwija system, dostarcza komponenty w oparciu o które można budować aplikacje, ale długi czas pozostawiał społeczności projektowanie i rozwój bibliotek ułatwiających pracę w wyspecjalizowanych dziedzinach.
+W przypadku chęci stworzenia gry dwu lub trzy wymiarowej sugerowano skorzystanie wprost z API graficznego i własnego rozwiązania.
+Zmianę zainicjował wzrost popularności techniki AR po 2014 roku, kiedy urządzenia mobilne były w stanie zaspokoić potrzeby wydajnościowe.
+Wiedziano, że bez odgórnego wsparcia wiele aplikacji ominie platformę lub nawet doprowadzi do migracji użytkowników na konkurencyjny iOS.
+W 2018 Google wydał ARCore.
+Bibliotekę do obsługi AR, a wraz z nią silnik graficzny Filament, stworzony na potrzeby projektu.
+\par
+Nadrzędnym celem jaki rozszerzona rzeczywistość powinna spełniać jest zapewnienie immersji.
+Oznacza to realistyczne odwzorowanie modelu oświetlenia przy zachowaniu podejścia czasu rzeczywistego.
+Elementy wzbogacające obraz powinny wtapiać się w resztę otoczenia.
+Filament stworzony został dokładnie z tym myślą o tym scenariuszu.
+\par
+Oferowany jest jako silnik do renderowania.
+Dodatkowo, aby ułatwić proces importu modeli posiada moduł do wczytywania.
+Są to główne, ale i jedyne funkcjonalności.
+\par
+Projekt wspiera szereg systemów, ale największy nacisk położony jest na Android.
+Pomimo iż stworzony został w C++ integracja z Kotlinem stoi na wysokim poziomie.
+Użytkownik jest w stanie bezpośrednio wykonywać zapytania do API, bez pośrednich interfejsów.
+Sam projekt publicznych części biblioteki pokrywa się z schematami powszechnie przyjętymi na platformie.
+\par
+Dystrybucja prowadzona jest w oparciu o podejście open source.
+Użytkownicy mogą nieodpłatnie wykorzystać Filament do celów komercyjnych i wprowadzać w nim dalsze poprawki.
+Dziwi, że Google wprawdzie umiejscowiło projekt pod skrzydłami swojej organizacji, ale zaznacza, że nie jest on oficjalnie wspierany.
+\par
+Podejście do renderowania oparte o fizyczne odwzorowanie zachowania światła stało sie powszechne.
+Zupełnie wyjątkowy jest jednak sposób w jaki zaimplementowane je w bibliotece.
+Zadbano, aby każdy konfigurowalny parametr miał fizyczne znaczenie.
+Nie ma możliwości nadania kierunkowemu światłu imitującemu słońce wartości na podstawie czynników koloru czerwonego, zielonego oraz niebieskiego.
+W tym wypadku należy posłużyć się temperaturą barwową w Kelvinach oraz natężeniem strumienia świetlnego w lumenach.
+Rozwiązanie jest ściśle ukierunkowane na realizm i nie pozwala kreować dowolnego charakteru.
+\par
+Dokumentacja projektu oparta jest o trzy główne filary.
+Pierwszy to szczegółowy opis modelu oświetlenia.
+Jego jakość jest wybitna. 
+Każdy aspekt renderowania ujęty jest w osobnej sekcji, wyjaśniony słowie wraz przykładami kodu i ilustracjami.
+Przytłaczający może wydawać się stopień włożonego wysiłku, który poświęcono by przedstawić zjawiska fizyczne przy pomocy aparatu matematycznego.
+Starano oddać się kompletny proces, bez pomijania żadnych aspektów.
+Drugi z filarów to funkcjonalne przykładowy użycia.
+Jest ich kilka, w formie projektów początkowych dla każdej z platform.
+Nie budzą zastrzeżeń, bez problemu można je zmodyfikować i wykorzystać do swoich potrzeb.
+Ostatni aspekt dokumentacji - kodu oraz interfejsu niestety zawodzi.
+Nie udostępniono użytkownikom jej za pośrednictwem internetu, uzyskać można ją tylko przy budowie aplikacji.
+Niestety w głównej mierze ogranicza się ona do jednozdaniowych opisów.
+\par
+Największą wadą z punktu widzenia użytkownika iOS jest wsparcie dla platformy.
+Wprawdzie Filament zdolny jest do pracy zarówno na OpenGL, jak i Metal, natomiast tylko do rozszerzenia obsługi o wspomniane API wydaje się ograniczać włożony nakład pracy.
+Nie posiada ona dedytkowanego interfejsu dla platformy apple i wszystkie jej funkcjonalności wymagają użycia C++.
+Wobec tego, aby skorzystać z biblioteki koniecznym jest oprzeć część aplikacji o Objective-C i zastosować interfejsowanie.
+\par
+Przystępności nie poprawia też sposób zarządzania pamięcią.
+Cały silnik graficzny oparty jest na modelu manualnym, bez udziału inteligentnych wskaźników.
+Dotyczy to zarówno zasobów utrzymywanych w pamięci RAM procesora, jak i GPU.
+Przenoszenie zasobów na kartę graficzną i zwalnianie jej przestrzeni adresowej wymaga dodatkowych wywołań funkcji.
+Nieco burzy to powszechne konwencje C++, które sugerują użycie podejścia RAII.
+Decyzja o takim projekcie jest zrozumiała z punktu widzenia osiągnięcia optymalnej wydajności i wykorzystania pamięci.
+Zdradza jednak pośrednio grupę odbiorców.
+Filament jest silnikiem graficznym zrobionym przez grafików dla grafików.
+Przeciętny programista ekosystemu Apple, który chciałby tylko skorzystać z funkcjonalności może mieć trudności efektywnym wykorzystaniu.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=7cm]{images/engines/filament/helmet.jpeg}
+    \end{center}
+    \caption{Przykład klatki wygenerowanej przez silnik Filament}
+    \label{fig:filament-helmet}
+\end{figure}

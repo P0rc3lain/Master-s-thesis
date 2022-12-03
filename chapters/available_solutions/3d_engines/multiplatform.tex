@@ -1,0 +1,27 @@
+\subsection{Biblioteki multiplatformowe}
+Jedną z dwóch możliwości dystrybucji oprogramowania jest forma multiplatformowa.
+W założeniu polega ona na stworzeniu jednego rozwiązania, dostępnego na co najmniej dwóch platformach.
+Warto podkreślić, że chodzi tutaj o architekturę w której istnieje część wspólna \longpause w rozpatrywanym znaczeniu nie należy uwzględniać oprogramowania realizującego identyczne funkcje, ale za pomocą ponownej, natywnej implementacji.
+\par
+Wysokopoziomowy projekt zachowuję pewną prawidłowość i ma warstwowy charakter.
+Obszar współdzielony tworzony jest w technologii dostępnej na każdej ze wspieranych platform.
+Poniżej niego znajduje się strefa specyficzna dla systemu, która ma uwzględniać ewentualne różnice w interakcji z jego zasobami.
+Opcjonalnie, ponad nimi usytuowany jest natywny interfejs, mający za zadanie poprawić przystępność \longpause programista systemu Android oczekiwał będzie API w formie biblioteki JAVA lub Kotlin, zaś twórca aplikacji iOS powinien otrzymać dostęp za pośrednictwem języków Swift czy Objective-C.
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=10cm]{images/multiplatform-architecture.png}
+    \end{center}
+    \caption{Demonstracja idei oprogramowania mulitplatformowego}
+    \label{fig:multiplatform}
+\end{figure}
+\par
+Głównym argumentem stojącym za budowaniem oprogramowania w sposób multiplatformowy jest chęć zwiększenia grona odbiorców.
+Dla konsumenta technologii jest to niewątpliwa zaleta, natomiast narzuca to na twórców dodatkową prace związaną z koniecznością uwzględnienia wpływu poszczególnych zmian na wszystkie dostępne warianty.
+\par
+Wprowadzenie generalizacji wiąże się jednakże z narzutem wydajnościowym.
+Każdy istniejący poziom abstrakcji przekłada się na większą ilość wywołań pomiędzy obiektami wewnątrz biblioteki.
+Możliwe minimalizowanie zjawiska jest newralgiczne, każda strata płynności wynikająca z wzmożonego nakładu obliczeń procesora implikować będzie konieczność obniżenia jakości grafiki celem utrzymania pożądanej prędkości animacji. 
+\par
+Kolejnym aspektem, który należy wziąć pod uwagę jest sposób integracji z natywnym środowiskiem.
+Oznacza to określenie czy interfejs biblioteki dla końcowej platformy uwzględnia powszechnie przyjęte konwencje.
+W idealnym przypadku użytkownik powinien być w stanie domyślić się klucza komunikacji na podstawie posiadanych doświadczeń, bez konieczności wspierania się dokumentacją. 
