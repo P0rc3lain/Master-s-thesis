@@ -57,7 +57,7 @@ Przede wszystkim wywołania metod są długie, a konieczność zamykania każdeg
 \subsection{Swift}
 Debiut Swift nastąpił w 2014 roku.
 W przeciwieństwie do wcześniej wymienionych języków Swift nie jest ukierunkowany w pojedynczy paradygmat programowania.
-Wykorzystywany może być do podejścia zorientowanego obiektowo, protokołowo, a także programowania proceduralnego i funkcyjnego.
+Wykorzystywany może być do podejścia zorientowanego obiektowo, protokołowo, a także programowania proceduralnego, funkcyjnego i reaktywnego.
 Decyzja o jego stworzeniu i inwestycja w technologie była inicjatywą Apple.
 Jego kluczowe cechy były bezpośrednią odpowiedzią na zarzuty w stosunku do bolączek Objective-C.
 \par
@@ -68,8 +68,7 @@ W efekcie Swift obecny także na systemach Linux oraz Windows, a przypadek użyc
 Apple chciało zerwać z dotychczasowym wizerunkiem, który obecny był w Objective-C.
 Użytkownicy dostrzegali, że platforma producenta jest jedyną w której technologia ma zastosowania.
 Strategia sprawdziła się.
-w 2020 roku \longpause szacowano, że Swift jest trzykrotnie częściej wykorzystywany niż swój starszy odpowiednik.
-% https://www.ideamotive.co/blog/swift-vs-objective-c-which-should-you-pick-for-your-next-ios-mobile-app
+w 2020 roku szacowano, że Swift jest trzykrotnie częściej wykorzystywany niż swój starszy odpowiednik.
 \par
 Sytuacją, którą traktować można jako punkt zapalny do stworzenia języka była premiera pierwszego iPhone'a w 2007 roku.
 Urządzenie odniosło ogromny sukces, a każdy kolejny model pomimo stale rosnącej produkcji wciąż nie był w stanie wysycić potrzeb rynku.
@@ -83,7 +82,6 @@ Apple dostrzegło, że ich trudności odstrasza programistów i w efekcie projek
 Jedna z kluczowych zalet języka jest prędkość.
 Statystyki, poświadczone przez twórców wskazują na 2.6x wzrost wydajności w stosunku do pierwotnego rozwiązania.
 Swift nie jest tak dobry jak C czy C++, nie mniej jednak jego narzut jest niewielki.
-% https://www.cometchat.com/blog/ios-swift-objective-c-comparisonl
 \par
 Nie można przeoczyć także faktu, że nowy język jest czytelny.
 W tym znaczeniu można jednak rozpatrywać łatwość w rozumieniu jako ekspresyjność języka.
@@ -111,3 +109,16 @@ Jeśli taka potrzeba zajdzie w ramach ekosystemu Apple użycie Objective-C jest 
     \caption{Schemat łączenia wielu języków na przykładzie platformy iOS}
     \label{fig:language-interoperability}
 \end{figure}
+\par
+Na wstępie wyjaśniono, że język umożliwia programowanie w oparciu o wiele paradygmatów.
+Choć odgórny narzut nie występuje to producent wydaje się skłaniać ku reaktywnemu podejściu, podpartemu programowaniem zorientowanym na protokoły.
+Motywacja stojąca za drugim z paradygmatów została już wyjaśniona, natomiast wątpliwość budzić może argumentacja odpowiadająca reaktywnemu aspektowi.
+Współczesne aplikacji mobilne składają się zwykle z wielu ekranów o zróżnicowanym interfejsie.
+W większości przypadków są one stanowe \longpause zmiana dokonana na jednym z ekranów wpływa na inny lub pozostałą funkcjonalność.
+Z tego względu konieczne są mechanizmy w kodzie programu, które propagują zmianę do widoku oraz z niego do modułu logiki aplikacji.
+Pierwotnie ekosystem Apple stosował do tego mechanizm delegacji, ale w przypadku bardziej złożonej logiki, zawierającej liczne warunki funkcje stawały się obszerne.
+Wraz z wprowadzeniem nowej generacji biblioteki do tworzenia UI w ekosystemie \longpause SwiftUI \longpause Apple upubliczniło dodatkowy moduł \longpause Combine.
+W tandemie oba produkty pozwalają deklaratywnie definiować interfejs, a zmiany propagować w oparciu o programowanie reaktywne.
+Stanowi to swego rodzaju punkt zwrotny w projektowaniu architektury aplikacji.
+Do skorzystania z pełni możliwości SwiftUI istotne jest, aby możliwie jak największa część aplikacji była stworzona w sposób reaktywny.
+Tyczy się to zarówno części logiki aplikacji jak i bibliotek, które ona używa.
