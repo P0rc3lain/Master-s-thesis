@@ -1,0 +1,28 @@
+\subsection{Objective-C}
+Bjarne Stroustrup nie był jedynym, który dostrzegał braki w języku C i pragnął porzucić podejście proceduralne.
+We wczesnych latach osiemdziesiątych Tom Love and Brad Cox opracowali własną odpowiedź na ukłon w stronę obiektowości.
+Ich dzieło \longpause Objective-C \longpause w pierwszej wersji ukazało się w 1984 roku.
+Wybrane zostało przez firmę NeXT jako technologia, którą posłużyli się do stworzenia ich autorskiego systemu operacyjnego NeXTSTEP.
+Był on podstawą, którą użyło Apple do rozwijania własnego systemu \longpause znanego dzisiaj pod nazwą macOS \longpause za sprawą przejęcia firmy NeXT w 1996 roku.
+\par
+W przeciwieństwie do C++ Objective-C nie zyskało licznego grona odbiorców.
+Głównie za sprawą faktu, że prawa własności intelektualnej przynależały do Apple.
+Technologia jest szeroko-stosowana na ich własnych platformach, ale wybrakowana i niemalże nieobecna na innych.
+Użycie i wybór Objective-C często podyktowany był koniecznością, a nie rozważną decyzją podpartą argumentami.
+\par
+Choć język realizuje swoją funkcje to w stosunku do C++ charakteryzuje się gorszą wydajnością.
+Wynika to z faktu, że zastosowana tutaj podejście zaczerpnięte ze SmallTalka \longpause wywołanie funkcji za pośrednictwem przesyłania wiadomości do obiektu z nazwą w postaci łańcucha znakowego i listą argumentów.
+C++ osiąga ten cel wykorzystując tablice funkcji wirtualnych, które do wywołania metody wymagają wykonania mniejszej liczby operacji.
+\par
+Dodatkowo, Objective-C zniechęca do siebie swoją składnią, niespotykaną w żadnym innym języku.
+Sygnatury metod przypominają nieco język naturalny.
+W przeciwieństwie do C czy C++ każdy parametr opatrzony jest stosowną etykietą.
+Programista w teorii powinien być w stanie lepiej zrozumieć działanie algorytmu, jednak podejście takie ma także negatywne skutki.
+Przede wszystkim wywołania metod są długie, a konieczność zamykania każdego z nich w nawiasy kwadratowe sprawia, że niekiedy sekwencja zabiera wiele linii w pliku źródłowym.
+\lstinputlisting[language={[Objective]C}, caption=Przykład kodu w języku Objective-C]{code/example.m}
+% Przydałoby się więcej konkretów o Objective-C
+% Automatic garbage collector
+% Categories
+% Można napisać, że Objective-C służy do interfejsowania z ios
+% Good support for binary frameworks
+% NSObject is part of foundation

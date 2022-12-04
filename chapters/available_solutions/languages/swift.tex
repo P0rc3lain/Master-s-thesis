@@ -1,0 +1,74 @@
+\subsection{Swift}
+Debiut Swift nastąpił w 2014 roku.
+W przeciwieństwie do wcześniej wymienionych języków nie jest on ukierunkowany w pojedynczy paradygmat programowania.
+Wykorzystywany może być do podejścia zorientowanego obiektowo, protokołowo, a także programowania proceduralnego, funkcyjnego i reaktywnego.
+Decyzję o stworzeniu i inwestycję w technologie zainicjowało Apple.
+Kluczowe cechy były bezpośrednią odpowiedzią na zarzuty w stosunku do Objective-C.
+\par
+W 2015, rok po premierze, zdecydowano o konwersji do formy open source.
+Projekt przeniesiony został na platformę GitHub wraz z bibliotekami standardowymi.
+Od tamtej pory producent aktywnie zachęca do zaangażowania się za pośrednictwem formularza zgłaszania błędów, przesłania propozycji rozwoju w formie notatek, czy bezpośrednich kontrybucji do kodu źródłowego.
+W rezultacie Swift zagościł na systemach Linux oraz Windows, a przypadek użycia zawiera nie tylko tworzenie aplikacji dla urządzeń Apple, ale język traktowany jest jako rozsądna technologia serwerowa.
+% Chciano również zerwać z dotychczasowym wizerunkiem, który obecny był w Objective-C.
+% Użytkownicy dostrzegali, że platforma producenta jest jedyną, w której technologia ma zastosowania.
+% Strategia sprawdziła się.
+% w 2020 roku szacowano, że Swift jest trzykrotnie częściej wykorzystywany niż swój starszy odpowiednik.
+\par
+Wydarzenie, które traktować można jako mające wpływ na decyzję o stworzeniu języka była premiera pierwszego iPhone'a w 2007 roku.
+Urządzenie odniosło ogromny sukces, a każdy kolejny model pomimo stale rosnącej produkcji wciąż nie był w stanie wysycić potrzeb rynku.
+Wraz z rewolucyjnym telefonem zaoferowano światu coś jeszcze.
+AppStore był sklepem dostępnym z poziomu urządzenia za pośrednictwem, którego użytkownicy mogli dodawać kolejne aplikacje.
+Twórcą mógł byc nie tylko sam producent, ale w zasadzie każdy.
+Pojawiał się jednak problem.
+Potencjalny deweloper musiał nie tylko zaopatrzyć się w telefon, ale także odpowiedni komputer, a dodatkowo nauczyć języka niespotykanego w żadnym innym środowisku.
+Apple dostrzegło, że trudności odstraszają programistów i w efekcie projekt pomimo doskonałej rentowności nie jest w stanie dojść do swojego szczytu możliwości.
+\par
+Jedna z kluczowych zalet języka jest prędkość.
+Statystyki, poświadczone przez twórców wskazują na 2.6-krotny wzrost wydajności w stosunku do pierwotnego rozwiązania.
+Swift nie jest tak dobry jak C czy C++, niemniej jednak jego narzut jest niewielki.
+\par
+Nowy język jest czytelny.
+Wysoka ekspresyjność sprawia, że aplikacje napisane w Swift są zwięzłe.
+Wpływa to na obniżenie złożoności poznawczej algorytmów w porównaniu do konkurencyjnych rozwiązań.
+\par
+Wymienione czynniki nie były jedynymi, które miały wpłynąć na przystępność.
+W przeciwieństwie do C czy C++ Objective-C nie posiadał jawnie publikowanych standardów, pomimo faktu iż był rozwijany i podlegał wersjonowaniu.
+O nowych funkcjach użytkownicy dowiadywali się wraz z dystrybucją nowszych wersji kompilatora.
+Nie pomagał fakt, że dokumentacja na stronie Apple opisująca języka opóźniona była o wiele miesięcy, dostępna tylko w jednym języku i napisana technicznie, bez przykładów.
+Swift naprawia ten błąd.
+Wraz z premierą twórcy opublikowali książkę w formie elektronicznej \textit{The Swift Programming Language}.
+Zakładała ona, że programista nie posiada doświadczenia i stopniowo wdrażała go w coraz bardziej złożone detale języka.
+Na pochwałę zasługuje również fakt, że dostępne są liczne translacje, a sam e-book jest darmowy.
+Stwarza to wyraźny kontrast w stosunku to słabo opisanego Objective-C z małą ilością źródeł, dostępnych w głównej mierze tylko i wyłącznie po angielsku.
+\par
+Wydaje się jednak, że Objective-C nigdy nie opuści ekosystemu Apple.
+Widoczne są przesłanki na podstawie których sądzić można, że wspomniana teza okaże się prawdziwa.
+Tak jak wyjaśniono w stosunku do języka C++ nadal istnieją scenariusze w których odczuć można wyraźna korzyść z oparcia technologii o niskopoziomowe programowanie.
+Jeśli taka potrzeba zajdzie w ramach ekosystemu Apple użycie Objective-C jest jedyną drogą dzięki której połączyć można C++ oraz Swift.
+\lstinputlisting[language=Swift, caption=Przykład kodu w języku Swift]{code/example.swift}
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=15cm]{images/language-interoperability.png}
+    \end{center}
+    \caption{Schemat łączenia wielu języków na przykładzie platformy iOS}
+    \label{fig:language-interoperability}
+\end{figure}
+\par
+Na wstępie wyjaśniono, że język umożliwia programowanie w oparciu o wiele paradygmatów.
+Choć odgórny narzut nie występuje to producent wydaje się skłaniać ku reaktywnemu podejściu, podpartemu programowaniem zorientowanym na protokoły.
+Motywacja stojąca za drugim z paradygmatów została już wyjaśniona, natomiast wątpliwość budzić może argumentacja odpowiadająca reaktywnemu aspektowi.
+Współczesne aplikacji mobilne składają się zwykle z wielu ekranów o zróżnicowanym interfejsie.
+W większości przypadków są one stanowe \longpause interakcja dokonana na jednym z ekranów wpływa na inny lub pozostałą funkcjonalność.
+Z tego względu konieczne są mechanizmy w kodzie programu, które propagują zmianę do widoku oraz z niego do modułu logiki aplikacji.
+Pierwotnie ekosystem Apple stosował do tego mechanizm delegacji, ale w przypadku bardziej złożonej logiki, zawierającej liczne warunki funkcje stawały się obszerne.
+Wraz z wprowadzeniem nowej generacji biblioteki do tworzenia UI w ekosystemie \longpause SwiftUI \longpause Apple upubliczniło dodatkowy moduł \longpause Combine.
+W tandemie oba produkty pozwalają deklaratywnie definiować interfejs, a zmiany propagować w oparciu o programowanie reaktywne.
+Stanowi to swego rodzaju punkt zwrotny w projektowaniu architektury aplikacji.
+Do skorzystania z pełni możliwości SwiftUI istotne jest, aby możliwie jak największa część aplikacji była stworzona w sposób reaktywny.
+Tyczy się to zarówno części logiki aplikacji jak i bibliotek, które ona używa.
+% Napisz, że ma eleganckie frameworki
+% Napisz, że dokumentacja jest ustandaryzowana
+% Napisz, że w sumie lipa, bo nie można robić custom allocatorów
+% Język jest podatny na fragmentacje
+% nienaturalne podejście ze strukturami i klasami
+% Wspiera operatory overload
