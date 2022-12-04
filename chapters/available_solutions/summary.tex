@@ -6,11 +6,11 @@ Obecne produkty choć niewątpliwie dostarczają obraz wysokiej jakości to odby
 Pełnoprawne silniki najlepiej realizują scenariusz stworzenia gry.
 Problematyczne jest, że same w sobie są ekosystemami.
 Posiadają własne IDE, a platforma docelowa jest tylko szczegółem z punktu widzenia programisty.
-Z tego powodu nie sprawdzą się dobrze w sytuacji, gdy projekt planuje wykonać osoba posiadająca doświadczenie tylko i wyłącznie pochodzące z ekosystemu Apple.
+Z tego powodu nie sprawdzą się dobrze w sytuacji, gdy projekt planuje wykonać osoba posiadająca doświadczenie pochodzące wyłącznie z ekosystemu Apple.
 Decyzja o wykorzystaniu silnika wiązać będzie się z koniecznością nauki całkowicie nowej technologii.
 \par
 Filament, jako przykład multiplatformowej biblioteki charakteryzuje się doskonałą jakością.
-Największą wadą jest konieczność zaprogramowania całej warstwy graficznej w oparciu o język C++.
+Największą wadą jest wymóg zaprogramowania całej warstwy graficznej w oparciu o język C++.
 Dodatkowo, rozwiązanie stworzone jest z myślą o profesjonalistach w dziedzinie.
 Wykorzystuje manualne zarządzanie pamięcią i może okazać się przytłaczające w momencie potrzeby integracji niewielkiej sceny trójwymiarowej.
 \par
@@ -23,14 +23,15 @@ Jego przeznaczenie jednak silnie ukierunkowane jest w stronę rozszerzonej rzecz
 Wykorzystanie biblioteki do wizualizacji czy prostej gry jest niemożliwe.
 \par
 Odpowiedzią na wspomniane niedogodności byłoby stworzenie biblioteki graficznej, generującej grafikę trójwymiarową, ukierunkowaną na niewielkie produkcje.
-W zamyśle powinna ona oparta być o konwencje, którymi obecnie kierują się architekci projektujący nowe biblioteki na potrzeby ekosystemu.
+W zamyśle powinna spełniać szereg kryteriów, które pozwolą wyróżnić ją na tle konkurencji.
 \par
 Przyjęty język programowania powinien odpowiadać trendom.
 Chęć ścisłej integracji z nowoczesnymi aplikacjami sprawia, że jedynym wyborem jest Swift.
 \par
-Koniecznym do oddania użytkownikom jest odpowiednia dokumentacja, kompletna pod względem merytorycznym, możliwie spójna w warstwie UI/UX z natywnymi bibliotekami. 
+Koniecznym do oddania użytkownikom jest odpowiednia dokumentacja. 
+Wymagać należy kompletności pod względem merytorycznym i bycia możliwie spójną w warstwie UI/UX z natywnymi bibliotekami. 
 \par
-Wsparte powinny być wszystkie dostępne platformy Apple, tak aby twórcy mogli wykorzystać produkt zarówno w przypadku urządzeń stacjonarnych, jak i mobilnych.
+Wsparcie obejmować musi wszystkie dostępne platformy Apple, tak aby twórcy mogli wykorzystać produkt zarówno w przypadku urządzeń stacjonarnych, jak i mobilnych.
 \par
 Oprogramowanie powinno być dystrybuowane w formie open source.
 Sprawi to, że kierunek rozwoju wspomagany będzie przez społeczność i umożliwi jej aktywny udział na wypadek napotkania problemu.
@@ -40,6 +41,7 @@ Dodatkowo, uwzględnić należy wsparcie dla reaktywnego podejścia.
 \par
 Produkt oprzeć należy o nowoczesne API \longpause Metal.
 Zagwarantuje wysoką wydajność i uniewrażliwi na wypadek usunięcia alternatywnego, starszego OpenGL.
+Dodatkowo, rozbudowane narzędzia do profilowania oraz debugowania wpłynie pozytywnie na efektywność pracy.
 % Powinienem wspomnieć, że w głównej mierze będę czerpał z książki game engine architecture
 % Jako referencja do obsługi API programistycznego skorzystam z Metal by tutorials
 % Sam model oświetlenia będzie zaczerpnięty z disneya
