@@ -1,0 +1,17 @@
+\section{Interfejsy programistyczne}
+Ostatnim aspektem wymagającym uwagi podczas analizy bibliotek wykorzystujących akcelerację sprzętową jest interfejs dostępu do zasobów karty graficznej.
+Interakcja z akceleratorem podzielona może być na dwa obszary.
+Pierwszy to faktyczne wykorzystanie mocy obliczeniowej do wykonania spersonalizowanych programów \longpause shaderów lub coraz bardziej popularnych obliczeń na tensorach czy strukturach akceleracji dla śledzenia promieni.
+W tym celu posłużyć należy się także wyspecjalizowanym językiem.
+Pozostała część API odpowiedzialna jest za umożliwienie użytkownikowi dostarczenie ów programu, a także wszystkich zasobów potrzebnych do jego działania w formie buforów oraz tekstur.
+Ta część oddana jest za pośrednictwem biblioteki do języka wysokiego poziomu.
+\par
+Współczesne API w miarę upływu czasu wydają się zbliżać do siebie coraz bardziej.
+Wynika to bezpośrednio ze wspólnego trendu wraz z którym podążają dostępne rozwiązania.
+Wnikliwe porównanie obrazujące skalę podobieństw odnaleźć można między innymi jako publikację na łamach blogu \textit{alain.xyz}~\cite{alain_modern_graphics_comparison}.
+Wspomnianym trendem tak \longpause jak wyjaśniono we wprowadzeniu \longpause jest chęć oddania możliwie jak najniżejpoziomowo sposobu w który operują jednostki graficzne.
+Asynchroniczna natura wykonywania operacji na GPU i chęć minimalizacji ilości synchronizacji pomiędzy GPU i CPU sprawia, że wszystkie nowoczesne API kolejkują zadania i wysyłają je partiach.
+\par
+Obecnie do dyspozycji programistów Apple oddana jest możliwość skorzystania z dwóch API.
+Są to OpenGL będący ogólnym standardem wspieranym przez wiele platform oraz Metal, który zaprojektowany został jako autorskie rozwiązanie Apple.
+Pomimo popularności na innych platformach najświeższy otwarty standard graficzny opublikowany przez grupę Khronos \longpause Vulkan \longpause pozostaje niedostępny.

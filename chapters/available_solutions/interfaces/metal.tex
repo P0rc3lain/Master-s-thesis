@@ -1,0 +1,30 @@
+\subsection{Metal}
+Obecnie jedynym dostępnym API za pośrednictwem którego programować można GPU w ekosystemie Apple jest Metal.
+Jego premiera miała miejsce w 2014 roku.
+Początkowo współistniał on wraz z OpenGL 4.1, natomiast wraz z premierą macOS Mojave traktowany jest jako główne API.
+\par
+Funkcjonalnie nie wyróżnia się w stosunku do innych popularnych API, takich jak Vulkan czy DirectX.
+Wszystkie obecnie stosują podejście kolejkowego przetwarzania zadań i minimalizują ilość udostępnianych funkcji.
+Z punktu widzenia producenta obecna sytuacja jest jednak wyjątkowo korzystna.
+% Wydajność wcale nie jest jakaś super,
+Apple samo zarządza standardem, a fakt, że stało się także architektem układów graficznych sprawia, że są oni w stanie uzyskać optymalna wydajność.
+\par
+Wraz z interfejsem dla języków wysokiego poziomu biblioteka wprowadza swój język do tworzenia programów cieniujących \longpause MSL.
+Jako bazę do jego stworzenia posłużył C++14, jednak z uwagi na wyspecjalizowane użycie technologii część możliwości została ograniczona.
+\par
+Dostęp do API realizowany jest podobnie jak w przypadku innych funkcjonalności za pomocą biblioteki.
+Odbywa się to nie tylko pośrednictwem Swifta czy Objective-C.
+W 2022 roku opublikowano oficjalne wsparcie dla języka \textit{C++} realizowane przy pomocy \textit{Metal-C++}.
+Choć na pierwszy rzut oka wydaje się być to doskonały krok w kierunku uzyskania najlepszej możliwej wydajności, to wiążą się z tym pewne niedogodności.
+\textit{Metal-C++} łączy w sobie świat automatycznego zarządzania pamięcią zaczerpniętego z natywnych języków, a także C++, który pozwala na pewną dowolność w tej kwestii.
+W efekcie użytkownik decydujący się na korzystanie z API zmuszony będzie w trakcie interakcji z API jawnie przenosić obiekty pomiędzy zarządzaniem Objective-c oraz C++.
+Dodatkowo, należy pamiętać, że użycie wspomnianej technologii rozszerza tylko zakres w którym C++ może zostać wykorzystany. 
+Nadal należy pamiętać o konieczności interfejsowania kodu do Objective-C w celu wykorzystania go w aplikacji ekosystemu Apple.
+\par
+Jedynym mankamentem dotyczącym zarówno Metal, jak i OpenGL jest brak wsparcia dla systemu watchOS.
+W jego przypadku skorzystać można tylko i wyłącznie ze stosunkowo wysokopoziomowej biblioteki do rysowania \longpause Core Graphics.
+Jedyną możliwością generowanie grafiki trójwymiarowej wydaje się być własnoręczne zaimplementowanie potoku renderowania opartego o CPU.
+% Z tej popularności wzięły się też biblioteki do iOS, które wyglądają jak vulkan ale są wrapperem na metala
+% Napisz, że metal jest super bo pozwala na doskonałe debugowanie
+% Napisz, że fajne jest profilowanie kodu shaderów
+% Statyczna kompilacja`'
