@@ -6,7 +6,6 @@ Początkowo współistniał on wraz z OpenGL 4.1, natomiast wraz z premierą mac
 Funkcjonalnie nie wyróżnia się w stosunku do innych popularnych API, takich jak Vulkan czy DirectX.
 Wszystkie obecnie stosują podejście kolejkowego przetwarzania zadań i minimalizują ilość udostępnianych funkcji.
 Z punktu widzenia producenta obecna sytuacja jest jednak wyjątkowo korzystna.
-% Wydajność wcale nie jest jakaś super,
 Apple samo zarządza standardem, a fakt, że stało się także architektem układów graficznych sprawia, że są oni w stanie uzyskać optymalna wydajność.
 \par
 Wraz z interfejsem dla języków wysokiego poziomu biblioteka wprowadza swój język do tworzenia programów cieniujących \longpause MSL.
@@ -14,16 +13,32 @@ Jako bazę do jego stworzenia posłużył C++14, jednak z uwagi na wyspecjalizow
 \par
 Dostęp do API realizowany jest podobnie jak w przypadku innych funkcjonalności za pomocą biblioteki.
 Odbywa się to nie tylko pośrednictwem Swifta czy Objective-C.
-W 2022 roku opublikowano oficjalne wsparcie dla języka \textit{C++} realizowane przy pomocy \textit{Metal-C++}.
-Choć na pierwszy rzut oka wydaje się być to doskonały krok w kierunku uzyskania najlepszej możliwej wydajności, to wiążą się z tym pewne niedogodności.
+W 2022 roku opublikowano oficjalne wsparcie dla języka \textit{C++} nazwane \textit{Metal-C++}.
+Choć na pierwszy rzut oka wydaje się być to krok w kierunku uzyskania najlepszej możliwej wydajności, to wiążą się z tym pewne niedogodności.
 \textit{Metal-C++} łączy w sobie świat automatycznego zarządzania pamięcią zaczerpniętego z natywnych języków, a także C++, który pozwala na pewną dowolność w tej kwestii.
-W efekcie użytkownik decydujący się na korzystanie z API zmuszony będzie w trakcie interakcji z API jawnie przenosić obiekty pomiędzy zarządzaniem Objective-c oraz C++.
+W efekcie użytkownik decydujący się na korzystanie z API zmuszony będzie w trakcie interakcji z API jawnie przenosić obiekty pomiędzy zarządzaniem Objective-C oraz C++.
 Dodatkowo, należy pamiętać, że użycie wspomnianej technologii rozszerza tylko zakres w którym C++ może zostać wykorzystany. 
-Nadal należy pamiętać o konieczności interfejsowania kodu do Objective-C w celu wykorzystania go w aplikacji ekosystemu Apple.
+Nadal zachodzi konieczność interfejsowania kodu do Objective-C w celu wykorzystania go w aplikacji ekosystemu Apple.
+\par
+Środowisko programistyczne XCode doczekało się wielu udogodnień dla programistów grafiki.
+Dostępna jest możliwość zatrzymania programu i prześledzenia krok po kroku listy wywołań do API modułu graficznego.
+W tym istnieje opcja podejrzenia zasobów używanych przez GPU i wpływu wywołania na nie.
+\par
+Zadbano także o walidację.
+W wypadku próby uzyskania dostępu do bloku pamięci znajdującego się poza przydzielonym zakresem nastąpi błąd krytyczny prowadzący do zatrzymania programu.
+Podobna sytuacja wystąpi w momencie gdy w programie cieniującym zabraknie dowiązania do zasobu.
+Oznacza to, że zadeklarowana będzie chęć użycia buforu albo tekstury, ale nie zostanie zdefiniowany jego adres w pamięci.
+API jest w stanie automatycznie wyłapać tego rodzaju usterki w trakcie działania programu.
+\par
+Rozbudowano profilowanie.
+Funkcja zrzutu obrazu wbudowana w środowisko pozwala prześledzić w formie graficznej cały potok renderowania.
+Wraz z formą w postaci diagramu widoczne są okresy czasu potrzebne na wykonanie poszczególnych etapów.
+W razie potrzeby możliwa jest szczegółowa analiza każdego z kroków i uzyskanie statystyk dla poszczególnych programów cieniujących.
 \par
 Jedynym mankamentem dotyczącym zarówno Metal, jak i OpenGL jest brak wsparcia dla systemu watchOS.
 W jego przypadku skorzystać można tylko i wyłącznie ze stosunkowo wysokopoziomowej biblioteki do rysowania \longpause Core Graphics.
 Jedyną możliwością generowanie grafiki trójwymiarowej wydaje się być własnoręczne zaimplementowanie potoku renderowania opartego o CPU.
+% Wydajność wcale nie jest jakaś super,
 % Z tej popularności wzięły się też biblioteki do iOS, które wyglądają jak vulkan ale są wrapperem na metala
 % Napisz, że metal jest super bo pozwala na doskonałe debugowanie
 % Napisz, że fajne jest profilowanie kodu shaderów
