@@ -1,0 +1,12 @@
+\subsection{Języki programowania}
+W głównej mierze biblioteka oparta jest o język Swift w wersji piątej.
+Stworzona jest w nim cała zawartość przeznaczona do wykonywania na CPU.
+Programy cieniujące z kolei wykorzystują Metal Shading Language.
+GPU daję możliwość skorzystania w nich z buforów danych oraz tekstur.
+Jednak muszą one dowiązane być przy użyciu indeksu, współdzielonego pomiędzy kartą graficzną a procesorem.
+Z tego względu w celu uniknięcia pomyłek w bibliotece znajduje się pewna ilość plików nagłówkowych zawierająca stałe w języku C.
+Zdefiniowano tam indeksy dowiązań dla poszczególnych programów.
+Wyeksportowane są one do języka Swift za pomocą modułu.
+MSL kompatybilny jest z C co zapewnia pomost pomiędzy obiema technologiami.
+Podobny mechanizm zastosowano dla struktur danych współdzielonych pomiędzy GPU oraz CPU.
+Stanowi to drugi, ostatni pomocniczy moduł.

@@ -1,0 +1,32 @@
+\subsection{Biblioteki zewnętrzne}
+Wykonanie projektu wiązało się z koniecznością użycia szeregu rozwiązań firm trzecich.
+Wszystkie one wpłynęły na prędkość rozwoju, jednak ich przeznaczenie nie pokrywało się z celem jaki postawiono w pracy.
+Starano się, aby możliwie duża ilość pochodziła wprost od producenta.
+Decyzję motywowano chęcią zapewnienia bezpieczeństwa, stabilności i wsparcia na wypadek błędu.
+Wewnętrzne produkcje oddane na potrzeby platformy powinny najlepiej spełniać te oczekiwania.
+\par
+Na listę rozwiązań trzecich składają się:
+\paragraph*{simd}\longpause skorzystano ze struktur wspomagających algebrę liniową takich jak wektory, macierze i najczęstsze operacje na nich wykonywane.
+\paragraph*{AppKit, UIKit}\longpause użyte zostały w celu zapewnienia użytkownikowi widoku skonfigurowanego uprzednio na potrzeby generowania grafiki za pośrednictwem silnika.
+\paragraph*{Metal}\longpause moduł udostępnił zbiór funkcji potrzebnych do interakcji z kartą graficzną.
+Za jego pomocą kolejkowane są zadanie do wykonania na GPU i pośredniczy w uzyskiwaniu zasobów.
+\paragraph*{Combine}\longpause funkcjonalność przeznaczona jest do programowania reaktywnego. 
+Skorzystano z niej na potrzeby odświeżania danych gdzie zachodziły zależności pomiędzy obiektami, a także by oddać użytkownikowi możliwość obserwowania zmian z poziomu interfejsu.
+\paragraph*{MetalKit}\longpause biblioteka Metal tworzona była przybierając możliwie jak najmniejszą formę. 
+Część funkcji niebędących koniecznymi do sprawowania jej działania przeniesiona została do osobnego modułu gromadzącego dodatkowe narzędzia.
+Użyto między innymi metod to wczytywania tekstur z plików binarnych czy uprzednio przygotowanego widoku, mogącego być bezpośrednio osadzonym w aplikacji i nie wymagającym dodatkowej konfiguracji na rzecz skorzystania z grafiki.
+\paragraph*{ModelIO}\longpause zakres pracy nie objął obsługi poszczególnych formatów plików zawierających dane na temat sceny.
+Użyto gotowego rozwiązania opublikowanego przez producenta. 
+Obsługuje ono szeroki zakres wspieranych typów, między innymi fbx, obj, usdz, dae.
+Działa ono na zasadzie fasady i konwertuje binarną reprezentację na wspólny format.
+\paragraph*{CoreGraphics}\longpause biblioteka zapewnia stosunkowo niskopoziomowy dostęp do operowania grafice dwuwymiarowej.
+Jej użycie ograniczało się do wykorzystania struktur koniecznych do wyznaczenia obszaru obrazu na którym grafika powinna być generowana czy punktu, z którym użytkownik dokonał interakcji za pomocą wskaźnika.
+\paragraph*{MetalPerformanceShaders}\longpause Apple opracowało w formie gotowych programów cieniujących listę najczęściej używanych efektów graficznych.
+Zdecydowano się nie duplikować stworzonej funkcjonalności i posłużyć między innymi rozmyciem gaussowskim czy możliwości zwiększenia rozdzielczości obrazu.
+\paragraph*{XCTest}\longpause część kodu weryfikowana jest pod kątem poprawności za pomocą przypadków testowych.
+Walidację wyników oparto o funkcje zaimplementowane stworzonym pod tym kątem frameworku.
+Dodatkowo, integracja z IDE XCode zapewniła wgląd do procentowego pokrycia przez wspomniane przypadki.
+\paragraph*{Swift Standard Library}\longpause poza szeregiem modułów przygotowanych przez producenta specjalnie dla ekosystemu Apple skorzystano także z biblioteki standardowej języka Swift.
+Wewnątrz niej znajdują się definicje typów podstawowych jak liczby całkowite czy zmiennoprzecinkowe a także struktury takie jak tablica czy słownik.
+\paragraph*{Foundation}\longpause funkcje systemowe nie wchodzą w skład funkcjonalności dostępnych wraz z językiem. 
+Obsługa daty, wyrażeń regularnych czy dostępu do plików wewnątrz archiwum biblioteki to wybrane przykłady z których skorzystano.
