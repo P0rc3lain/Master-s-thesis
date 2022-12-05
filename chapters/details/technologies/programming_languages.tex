@@ -1,10 +1,19 @@
 \subsection{Języki programowania}
-W głównej mierze biblioteka oparta jest o język Swift w wersji piątej.
+Kod źródłowy biblioteki graficznej składa się z ponad 10 tysięcy linii kodu.
+Obsługa grafiki, przez wzgląd na konieczność użycia programów cieniujących, narzuca konieczność skorzystania z więcej niż jednego języka programowania.
+W projekcie wykorzystano trzy \longpause Swift, C oraz MSL.
+\par
+Większość biblioteki \longpause 80\% \longpause oparta jest o język Swift w wersji piątej.
 Stworzona jest w nim cała zawartość przeznaczona do wykonywania na CPU.
-Programy cieniujące z kolei wykorzystują Metal Shading Language.
-GPU daję możliwość skorzystania w nich z buforów danych oraz tekstur.
-Jednak muszą one dowiązane być przy użyciu indeksu, współdzielonego pomiędzy kartą graficzną a procesorem.
-Z tego względu w celu uniknięcia pomyłek w bibliotece znajduje się pewna ilość plików nagłówkowych zawierająca stałe w języku C.
+Za jego pośrednictwem udostępniony jest interfejs zewnętrzny.
+\par
+Shadery, będące odpowiedzialne za 10\% udział, wykorzystują Metal Shading Language.
+W zależności o zastosowania są to programy cieniujące dla wierzchołków, fragmentów i obliczeniowe.
+Jest to część poza zasięgiem użytkownika.
+\par
+GPU daję możliwość skorzystania z buforów danych oraz tekstur.
+Muszą one dowiązane być przy użyciu indeksu, współdzielonego pomiędzy kartą graficzną a procesorem.
+Z tego względu, by uniknąć pomyłek, w bibliotece znajduje się pewna ilość plików nagłówkowych zawierająca stałe w języku C.
 Zdefiniowano tam indeksy dowiązań dla poszczególnych programów.
 Wyeksportowane są one do języka Swift za pomocą modułu.
 MSL kompatybilny jest z C co zapewnia pomost pomiędzy obiema technologiami.
