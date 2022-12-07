@@ -1,0 +1,46 @@
+\subsection{Konwencje}
+Decyzja o wybraniu formy biblioteki wpłynęła na cele, które starano się osiągnąć.
+Jednym z nich było uzyskanie przystępności i możliwie niewielkiego wysiłku potrzebnego do zrozumienia kodu przez osoby trzecie.
+Pomimo charakteru badawczego pracy brano pod uwagę możliwość chęci kontrybucji ze strony społeczności.
+Istnieją narzędzia, które na podstawie statycznej analizy są w stanie wskazać błędy przez które zadanie będzie utrudnione.
+Od pewnego progu jednak czytelność postrzegana jest subiektywnie.
+Zdecydowano się wprowadzić standard w odniesieniu do tworzonych plików i możliwie zachować go dla całego kodu źródłowego.
+\subsubsection{Zawartość plików}
+Pliki w projekcie podzielone są w taki sposób, aby zawartość w nich osadzona odnosiła się do pojedynczego komponentu.
+Negatywnie wpływa to na ich ilość \longpause projekt posiada około 350.
+Pozwala jednak zwiększyć ziarnistość podczas organizacji w katalogi, dzięki czemu precyzyjniej są one zgrupowane.
+Dodatkowo, tak jak w przypadku innych zabiegów miało to ograniczyć narzut konieczny do zapoznania się z kodem.
+\par
+Pliki Swift posiadają w sobie pojedyncze klasy, struktury czy protokoły.
+Zgrupowanie wielu definicji występuje jedynie w przypadku rozszerzeń oraz aliasów.
+\par
+Programy cieniujące dla pojedynczej jednostki translacyjnej posiadają definicję całego potoku, ale rozdzielono je dla różnych z nich.
+Oznacza to, że dla pliku wspólnie zdefiniowane są shadery wierzchołków i fragmentów, a w przypadku programów obliczeniowych definicja występuje pojedynczo.
+\par
+W przypadku współdzielonego kodu w C przyjęto hybrydową strategię.
+Struktury dostępne dla Swift i MSL zdefiniowane są w pojedynczych plikach.
+Natomiast stałe odnoszące się do indeksów buforów pogrupowane są wspólnie w zależności od przeznaczenia.
+Między sobą występują indeksy dla różnych shaderów fragmentów, ale shadery wierzchołków posiadają definicję gdzie indziej.
+\subsubsection{Styl programistyczny}
+Zadbano o uspójnienie stylu przyjętego w źródłach.
+Określono standard w odniesieniu do formatowania.
+Dokonywano jego weryfikacji za pomocą Swiftlint w przypadku kodu języka Swift.
+Clang-tidy odpowiadał za źródła MSL oraz C.
+Upewniono się także by każdy z plików posiadał stosowny nagłówek informujący o przynależności praw autorskich.
+\lstinputlisting[language={Swift}, texcl=true, caption=Styl programistyczny na przykładzie struktury animacji]{code/PNKeyframeAnimation.swift}
+\subsubsection{Nazewnictwo}
+Biblioteki w ekosystemie Apple używają ustalonych przedrostków do zdefiniowania wprowadzanych typów.
+Historycznie wynikało to z ograniczeń Objective-C, gdzie istniała jedyna, globalna przestrzeń nazw.
+Wsparcie wsteczne sprawiło, że konwencja utrzymała się.
+Z tego względu w projekcie zdecydowano się ją podtrzymać i wybrano przedrostek \textit{PN} do własnego użytku.
+Dokonano jednak rozróżnienia ze względu na przeznaczenie danego typu.
+W przypadku protokołów i struktur, które nie posiadają zachowania użyta jest podstawowa forma przedrostka.
+Klasy bądź struktury posiadające zachowanie lub implementujące interfejsy używają przedrostka \textit{PNI}.
+\subsubsection{Aliasy}
+Powszechne jest, że jeden typ danych wykorzystywany jest w różnych zastosowaniach.
+Przykładowo, liczba zmiennoprzecinkowa może posłużyć do określenia miary kąta, jak i odległości.
+Nie zawsze jasny jest zakres, pomimo znajomości zastosowania.
+Oczekując kąta jako parametru funkcji nie jest wiadome czy chodzi o formę stopni czy radiany.
+Z tego powodu zdecydowano się na wprowadzenie szeregu aliasów, które miały pomóc użytkownikom uniknąć niejednoznaczności.
+Określając specyfikację kamery zamiast oczekiwać miary pola widzenia w liczbie zmiennoprzecinkowej oczekuje się podania liczby typu \textit{PNRadians}.
+Konwencja ta kontynuowana jest w bardzo wielu miejscach kodu, również by pozwolić autorowi nie zapomnieć o pewnych niuansach.
