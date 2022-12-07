@@ -1,0 +1,56 @@
+\subsection{Organizacja źródeł}
+Rozwijanie wielu funkcjonalności projektu wiązało się z eksperymentowaniem.
+Kod modyfikowano w celu wykonania prototypu i zweryfikowania możliwości.
+Wpływało to przejściowo na stabilność, niekiedy zmiany ostatecznie zostawały wycofywane.
+Manualna obsługa scenariusza była pracochłonna.
+Narzędziem pomagającym w tej sytuacji był system kontroli wersji.
+Zdecydowano skorzystać się z wiodącego na rynku - git.
+Dzięki niemu zadbano o stabilność głównej gałęzi rozwoju.
+Dodatkowo, funkcjonalności budowane w pobocznych gałęziach, pozostawały tam do czasu stabilizacji.
+Wcielano je do głównego strumienia projektu po upewnieniu się, że nie powodują regresji.
+\par
+Na potrzeby pracy wykonano dwa projekty \longpause Silnik graficzny oraz grę szachową.
+Starano się, aby możliwie uniezależnić je od siebie.
+Z tego względu stworzona na ich potrzeby dwa osobne repozytoria.
+Biblioteka graficzna jest niezależna, natomiast gra szachowa, która posiada na niej zależność używa funkcjonalności submodułów w celu pobrania źródeł.
+Dzięki temu uniknięto duplikacji i zadbano, aby repozytoria były możliwie niewielkie.
+\par
+Komplementując zarządzanie wersją zdecydowano się na integrację z platformą GitHub.
+Za jej pośrednictwem utworzono organizację do której podpięto repozytoria z projektami~\cite{porcelain_project}.
+Dzięki temu zapewniono bezpieczeństwo na wypadek utraty danych z lokalnego dysku.
+Otworzyło to także szereg możliwości zarządzania zadaniami, automatyzacji i zapewnienia jakości.
+Aspekty te, podobnie jak gra szachowa omówione zostaną w dalszej części pracy.
+Sekcja koncentrowała będzie się na stworzonej bibliotece graficznej.
+\subsubsection{Hierarchia}
+\listdirs{[Engine[Core]
+                 [MetalBinding]
+                 [Shaders]]
+          [EngineTests[Engine][Extensions]]
+          [...]
+}
+\linebreak
+Repozytorium projektu posiada dwa główne katalogi.
+\textit{Engine} zawiera w sobie właściwy kod projektu.
+Funkcjonalności operate o język Swift przynależą do \textit{Core}.
+\textit{MetalBinding} stanowi pomost pomiędzy programami cieniującymi, a wysokopoziomowym Swift.
+Wewnątrz niego zorganizowane są pliki nagłówkowe języka C.
+\textit{Shaders} z kolei jest miejscem w którym zgromadzono programy cieniujące.
+Wewnątrz \textit{EngineTests} znajduje się katalog z dokładnym odwzorowaniem plików biblioteki silnika z przypadkami testowymi, a dodatkowo rozszerzenie funkcjonalności modułu do testowania.
+
+\listdirs{[Core[UI]
+               [Aliases]
+               [Scene]
+               [Animation]
+               [Loaders]
+               [Extensions]
+               [Configuration]
+               [Rendering]
+               [...]]
+}
+
+Rdzeń projektu agreguje wiele komponentów.
+Wśród nich wyróżnić można logiczny podział na części odpowiedzialne za interfejs użytkownika czy służące do konfiguracji projektu.
+Najistotniejsze jednak są te odpowiedzialne za zarządzanie sceną, animacją i renderowaniem.
+Ponadto chcąc zapewnić możliwie wysoką czytelność skorzystano z szeregu alternatywnych odwołań do typów.
+Użyto także możliwości języka Swift, która pozwala rozszerzać istniejące funkcjonalności.
+W zależności od modułu, do którego się odnosiły umieszczono je w odpowiednich podkatalogach.
