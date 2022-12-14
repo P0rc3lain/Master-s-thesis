@@ -1,0 +1,41 @@
+%
+%  Copyright © 2022 Mateusz Stompór. All rights reserved.
+%
+
+\section{Jakość Projektu}
+Systematyczny rozwój projektu bezpośrednio wpływał na zwiększanie się jego objętości.
+Dążąc do zapewnienia rozwiązania możliwie wolnego od błędów cyklicznie wykonywano manualną weryfikacje funkcjonalności.
+Wymagania czasowe tego procesu starano się zminimalizować za pomocą narzędzi dostępnych na rynku.
+Nie była to jednak jedyna płaszczyzna w jakiej postrzegano jakość.
+Skierowanie w stronę kodu otwartego źródłowo wymaga by kryterium objęło także sferę czytelności.
+\par
+Pierwszym krokiem w tym kierunku była decyzja o użyciu analizatorów kodu.
+Ich działania opiera się o statyczne podejście.
+Wnioski wyciągane są na podstawie zawartości plików, a nie efektów które potencjalnie daje wywołanie funkcji.
+\par
+W przypadku języka Swift wykorzystano \textit{SwiftLint}.
+Umożliwia wychwycenie błędy kompilacji na wczesnym etapie.
+Wyraźnie pomaga również w momentach gdy następuje dereferencja wartości opcjonalnej.
+Wówczas linter weryfikuje czy nie dokonano tego w sposób, który mógłby objawić się błędem krytycznym.
+Większość reguł, które implementuje odnoszą się jednak do stylu programistycznego.
+Wypracowane zostały one w oparciu o przemyślenia płynące od twórców Swift.
+Uwzględnienie sugestii sprawia, że kod staje się spójny wewnętrznie, ale także z innymi publicznymi projektami Swift, które zaaplikowały podejście.
+\par
+Drugim analizatorem, który zdecydowano się zastosować był \textit{markdownlint}.
+Obszar, który pokrył obejmował dokumentację.
+Pozwolił zadbać o poprawne formatowanie i wykluczenie błędów syntaktycznych.
+\par
+Dążąc do zapewnienia poprawności działania algorytmów wykonywano testy automatyczne.
+Oparto je o natywną bibliotekę \textit{XCTest} i zaprogramowane zostały, podobnie jak sam silnik graficzny, w języku Swift.
+Starano się możliwie maksymalizować ich użycie, jednak ze względu na nakład czasowy jaki narzuca ich rozwój ograniczono się do newralgicznych aspektów silnika.
+Postrzegano za nie miejsca w których zachodzi użycie aparatu matematycznego lub złożoność algorytmu jest wysoka.
+Oznacza to, że w głównej mierze wykorzystane zostały przy weryfikacji mechanizmów obecnych przy grafie sceny, animacjach, przecięciach pomiędzy obiektami na scenie.
+Ostatnim przypadkiem użycia były struktury danych używane w wielu miejscach aplikacji, jak pomocnicze metody do operacji wektorowych czy macierzowych.
+Sumarycznie pokrycie testami kodu Swift oscylowało na poziomie 30\%.
+\par
+Nie należy zapominać, że około 10\% z całego kodu który został stworzony dotyczył programów cieniujących.
+Wyłączono je całkowicie poza obszar objęty testami automatycznymi.
+Wynikało to z niemożności przeprowadzenia takiej operacji.
+Na rynku istnieje niewielka ilość rozwiązań skierowanych na to zagadnienie.
+Największą popularnością cieszy się produkt Google \longpause \textit{Amber}~\cite{google_amber} \longpause jednak nie wspiera on platformy Apple.
+Rozważano rozwój własnego rozwiązania w ramach pracy, jednak nakład czasowy wymagany do spełnienia warunku używalności sprawił, że zrezygnowano z tego pomysłu.
