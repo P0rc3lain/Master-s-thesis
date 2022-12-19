@@ -3,14 +3,48 @@
 %
 
 \section{Infrastruktura projektu}
-
-% zagaić jakoś, że cały czas się rozwijało 
-% projekt stawał się coraz bardziej rozwinięty i trudno było pamiętać o wielu rzeczach
-% z pomocą przyszedł serwer ciągłej integracji
-% O Serwerze ciągłej integracji}
-% napisz o buildzie docsów
-% napisz o archive biblioteki dla obu platform
-% napisz o unit testach
-% napisz o lincie
-
-% Napisać, że dopełnieniem CI było odpowiednie skonfigurowanie githuba
+Potencjalnie zakres projektu mógł ograniczyć się do rozwoju funkcjonalności.
+W trosce o jakość i przystępność zdecydowano się na skorzystanie z szeregu narzędzi pomocniczych.
+Sprawiło to jednak, że każdorazowa zmiana w stosunku do kodu źródłowego implikowała szereg akcji koniecznych do wykonania.
+Należało uruchomić testy dla wszystkich wspieranych platform, by później, po wcieleniu zmiany zbudować artefakty w postaci plików binarnych i dokumentacji.
+Czynności te były czasochłonne i powtarzalne, a ich liczność sprawiała, że zachodziła możliwość pomyłki.
+\par
+Zdecydowano się dokonać automatyzacji za pośrednictwem serwera ciągłej integracji \longpause GitHub Actions.
+W zamyśle deklaratywna definicja opisuje listę kroków do wykonania przez serwer, a rezultat akcji przesyłany zostaje w formie powiadomienia.
+Rozróżniono dwa scenariusze dla których stworzono dedykowane procesy automatyzacyjne.
+\par
+Pierwszym była próba wcielenia kodu do głównej gałęzi projektu \longpause za pośrednictwem \textit{pull request}.
+Wykonanie szeregu akcji inicjowane było wówczas w sposób automatyczny.
+Chciano zadbać o możliwie brak możliwości wystąpienia regresji.
+Z tego względu na liście sprawdzeń obecne są kroki wywołania linterów plików Swift, yaml oraz markdown.
+Dodatkowo uruchamiane są testy jednostkowe odrębnie dla każdej ze wspieranych platform \longpause iOS, tvOS, macOS.
+Status określający sukces, bądź porażkę publikowany jest na podglądzie \textit{pull request'a}.
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=15cm]{images/pnengine/pipeline/tests.png}    
+        \caption{Potok weryfikujący zmianę obecną w \textit{pull request}}
+    \end{center}
+    \label{fig:tests_pipeline}
+\end{figure}
+\par
+Drugi scenariusz dotyczył sytuacji po włączeniu kodu do głównej gałęzi.
+GitHub automatycznie wykrywa zmianę historii i podejmuje akcje.
+Wówczas ponownie wykonywany w ramach wstępnej weryfikacji potok zawierający testy.
+Jego pomyślne zakończenie sprawia, że następuje generowanie artefaktów.
+Jest to archiwum dokumentacji projektu \longpause \textit{.docarchive}, a także pliki binarne biblioteki \longpause \textit{.framework}.
+W kolejnym kroku dokumentacja konwertowana jest w locie na formę html, a następnie publikowana na witrynę projektu \cite{porcelain_docs}.
+Pliki \textit{.framework} są odrębne dla każdej z platform.
+W 2021 roku Apple stworzyło jednak uniwersalny format \longpause \textit{.xcframework}, który pozwala na stworzenie uniwersalnej paczki.
+Zdecydowano się na skorzystanie z tej nowinki i ostatni etap zbiera wygenerowane pliki \textit{.framework} w tym celu.
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=15cm]{images/pnengine/pipeline/archive.png}    
+        \caption{Potok wykonywany na głównej gałęzi repozytorium}
+    \end{center}
+    \label{fig:archive_pipeline}
+\end{figure}
+\par
+Wyrafinowane potoki byłyby jednak nieskuteczne gdyby istniała możliwość pominięcia ich wykonania.
+Z punktu widzenia kontroli wersji git jest to możliwie.
+Odpowiednia adaptacja GitHub sprawia jednak, że wykluczyć można taką okoliczność.
+W efekcie wszystkie zmiany, które trafiają do głównej gałęzi powinny spełniać normy narzucane przez testy.
