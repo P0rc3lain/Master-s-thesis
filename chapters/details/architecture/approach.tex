@@ -1,0 +1,50 @@
+\subsection{Podejście programistyczne}
+Swift jest językiem pozwalającym operować w oparciu o wielu paradygmatów programowania.
+Z tego względu na etapie projektowania należało podjąć decyzję który z nich wykorzystać do wykonania biblioteki.
+Głównymi kryteriami mającymi ukierunkować wybór była chęć zapewnienia wysokiej wydajności oraz minimalizacja błędów.
+Dodatkowo, starano się sprawić by interfejs biblioteki był możliwie spójny z innymi dostępnymi rozwiązaniami.
+\par
+Początkowo rozważano użycie podejścia funkcyjnego.
+Czynników przemawiających na korzyść było kilka.
+Między innymi styl programistyczny, który wymuszony jest przez zasady sprawia, że kod w różnych obszarach aplikacji jest do siebie podobny.
+Korzystanie z funkcji jasno definiujących dane wejściowe i zwracane pozytywnie wpływa też na testowalność.
+Zdecydowano jednak o odrzuceniu pomysłu.
+Programowanie funkcyjne wymagałoby wykorzystania dodatkowych bibliotek lub autorskich rozwiązań w celu sprawienia by biblioteka standardowa mogła obsłużyc paradygmat.
+W sieci znaleźć można projekty takie jak Swiftz czy swift-overture, które wychodzą naprzeciw w kwestii problemu.
+Wprawdzie zniwelowałyby konieczny nakład pracy, jednak analiza przykładów ich użycia ujawnia ich największą wadę.
+Programowanie funkcyjne wśród technologii obecnych w Swift jest nadal ciekawostką.
+Pomimo iż zastosowanie podejścia byłoby wykonalne to negatywnie wpłynęłoby na odbiór rozwiązania.
+\par
+Zwrócenie w stronę imperatywnego podejścia sprawiło, że do dyspozycji pozostał wyłącznie paradygmat proceduralny oraz obiektowy.
+Dążenie do spójności z ekosystemem Apple zadecydowało o wyborze stylu zorientowanego obiektowo.
+Zdecydowano się jednak na nieznaczną modyfikację podejścia.
+Natywne w języku Swift obiektowe podejścia obecne w innych językach programowania zastąpione zostało przez programowanie zorientowane na protokoły.
+Główne założenia narzucają, żeby abstrakcje budowane były przez implementację protokołów zamiast dziedziczenia klas.
+W efekcie użytkownik uzyska możliwie wysoką spójność z pozostałymi bibliotekami.
+Konieczne będzie włożenie dużego wysiłku, aby sprawić by tworzone komponenty możliwe łatwo pokryte mogły być przez testy.
+W stosunku do podejścia funkcyjnego programowanie zorientowane na protokoły pozwala na znacznie większą dowolność w kwestii projektowania, co w tym przypadku niekoniecznie oznaczać musi zaletę.
+\par
+Określenie paradygmatu stosowanego podczas tworzenia silnika graficznego nadało pewien kształt w oparciu o który architektura byłaby rozwijana.
+Nadal jednak dowolność w kwestii projektowania poszczególnych komponentów pozostawała wysoka.
+Jednym z zabiegów, który zdecydowano się zastosować było rozdzielenie dane od zachowania w miejscach gdzie występuje taka możliwość.
+Oznacza to, że modelowanie architektury oparte zostało o trzech głównych aktorów.
+Dane, w formie złożonych pojemników o różnych typach.
+Definicję interfejsu zachowania operującego na danych w formie protokołu oraz implementację wykonaną przez klasę.
+Rozdzielność danych od zachowania sprawia, że zmiana algorytmu jest mniej złożona.
+Pomaga to w integrowaniu alternatywnych implementacjach przynoszących nowe funkcjonalność, ale również w przypadku gdy należy zaślepić klasę podczas testów.
+% mogę jako przykład podać pnkeyframe animation i różne samplery
+\par
+Moment publikacji SwiftUI sprawił, że Apple oficjalnie otworzyło się deklaratywne podejście w kwestii budowy UI oraz wzór projektowy MVVM.
+Warunkiem koniecznym do skorzystania z funkcjonalności jest oparcie części aplikacji \longpause ViewModelu \longpause o programowanie reaktywne.
+Tworzona biblioteka graficzna sama w sobie nie będzie posiadała modułów do obsługi UI.
+Jeśli użytkownik planował będzie skomponować interfejs graficzny będzie musiał oprzeć go o komponenty systemowe.
+Z tego względu konicznym będzie oddać użytkownikowi możliwość integracji z biblioteką reaktywną Combine gdzie to możliwe.
+\par
+W większości projektów rozważania na temat ogólnego podejścia można byłoby zakończyć po powyższym opisie.
+Specyfika renderowania grafiki sprawia, że należy uwzględnić specyfikę działania karty graficznej w celu uzyskania optymalnej wydajności.
+Przede wszystkim komunikacja z GPU sprawia, że następować musi synchornizacja pomiędzy procesorem graficznym, a głównym.
+Maksymalna wydajność uzyskiwana jest kiedy minimalizuje się ilość tych okoliczności.
+Aplikacje chcące zapewnić wysoką wydajność powinny możliwie rzadko zmieniać używane bufory i preferować dane zorganizowane w długie fragmenty.
+Programowanie, które buduje abstrakcje wokół sprzętu na którym aplikacja będzie operowała nazywa się data-oriented design.
+Zdecydowano się oprzeć o nie część biblioteki, która odpowiedzialna będzie za renderowanie obrazu
+Pozostanie ona niewidoczna dla użytkownika, dzięki czemu nie wpłynie to negatywnie na przystępność.
