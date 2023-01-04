@@ -6,3 +6,49 @@
     \caption{Architektura silnika}
     \label{fig:components}
 \end{figure}
+Z perspektywy użytkownika chcącego dokonać renderowania najistotniejszą klasą jest \textit{PNIEngine}.
+W zamyśle powinien on uzyskać instancję obiektu podczas inicjacji swojej aplikacji, a następnie, w metodzie odpowiedzialnej za odświeżanie ekranu wywołać metodę \textit{draw()} na silniku.
+Wówczas abstrakcyjna definicja sceny zostanie przetworzona na nową klatkę wyświetloną na ekranie urządzenia.
+Jednak by wynikowy obraz nie był pusty należy uprzednio zaaranżować scenę.
+\par
+Relacja pomiędzy klasą silnika, a sceny oparta jest o typ \q{jeden do jednego}.
+Klasa sceny, której detale omówione zostaną w dalszej części pracy, reprezentuje wykreowany świat za pomocą acyklicznego grafu skierowanego.
+Manipulując właściwościami obiektów znajdujących się w jego strukturze tworzyć można animacje i wykrywać interakcje pomiędzy użytkownikiem, a biblioteką.
+\par
+Częstą koniecznością, która zachodzi równolegle do tworzenia nowej klatki jest aktualizacja danych zsynchronizowana z renderowaniem.
+Funkcjonalność realizująca tę potrzebę zaimplementowana jest w klasie \textit{PNITaskQueue}.
+Wykorzystywana jest ona wewnętrznie przez bibliotekę, jednak może być również użyta przez użytkownika do uruchomienia zgeneralizowanego zadania.
+\par 
+Wywołanie metody \textit{draw()} na silniku propagowane jest wraz z definicją sceny oraz kolejką zadań do klasy \textit{PNIWorkloadManager}.
+Sama w sobie traktowana może być jako adapter sceny pomiędzy strukturami wygodnymi w użyciu przez użytkownika, a efektywnymi do procesowania przez kartę graficzną.
+Delegując procesowanie grafu sceny do \textit{PNITranscriber} zamienia go ona na postać niezagnieżdżoną.
+Obiekty będące w scenie przepisywane są do struktury \textit{PNSceneDescription} gdzie pogrupowane są w zależności od rodzaju i przechowywane w formie tablicy.
+Dodatkowo, dane, które zmieniają się w czasie - pozycje, właściwości świateł - i GPU potrzebuje do stworzenia klatki przekazywane są do \textit{PNIBufferStore}, gdzie następuje synchronizacja pomiędzy pamięcią RAM CPU, a GPU.
+\par
+Bufory oraz opis sceny przekazywane są dalej do klasy \textit{PNIRenderingCoordinator}.
+Jest to miejsce, w którym rozpoczyna się właściwa komunikacja z potokiem GPU.
+Do tego momentu klasy obecne w silniku posiadały dostęp jedynie w celu populacji buforów danych.
+Koordynator natomiast rozpoczyna zlecanie zadań do wykonania przez GPU za pomocą udostępnionych w tym celu przez Metal kolejek.
+Renderowanie klatki jest jednak stosunkowo złożone, wieloetapowe, więc dokonano podziału na niezależne od siebie kroki.
+Koordynator przekazuje dane wejściowe do \textit{PNIPipeline}.
+Otrzymawszy wynikową teksturę przedstawiający aktualną klatkę obrazu deleguje ją do wyświetlenia na ekranie urządzenia.
+\par
+Etapy - klasy implementujące interfejs \textit{Stage}, mające adekwatny przyrostek w nazwie - opierają się podobnie jak klasa potoku na prostej idei.
+Każdy z nich posiada dane wejściowe oraz wyjściowe w formie tekstur, a dodatkowo podczas renderowanie przekazywane są do niego dane odnoszące się do opisu sceny.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=15cm]{images/pnengine/stage.png}
+    \end{center}
+    \caption{Podział etapów na klasy wykonujące specyficzne zadania}
+    \label{fig:stage}
+\end{figure}
+Podobnie jak w poprzednich przypadkach instancje klas typu \textit{Stage} posiadają metodę draw.
+Wykonują one jednak tylko część odpowiedzialności koniecznej do stworzenia fragmentu klatki.
+Mianowicie posiadają dostęp do obiektów metal typu \textit{MTLRenderPassDescriptor}.
+Deskryptory te stanowią dokładny opis programu cieniującego. 
+Składają się na to formaty danych wyjściowych i wejściowych, odnośniki do funkcji wykorzystywanych podczas cieniowania.
+Na ich podstawie tworzone są enkodery, które wykorzystać można by wskazać jakie dane należy wykorzystać w celu wygenerowania klatki.
+\lstinputlisting[language=Swift, caption=Logika renderowania wykorzystywana w klasach pochdnych \textit{PNRenderJob}]{code/PNShadowJob.swift}
+\par
+Na końcu łańcucha wykonywanego przez CPU znajdują się zadania - ujęte jako pochodne interfejsu \textit{PNRenderJob} lub \textit{PNComputeJob}.
+Przechodzą one przez opis sceny oraz zlecają zadanie rysowania dla każdego obiektu kwalifikującemu się według kryteriów.
