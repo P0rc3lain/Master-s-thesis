@@ -2,9 +2,21 @@
 %  Copyright © 2022 Mateusz Stompór. All rights reserved.
 %
 
-\newcommand*{\fig}[3] {
+\newcommand*{\fig}[4] {
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=#4]{#1}
+        \end{center}
+        \caption{#2}
+        \label{#3}
+    \end{figure}
+}
+
+\newcommand*{\figh}[4] {
     \begin{figure}[H]
-        \includegraphics[width=\linewidth]{#1}
+        \begin{center}
+            \includegraphics[width=#4]{#1}
+        \end{center}
         \caption{#2}
         \label{#3}
     \end{figure}
