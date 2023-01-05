@@ -18,19 +18,29 @@
 % \subsection{Przepływ danych}
 \input{chapters/details/architecture/hermetization.tex}
 \input{chapters/details/architecture/code_sharing.tex}
-\section{Scena}
-    \subsection{Drzewo sceny}
-    \subsection{Właściwości węzła}
-    \subsection{Wybrane węzły}
-        \subsubsection{Kamera}
-        \subsubsection{Transformacja}
-        \subsubsection{Model}
-        \subsubsection{Światła}
-    \subsection{Interakcja}
-    \subsection{Techniki animacji}
-        \subsubsection{Animacja szkieletowa}
-        \subsubsection{Animacja bryły sztywnej}
-\clearpage
+\input{chapters/details/scene/section.tex}
+\section{Komponenty sceny}
+\subsection{Kamera}
+Typ Kamery sam w sobie jest protokołem.
+Musi posiadać macierz projekcji oraz opisać otoczkę, którą pokrywa.
+Biblioteka posiada dwie implementacje interfejsu \longpause kamerę perspektywiczną oraz ortograficzną.
+\lstinputlisting[language=Swift, caption=Protokół kamery]{code/PNCamera.swift}
+\subsection{Siatki}
+\subsection{Materiały}
+\subsection{Światła}
+\subsection{Efekty cząsteczkowe}
+\subsection{Techniki animacji}
+    \subsubsection{Animacja szkieletowa}
+    \figh{images/pnengine/animation/skeleton.png}
+         {Idea animacji szkieletowej}
+         {fig:animation_skeletal}
+         {10cm}
+     \subsubsection{Animacja bryły sztywnej} 
+    \lstinputlisting[language=Swift, caption=Klasa animatora służąca do obsługi animacji]{code/PNAnimator.swift}
+     \figh{images/pnengine/animation/keyframe.jpg}
+          {Animacja na podstawie klatek kluczowych}
+          {fig:animation_keyframe}
+          {10cm}
 \section{Renderowanie}
 \begin{figure}[H]
     \begin{center}

@@ -1,0 +1,19 @@
+\subsection{Graf sceny}
+Graf zaimplementowany został w oparciu o drzewo.
+Pomiędzy węzłami występuje relacja rodzic-potomek i wymagane jest, aby dany węzeł występował w strukturze dokładnie jeden raz.
+Oznacza to, że dwa różne węzły nie mogą posiadać tego samego potomka.
+Węzły mogą posiadać dowolną ilość potomków.
+\par
+Każdy z węzłów zbudowany jest z trojga informacji.
+Referencji do rodzica.
+Listy dzieci oraz odnośnika do samych danych.
+Korzeń drzewa nie posiada rodzica, więc jego referencja będzie pusta.
+\par
+Sama struktura jest generyczna.
+Może posłużyć do przechowania dowolnego typu danych.
+Drzewo posiada zaimplementowane najpopularniejsze operacje, takie jak wyszukiwanie, wstawianie elementu, usuwanie.
+Ze względu na separacje zachowania od samych danych wykonywane jest to za pomocą pochodnych interfejsu \textit{PNNodeInteractor}.
+\figh{images/pnengine/scene/node.png}
+     {Definicja węzła w grafie sceny}
+     {fig:scene_node}
+     {6cm}
