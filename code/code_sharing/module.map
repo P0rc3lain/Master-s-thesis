@@ -1,31 +1,6 @@
-module PNAttribute {
-    header "../MetalBinding/PNAttribute/Bridge.h"
-    header "../MetalBinding/PNAttribute/Attribute.h"
-    header "../MetalBinding/PNAttribute/Attachment.h"
-    header "../MetalBinding/PNAttribute/FunctionConstant.h"
-    header "../MetalBinding/PNAttribute/VertexShader/VertexBufferIndex.h"
-    header "../MetalBinding/PNAttribute/FragmentShader/FragmentBufferIndex.h"
-    header "../MetalBinding/PNAttribute/FragmentShader/FragmentTextureIndex.h"
-    header "../MetalBinding/PNAttribute/ComputeShader/ComputeTextureIndex.h"
-    header "../MetalBinding/PNAttribute/ComputeShader/ComputeBufferIndex.h"
-    
-    export *
-}
-
 module PNShared {
-    header "../MetalBinding/PNShared/Model.h"
-    header "../MetalBinding/PNShared/Vertex.h"
+    [...]
     header "../MetalBinding/PNShared/Camera.h"
-    header "../MetalBinding/PNShared/Constant.h"
-    header "../MetalBinding/PNShared/FrozenParticle.h"
-        
-    header "../MetalBinding/PNShared/Light/OmniLight.h"
-    header "../MetalBinding/PNShared/Light/SpotLight.h"
-    header "../MetalBinding/PNShared/Light/AmbientLight.h"
-    header "../MetalBinding/PNShared/Light/DirectionalLight.h"
-    
-    header "../MetalBinding/PNShared/Rendering/SSAO.h"
-        
+
     export *
 }
-

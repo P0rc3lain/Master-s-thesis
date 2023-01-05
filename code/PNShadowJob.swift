@@ -1,5 +1,5 @@
 struct PNSpotShadowJob: PNRenderJob {
-    // [...]
+    [...]
     func draw(encoder: MTLRenderCommandEncoder, supply: PNFrameSupply) {
         let scene = supply.scene
         let dataStore = supply.bufferStore
@@ -37,9 +37,8 @@ struct PNSpotShadowJob: PNRenderJob {
                     encoder.drawIndexedPrimitives(submesh: pieceDescription.drawDescription)
                 }
             }
-            // [...]
-            // Similar logic for non-animated models
+            [...]
         }
     }
-    // [...]
+    [...]
 }
