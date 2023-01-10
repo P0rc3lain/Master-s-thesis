@@ -19,29 +19,7 @@
 \input{chapters/details/architecture/hermetization.tex}
 \input{chapters/details/architecture/code_sharing.tex}
 \input{chapters/details/scene/section.tex}
-\section{Komponenty sceny}
-\subsection{Kamera}
-Typ Kamery sam w sobie jest protokołem.
-Musi posiadać macierz projekcji oraz opisać otoczkę, którą pokrywa.
-Biblioteka posiada dwie implementacje interfejsu \longpause kamerę perspektywiczną oraz ortograficzną.
-\lstinputlisting[language=Swift, caption=Protokół kamery]{code/PNCamera.swift}
-\subsection{Siatki}
-\subsection{Materiały}
-\lstinputlisting[language=Swift, caption=Definicja materiału]{code/PNMaterial.swift}
-\subsection{Światła}
-\subsection{Efekty cząsteczkowe}
-\subsection{Techniki animacji}
-    \subsubsection{Animacja szkieletowa}
-    \figh{images/pnengine/animation/skeleton.png}
-         {Idea animacji szkieletowej}
-         {fig:animation_skeletal}
-         {10cm}
-     \subsubsection{Animacja bryły sztywnej} 
-    \lstinputlisting[language=Swift, caption=Interfejs służący do obsługi animacji]{code/PNAnimator.swift}
-     \figh{images/pnengine/animation/keyframe.jpg}
-          {Animacja na podstawie klatek kluczowych}
-          {fig:animation_keyframe}
-          {10cm}
+\input{chapters/details/components/section.tex}
 \section{Renderowanie}
 \begin{figure}[H]
     \begin{center}
