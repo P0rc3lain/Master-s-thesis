@@ -1,5 +1,11 @@
 \subsection{Kamera}
-Typ Kamery sam w sobie jest protokołem.
-Musi posiadać macierz projekcji oraz opisać otoczkę, którą pokrywa.
-Biblioteka posiada dwie implementacje interfejsu \longpause kamerę perspektywiczną oraz ortograficzną.
+Typ Kamery jest protokołem.
+Wewnątrz niego najistotniejszą właściwością opisującą kamerę jest macierz projekcji.
+Wykorzystywana jest ona podczas renderowania obrazu.
+Reguluje zasięg widoczności oraz kąt, który obejmuje pole widzenia.
+Ściśle powiązana z macierzą projekcji jest otoczka.
+Używana jest w procesie filtrowania niewidzialnych obiektów.
+Ostatnim parametrem charakteryzującym kamerę jest zmienna definiująca czy jest ona włączona.
+Przydatna jest w momencie gdy na scenie umieszczonych jest mnoga ilość kamer i zachodzi potrzeba dynamicznej zmiany z jednej na inną.
+Biblioteka posiada dwie implementacje interfejsu \longpause kamerę perspektywiczną (\textit{PNPerspectiveCamera}) oraz ortograficzną (\textit{PNOrthographicCamera}).
 \lstinputlisting[language=Swift, caption=Protokół kamery]{code/PNCamera.swift}
