@@ -2,9 +2,9 @@
 Użytkownik jest w stanie na własną rękę implementować interfejs \textit{PNSceneNode} w celu personalizacji węzłów, jednak nie jest to konieczne do skorzystania z biblioteki.
 W celu wygenerowania obrazu i aranżacji sceny skorzystać można z szeregu uprzednio stworzonych węzłów, które rozróżnić można na kilka typów.
 Zdecydowano się stworzyć wiele niewielkich, skoncentrowanych typów.
-Dzięki temu wyspecjalizowane są one w kierunku pełnionej przez siebie funkcjonalności i łatwiej można je analizować niż w przypadku alternatywnego podejścia, gdzie węzeł jednocześnie mógłby przechowywać wszystkie typy.
+Dzięki temu wyspecjalizowane są one w kierunku pełnionej przez siebie funkcjonalności i łatwiej można je analizować niż w przypadku alternatywnego podejścia, gdzie węzeł jednocześnie mógłby pełnić wiele ról.
 \subsubsection{Transformacja}
-Podstawowym typem węzłów są węzły transformacji.
+Podstawowym typem są węzły transformacji.
 Ich zadaniem jest grupowanie obiektów.
 Dzięki temu umożliwiają modyfikację pozycji wszystkich potomnych węzłów za pomocą pojedynczej zmiany.
 Możemy do nich zaliczyć interfejs \textit{PNSceneNode} w podstawowej formie oraz jego pochodną \textit{PNAnimatedSceneNode}.
@@ -12,7 +12,6 @@ Możemy do nich zaliczyć interfejs \textit{PNSceneNode} w podstawowej formie or
 Główną różnicą występującą pomiędzy nimi jest źródło używane do próbkowania pozycji.
 Choć interfejs tego nie narzuca to w przypadku \textit{PNSceneNode} zakłada się, że pozycja określana jest na podstawie zmiennych modyfikowanych przez użytkownika.
 \textit{PNAnimatedNode} ma w tym celu używać animatora, który pozycje uzyskuje z szeregu animacji kluczowych dla zadanego punktu w czasie.
-Animacje omówione zostaną w dalszej części pracy.
 \figh{images/pnengine/scene/transform_node.png}
      {Hierarchia węzłów służących do reprezentacji transformacji}
      {fig:scene_transform}
@@ -27,14 +26,16 @@ Pozycja kamery oparta może być o zmienną reprezentującą konkretną, modyfik
      {fig:scene_camera}
      {8cm}
 \par
-Sam interfejs węzła w stosunku rozszerza podstawowy interfejs jedynie o dodanie pojedynczej zmiennej \longpause referencję do kamery.
+Sam interfejs węzła w stosunku rozszerza podstawowy interfejs o dodanie referencji do kamery.
+Istnieje szansa, że osadzona na scenie zostanie więcej niż jedna kamera.
+W takiej sytuacji wykorzystywana zostaje także zmienna \textit{priority} na podstawie której kamery są sortowane.
+Do renderowania wybrana zostanie ta z najwyższym priorytetem.
 \lstinputlisting[language=Swift, caption=Interfejs węzła kamery]{code/PNCameraNode.swift}
 \subsubsection{Model}
-
 \figh{images/pnengine/scene/mesh.png}
      {Hierarchia węzłów służących do reprezentacji siatek}
      {fig:scene_mesh}
-     {13cm}
+     {\linewidth}
 Do dyspozycji oddano także węzły służące do reprezentacji siatek.
 W podstawowej formie \textit{PNMeshNode} może posłużyć do aranżacji statycznej siatki, która dodatkowo obsłuży animacje kluczowe w rozszerzeniu \textit{PNAnimatedMeshNode}.
 \lstinputlisting[language=Swift, caption=Interfejs węzeła siatki]{code/PNMeshNode.swift}
