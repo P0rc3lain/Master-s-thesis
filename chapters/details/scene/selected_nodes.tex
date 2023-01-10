@@ -28,7 +28,7 @@ Pozycja kamery oparta może być o zmienną reprezentującą konkretną, modyfik
      {8cm}
 \par
 Sam interfejs węzła w stosunku rozszerza podstawowy interfejs jedynie o dodanie pojedynczej zmiennej \longpause referencję do kamery.
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNCameraNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła kamery]{code/PNCameraNode.swift}
 \subsubsection{Model}
 
 \figh{images/pnengine/scene/mesh.png}
@@ -37,18 +37,18 @@ Sam interfejs węzła w stosunku rozszerza podstawowy interfejs jedynie o dodani
      {13cm}
 Do dyspozycji oddano także węzły służące do reprezentacji siatek.
 W podstawowej formie \textit{PNMeshNode} może posłużyć do aranżacji statycznej siatki, która dodatkowo obsłuży animacje kluczowe w rozszerzeniu \textit{PNAnimatedMeshNode}.
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNMeshNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzeła siatki]{code/PNMeshNode.swift}
 Biblioteka wspiera także animację szkieletową dla siatek.
 \textit{PNRiggedMeshNode} jest pochodną interfejsu \textit{PNMeshNode} i wzbogaca deklarację o odnośnik do szkieletu.
 Podobnie jak w innych przypadkach animację wzbogacić można o technikę animacje na podstawie klatek kluczowych.
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNRiggedMeshNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła siatki obsługującej animację szkieletową]{code/PNRiggedMeshNode.swift}
 \subsubsection{Światła}
 Aby obraz w ogóle mógł powstać konieczne są źródła światła, która sprawią, że kamera zarejestruje kształty modeli.
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNAmbientLightNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła światła nadającego wpływ komponentu ambientowego]{code/PNAmbientLightNode.swift}
 Poza światłem kierunkowym definiowanym poza grafem sceny wykorzystać można źródła ambientowe, punktowe dookólne oraz skierowane.
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNSpotLightNode.swift}
-We wszystkich przypadkach interfejsy są zwięzłe i oczekują jedynie referencji do wybrangeo typu światła.
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNOmniLightNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła światła punktowego\, kierunkowego]{code/PNSpotLightNode.swift}
+We wszystkich przypadkach interfejsy są zwięzłe i oczekują jedynie referencji do wybranego typu światła.
+\lstinputlisting[language=Swift, caption=Interfejs węzła światła punktowego\, dookólnego]{code/PNOmniLightNode.swift}
 \figh{images/pnengine/scene/lights.png}
      {Hierarchia węzłów służących do reprezentacji świateł}
      {fig:scene_lights}
@@ -60,4 +60,4 @@ Służy on do osadzenia emitera na scenie.
      {Hierarchia węzłów służących do reprezentacji efektów cząsteczkowych}
      {fig:scene_particle}
      {4cm}
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNParticleNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła służącego do obsługi efektów cząsteczkowych]{code/PNParticleNode.swift}
