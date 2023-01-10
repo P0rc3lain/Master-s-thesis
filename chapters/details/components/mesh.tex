@@ -1,4 +1,13 @@
-\subsection{Siatki}
+\subsection{Siatka} 
+Siatka definiuje zbiór wierzchołków w przestrzeni trójwymiarowej.
+Konieczność efektywnego zarządzania pamięcią sprawia, że współdzielone są one pomiędzy poszczególnymi powierzchniami.
+Są one reprezentowane za pomocą struktury \textit{PNPieceDescription}.
+Zawarta jest tam informacja na temat materiału, który powinien zostać wykorzystany do renderowania wraz z detalami powierzchni opisanymi w \textit{PNSubmesh}.
+Wewnątrz przechowywany jest bufor, który specyfikuje w jaki sposób łączyć wierzchołki przechowywane bezpośrednio w \textit{PNMesh}, aby nadać powierzchni pożądany kształt.
+Siatka zawiera także swoją otoczkę, którą rozpinają przechowywane w niej wierzchołki.
+Efektywne renderowanie wymaga aby niewidoczne wierzchołki usuwane zostały podczas wykonywania potoku.
+W tym celu wykorzystuje się informacje na temat kierunku w który zwrócony jest trójkąt \longpause do lub od kamery.
+Sposób filtrowania dla siatki skonfigurowany może być przy użyciu struktury \textit{PNCulling}.
 \figh{images/pnengine/scene/mesh-details.png}
           {Budowa siatki}
           {fig:mesh_details}
