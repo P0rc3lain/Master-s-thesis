@@ -1,4 +1,20 @@
-\section{Interfejs programistyczny}
-    \subsection{Komponenty publiczne}
-    \subsection{Testowalność}
-    \subsection{Konfiguracja}
+% \section{Interfejs programistyczny}
+%     \subsection{Komponenty publiczne}
+%     \subsection{Testowalność}
+\section{Konfiguracja}
+Poza aranżacją własnej sceny istnieje dodatkowy sposób za pomocą którego użytkownik może dopasować bibliotekę do swoich potrzeb.
+Dzieje się to za sprawą komponentu konfiguracji.
+Odnosi się to zarówno do jakości generowanego obrazu, jak i jego stylistyki na którą składa się wpływ poszczególnych efektów.
+\lstinputlisting[language=Swift, caption=Idea konfiguracji]{code/PNDefaults.swift}
+\par
+Zadbano by powiązane ze sobą opcji zostały odpowiednio zgrupowane.
+Struktura \textit{PNDefaults} zawiera w sobie wiele definicji pomniejszych struktur dla logicznie różnych aspektów silnika.
+Przykładowo konfiguracja modelu oświetlenia dla źródeł dookólnych zamknięta jest w strukturę \textit{PNOmniLighting}, a kierunkowych w \textit{PNDirectionalLighting}.
+Zagnieżdżenie wewnątrz \textit{PNDefaults} sprawia, że pomimo iż wszystkie struktury są publiczne to nie dostęp do nich jest ograniczony.
+Dzięki temu łatwiej powiązać je z pełnioną funkcją.
+\par
+Modyfikacje mają charakter globalny i dokonywane są za pośrednictwem struktury \textit{PNDefaults}.
+Wśród wielu innych parametrów dostosować można między innymi rozdzielczość generowanych cieni, moc okluzji ambientowej czy zarządzać efektami postprocesowymi, jak bloom czy winietowanie.
+Zmiany nie są odświeżane dynamiczne, biblioteka próbkuje je każdorazowo przy tworzeniu instancji \textit{PNEngine}.
+Chęć wprowadzenia modyfikacji wiązać będzie się z koniecznością przeładowania sceny.
+\lstinputlisting[language=Swift, caption=Konfiguracja silnika w kodzie klienckim]{code/PNDefaults_example.swift}
