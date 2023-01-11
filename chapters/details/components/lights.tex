@@ -1,2 +1,16 @@
 \subsection{Światła}
+Zgodnie z tym co wyjaśniono w poprzedniej sekcji biblioteka wspiera trzy podstawowe źródła światła.
+Są tą źródła kierunkowe (imitujące słońce), punktowe (żarówki) oraz punktowe, kierunkowe (latarki, reflektory samochodów).
+Każde z nich opisane jest przy pomocy wektora reprezentującego kolor w formacie RGB.
+W celu udogodnienia procesu generowania wartości biblioteka pozwala także na wytworzenie koloru na podstawie temperatury barwowej światła białego podanego w Kelvinach.
+Moc źródeł opisuje parametr intensywności.
+Użytkownik może skonfigurować czy dane źródło rzuca cienie.
+Wpływa to znacząco na wydajność generowanego obrazu, natomiast zwiększa jego realizm.
+W przypadku źródeł kierunkowych możliwa jest także modyfikacja ich orientacji.
 \lstinputlisting[language=Swift, caption=Protokół światła kierunkowego]{code/PNDirectionalLight.swift}
+\par
+Nieco odmienne przeznaczenie, choć nadal przynależące wykorzystaniem w stosunku do pozostałych świateł ma światło ambientowe.
+Podobnie jak w przypadku pozostałych źródeł charakteryzuje się je za pomocą barwy oraz intensywności.
+Działa ono jednak obszarowo w sposób stały \longpause wpływ istnieje lub nie, ale nie zmienia się on wraz ze zmianą odległości.
+Źródło ambientowe ma sprawić, że ekran nie będzie czarny w momencie gdy w danym miejscu sceny nie znajduje się żadne źródło.
+\lstinputlisting[language=Swift, caption=Interfejs źródła ambientowego]{code/PNAmbientLight.swift}
