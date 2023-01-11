@@ -1,3 +1,30 @@
 \section{Wczytywanie danych zewnętrznych}
-    \subsection{Modele}
-    \subsection{Tekstury}
+Istnieją dwa sposoby za pomocą których scenę wypełnić można zawartością.
+Pierwszym z nich jest programowe wygenerowanie siatek, ich materiałów, kamer i ustanowienie między nimi hierarchii.
+Alternatywnie posłużyć można się wyspecjalizowanym programem do modelowania, takim jak \textit{Blender} i wykreować scenę za pomocą metod opierających się o interakcję z interfejsem wizualnym.
+Zachodzi wówczas jednak potrzeba na późniejszy import zawartości.
+Biblioteka oddaje taką możliwość.
+Umożliwia wczytywanie scen w najpopularniejszych formatach, takich jak .abc, .usd, .usda, .usdc, .usdz, .ply, .obj oraz .stl.
+Jest w stanie także przetwarzać natywne dla frameworka aplikacji platformy obrazy.
+\subsection{Tekstury}
+W przypadku tekstur udogodnienie polega na możliwości zamiany obrazów przechowywanych za pomocą typów \textit{NSImage} czy \textit{UIImage} na bufor tekstury w Metal.
+\textit{PNKitImage} jest aliasem, który w zależności od platformy na której uruchamiany jest kod zamieniany jest na właściwą dla siebie klasę.
+Ponadto bufor tesktury stworzony może być bezpośrednio w oparciu o nazwę pliku przechowującego dane w bundle aplikacji.
+\lstinputlisting[language=Swift, caption=Interfejs loadera tekstur]{code/PNTextureLoader.swift}
+\subsection{Modele}
+Wczytywanie modeli z pliku wykonane może być za pomocą \textit{PNSceneLoader}.
+Oddaje on kompletną scenę przepisaną na format biblioteki.
+W takiej formie może być ona przekazana do instancji \textit{PNEngine} i wyświetlona na ekranie.
+\lstinputlisting[language=Swift, caption=Interfejs loadera sceny]{code/PNSceneLoader.swift}
+Bardzo często zdarza się, że siatki reprezentujące teren nie są zapisywane jako model siatki trójkątów.
+Wykorzystać w tym celu można teksturę, przedstawiającą obraz dwuwymiarowy w odcieniach szarości.
+W zależności od interpretacji wartości białe mogą przedstawiać wysokie punkty, zaś ciemne niskie.
+W ten sposób teren może być modelowany w narzędziach 2D za pomocą pędzli.
+\textit{PNISceneLoader} jest implementacją, która pozwala wczytywać obrazy jako siatki.
+Zadbano o wygenerowanie wektorów normalnych na podstawie kształtu siatki oraz jej otoczki.
+Podobnie jak w przypadku loadera tekstur oprzeć można się zarówno o plik przynależący do bundle, jak i natywną dla platformy klasę reprezentującą obraz.
+\lstinputlisting[language=Swift, caption=Interfejs loadera terenu]{code/PNTerrainLoader.swift}
+\figh{images/heightmap.jpg}
+        {Generowanie siatki na podstawie tekstury}
+        {fig:heightmap}
+        {10cm}
