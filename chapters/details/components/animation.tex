@@ -17,7 +17,7 @@ Do definicji klatek kluczowych w bibliotece służy struktury \textit{PNKeyframe
 \lstinputlisting[language=Swift, caption=Interfejs służący do obsługi animacji]{code/PNKeyframeAnimation_short.swift}
 \par
 Koordynacja procesu generowania aktualnej pozycji wykonywana jest za pośrednictwem interfejsu \textit{PNAnimator}.
-Z punktu widzenia zachownia jest on odpowiedzialny za pojedyncze zadanie.
+Z punktu widzenia zachowania jest on odpowiedzialny za pojedyncze zadanie.
 Na podstawie klatek kluczowych skali, rotacji oraz transformacji zamkniętej w \textit{PNAnimatedCoordinateSpace} musi wyznaczyć finalną pozycje w formie macierzy transformacji.
 Do dyspozycji użytkownika oddana została klasa \textit{PNIAnimator} implementująca interfejs.
 Może on wykorzystać ją wypełniając interesujące go parametry dzięki czemu skorzysta z gotowego koordynatora procesu.
@@ -35,9 +35,26 @@ W ostatnim kroku dane na temat skali składane są w macierz jako iloczyn \texti
     \[ M_{result} = M_{rotation} * M_{translation} * M_{scale} \]
     \caption{Dwie możliwości składania transformacji}
 \end{figure}
-
 \lstinputlisting[language=Swift, caption=Interfejs samplera]{code/PNSampleProvider.swift}
 \subsubsection{Animacja szkieletowa}
+Modele siatek mogą wzbogacone zostać o dodatkowy rodzaj animacji \longpause animację szkieletową.
+Wymaga ona od artysty przygotowania modelu pod tym kątem, konieczne jest zdefiniowanie szkieletu dla danej siatki.
+Dodatkowo należy określić wpływ każdej z kości na poszczególne fragmenty modelu.
+\lstinputlisting[language=Swift, caption=Definicja szkieletu modelu]{code/PNSkeleton.swift}
+\par
+Animacja szkieletowa wprowadza pewne rozróżnienie do modelu.
+Dzieli go na dwie składowe \longpause skórę oraz szkielet.
+W odróżnieniu od animacji bryły sztywnej wierzchołki poddane animacji szkieletowej zmieniają pozycję względem siebie, poddawane są deformacji.
+Każdy z nich poza standardowymi parametrami posiada dodatkowo listę kości, które wpływają na jego pozycję \longpause silnik obsługuje do czterech \longpause oraz wagi wpływu każdej z nich.
+\par
+Obszerny opis techniki znaleźć można między innymi w \textit{Game Engine Architecture}~\cite{game_engine_architecture}.
+Wspomnieć można, że szkielet opisany jest za pomocą tablicy składającej się z lokalnych transformacji dla każdej z kości.
+Dodatkowo, równoliczna tablica przeznaczona jest do określenia indeksu rodzica dla każdej z transformacji.
+Składanie transformacji pozwoli uzyskać macierze pozycji spoczynkowej zmieniające układ współrzędnych z układu modelu do kości.
+\par
+Pod pewnymi względami animacja szkieletowa bardzo przypomina animację bryły sztywnej.
+Poszczególne pozycje opisane są przy pomocy klatek kluczowych, a ich próbkowanie i interpolacja przebiega w ten sam sposób.
+List zawierające aktualne transformacje kości przekazywana jest do programu cieniującego gdzie obliczana jest finalna pozycja wierzchołków.
 \figh{images/pnengine/animation/skeleton.png}
     {Idea animacji szkieletowej}
     {fig:animation_skeletal}
