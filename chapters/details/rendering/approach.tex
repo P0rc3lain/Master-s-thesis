@@ -1,0 +1,9 @@
+\subsection{Ogólne podejście}
+Koncepcyjnie proces generowania klatki obrazu oparto w głównej mierze o podejście odroczonego renderowania.
+Oznacza to, że finalny obraz powstaje poprzez zastosowanie wielu pośrednich klatek, które finalnie składane są jedną całość.
+Decyzja ta podytkowana była przez względy wydajnościowe.
+Zdarza się, że pośrednie klatki używane są także przez więcej niż jeden program cieniujący, co dodatkowo zwiększa korzyści płynące z wyboru techniki.
+\par
+Powyższe podejście nie dotyczy jednak wszystkich przypadków, które mogą wystąpić.
+W szczególności modele obiektów charakteryzujących się przezroczystością lub efekty cząsteczkowe oparte są o forward rendering.
+Są one nanoszone stosunkowo późno w potoku, na gotową, ocieniowaną klatkę obrazu.

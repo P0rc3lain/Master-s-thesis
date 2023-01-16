@@ -1,0 +1,40 @@
+\subsection{Opis klatki}
+Wygenerowania każdej klatki wymaga dwóch składowych.
+Opisu sceny przypadającego na daną chwilę w formie efektywnej do procesowania przez procesor.
+Dodatkowo konieczne jest aby informacje które wymagane są do renderowania przeniesione zostały na GPU.
+Dane te każdorazowo przygotowywane są przed generowaniem klatki, a następnie przekazywane do klasy \textit{PNPipeline}.
+Są one dystrybuowane dalej, aż do poszczególnych klas implementujących interfejsy \textit{PNComputeJob} lub \textit{PNRenderJob}.
+\par
+Agregatorem danych dla klatki jest klasa \textit{PNFrameSupply}.
+Jej instancje tworzone są na początku potoku i niszczone wraz z jego zakończeniem.
+Zawiera ona w sobie referencję do sceny opartej o płaską, niehierarchiczną strukturę, masek wskazujących widoczność obiektu oraz buforów GPU z parametrami obiektów w odniesieniu do sceny.
+\lstinputlisting[language=Swift, caption=Struktura będąca informacją na bazie której klatka jest renderowana]{code/PNFrameSupply.swift}
+\par
+\textit{PNRenderMask} zawiera w sobie informacje na temat widzialności wszystkich obiektów znajdujących się na scenie z punktu widzenia aktywnej kamery oraz źródeł światła rzucających cienie.
+Zdecydowano się na pozostawienie w scenie obiektów, które są niewidoczne dla kamery właśnie przez wzgląd na fakt, że mogą być one nadal w zasięgu źródeł światła i rzucać cień w polu widzenia kamery.
+Przed zleceniem wygenerowania modelu do shadera wartość maski jest weryfikowana, jeśli obiekt jest niewidoczny algorytm przechodzi do analizy kolejnego.
+\lstinputlisting[language=Swift, caption=Struktura zawierająca maski dla renderowanych obiektów]{code/PNRenderMask.swift}
+\par
+Bufory, które osadzone są w przestrzeni adresowej GPU zasadniczo podzielić można na dwie kategorie.
+Aktualizowane jednokrotnie podczas wczytywania sceny, takie jak siatki czy tekstury opisujące materiały.
+Alternatywnie, bufory mogą aktualizowane być dla każdej klatki, w momencie gdy zawierają pozycje czy przechowują kroki pośrednie renderowania klatki.
+\textit{PNBufferStore} zawiera w sobie wszystkie bufory, które aktualne są tylko dla pojedynczej klatki.
+Są to dane dotyczące parametrów źródeł światła, pozycji wszystkich encji czy palet transformacji dla modeli ze szkieletem.
+Istotne jest, że bufory tworzone są tylko raz i dynamicznie dostosowują się do rozmiaru danych, które przechowują.
+Instancja klasy reużywana jest dla kolejnych klatek.
+W przypadku renderowania wielowątkowego istnieją dwie równolegle używane instancje.
+Jedna jest używana aktywnie do renderowania klatki, podczas gdy druga podlega aktualizacji.
+Po zakończeniu renderowania klatki cykl odwraca się.
+\lstinputlisting[language=Swift, caption=Interfejs skupiający w sobie niezmienniki dla danej klatki]{code/PNBufferStore.swift}
+\par
+Zlecanie renderowania oparte jest o informacje zawarte w \textit{PNSceneDescription}.
+Struktura agreguje w sobie dwa typy informacji.
+Pierwszą jest hierarchia obiektów w formie drzewa opartego o tablicę.
+Encje przechowywane w niej mają uprzednio obliczone pozycje we współrzędnych świata.
+Dane które przechowywane są w węzłach stanowią jedynie odnośniki do pozostałych właściwości z klasy.
+Pozostałe pola, które przechowują wartości na temat źródeł światła, siatek czy generatorów efektów cząsteczkowych podzielone zostały, aby zapewnić szybką iterację oraz uniewrażliwić na przypadek kilkukrotnej iteracji przez obiekty.
+Przykładowo renderując efekty cząsteczkowe informacja na temat siatek czy ich szkieletów jest zbędna.
+Klasa odpowiedzialna za przekazanie danych do shadera może bezpośrednio odneść się do generatorów.
+Podobnie sprawa wygląda w przypadku nakładania efektów oświetlenia.
+Możliwa jest natychmiastowa iteracja przez wszystkie rodzaje źródeł światła z pominięciem siatek, które już zostały wyrenderowane do klatki pośredniej.
+\lstinputlisting[language=Swift, caption=Struktura sceny w formie efektywnej do renderowania]{code/PNSceneDescription.swift}

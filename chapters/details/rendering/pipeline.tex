@@ -1,0 +1,64 @@
+\subsection{Potok renderowania}
+Niniejsza sekcja rozłoży na części pierwsze przykładową klatkę obrazu wygenerowaną przez biblioteką.
+Omówione zostaną krok po kroku etapy, które złożyły się na jej stworzenie.
+\par
+Scena testowa, którą przygotowano zawiera popularny model zamku stworzony przez Crytek \longpause Sponza.
+Na dziedzińcu modelu unosi się model samolotu, który posiada niebieski, jednoklity odcień i charakteryzuje przezroczystością.
+Poniżej samolotu znajduje się źródło efektów cząsteczkowych symulująca dym.
+Scena oświetlona jest przy użyciu pojedynczego źródła światła, kierunkowego, umiejscowionego prostopadle do podłogi dziedzińca.
+Kamera umiejscowiona jest w taki sposób aby zawrzeć w polu widzenia wszystkie modele i obejmuje także niebo.
+\par
+Wybrór sceny oraz osadzenia obeiktów motywowany był chęcią pokazania możliwie dużej liczby efektów.
+Przedstawiony potok będzie kompletny pod względem kroków, które mogą w nim wystąpić.
+Należy pamiętać jednak, że nie przedstawione zostaną wszystkie możliwości silnika przez wzgląd na obszerną ilość możliwych konfiguracji.
+\figh{images/pnengine/rendering/final.png}
+    {Finalna klatka obrazu}
+    {fig:pipeline_final}
+    {\linewidth}
+Potok renderowania oparty został o dwa rodzaje programów cieniujących.
+W przypadku renderowania siatek używane są programy cieniujące korzystające z tradycyjnego potoku GPU \longpause wykorzystujące programy cieniujące wierzhcołków i fragmentów.
+Natomiast jeśli nie zachodzi potrzeba generowania siatki, a procedura wciąż odbywa się na GPU, np w przypadku efektów postprocesowych używane są programy obliczeniowe.
+\par
+W pierwszym kroku renderowaniu podlegają siatki.
+Dotyczy to zarówno tych wyposażonych w szkielet, jak i nie.
+Konieczne jest aby materiały, których używają modele nie były przezroczyste.
+Te, które są naniesione będą w późniejszym czasie.
+\par
+Na klatkę obrazu wynikowego składa się cztery tekstury.
+Trzy z nich posiada cztery kanały, pozostała jedna pojedynczy podzielony jednak na dwa.
+Pierwsza z nich przechowuje informacje o kolorze oraz chropowatości.
+Druga zawiera wektory normalne oraz współczynnik metaliczności.
+Kolejna pozycja w układzie współrzędnych ekranu oraz odbijalność.
+Ostatnia przechowuje głębię oraz maskę szblonu.
+\par
+Generowanie klatki nie wiąże się z cieniowaniem, zostanie ono wykonane w późniejszym czasie.
+Skorzystanie z tego pośredniego kroku sprawia, że oszczędzana jest moc obliczeniowa dla każdego fragmentu, który potencjalnie mógł zostać ocieniowany, ale zostałby przesłoniony przez inny.
+Obecna technika daje pewność, że cienowaniu podlegać będą tylko fragmenty widoczne na finalnej ramce.
+\figh{images/pnengine/rendering/gbuffer/all.jpg}
+    {Zawartość tekstur składających się na GBuffer}
+    {fig:pipeline_gbuffer}
+    {\linewidth}
+\figh{images/pnengine/rendering/ssao/ssao-combine.jpg}
+    {Klatki pośrednie SSAO, pierwotna (lewa) oraz rozmazana (prawa)}
+    {fig:pipeline_ssao}
+    {\linewidth}
+\figh{images/pnengine/rendering/lights/directional.png}
+    {Bufor cieni dla źródło kierunkowego}
+    {fig:pipeline_shadow_map}
+    {\linewidth}
+\figh{images/pnengine/rendering/lighting/lights-combined.jpg}
+    {Klatki poddane wpływowi źródeł światła, amibentowe (lewa), kierunkowe (prawa)}
+    {fig:pipeline_lights}
+    {\linewidth}
+\figh{images/pnengine/rendering/combine-env-part-trans.jpg}
+    {Klatki mapowania środowiska, efektów cząsteczkowych oraz obiektów przezroczystych}
+    {fig:pipeline_env_part_trans}
+    {\linewidth}
+\figh{images/pnengine/rendering/bloom-combine.jpg}
+    {Klatki pośrednie Bloom, najjaśniejsze fragmenty (lewa), rozmazane (prawa)}
+    {fig:pipeline_bloom}
+    {\linewidth}
+\figh{images/pnengine/rendering/pipeline.png}
+    {Graf renderowania}
+    {fig:pipeline_graph}
+    {5cm}
