@@ -1,0 +1,13 @@
+\subsection{Przebieg przekazywania zadań}
+\figh{images/pnengine/all-stages.png}
+     {Hierarchia klas odpowiedzialnych za renderowanie}
+     {fig:hierarchy_rendering_jobs}
+     {\linewidth}
+Zgodnie z informacjami, które zawarte były w sekcji nakreślającej przepływ danych klasa potoku podzielona jest na mniejsze fragmenty.
+Są nimi etapy, które współdzielą między sobą tekstury, nakładając kolejne warstwy efektów lub tworząc klatki pośrednie.
+Etapy nie zawierają jednak logiki odpowiedzialnej za interakcję z programami cieniującymi.
+Służą one jedynie enkapsulacji i spłaszczenia logiki do formy prostych wyjść i wejść w formie tesktur.
+\par
+Komponenty odpowiedzialnymi za kolejkowanie zleceń są klasy z przyrostkiem \textit{job}.
+Istnieje bezpośrednie relacja pomiędzy programem cieniującym a pochodnymi \textit{PNRenderJob} lub \textit{PNComputeJob}.
+Klasy te rozumieją jakich danych oczekuje program cieniujący oraz które obiekty kwalifikują się do renderowania przez niego.
