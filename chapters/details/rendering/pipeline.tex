@@ -35,30 +35,75 @@ Generowanie klatki nie wiąże się z cieniowaniem, zostanie ono wykonane w pó�
 Skorzystanie z tego pośredniego kroku sprawia, że oszczędzana jest moc obliczeniowa dla każdego fragmentu, który potencjalnie mógł zostać ocieniowany, ale zostałby przesłoniony przez inny.
 Obecna technika daje pewność, że cienowaniu podlegać będą tylko fragmenty widoczne na finalnej ramce.
 \figh{images/pnengine/rendering/gbuffer/all.jpg}
-    {Zawartość tekstur składających się na GBuffer}
-    {fig:pipeline_gbuffer}
-    {\linewidth}
+     {Zawartość tekstur składających się na GBuffer}
+     {fig:pipeline_gbuffer}
+     {\linewidth}
+\par
+Równolegle do klatki widocznej z punktu widzenia kamery generowana jest wersja która posłuży do rzucania cieni.
+Ponieważ źródło rzuca promienie, które przybliżyć można jako równoległe do siebie wykorzystywana jest kamera ortograficzna.
+Osadzane jest one w kierunku i zwrocie zgodnym z wektorem skierowania promieni.
+Zakres dobierany jest dynamicznie na podstawie położenia kamery i jej zakresu pola widzenia.
+Modele siatek nanoszone są na pojedynczą teksturę zawierającą wyłącznie bufor głębi.
+\figh{images/pnengine/rendering/lights/directional.png}
+     {Bufor cieni dla źródło kierunkowego}
+     {fig:pipeline_shadow_map}
+     {5cm}
+\par
+Krótko po stworzeniu buforów składających się na GBufer następuje wytwarzanie mapy okluzji ambientowej.
+Ma ona za zadanie symulować różnice w rozchodzeniu się światła na podstawie ukształtowania siatek.
+Przykładowo oczekiwać można, że płaska powierzchnia ściany lepiej odbije promienie od wklęsłego narożnika, gdzie może ono nie być w stanie wrócić.
+Algorytm wykorzystuje do działania uprzednio stworzoną teksturę zawierającą wektory normalne siatek.
+Dla każdego fragmentu będącego częścią tesktury estymowana jest pochłanialność światła na podstawie otoczenia.
+W tym celu wykorzystywany jest pojedyncza tesktura o jednym kanale.
+Algorytm oparty jest o randomizację z tego względu wynikowy obraz charakteryzuje się pewnym zaszumieniem.
+W celu uzyskania lepszych wyników nakładane jest dodatkowo rozmycie gaussowskie.
 \figh{images/pnengine/rendering/ssao/ssao-combine.jpg}
     {Klatki pośrednie SSAO, pierwotna (lewa) oraz rozmazana (prawa)}
     {fig:pipeline_ssao}
     {\linewidth}
-\figh{images/pnengine/rendering/lights/directional.png}
-    {Bufor cieni dla źródło kierunkowego}
-    {fig:pipeline_shadow_map}
-    {\linewidth}
+\par
+Uzyskawszy mapę okluzji ambientowej następuje przejście do kolejnej fazy renderowania.
+Obraz zaczyna spajany być w jedną całość.
+Na nowej teksturze tworzona zostaje kolejna klatka z punktu widzenia kamery.
+Źródłem danych dla niej są kolory siatek oraz mapa okluzji ambientowej.
+W efekcie powstaje obraz stosunkowo ciemny, który warunkami odpowiada sytuacji gdy brakuje źródła światła.
+Przez wzgląd na wykorzystanie mapy okluzji uwzględnione są jednak kształty poszczególnych siatek i ich odbijalność świetlna.
+\par
+Następnym krokiem w procesie renderowania jest nanoszenie wpływu źródeł światła na klatkę.
+W przypadku przykładowej klatki umiejscowione zostało pojedyncze źródło kierunkowe, jednak algorytm przybiera podobną postać dla pozostałych.
+Na podstawie kolorów siatek, ich położenia oraz mapy wektorów normalnych obliczany jest wpływ źródła na każdy z fragmentów.
+Wcześniej jednak weryfikowane jest czy nie znajduje się on w cieniu na podstawie mapy cieni dla zadanego źródła światła.
 \figh{images/pnengine/rendering/lighting/lights-combined.jpg}
     {Klatki poddane wpływowi źródeł światła, amibentowe (lewa), kierunkowe (prawa)}
     {fig:pipeline_lights}
     {\linewidth}
+Do oświetlonej klatki nanoszone w następnej kolejności jest mapa oświetlenia.
+Jest ona aplikowana selektywnie na podstawie bufora maski używanego z renderowania GBuffer.
+\par
+Dalszy krok używa podejścia forward renderingu.
+Na klatkę nanoszone są w kolejności od najdalszego do najbliższego kamerze siatki charakteryzujące się przezroczystością.
+\par
+Wreszcie ramka wzbogacana jest o efekty cząsteczkowe w podobny sposób jak obiekty z przezroczystością.
+Od najdalszego do bliskiego kamerze.
 \figh{images/pnengine/rendering/combine-env-part-trans.jpg}
     {Klatki mapowania środowiska, efektów cząsteczkowych oraz obiektów przezroczystych}
     {fig:pipeline_env_part_trans}
     {\linewidth}
+\par
+Kolejną faza renderowania jest postprocessing obrazka.
+Od tego momentu nanoszone efekty operują na ramce bez znajomości jej zawartości.
+Pierwszym efektem, który to wykorzystuje jest bloom.
+Klatka obrazu rozdzielana jest na dwie kategorie.
+W oparciu o zadany próg rozważane są jasne części obrazu oraz te mieszczące się w średniej.
+Najjaśniejsze części nanoszone są wraz z kolorami na czarną teksture, gdzie następnie są poddawane rozmyciu.
+Klatka ponownie scalana jest w jedną, a nadany efekt sprawia, że najjaśniejsze obszary sceny podkreślone są dzięki rozlewaniu się efektu na otoczenie.
+Jednocześnie aplikowane są pozostałe dostępne efekty postprocesowe - winietowanie, szum filmowy.
+\par
+Klatka obrazu gotowa jest do wyświetlenia.
+Nie jest wymagane jednak aby występowała zgodność pomiędzy jej rozmiarem, a rozdzielczością obrazu urządzenia.
+Finalnym krokiem jest próbkowanie obrazu źródłowego i przełożenie go na rozmiar ekranu.
+Wreszcie klatka przesyłana jest na ekran, co kończy potok.
 \figh{images/pnengine/rendering/bloom-combine.jpg}
     {Klatki pośrednie Bloom, najjaśniejsze fragmenty (lewa), rozmazane (prawa)}
     {fig:pipeline_bloom}
     {\linewidth}
-\figh{images/pnengine/rendering/pipeline.png}
-    {Graf renderowania}
-    {fig:pipeline_graph}
-    {5cm}
