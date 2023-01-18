@@ -14,13 +14,10 @@ Potok renderowania przedstawiony i omówiony zostanie na podstawie ilustracji do
 Etapy będące jego częścią następują bezpośrednio po sobie i mają charakter sekwencyjny.
 Część z nich nie podlega żadnej konfiguracji, inne mogą być parametryzowane w ograniczony sposób.
 Te kluczowe są w pełni modyfikowalne, a logika ich działania dostarczana jest w formie programu komputerowego. 
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=15cm]{images/metal-rendering-pipeline.png}    
-        \caption{Potok renderowania wykorzystywany w języku Metal, Apple Inc.}
-    \end{center}
-    \label{fig:metal-rendering-pipeline}
-\end{figure}
+\figh{images/metal-rendering-pipeline.png}
+     {Potok renderowania wykorzystywany w języku Metal, Apple Inc.}
+     {fig:metal-rendering-pipeline}
+     {15cm}
 \paragraph*{Figury \eng{Primitives}}
 Pierwszy krok stanowi wejście do potoku renderowania.
 Dane pobierane są z określonego przez użytkownika bufora danych i przetwarzane jako punkty, w przestrzeni dwu, trzy lub czterowymiarowej.
@@ -40,13 +37,10 @@ Zadaniem rasteryzacji jest rozwiązanie problemu widzialności~\cite{rasterizati
 Aktualnie przetwarzane koordynaty wierzchołków rzutowane są na dyskretny układ współrzędnych obrazu wyjściowego.
 W zależności od wybranego typu figury geometrycznej, która ma zostać stworzona na podstawie wierzchołków algorytm przybiera nieco inną formę.
 W przypadku trójkątów jeżeli pole figury ma kontakt z pikselem obrazu wyjściowego wówczas jest on włączany do dalszego procesowania, w przeciwnym razie algorytm kończy działanie.
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=4cm]{images/pipeline/rasterization.png}    
-        \caption{Przedstawienie idei procesu rasteryzacji}
-    \end{center}
-    \label{fig:pipeline-rasterization}
-\end{figure}
+\figh{images/pipeline/rasterization.png}
+     {Przedstawienie idei procesu rasteryzacji}
+     {fig:pipeline-rasterization}
+     {4cm}
 \paragraph*{Cieniowanie Fragmentów \eng{Fragment Function}}
 Piksele, które służą do opisu figury po procesie rasteryzacji określane są mianem fragmentów.
 Każdy uprzednio nieodrzucony poddany może być dalszej modyfikacji.
@@ -54,51 +48,38 @@ Stanowi to kolejny, w pełni konfigurowalny etap potoku.
 Podobnie jak w przypadku cieniowania wierzchołków użytkownik jest zobowiązany do zapewnienia funkcji stworzonej w oparciu o MSL \eng{Metal Shading Language}.
 W tradycyjnym podejściu odpowiada ona za określenie wpływu światła na geometrię.
 Dzięki temu obserwator jest w stanie dostrzec w jaki sposób oświetlenie usytuowane na scenie oddziałuje na model.
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=6cm]{images/phong-shading.jpeg}    
-        \caption{Cieniowanie na przykładzie algorytmu Phonga}
-    \end{center}
-    \label{fig:phong-shading}
-\end{figure}
+\figh{images/phong-shading.jpeg}
+     {Cieniowanie na przykładzie algorytmu Phonga}
+     {fig:phong-shading}
+     {6cm}
 \paragraph*{Przycinanie \eng{Scissor}}
 Zdarza się, że generowany obraz powinien być zaprezentowany w częściowej formie.
 W takim wypadku programista może określić prostokątny obszar, który powinien zostać utrwalony.
 Fragmenty usytuowane poza nim nie będą zapisywane na wyjściu.
-
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=6cm]{images/pipeline/scissoring.png}
-        \caption{Przycinanie na przykładzie obrazu trójkąta}
-    \end{center}
-    \label{fig:scissoring}
-\end{figure}
+\figh{images/pipeline/scissoring.png}
+     {Przycinanie na przykładzie obrazu trójkąta}
+     {fig:scissoring}
+     {6cm}
 \paragraph*{Wielopróbkowanie \eng{Multisample}}
 Następnym, opcjonalnym krokiem w potoku renderowania jest wielopróbkowanie.
 Celem, którym ma być zrealizowany jest wygładzenie krawędzi pomiędzy różnymi obiektami na obrazie wyjściowym.
 Efekt osiągany jest za pomocą zmiany sposobu działania algorytmu rasteryzacji.
 Zamiast opierać się na pojedynczym punkcie do określenia czy figura pokrywa dany fragment używana jest ich większa ilość.
 Cieniowanie fragmentów wciąż wykonywane jest tylko i wyłącznie dla pojedynczego elementu, jednak kolor wyjściowy który został uzyskany mieszany jest z tłem w oparciu o dane z próbkowania dla większej liczby punktów.
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=6cm]{images/pipeline/multisampling.png}
-        \caption{Zobrazowanie idei wielopróbkowania}
-    \end{center}
-    \label{fig:multisampling}
-\end{figure}
+\figh{images/pipeline/multisampling.png}
+     {Zobrazowanie idei wielopróbkowania}
+     {fig:multisampling}
+     {6cm}
 \paragraph*{Test szablonu \eng{Stencil Test}}
 Poza wspomnianym przycinaniem użytkownik ma dodatkową możliwość, aby ograniczyć powierzchnie obrazu, która zostanie zaprezentowana.
 Operacja dokonywana jest z wysoką ziarnistością \longpause dla każdego piksela obrazu.
 W tym celu wykorzystywane są maski binarne.
 Idea działania algorytmu jest prosta.
 Jeśli dla zadanego fragmentu wartość w buforze maski wynosi \textit{1} wówczas kontynuuje on drogę przez potok, w przeciwnym wypadku jest odrzucany.
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=4cm]{images/pipeline/binary-mask.png}
-        \caption{Przykład maski binarnej opisującej kształtem balon}
-    \end{center}
-    \label{fig:binary-mask}
-\end{figure}
+\figh{images/pipeline/binary-mask.png}
+     {Przykład maski binarnej opisującej kształtem balon}
+     {fig:binary-mask}
+     {4cm}
 \paragraph*{Test głębi \eng{Depth Test}}
 W dalszej kolejności wykonywany jest test widoczności.
 Jego celem jest sprawdzenie, czy dany fragment nie został przesłonięty przez inny.
@@ -110,13 +91,10 @@ W najczęstszym przypadku zadanie testu polega na wykonaniu pojedynczej operacji
 Uprzednio wyliczony wynik z działania testu głębi zachowany jest w postaci liczby binarnej.
 Widoczny fragment powiązywany jest z wartością \textit{prawda}, \textit{fałsz} przypisywany jest w przeciwnym przypadku.
 \paragraph*{Mieszanie \eng{Blend}}
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=6cm]{images/pipeline/blending.png}
-        \caption{Mieszanie kolorów. Zobrazowanie braku przemienności operacji}
-    \end{center}
-    \label{fig:blending}
-\end{figure}
+\figh{images/pipeline/blending.png}
+     {Mieszanie kolorów. Zobrazowanie braku przemienności operacji}
+     {fig:blending}
+     {6cm}
 Ostatnim krokiem w procesie renderowania jest mieszanie.
 Uruchamiane jest ono zawsze, jednak zauważalne rezultaty przynosi w przypadku gdy kolor zadanego fragmentu charakteryzuje się stopniem przeźroczystości.
 W celu wykonania obliczenia rozpatrywany jest wynik widoczności po procesie testowania głębi, kolor nowo wygenerowanego fragmentu oraz ten, który już znajduje się w buforze.
