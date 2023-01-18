@@ -1,0 +1,14 @@
+\subsection{Otoczka zewnętrzna}
+Wszystkie spośród typów obiektów możliwych do osadzenia na scenie scharakteryzowane mogą być w oparciu o obszar na który mają wpływ.
+W przypadku siatek jest to odpowiednio wierzchołek osiągający punkt minimalny oraz maksymalny, dla źródła światła przestrzeń na który oddziałuje.
+Kamerę charakteryzuje zasięg pola widzenia.
+Z tego względu zdecydowano się nadać właściwość każdemu z tych obiektów dodatkową, integralną właściwośc \longpause otoczkę zewnętrzną.
+Właściwość ta  definiowana jest za pomocą dwóch punktów \longpause minimalnego oraz maksymalnego w przestrzeni trójwymiarowej, które przechowywane są w formie homogenicznego wektora, dla ułatwienia obliczeń z macierzami transformacji.
+W przypadku biblioteki zdecydowano się wykorzystać otoczki wyrównane do osi \textit{AABB}.
+\lstinputlisting[language=Swift, caption=Struktura otoczki zewnętrznej]{code/PNBoundingBox.swift}
+Na otoczce zewnętrznej przeprowadzić można szereg operacji, takich jak przecięcie dwóch otoczek, sumę w rozumieniu teorii zbiorów.
+Jej przechowywanie dla każdego z obiektów daje dwie podstawowe korzyści.
+Możliwe jest efektywne stwierdzanie interakcji z zadanym obiektem na scenie za pomocą przecięcia otoczki z promieniem.
+Zachodzi to w momencie na przykład gdy użytkownik kliknie na punkt w ekranie.
+Dodatkowo, dzięki wykorzystaniu algorytmu przecięcia otoczek można wyfiltrować obiekty niebędące widzialne na scenie.
+W tym celu dla każdej klatki przecinana jest otoczka kamery ze wszystkimi obiektami.
