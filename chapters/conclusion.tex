@@ -3,7 +3,54 @@
 %
 
 \chapter{Podsumowanie}
-\cundercontruction
+Biblioteki graficzne są niezwykle skomplikowane.
+Przegląd publikacji dowodzi, że każdy ich aspekt techniczny jest stale rozwijany.
+Rosnąca chęć oddania realizmu sprawia, że wzrasta skomplikowanie algorytmów i wymagania co do wiedzy programistów.
+Jest to jednak obszar w który warto inwestować.
+Grafika trójwymiarowa do momentu wynalezienia stale rozszerza dziedziny w których jest obecna, a tendencja ta nie wydaje się wyhamowywać.
+Pomimo szeregu dostępnych rozwiązań na rynku nadal istnieje miejsce dla niewielkich produktów przygotowanych z myślą o specyficznej platformie czy systemie operacyjnym.
 \section{Wnioski}
+Celem pracy było stworzenie biblioteki graficznej, czasu rzeczywistego dla platformy sprzętowej Apple.
+Zadanie to udało się wykonać, co udokumentowane zostało w kolejnych rozdziałach pracy.
+\par
+Stworzona biblioteka realizuje szereg najpopularniejszych algorytmów z dziedziny animacji oraz renderowania.
+Przeznaczona jest do zastosowania w niewielkich produkcjach z branży gier oraz jako narzędzie, którym można posłużyć się we wstawkach trójwymiarowych aplikacji użytkowej.
+Wypełnia ona lukę, którą stworzona została w ekosystemie.
+Zapewnia nowoczesny interfejs oparty o luźne powiązania, a dzięki otwartemu kodowi źródłowemu otwarta jest na interakcje ze strony społeczności
+\par
+Wraz z aplikacją stworzono aplikację demonstracyjną.
+Weryfikuje ona możliwości, którymi deklaruje się biblioteka i sprawdza w realnym przypadku użycia.
+W tym celu wykorzystano grę szachową, kompletną pod względem logiki z przeznaczeniem na komputery osobiste.
+\par
+Użytkownicy skorzystać mogą ze stworzonej dokumentacji.
+Wyjaśnia ona założenia podjęte w bibliotece oraz podsumowuje przeznaczenie dostępnych w niej komponentów.
+Stworzono ją w oparciu o natywne narzędzia dzięki czemu jej nawigacja i szata graficzna identyczna jest z bibliotekami systemowymi.
+\par
+Rozwijając produkt starano zadbać się możliwie o jego wysoką jakość.
+Stworzono szereg testów jednostkowych i wykorzystano lintery weryfikujące poprawność w zakresie języków Swift, Yaml oraz Markdown.
+\par
+Proces testowania oraz budowania paczek, a także publikacji dokumentacji został całkowicie zautomatyzowany.
+Każdorazowa zmiana dodana do głównej gałęzi rozwoju aplikacji skutkuje w aktualizacji publicznej witryny z materiałami oraz wytworzeniem artefaktów do wykorzystania na wszystkich platformach.
+Zabezpieczono się także przed regresją dzięki weryfikacji wszystkich \textit{pull requestów} za pomocą każdorazowego uruchomienia testów.
+Błąd w potoku uniemożliwia wcielenie zmian.
 \section{Propozycje dalszego rozwoju}
+Pomimo znacznego czasu poświęconego zarówno na rozwój projektu, jak i jego dokumentację nadal znaleźć można obszary, które można byłoby poddać ulepszeniu.
+\par
+Warstwa graficzna biblioteki mogłaby ulec poprawieniu.
+Rozsnąca moc urządzeń, włączając w to mobilne jednostki sprawia, że część efektów mogłaby zostać oparta o śledzenie promieni.
+Dzięki globalnemu wpływowi światła nadać mogłoby to znacznie wyższy realizm.
+\par
+Spróbować można byłoby także dać użytkownikom możliwość tworzenia własnych programów cieniujących.
+Otworzyłoby to możliwość tworzenia własnych efektów specjalnych.
+Byłoby to wartościowe zarówno w stosunku do postprocessingu, jak i renderowania siatek.
+\par
+Ostatnim aspekt, który napotkano podczas rozwoju pracy dotyczy testowania programów cieniujących.
+Nadal jest to zagadnienie niezwykle niszowe.
+Na platformę Apple nie jest dostępna żadna biblioteka, która mogłoby pomóc w realizacji tego zadania.
+Stworzenie takowej mogłoby pomóc społeczności i przyczynić się do polepszenia jakości także tego projektu.
 % Napisać, że w sumie nie ma frameworka do testowania shaderów
+% Raytracing
+% Wydajność
+% Więcej testów
+% Obsługa wody
+% Efekty cząsteczkowe na GPU
