@@ -36,13 +36,10 @@ Otrzymawszy wynikową teksturę przedstawiający aktualną klatkę obrazu delegu
 \par
 Etapy - klasy implementujące interfejs \textit{Stage}, mające adekwatny przyrostek w nazwie - opierają się podobnie jak klasa potoku na prostej idei.
 Każdy z nich posiada dane wejściowe oraz wyjściowe w formie tekstur, a dodatkowo podczas renderowanie przekazywane są do niego dane odnoszące się do opisu sceny.
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=15cm]{images/pnengine/stage.png}
-    \end{center}
-    \caption{Podział etapów na klasy wykonujące specyficzne zadania}
-    \label{fig:stage}
-\end{figure}
+\figh{images/pnengine/stage.png}
+     {Podział etapów na klasy wykonujące specyficzne zadania}
+     {fig:stage}
+     {15cm}
 Podobnie jak w poprzednich przypadkach instancje klas typu \textit{Stage} posiadają metodę draw.
 Wykonują one jednak tylko część odpowiedzialności koniecznej do stworzenia fragmentu klatki.
 Mianowicie posiadają dostęp do obiektów metal typu \textit{MTLRenderPassDescriptor}.
