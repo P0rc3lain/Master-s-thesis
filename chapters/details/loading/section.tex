@@ -14,12 +14,12 @@ Jest w stanie także przetwarzać natywne dla frameworka aplikacji platformy obr
 W przypadku tekstur udogodnienie polega na możliwości zamiany obrazów przechowywanych za pomocą typów \textit{NSImage} czy \textit{UIImage} na bufor tekstury w Metal.
 \textit{PNKitImage} jest aliasem, który w zależności od platformy na której uruchamiany jest kod zamieniany jest na właściwą dla siebie klasę.
 Ponadto bufor tesktury stworzony może być bezpośrednio w oparciu o nazwę pliku przechowującego dane w bundle aplikacji.
-\lstinputlisting[language=Swift, caption=Interfejs loadera tekstur]{code/PNTextureLoader.swift}
+\lstinputlisting[language=Swift, caption=Interfejs loadera tekstur]{code/loader/PNTextureLoader.swift}
 \subsection{Modele}
 Wczytywanie modeli z pliku wykonane może być za pomocą \textit{PNSceneLoader}.
 Oddaje on kompletną scenę przepisaną na format biblioteki.
 W takiej formie może być ona przekazana do instancji \textit{PNEngine} i wyświetlona na ekranie.
-\lstinputlisting[language=Swift, caption=Interfejs loadera sceny]{code/PNSceneLoader.swift}
+\lstinputlisting[language=Swift, caption=Interfejs loadera sceny]{code/loader/PNSceneLoader.swift}
 Bardzo często zdarza się, że siatki reprezentujące teren nie są zapisywane jako model siatki trójkątów.
 Wykorzystać w tym celu można teksturę, przedstawiającą obraz dwuwymiarowy w odcieniach szarości.
 W zależności od interpretacji wartości białe mogą przedstawiać wysokie punkty, zaś ciemne niskie.
@@ -27,8 +27,8 @@ W ten sposób teren może być modelowany w narzędziach 2D za pomocą pędzli.
 \textit{PNISceneLoader} jest implementacją, która pozwala wczytywać obrazy jako siatki.
 Zadbano o wygenerowanie wektorów normalnych na podstawie kształtu siatki oraz jej otoczki.
 Podobnie jak w przypadku loadera tekstur oprzeć można się zarówno o plik przynależący do bundle, jak i natywną dla platformy klasę reprezentującą obraz.
-\lstinputlisting[language=Swift, caption=Interfejs loadera terenu]{code/PNTerrainLoader.swift}
+\lstinputlisting[language=Swift, caption=Interfejs loadera terenu]{code/loader/PNTerrainLoader.swift}
 \figh{images/heightmap.jpg}
-        {Generowanie siatki na podstawie tekstury}
-        {fig:heightmap}
-        {10cm}
+     {Generowanie siatki na podstawie tekstury}
+     {fig:heightmap}
+     {10cm}

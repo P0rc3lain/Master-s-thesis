@@ -12,12 +12,12 @@ Są one dystrybuowane dalej, aż do poszczególnych klas implementujących inter
 Agregatorem danych dla klatki jest klasa \textit{PNFrameSupply}.
 Jej instancje tworzone są na początku potoku i niszczone wraz z jego zakończeniem.
 Zawiera ona w sobie referencję do sceny opartej o płaską, niehierarchiczną strukturę, masek wskazujących widoczność obiektu oraz buforów GPU z parametrami obiektów w odniesieniu do sceny.
-\lstinputlisting[language=Swift, caption=Struktura będąca informacją na bazie której klatka jest renderowana]{code/PNFrameSupply.swift}
+\lstinputlisting[language=Swift, caption=Struktura będąca informacją na bazie której klatka jest renderowana]{code/gpu_supply/PNFrameSupply.swift}
 \par
 \textit{PNRenderMask} zawiera w sobie informacje na temat widzialności wszystkich obiektów znajdujących się na scenie z punktu widzenia aktywnej kamery oraz źródeł światła rzucających cienie.
 Zdecydowano się na pozostawienie w scenie obiektów, które są niewidoczne dla kamery właśnie przez wzgląd na fakt, że mogą być one nadal w zasięgu źródeł światła i rzucać cień w polu widzenia kamery.
 Przed zleceniem wygenerowania modelu do shadera wartość maski jest weryfikowana, jeśli obiekt jest niewidoczny algorytm przechodzi do analizy kolejnego.
-\lstinputlisting[language=Swift, caption=Struktura zawierająca maski dla renderowanych obiektów]{code/PNRenderMask.swift}
+\lstinputlisting[language=Swift, caption=Struktura zawierająca maski dla renderowanych obiektów]{code/gpu_supply/PNRenderMask.swift}
 \par
 Bufory, które osadzone są w przestrzeni adresowej GPU zasadniczo podzielić można na dwie kategorie.
 Aktualizowane jednokrotnie podczas wczytywania sceny, takie jak siatki czy tekstury opisujące materiały.
@@ -29,7 +29,7 @@ Instancja klasy reużywana jest dla kolejnych klatek.
 W przypadku renderowania wielowątkowego istnieją dwie równolegle używane instancje.
 Jedna jest używana aktywnie do renderowania klatki, podczas gdy druga podlega aktualizacji.
 Po zakończeniu renderowania klatki cykl odwraca się.
-\lstinputlisting[language=Swift, caption=Interfejs skupiający w sobie niezmienniki dla danej klatki]{code/PNBufferStore.swift}
+\lstinputlisting[language=Swift, caption=Interfejs skupiający w sobie niezmienniki dla danej klatki]{code/gpu_supply/PNBufferStore.swift}
 \par
 Zlecanie renderowania oparte jest o informacje zawarte w \textit{PNSceneDescription}.
 Struktura agreguje w sobie dwa typy informacji.
@@ -41,4 +41,4 @@ Przykładowo renderując efekty cząsteczkowe informacja na temat siatek czy ich
 Klasa odpowiedzialna za przekazanie danych do shadera może bezpośrednio odneść się do generatorów.
 Podobnie sprawa wygląda w przypadku nakładania efektów oświetlenia.
 Możliwa jest natychmiastowa iteracja przez wszystkie rodzaje źródeł światła z pominięciem siatek, które już zostały wyrenderowane do klatki pośredniej.
-\lstinputlisting[language=Swift, caption=Struktura sceny w formie efektywnej do renderowania]{code/PNSceneDescription.swift}
+\lstinputlisting[language=Swift, caption=Struktura sceny w formie efektywnej do renderowania]{code/gpu_supply/PNSceneDescription.swift}
