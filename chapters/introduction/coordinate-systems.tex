@@ -46,18 +46,12 @@ Pomimo występującej hierarchii w samym modelu pomniejsze układy nie rozróżn
 \paragraph{Układ kamery \eng{Camera Space}} Osadza kamerę w początku układu współrzędnych. Z jego poziomu generowana jest klatka obrazu.
 \paragraph{Układ przycinania \eng{Clip Space}} Jest bezpośrednim następcą układu kamery, z którego przejście nastąpiło na skutek projekcji.
 W przypadku biblioteki Metal jest to leworęczny układ współrzędnych zadany prostopadłościanem o głębokości \textit{1} i powierzchni bocznej opisanej przy pomocy kwadratu o boku \textit{2}.
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=5cm]{images/coordinate-systems/ndc.png}
-        \caption{Prostopadłościan opisujący znormalizowany układ współrzędnych w Metal}
-    \end{center}
-    \label{fig:ndc-metal}
-\end{figure}
+\figh{images/coordinate-systems/ndc.png}
+     {Prostopadłościan opisujący znormalizowany układ współrzędnych w Metal}
+     {fig:ndc-metal}
+     {5cm}
 \paragraph{Układ okna \eng{Window Space}} Stanowi dyskretną przestrzeń dwuwymiarowa stojąca na szczycie w hierarchii generowania grafiki, rozciągająca się na całej powierzchni warstwy użytej do wyświetlenia obrazu.
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=5cm]{images/coordinate-systems/device-viewport.png}
-        \caption{Układ współrzędnych reprezentujący ekran urządzenia}
-    \end{center}
-    \label{fig:device-viewport}
-\end{figure}
+\figh{images/coordinate-systems/device-viewport.png}
+     {Układ współrzędnych reprezentujący ekran urządzenia}
+     {fig:device-viewport}
+     {5cm}
