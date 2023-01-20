@@ -14,24 +14,24 @@ Znacznie łatwiej z punktu widzenia użytkownika zaimplementować kilka interfej
 Każda cząsteczka opisana jest za pomocą struktury \textit{PNParticle}.
 Zdefiniowana jest tam między innymi jej pozycja, prędkość oraz kierunek podążania.
 Cząsteczki między sobą mogą różnić się maksymalnym czasem życia, początkową pozycją czy limitem prędkości.
-\lstinputlisting[language=Swift, caption=Struktura cząsteczki]{code/PNParticle.swift}
+\lstinputlisting[language=Swift, caption=Struktura cząsteczki]{code/particles/PNParticle.swift}
 \par
 Zasady na podstawie których cząsteczki są tworzone zdefiniowane są za pomocą \textit{PNEmissonRules}.
 Opisane są one w formie przedziałów liczbowych w przypadku wartości jednowymiarowych lub obszarów przestrzeni dla wektorów.
-\lstinputlisting[language=Swift, caption=Zasady wytwarzania cząsteczek]{code/PNEmissonRules.swift}
+\lstinputlisting[language=Swift, caption=Zasady wytwarzania cząsteczek]{code/particles/PNEmissonRules.swift}
 \par
 Zasady wykorzystywane są przez pochodne interfejsu \textit{PNEmitter}, które na ich podstawie tworzą nowe cząsteczki.
-\lstinputlisting[language=Swift, caption=Emitter cząsteczek]{code/PNEmitter.swift}
+\lstinputlisting[language=Swift, caption=Emitter cząsteczek]{code/particles/PNEmitter.swift}
 \par
 Klasa kontrolera odpowiada za zachowanie cząsteczek.
 Dotyczy to ich tworzenia na postawie zasad oraz momentu w którym ma to nastąpić.
 Dodatkowo, kontroler odpowiedzialny jest za aktualizacje cząsteczek obejmującą ich pozycje oraz pozostałe parametry.
-\lstinputlisting[language=Swift, caption=Kontroler zachowania cząsteczek]{code/PNParticleController.swift}
+\lstinputlisting[language=Swift, caption=Kontroler zachowania cząsteczek]{code/particles/PNParticleController.swift}
 \par
 Z punktu widzenia silnika renderowania najistotniejszy jest interfejs \textit{PNRenderableParticlesProvider}.
 Za jego pomocą zwracana jest gotowa lista cząsteczek oraz tekstura zawierająca atlas z poszczególnymi stanami cząsteczek.
 Konieczne jest również uzyskanie dostępu do zasad tworzenia cząsteczek dzięki czemu można wyestymować maksymalny obszar który obejmą one na scenie.
-\lstinputlisting[language=Swift, caption=Interfejs do pozyskiwania renderowalnych cząsteczek]{code/PNRenderableParticlesProvider.swift}
+\lstinputlisting[language=Swift, caption=Interfejs do pozyskiwania renderowalnych cząsteczek]{code/particles/PNRenderableParticlesProvider.swift}
 \par
 Spoiwem łączącym wszystkie elementy w całość jest \textit{PNParticleGenerator}.
 Jest to reużywalna klasa, którą użytkownik może wypełnić własnym emiterem, zasadami, kontrolerem oraz altasem.
