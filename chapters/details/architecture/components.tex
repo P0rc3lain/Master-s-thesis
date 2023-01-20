@@ -3,13 +3,10 @@
 %
 
 \subsection{Komponenty silnika}
-\begin{figure}[H]
-    \begin{center}
-        \includegraphics[width=15cm]{images/pnengine/components.png}
-    \end{center}
-    \caption{Architektura silnika}
-    \label{fig:components}
-\end{figure}
+\figh{images/pnengine/components.png}
+     {Architektura silnika}
+     {fig:components}
+     {15cm}
 Z perspektywy użytkownika chcącego dokonać renderowania najistotniejszą klasą jest \textit{PNIEngine}.
 W zamyśle powinien on uzyskać instancję obiektu podczas inicjacji swojej aplikacji, a następnie, w metodzie odpowiedzialnej za odświeżanie ekranu wywołać metodę \textit{draw()} na silniku.
 Wówczas abstrakcyjna definicja sceny zostanie przetworzona na nową klatkę wyświetloną na ekranie urządzenia.
