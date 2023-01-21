@@ -1,7 +1,9 @@
 akcelerowana
 bitangensa
+gaussowskim
 interfejsowania
 interfejsowanie
+kolejkowane
 kolejkują
 międzyplatformowej
 multiplatformowa

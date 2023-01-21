@@ -5,9 +5,11 @@ jmonkey
 khronos
 opengl
 nextstep
+simd
 ssao
 thecherno
 ubisoft
 urho3d
+usdz
 vulkan
 wwdc
