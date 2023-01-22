@@ -15,6 +15,7 @@ najniżejpoziomowo
 natywność
 obiektowości
 parametryzowane
+podmodułów
 powiązywany
 pluginów
 predefiniowanych

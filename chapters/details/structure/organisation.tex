@@ -8,7 +8,7 @@ Kod modyfikowano w celu wykonania prototypu i zweryfikowania możliwości.
 Wpływało to przejściowo na stabilność, niekiedy zmiany ostatecznie zostawały wycofywane.
 Manualna obsługa scenariusza była pracochłonna.
 Narzędziem pomagającym w tej sytuacji był system kontroli wersji.
-Zdecydowano skorzystać się z wiodącego na rynku - git.
+Zdecydowano skorzystać się z wiodącego na rynku \longpause git.
 Dzięki niemu zadbano o stabilność głównej gałęzi rozwoju.
 Dodatkowo, funkcjonalności budowane w pobocznych gałęziach, pozostawały tam do czasu stabilizacji.
 Wcielano je do głównego strumienia projektu po upewnieniu się, że nie powodują regresji.
@@ -16,7 +16,7 @@ Wcielano je do głównego strumienia projektu po upewnieniu się, że nie powodu
 Na potrzeby pracy wykonano dwa projekty \longpause Silnik graficzny oraz grę szachową.
 Starano się, aby możliwie uniezależnić je od siebie.
 Z tego względu stworzona na ich potrzeby dwa osobne repozytoria.
-Biblioteka graficzna jest niezależna, natomiast gra szachowa, która posiada na niej zależność używa funkcjonalności submodułów w celu pobrania źródeł.
+Biblioteka graficzna jest niezależna, natomiast gra szachowa, która posiada na niej zależność używa funkcjonalności podmodułów \eng{submodule}  w celu pobrania źródeł.
 Dzięki temu uniknięto duplikacji i zadbano, aby repozytoria były możliwie niewielkie.
 \par
 Komplementując zarządzanie wersją zdecydowano się na integrację z platformą GitHub.
@@ -55,6 +55,6 @@ Wewnątrz \textit{EngineTests} znajduje się katalog z dokładnym odwzorowaniem 
 Rdzeń projektu agreguje wiele komponentów.
 Wśród nich wyróżnić można logiczny podział na części odpowiedzialne za interfejs użytkownika czy służące do konfiguracji projektu.
 Najistotniejsze jednak są te odpowiedzialne za zarządzanie sceną, animacją i renderowaniem.
-Ponadto chcąc zapewnić możliwie wysoką czytelność skorzystano z szeregu alternatywnych odwołań do typów.
-Użyto także możliwości języka Swift, która pozwala rozszerzać istniejące funkcjonalności.
+Ponadto chcąc zapewnić możliwie wysoką czytelność skorzystano z szeregu alternatywnych odwołań do typów \eng{aliases}.
+Użyto także możliwości języka Swift, która pozwala rozszerzać istniejące funkcjonalności \eng{extensions}.
 W zależności od modułu, do którego się odnosiły umieszczono je w odpowiednich podkatalogach.
