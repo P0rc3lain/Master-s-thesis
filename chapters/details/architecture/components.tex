@@ -13,7 +13,7 @@ Wówczas abstrakcyjna definicja sceny zostanie przetworzona na nową klatkę wy�
 Jednak by wynikowy obraz nie był pusty należy uprzednio zaaranżować scenę.
 \par
 Relacja pomiędzy klasą silnika, a sceny oparta jest o typ \q{jeden do jednego}.
-Klasa sceny, której detale omówione zostaną w dalszej części pracy, reprezentuje wykreowany świat za pomocą acyklicznego grafu skierowanego.
+Klasa sceny, której detale omówione zostaną w dalszej części pracy, reprezentuje wykreowany świat za pomocą drzewa.
 Manipulując właściwościami obiektów znajdujących się w jego strukturze tworzyć można animacje i wykrywać interakcje pomiędzy użytkownikiem, a biblioteką.
 \par
 Częstą koniecznością, która zachodzi równolegle do tworzenia nowej klatki jest aktualizacja danych zsynchronizowana z renderowaniem.
@@ -24,7 +24,7 @@ Wywołanie metody \textit{draw()} na silniku propagowane jest wraz z definicją 
 Sama w sobie traktowana może być jako adapter sceny pomiędzy strukturami wygodnymi w użyciu przez użytkownika, a efektywnymi do procesowania przez kartę graficzną.
 Delegując procesowanie grafu sceny do \textit{PNITranscriber} zamienia go ona na postać niezagnieżdżoną.
 Obiekty będące w scenie przepisywane są do struktury \textit{PNSceneDescription} gdzie pogrupowane są w zależności od rodzaju i przechowywane w formie tablicy.
-Dodatkowo, dane, które zmieniają się w czasie - pozycje, właściwości świateł - i GPU potrzebuje do stworzenia klatki przekazywane są do \textit{PNIBufferStore}, gdzie następuje synchronizacja pomiędzy pamięcią RAM CPU, a GPU.
+Dodatkowo, dane, które zmieniają się w czasie, jak pozycje czy właściwości świateł, przekazywane są do \textit{PNIBufferStore}, gdzie następuje synchronizacja pomiędzy pamięcią RAM CPU, a GPU.
 \par
 Bufory oraz opis sceny przekazywane są dalej do klasy \textit{PNIRenderingCoordinator}.
 Jest to miejsce, w którym rozpoczyna się właściwa komunikacja z potokiem GPU.
@@ -48,5 +48,5 @@ Składają się na to formaty danych wyjściowych i wejściowych, odnośniki do 
 Na ich podstawie tworzone są enkodery, które wykorzystać można by wskazać jakie dane należy wykorzystać w celu wygenerowania klatki.
 \lstinputlisting[language=Swift, caption=Logika renderowania wykorzystywana w klasach pochdnych \textit{PNRenderJob}]{code/PNShadowJob.swift}
 \par
-Na końcu łańcucha wykonywanego przez CPU znajdują się zadania - ujęte jako pochodne interfejsu \textit{PNRenderJob} lub \textit{PNComputeJob}.
+Na końcu łańcucha wykonywanego przez CPU znajdują się zadania \longpause ujęte jako pochodne interfejsu \textit{PNRenderJob} lub \textit{PNComputeJob}.
 Przechodzą one przez opis sceny oraz zlecają zadanie rysowania dla każdego obiektu kwalifikującemu się według kryteriów.

@@ -1,6 +1,6 @@
 {
     "cSpell.language": "en,pl",
-    "cSpell.dictionaries": ["names", "polish", "acronyms", "products"],
+    "cSpell.dictionaries": ["names", "polish", "acronyms", "products", "own"],
     "cSpell.dictionaryDefinitions": [{
         "name": "names",
         "path": "./.vscode/dictionaries/names.txt",
@@ -12,6 +12,10 @@
     }, {
         "name": "products",
         "path": "./.vscode/dictionaries/products.txt",
+        "addWords": true
+    }, {
+        "name": "own",
+        "path": "./.vscode/dictionaries/own.txt",
         "addWords": true
     }, {
         "name": "polish",

@@ -14,6 +14,7 @@ multiplatformowych
 najniżejpoziomowo
 natywność
 obiektowości
+obiektowość
 parametryzowane
 podmodułów
 powiązywany
@@ -41,3 +42,4 @@ wielopróbkowanie
 wielopróbkowania
 zaniedbywalna
 zaniedbywalne
+zduplikowanego
