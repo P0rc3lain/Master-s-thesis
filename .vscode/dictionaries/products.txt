@@ -9,6 +9,7 @@ nextstep
 simd
 ssao
 swiftlint
+swiftz
 thecherno
 ubisoft
 urho3d
