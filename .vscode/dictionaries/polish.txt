@@ -40,6 +40,7 @@ wersjonowaniu
 wieloplatformowych
 wielopróbkowanie
 wielopróbkowania
+wyrenderowana
 zaniedbywalna
 zaniedbywalne
 zduplikowanego
