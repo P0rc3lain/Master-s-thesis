@@ -17,7 +17,7 @@ Przedstawiony potok będzie kompletny pod względem kroków, które mogą w nim 
 Należy pamiętać jednak, że nie przedstawione zostaną wszystkie możliwości silnika przez wzgląd na obszerną ilość możliwych konfiguracji.
 \figh{images/pnengine/rendering/final.png}
     {Finalna klatka obrazu}
-    {fig:pipeline_final}
+    {fig:pipeline-final}
     {\linewidth}
 Potok renderowania oparty został o dwa rodzaje programów cieniujących.
 W przypadku renderowania siatek używane są programy cieniujące korzystające z tradycyjnego potoku GPU \longpause wykorzystujące programy cieniujące wierzhcołków i fragmentów.
@@ -40,7 +40,7 @@ Skorzystanie z tego pośredniego kroku sprawia, że oszczędzana jest moc oblicz
 Obecna technika daje pewność, że cienowaniu podlegać będą tylko fragmenty widoczne na finalnej ramce.
 \figh{images/pnengine/rendering/gbuffer/all.jpg}
      {Zawartość tekstur składających się na GBuffer}
-     {fig:pipeline_gbuffer}
+     {fig:pipeline-gbuffer}
      {\linewidth}
 \par
 Równolegle do klatki widocznej z punktu widzenia kamery generowana jest wersja która posłuży do rzucania cieni.
@@ -50,7 +50,7 @@ Zakres dobierany jest dynamicznie na podstawie położenia kamery i jej zakresu 
 Modele siatek nanoszone są na pojedynczą teksturę zawierającą wyłącznie bufor głębi.
 \figh{images/pnengine/rendering/lights/directional.png}
      {Bufor cieni dla źródło kierunkowego}
-     {fig:pipeline_shadow_map}
+     {fig:pipeline-shadow-map}
      {5cm}
 \par
 Krótko po stworzeniu buforów składających się na GBufer następuje wytwarzanie mapy okluzji ambientowej.
@@ -63,7 +63,7 @@ Algorytm oparty jest o randomizację z tego względu wynikowy obraz charakteryzu
 W celu uzyskania lepszych wyników nakładane jest dodatkowo rozmycie gaussowskie.
 \figh{images/pnengine/rendering/ssao/ssao-combine.jpg}
     {Klatki pośrednie SSAO, pierwotna (lewa) oraz rozmazana (prawa)}
-    {fig:pipeline_ssao}
+    {fig:pipeline-ssao}
     {\linewidth}
 \par
 Uzyskawszy mapę okluzji ambientowej następuje przejście do kolejnej fazy renderowania.
@@ -79,7 +79,7 @@ Na podstawie kolorów siatek, ich położenia oraz mapy wektorów normalnych obl
 Wcześniej jednak weryfikowane jest czy nie znajduje się on w cieniu na podstawie mapy cieni dla zadanego źródła światła.
 \figh{images/pnengine/rendering/lighting/lights-combined.jpg}
     {Klatki poddane wpływowi źródeł światła, amibentowe (lewa), kierunkowe (prawa)}
-    {fig:pipeline_lights}
+    {fig:pipeline-lights}
     {\linewidth}
 Do oświetlonej klatki nanoszone w następnej kolejności jest mapa oświetlenia.
 Jest ona aplikowana selektywnie na podstawie bufora maski używanego z renderowania GBuffer.
@@ -91,7 +91,7 @@ Wreszcie ramka wzbogacana jest o efekty cząsteczkowe w podobny sposób jak obie
 Od najdalszego do bliskiego kamerze.
 \figh{images/pnengine/rendering/combine-env-part-trans.jpg}
     {Klatki mapowania środowiska, efektów cząsteczkowych oraz obiektów przezroczystych}
-    {fig:pipeline_env_part_trans}
+    {fig:pipeline-env-part-trans}
     {\linewidth}
 \par
 Kolejną faza renderowania jest postprocessing obrazka.
@@ -109,5 +109,5 @@ Finalnym krokiem jest próbkowanie obrazu źródłowego i przełożenie go na ro
 Wreszcie klatka przesyłana jest na ekran, co kończy potok.
 \figh{images/pnengine/rendering/bloom-combine.jpg}
     {Klatki pośrednie Bloom, najjaśniejsze fragmenty (lewa), rozmazane (prawa)}
-    {fig:pipeline_bloom}
+    {fig:pipeline-bloom}
     {\linewidth}

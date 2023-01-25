@@ -3,66 +3,72 @@
 %
 
 \subsection{Wybrane węzły}
-Użytkownik jest w stanie na własną rękę implementować interfejs \textit{PNSceneNode} w celu personalizacji węzłów, jednak nie jest to konieczne do skorzystania z biblioteki.
+Użytkownik jest w stanie na własną rękę implementować interfejs \textit{PNSceneNode} w celu personalizacji zachowania, jednak nie jest to konieczne do skorzystania z biblioteki.
 W celu wygenerowania obrazu i aranżacji sceny skorzystać można z szeregu uprzednio stworzonych węzłów, które rozróżnić można na kilka typów.
-Zdecydowano się stworzyć wiele niewielkich, skoncentrowanych typów.
+Zdecydowano się zaprojektować wiele niewielkich, skoncentrowanych typów.
 Dzięki temu wyspecjalizowane są one w kierunku pełnionej przez siebie funkcjonalności i łatwiej można je analizować niż w przypadku alternatywnego podejścia, gdzie węzeł jednocześnie mógłby pełnić wiele ról.
 \subsubsection{Transformacja}
 Podstawowym typem są węzły transformacji.
 Ich zadaniem jest grupowanie obiektów.
-Dzięki temu umożliwiają modyfikację pozycji wszystkich potomnych węzłów za pomocą pojedynczej zmiany.
-Możemy do nich zaliczyć interfejs \textit{PNSceneNode} w podstawowej formie oraz jego pochodną \textit{PNAnimatedSceneNode}.
-\lstinputlisting[language=Swift, caption=Węzeł obsługujący animacje]{code/nodes/PNAnimatedNode.swift}
+Dzięki temu umożliwiają modyfikację pozycji wszystkich potomków za pomocą pojedynczej zmiany.
+Należy do nich zaliczyć interfejs \textit{PNSceneNode} w podstawowej formie oraz jego pochodną \textit{PNAnimatedSceneNode}.
+\lstinputlisting[language=Swift, caption=Węzeł obsługujący animacje]
+                {code/nodes/PNAnimatedNode.swift}
 Główną różnicą występującą pomiędzy nimi jest źródło używane do próbkowania pozycji.
 Choć interfejs tego nie narzuca to w przypadku \textit{PNSceneNode} zakłada się, że pozycja określana jest na podstawie zmiennych modyfikowanych przez użytkownika.
-\textit{PNAnimatedNode} ma w tym celu używać animatora, który pozycje uzyskuje z szeregu animacji kluczowych dla zadanego punktu w czasie.
+\textit{PNAnimatedNode} ma w tym celu używać animatora, który uzyskuje ją z szeregu animacji kluczowych dla zadanego punktu w czasie.
 \figh{images/pnengine/scene/transform_node.png}
      {Hierarchia węzłów służących do reprezentacji transformacji}
-     {fig:scene_transform}
+     {fig:scene-transform}
      {10cm}
 \subsubsection{Kamera}
 Kolejnym istotnym elementem sceny są węzły kamery.
 Służą one do przedstawienia perspektywy z której scena zostanie wyrenderowana.
-Rozwijają one koncepcje wdrożone podczas prezentacji węzłów transformacji.
+Rozwijają koncepcje wdrożone podczas prezentacji węzłów transformacji.
 Pozycja kamery oparta może być o zmienną reprezentującą konkretną, modyfikowalną wartość lub być próbkowana z klatek kluczowych.
 \figh{images/pnengine/scene/camera.png}
      {Hierarchia węzłów służących do reprezentacji kamery}
-     {fig:scene_camera}
+     {fig:scene-camera}
      {8cm}
 \par
-Sam interfejs węzła w stosunku rozszerza podstawowy interfejs o dodanie referencji do kamery.
-Istnieje szansa, że osadzona na scenie zostanie więcej niż jedna kamera.
+Sam interfejs węzła rozszerza podstawowy o dodanie referencji do kamery.
+Istnieje szansa, że osadzona na scenie zostanie więcej niż jedna.
 W takiej sytuacji wykorzystywana zostaje także zmienna \textit{priority} na podstawie której kamery są sortowane.
 Do renderowania wybrana zostanie ta z najwyższym priorytetem.
-\lstinputlisting[language=Swift, caption=Interfejs węzła kamery]{code/nodes/PNCameraNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła kamery]
+                {code/nodes/PNCameraNode.swift}
 \subsubsection{Model}
 \figh{images/pnengine/scene/mesh.png}
      {Hierarchia węzłów służących do reprezentacji siatek}
-     {fig:scene_mesh}
+     {fig:scene-mesh}
      {\linewidth}
 Do dyspozycji oddano także węzły służące do reprezentacji siatek.
-W podstawowej formie \textit{PNMeshNode} może posłużyć do aranżacji statycznej siatki, która dodatkowo obsłuży animacje kluczowe w rozszerzeniu \textit{PNAnimatedMeshNode}.
+W podstawowej formie \textit{PNMeshNode} może posłużyć do aranżacji statycznej siatki, która dodatkowo obsłuży animacje oparte o klatki kluczowe w rozszerzeniu \textit{PNAnimatedMeshNode}.
 \lstinputlisting[language=Swift, caption=Interfejs węzeła siatki]{code/nodes/PNMeshNode.swift}
-Biblioteka wspiera także animację szkieletową dla siatek.
+Biblioteka wspiera także animację szkieletową.
 \textit{PNRiggedMeshNode} jest pochodną interfejsu \textit{PNMeshNode} i wzbogaca deklarację o odnośnik do szkieletu.
-Podobnie jak w innych przypadkach animację wzbogacić można o technikę animacje na podstawie klatek kluczowych.
+Podobnie jak w innych przypadkach animację połączyć można z techniką animacji na podstawie klatek kluczowych.
 \lstinputlisting[language=Swift, caption=Interfejs węzła siatki obsługującej animację szkieletową]{code/nodes/PNRiggedMeshNode.swift}
 \subsubsection{Światła}
 Aby obraz w ogóle mógł powstać konieczne są źródła światła, która sprawią, że kamera zarejestruje kształty modeli.
 \lstinputlisting[language=Swift, caption=Interfejs węzła światła nadającego wpływ komponentu ambientowego]{code/nodes/PNAmbientLightNode.swift}
 Poza światłem kierunkowym definiowanym poza grafem sceny wykorzystać można źródła ambientowe, punktowe dookólne oraz skierowane.
-\lstinputlisting[language=Swift, caption=Interfejs węzła światła punktowego\, kierunkowego]{code/nodes/PNSpotLightNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła światła punktowego\, kierunkowego]
+                {code/nodes/PNSpotLightNode.swift}
 We wszystkich przypadkach interfejsy są zwięzłe i oczekują jedynie referencji do wybranego typu światła.
-\lstinputlisting[language=Swift, caption=Interfejs węzła światła punktowego\, dookólnego]{code/nodes/PNOmniLightNode.swift}
+Rozwinięcie idei o które są oparte nastąpi w dalszej części pracy.
+\lstinputlisting[language=Swift, caption=Interfejs węzła światła punktowego\, dookólnego]
+                {code/nodes/PNOmniLightNode.swift}
 \figh{images/pnengine/scene/lights.png}
      {Hierarchia węzłów służących do reprezentacji świateł}
-     {fig:scene_lights}
+     {fig:scene-lights}
      {10cm}
 \subsubsection{Efekty cząsteczkowe}
-Ostatnim typem węzła, który może zostać użyty w grafie jest węzeł efektów cząsteczkowych.
+Ostatnim typem, który może zostać użyty w grafie jest węzeł efektów cząsteczkowych.
 Służy on do osadzenia emitera na scenie.
 \figh{images/pnengine/scene/particle.png}
      {Hierarchia węzłów służących do reprezentacji efektów cząsteczkowych}
-     {fig:scene_particle}
+     {fig:scene-particle}
      {4cm}
-\lstinputlisting[language=Swift, caption=Interfejs węzła służącego do obsługi efektów cząsteczkowych]{code/nodes/PNParticleNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła służącego do obsługi efektów cząsteczkowych]
+                {code/nodes/PNParticleNode.swift}
