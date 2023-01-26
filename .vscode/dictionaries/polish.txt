@@ -1,6 +1,7 @@
 akcelerowana
 bitangensa
 enkapsulacji
+gaussowskie
 gaussowskim
 interfejsowania
 interfejsowanie
@@ -17,8 +18,12 @@ natywność
 obiektowości
 obiektowość
 ocieniowaną
+ocieniowany
+odbijalność
 parametryzowane
 podmodułów
+postprocesowe
+postprocesowych
 powiązywany
 pluginów
 predefiniowanych
