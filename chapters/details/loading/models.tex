@@ -1,0 +1,22 @@
+%
+%  Copyright © 2022 Mateusz Stompór. All rights reserved.
+%
+
+\subsection{Modele}
+Wczytywanie modeli z pliku wykonane może być za pomocą \textit{PNSceneLoader}.
+Oddaje on kompletną scenę przepisaną na format biblioteki, zdolną do bycia przekazaną do instancji \textit{PNEngine} i wyświetloną na ekranie.
+\lstinputlisting[language=Swift, caption=Interfejs loadera sceny]
+                {code/loader/PNSceneLoader.swift}
+Zdarza się, że siatki reprezentujące teren nie są zapisywane jako zbiór wierzchołków.
+Znaczną oszczędność pamięciową uzyskuje się wykorzystując w tym celu teksturę, przedstawiającą obraz dwuwymiarowy w odcieniach szarości.
+Interpretacja skali jest dowolna, jedak przyjęło się. że wartości jasne przedstawiają wysokie punkty, zaś ciemne niskie.
+W ten sposób teren może być modelowany w narzędziach 2D za pomocą pędzli.
+\textit{PNISceneLoader} jest implementacją, która pozwala wczytywać obrazy jako siatki.
+Zadbano o wygenerowanie wektorów normalnych na podstawie kształtu siatki oraz ramki ograniczającej.
+Podobnie jak w przypadku tekstur, oprzeć można się zarówno o plik przynależący do bundle, jak i natywną dla platformy klasę reprezentującą obraz.
+\lstinputlisting[language=Swift, caption=Interfejs loadera terenu]
+                {code/loader/PNTerrainLoader.swift}
+\figh{images/heightmap.jpg}
+     {Generowanie siatki na podstawie tekstury}
+     {fig:height-map}
+     {8cm}
