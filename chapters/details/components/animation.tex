@@ -3,8 +3,8 @@
 %
 
 \subsection{Techniki animacji}
-Biblioteka wspiera dwie techniki wspierające nadanie obiektom płynnego ruchu.
-Są to animacje bryły sztywnej oraz animacje szkieletowe.
+Biblioteka wspiera dwie techniki nadające obiektom płynny ruch.
+Są to animacje bryły sztywnej oraz szkieletowe.
 Mogą być one łączone ze sobą.
 \subsubsection{Animacja bryły sztywnej} 
 Przypadek użycia tego rodzaju animacji jest szeroki.
@@ -15,9 +15,9 @@ W przypadku grafu sceny skorzystać można z niego dla wszystkich rodzajów obie
     {10cm}
 \par
 Technika oparta jest o użycie klatek kluczowych.
-Użytkownik definiuje pozycje obiektu i powiązuje je z punktem na osi czasu.
-W przypadku konieczności skorzystania z pośredniego punktu pozycja jest interpolowana na podstawie sąsiednich.
-Do definicji klatek kluczowych w bibliotece służy struktury \textit{PNKeyframeAnimation}.
+Użytkownik definiuje pozycje obiektu i wiąże je z punktem na osi czasu.
+W przypadku konieczności skorzystania z pośredniego stanu pozycja jest interpolowana na podstawie sąsiednich.
+Do definicji klatek kluczowych w bibliotece służy struktura \textit{PNKeyframeAnimation}.
 \lstinputlisting[language=Swift, caption=Interfejs służący do obsługi animacji]{code/animation/PNKeyframeAnimation_short.swift}
 \par
 Koordynacja procesu generowania aktualnej pozycji wykonywana jest za pośrednictwem interfejsu \textit{PNAnimator}.
@@ -28,15 +28,15 @@ Może on wykorzystać ją wypełniając interesujące go parametry dzięki czemu
 \lstinputlisting[language=Swift, caption=Interfejs służący do obsługi animacji]{code/animation/PNAnimator.swift}
 \par
 Wyznaczanie klatki animator rozpoczyna od sprawdzenia aktualnego czasu na chronometrze.
-Na jego podstawie odpytuje on instancję implementującą \textit{PNSampleProvider} o wskazanie klatek będących najbliżej punktu.
+Na jego podstawie odpytuje instancję implementującą \textit{PNSampleProvider} o wskazanie klatek będących najbliżej punktu.
 Dzięki modyfikacji jego zachowania możliwy jest do uzyskania szereg efektów takich jak ruch wsteczny animacji, zapętlanie czy animacja poklatkowa.
 Klatki kluczowe przekazywane są następnie do interpolatora.
-Wyznacza ona pozycję pośrednią pomiędzy nimi.
+Wyznacza on pozycję pośrednią pomiędzy nimi.
 Biblioteka wspiera jedynie interpolację liniową jednak możliwe jest rozszerzenie funkcjonalności we własnym zakresie.
-W ostatnim kroku dane na temat skali składane są w macierz jako iloczyn \textit{TRS} lub textit{RTS} w zależności od potrzeb użytkownika.
+W ostatnim kroku dane na temat skali składane są w macierz jako iloczyn \textit{TRS} lub \textit{RTS} w zależności od potrzeb użytkownika.
 \begin{figure}
-    \[ M_{result} = M_{translation} * M_{rotation} * M_{scale} \]
-    \[ M_{result} = M_{rotation} * M_{translation} * M_{scale} \]
+    \[ M_{orientation} = M_{translation} * M_{rotation} * M_{scale} \]
+    \[ M_{orientation} = M_{rotation} * M_{translation} * M_{scale} \]
     \caption{Dwie możliwości składania transformacji}
 \end{figure}
 \lstinputlisting[language=Swift, caption=Interfejs samplera]{code/animation/PNSampleProvider.swift}
@@ -52,7 +52,7 @@ W odróżnieniu od animacji bryły sztywnej wierzchołki poddane animacji szkiel
 Każdy z nich poza standardowymi parametrami posiada dodatkowo listę kości, które wpływają na jego pozycję \longpause silnik obsługuje do czterech \longpause oraz wagi wpływu każdej z nich.
 \par
 Obszerny opis techniki znaleźć można między innymi w \textit{Game Engine Architecture}~\cite{game_engine_architecture}.
-Wspomnieć można, że szkielet opisany jest za pomocą tablicy składającej się z lokalnych transformacji dla każdej z kości.
+Wspomnieć warto, że szkielet opisany jest za pomocą tablicy składającej się z lokalnych transformacji dla każdej z kości.
 Dodatkowo, równoliczna tablica przeznaczona jest do określenia indeksu rodzica dla każdej z transformacji.
 Składanie transformacji pozwoli uzyskać macierze pozycji spoczynkowej zmieniające układ współrzędnych z układu modelu do kości.
 \par
@@ -60,7 +60,6 @@ Pod pewnymi względami animacja szkieletowa bardzo przypomina animację bryły s
 Poszczególne pozycje opisane są przy pomocy klatek kluczowych, a ich próbkowanie i interpolacja przebiega w ten sam sposób.
 List zawierające aktualne transformacje kości przekazywana jest do programu cieniującego gdzie obliczana jest finalna pozycja wierzchołków.
 \figh{images/pnengine/animation/skeleton.png}
-    {Idea animacji szkieletowej}
-    {fig:animation-skeletal}
-    {10cm}
-\clearpage
+     {Idea animacji szkieletowej}
+     {fig:animation-skeletal}
+     {7cm}
