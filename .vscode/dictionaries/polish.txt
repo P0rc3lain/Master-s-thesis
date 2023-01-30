@@ -24,6 +24,7 @@ ocieniowany
 odbijalność
 parametryzowane
 podmodułów
+postprocesingu
 postprocesowe
 postprocesowych
 postprocesowymi
@@ -33,6 +34,7 @@ predefiniowanych
 protokołowo
 rasteryzacja
 rasteryzacji
+requestów
 reużywalny
 robotycznego
 shadera
@@ -50,6 +52,7 @@ tracingu
 tutoriali
 uniewrażliwi
 uniewrażliwić
+uruchomieniowy
 wersjonowaniu
 wieloplatformowych
 wielopróbkowanie
