@@ -21,4 +21,5 @@ ubisoft
 urho3d
 usdz
 vulkan
+xcframework
 wwdc
