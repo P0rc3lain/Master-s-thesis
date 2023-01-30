@@ -10,10 +10,12 @@ kolejkują
 międzyplatformowej
 multiplatformowa
 multiplatformowe
+multiplatformowej
 mulitplatformowego
 multiplatformowy
 multiplatformowych
 najniżejpoziomowo
+natywnie
 natywność
 obiektowości
 obiektowość
@@ -41,9 +43,11 @@ skryptowania
 skryptowanie
 smartfonów
 suplementowanie
+tesalacyjnych
 testowalność
 testowalny
 tracingu
+tutoriali
 uniewrażliwi
 uniewrażliwić
 wersjonowaniu
