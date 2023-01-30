@@ -46,7 +46,8 @@ Mianowicie posiadają dostęp do obiektów metal typu \textit{MTLRenderPassDescr
 Deskryptory te stanowią dokładny opis programu cieniującego. 
 Składają się na to formaty danych wyjściowych i wejściowych, odnośniki do funkcji wykorzystywanych podczas cieniowania.
 Na ich podstawie tworzone są enkodery, które wykorzystać można by wskazać jakie dane należy wykorzystać w celu wygenerowania klatki.
-\lstinputlisting[language=Swift, caption=Logika renderowania wykorzystywana w klasach pochdnych \textit{PNRenderJob}]{code/PNShadowJob.swift}
+\lstinputlisting[language=Swift, caption=Logika renderowania wykorzystywana w klasach pochdnych \textit{PNRenderJob}]
+                {code/PNShadowJob.swift}
 \par
 Na końcu łańcucha wykonywanego przez CPU znajdują się zadania \longpause ujęte jako pochodne interfejsu \textit{PNRenderJob} lub \textit{PNComputeJob}.
 Przechodzą one przez opis sceny oraz zlecają zadanie rysowania dla każdego obiektu kwalifikującemu się według kryteriów.
