@@ -10,22 +10,24 @@ Mogą być one łączone ze sobą.
 Przypadek użycia tego rodzaju animacji jest szeroki.
 W przypadku grafu sceny skorzystać można z niego dla wszystkich rodzajów obiektów.
 \figh{images/pnengine/animation/keyframe.jpg}
-    {Animacja na podstawie klatek kluczowych}
-    {fig:animation-keyframe}
-    {10cm}
+     {Animacja na podstawie klatek kluczowych}
+     {fig:animation-keyframe}
+     {10cm}
 \par
 Technika oparta jest o użycie klatek kluczowych.
 Użytkownik definiuje pozycje obiektu i wiąże je z punktem na osi czasu.
 W przypadku konieczności skorzystania z pośredniego stanu pozycja jest interpolowana na podstawie sąsiednich.
 Do definicji klatek kluczowych w bibliotece służy struktura \textit{PNKeyframeAnimation}.
-\lstinputlisting[language=Swift, caption=Interfejs służący do obsługi animacji]{code/animation/PNKeyframeAnimation_short.swift}
+\lstinputlisting[language=Swift, caption=Struktura przechowująca animację poklatkową]
+                {code/animation/PNKeyframeAnimation_short.swift}
 \par
 Koordynacja procesu generowania aktualnej pozycji wykonywana jest za pośrednictwem interfejsu \textit{PNAnimator}.
 Z punktu widzenia zachowania jest on odpowiedzialny za pojedyncze zadanie.
 Na podstawie klatek kluczowych skali, rotacji oraz transformacji zamkniętej w \textit{PNAnimatedCoordinateSpace} musi wyznaczyć finalną pozycje w formie macierzy transformacji.
 Do dyspozycji użytkownika oddana została klasa \textit{PNIAnimator} implementująca interfejs.
 Może on wykorzystać ją wypełniając interesujące go parametry dzięki czemu skorzysta z gotowego koordynatora procesu.
-\lstinputlisting[language=Swift, caption=Interfejs służący do obsługi animacji]{code/animation/PNAnimator.swift}
+\lstinputlisting[language=Swift, caption=Interfejs służący do obsługi animacji]
+                {code/animation/PNAnimator.swift}
 \par
 Wyznaczanie klatki animator rozpoczyna od sprawdzenia aktualnego czasu na chronometrze.
 Na jego podstawie odpytuje instancję implementującą \textit{PNSampleProvider} o wskazanie klatek będących najbliżej punktu.
@@ -39,12 +41,14 @@ W ostatnim kroku dane na temat skali składane są w macierz jako iloczyn \texti
     \[ M_{orientation} = M_{rotation} * M_{translation} * M_{scale} \]
     \caption{Dwie możliwości składania transformacji}
 \end{figure}
-\lstinputlisting[language=Swift, caption=Interfejs samplera]{code/animation/PNSampleProvider.swift}
+\lstinputlisting[language=Swift, caption=Interfejs samplera]
+                {code/animation/PNSampleProvider.swift}
 \subsubsection{Animacja szkieletowa}
 Modele siatek mogą wzbogacone zostać o dodatkowy rodzaj animacji \longpause animację szkieletową.
 Wymaga ona od artysty przygotowania modelu pod tym kątem, konieczne jest zdefiniowanie szkieletu dla danej siatki.
 Dodatkowo należy określić wpływ każdej z kości na poszczególne fragmenty modelu.
-\lstinputlisting[language=Swift, caption=Definicja szkieletu modelu]{code/PNSkeleton.swift}
+\lstinputlisting[language=Swift, caption=Definicja szkieletu modelu]
+                {code/PNSkeleton.swift}
 \par
 Animacja szkieletowa wprowadza pewne rozróżnienie do modelu.
 Dzieli go na dwie składowe \longpause skórę oraz szkielet.

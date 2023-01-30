@@ -44,11 +44,13 @@ Do renderowania wybrana zostanie ta z najwyższym priorytetem.
      {\linewidth}
 Do dyspozycji oddano także węzły służące do reprezentacji siatek.
 W podstawowej formie \textit{PNMeshNode} może posłużyć do aranżacji statycznej siatki, która dodatkowo obsłuży animacje oparte o klatki kluczowe w rozszerzeniu \textit{PNAnimatedMeshNode}.
-\lstinputlisting[language=Swift, caption=Interfejs węzeła siatki]{code/nodes/PNMeshNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzeła siatki]
+                {code/nodes/PNMeshNode.swift}
 Biblioteka wspiera także animację szkieletową.
 \textit{PNRiggedMeshNode} jest pochodną interfejsu \textit{PNMeshNode} i wzbogaca deklarację o odnośnik do szkieletu.
 Podobnie jak w innych przypadkach animację połączyć można z techniką animacji na podstawie klatek kluczowych.
-\lstinputlisting[language=Swift, caption=Interfejs węzła siatki obsługującej animację szkieletową]{code/nodes/PNRiggedMeshNode.swift}
+\lstinputlisting[language=Swift, caption=Interfejs węzła siatki obsługującej animację szkieletową]
+                {code/nodes/PNRiggedMeshNode.swift}
 \subsubsection{Światła}
 Aby obraz w ogóle mógł powstać konieczne są źródła światła, która sprawią, że kamera zarejestruje kształty modeli.
 \lstinputlisting[language=Swift, caption=Interfejs węzła światła nadającego wpływ komponentu ambientowego]{code/nodes/PNAmbientLightNode.swift}
