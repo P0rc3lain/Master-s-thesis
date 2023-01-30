@@ -6,7 +6,7 @@
 \figh{images/pnengine/components.png}
      {Architektura silnika}
      {fig:components}
-     {15cm}
+     {\linewidth}
 Z perspektywy użytkownika chcącego dokonać renderowania najistotniejszą klasą jest \textit{PNIEngine}.
 W zamyśle powinien on uzyskać instancję obiektu podczas inicjacji swojej aplikacji, a następnie, w metodzie odpowiedzialnej za odświeżanie ekranu wywołać metodę \textit{draw()} na silniku.
 Wówczas abstrakcyjna definicja sceny zostanie przetworzona na nową klatkę wyświetloną na ekranie urządzenia.
@@ -39,7 +39,7 @@ Każdy z nich posiada dane wejściowe oraz wyjściowe w formie tekstur, a dodatk
 \figh{images/pnengine/stage.png}
      {Podział etapów na klasy wykonujące specyficzne zadania}
      {fig:stage}
-     {15cm}
+     {\linewidth}
 Podobnie jak w poprzednich przypadkach instancje klas typu \textit{Stage} posiadają metodę draw.
 Wykonują one jednak tylko część odpowiedzialności koniecznej do stworzenia fragmentu klatki.
 Mianowicie posiadają dostęp do obiektów metal typu \textit{MTLRenderPassDescriptor}.
