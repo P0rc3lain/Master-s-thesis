@@ -17,10 +17,26 @@ Jako cel wybrano szachy.
     {fig:chess}
     {10cm}
 \subsection{Forma}
-Aplikacja stworzona została z przeznaczeniem na platformę macOS.
-Oparto ją o interfejs okienkowy.
-Dystrybuowana jest natywnie dla systemu, za pośrednictwem paczki w formacie \textit{.app}.
-% TODO: Napisać o użyciu certyfikatu oraz możliwości swobodnej dystrybucji
+Aplikacja stworzona została z przeznaczeniem na ekosystem Apple.
+Projekt zawiera w sobie wariant dla platform macOS, iOS, iPadOS oraz tvOS.
+Każdy z nich pozwala na uruchomienie gry z widokiem planszy oraz swobodną rozgrywkę.
+Największy nacisk położono jednak na wersję stacjonarną, przez wzgląd na najefektywniejsze programowanie.
+Z tego względu opis obejmie jej perspektywę, choć pamiętać należy, że adaptacja rozwiązań na urządzenia mobilne nie stanowiłaby problemu zważywszy na fakt, że silnik uruchamia się i funkcjonuje poprawnie.
+\par
+Renderowanie grafiki wymagało skorzystanie z interfejsu okienkowego.
+Dostęp do niego uzyskać można zarówno w momencie rozwoju aplikacji uruchamianej z wiersza poleceń, jak i natywnej dla systemu paczki \textit{.app}.
+Silne ukierunkowanie na ekosystem sprawiło, że zdecydowano się użyć drugiej możliwości.
+\par
+Dystrybucja w postaci pliku \textit{.app} niesie za sobą dodatkowe konsekwencje.
+Producent wymaga, aby były one podpisane za pomocą certyfikatu poświadczonego przez niego samego.
+Czytelnicy pracy z tego względu mogą własnoręcznie skompilować projekt i utworzyć paczkę w oparciu o swoje dane deweloperskie.
+Alternatywnie, przygotowano uprzednio zbudowany plik binarny podpisany przez autora pracy.
+Uczestnictwo w programie deweloperskim Apple sprawia, że plik uruchomiony może być nie tylko na osobistej maszynie osoby kompilującej kod, ale także na innych.
+\subsection{Materiały}
+Modele figur, planszy, a także tekstury użyte w pracy stanowią własność intelektualną osób trzecich.
+Upewniono się, że licencje dostarczane wraz z nimi umożliwiają nieodpłatne wykorzystanie w celach naukowych.
+Nie zostały stworzone one na potrzeby rozwoju aplikacji.
+Zdecydowano się zrezygnować z tego kroku, ponieważ własnoręcznie modelowanie nie wpłynęłoby na cel, który starano się osiągnąć.
 \subsection{Logika gry}
 Aplikacja zawiera pełną implementację logiki szachowej z uwzględnieniem \textit{el passant}, roszady oraz promocji figur.
 Użytkownicy mogą anulować wybór figury i zmienić ją już po wybraniu.
@@ -50,7 +66,11 @@ Dopuszczone jest toczenie wielu równoległych rozgrywek.
 Wówczas obok siebie widoczna jest mnoga liczba obszarów roboczych.
 Każda z nich jest od siebie niezależna.
 Obsługa logiki, jak i proces generowania grafiki obsługiwany jest przez osobne, tworzone przy inicjacji okna instancje odpowiednich klas.
+Sesje nie są persystentne.
+Zamknięcie okna lub całej aplikacji wiąże się z bezpowrotnym utraceniem stanu rozgrywki.
 \fig{images/chess/chess-sessions.png}
     {Interfejs pozwalający na tworzenie wielu sesji}
     {fig:chess-sessions}
     {10cm}
+% \section{Implementacja}
+% tutaj powinienem opisać co i jak

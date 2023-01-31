@@ -23,6 +23,7 @@ ocieniowaną
 ocieniowany
 odbijalność
 parametryzowane
+persystentne
 podmodułów
 postprocesingu
 postprocesowe
