@@ -15,15 +15,23 @@ Jako cel wybrano szachy.
 \fig{images/chess/gameplay.png}
     {Gra szachowa stworzona na potrzeby projektu}
     {fig:chess}
-    {\linewidth}
+    {10cm}
 \subsection{Forma}
 Aplikacja stworzona została z przeznaczeniem na platformę macOS.
 Oparto ją o interfejs okienkowy.
 Dystrybuowana jest natywnie dla systemu, za pośrednictwem paczki w formacie \textit{.app}.
+% TODO: Napisać o użyciu certyfikatu oraz możliwości swobodnej dystrybucji
 \subsection{Logika gry}
 Aplikacja zawiera pełną implementację logiki szachowej z uwzględnieniem \textit{el passant}, roszady oraz promocji figur.
 Użytkownicy mogą anulować wybór figury i zmienić ją już po wybraniu.
 Nie poddano restrykcji czasowej także czasu przeznaczonego na turę zawodnika.
+\par
+Rozgrywka zakończyć może się wygraną jednego z graczy bądź remisem.
+Wygrana stwierdzana jest w sytuacji gdy nastąpi szach-mat na królu zawodnika.
+Pierwszą sytuacją w której zachodzi remis jest pat \longpause wszystkie możliwe ruchy doprowadziłyby do szachu.
+Drugi przypadek opera się o zasadę pięćdziesięciu.
+Jeśli podczas kolejnych pięćdziesięciu ruchów żaden z graczy nie zmienił pozycji giermka ani przeprowadził bicia.
+Zdecydowano się nie umożliwić zawodnikom poddania się ani ogłoszenia remisu na podstawie chęci z obu stron.
 \subsection{Sterowanie}
 Interakcja z aplikacją oparta jest o wykorzystanie myszki i klawiatury.
 Za pomocą klawiszy \textit{A} oraz \textit{D} użytkownik może dokonywać rotacji kamery zmieniając pozycję z której obserwuje scenę.
@@ -36,3 +44,13 @@ Tak jak zaznaczone wcześniej wybór figury jest sygnalizowany zmianą pozycji, 
 Podobnie w sytuacji gdy wybór figury jest anulowany.
 Przejście z jednego pola do innego wykorzystuje podobny efekt.
 Figura unoszona jest ponad plansze, przenoszona do docelowego pola, a następnie opuszczana.
+\subsection{Sesje gry}
+Otwarte okno odpowiada pojedynczej sesji gry.
+Dopuszczone jest toczenie wielu równoległych rozgrywek.
+Wówczas obok siebie widoczna jest mnoga liczba obszarów roboczych.
+Każda z nich jest od siebie niezależna.
+Obsługa logiki, jak i proces generowania grafiki obsługiwany jest przez osobne, tworzone przy inicjacji okna instancje odpowiednich klas.
+\fig{images/chess/chess-sessions.png}
+    {Interfejs pozwalający na tworzenie wielu sesji}
+    {fig:chess-sessions}
+    {10cm}
