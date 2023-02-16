@@ -42,9 +42,9 @@ Aplikacja zawiera pełną implementację logiki szachowej z uwzględnieniem \tex
 Użytkownicy mogą anulować wybór figury i zmienić ją już po wybraniu.
 Nie poddano restrykcji czasowej także czasu przeznaczonego na turę zawodnika.
 \fig{images/chess/choice.png}
-    {Gra szachowa stworzona na potrzeby projektu}
-    {fig:chess}
-    {10cm}
+    {Okno dialogowe pozwalające na wybór rodzaju figury podczas promocji}
+    {fig:piece-choice}
+    {4.8cm}
 \par
 Rozgrywka zakończyć może się wygraną jednego z graczy bądź remisem.
 Wygrana stwierdzana jest w sytuacji gdy nastąpi szach-mat na królu zawodnika.
@@ -75,18 +75,20 @@ Zamknięcie okna lub całej aplikacji wiąże się z bezpowrotnym utraceniem sta
 \fig{images/chess/chess-sessions.png}
     {Interfejs pozwalający na tworzenie wielu sesji}
     {fig:chess-sessions}
-    {10cm}
+    {9cm}
 \section{Implementacja}
-\fig{images/chess/diagram.png}
-    {Interfejs pozwalający na tworzenie wielu sesji}
-    {fig:chess-sessions}
-    {10cm}
-\subsection{Aranżacja sceny}
-\lstinputlisting[language=Swift, caption=Protokół kamery]
-                {code/SceneBuilder.swift}
-\lstinputlisting[language=Swift, caption=Protokół kamery]
+\subsection{Architektura}
+\figh{images/chess/diagram.png}
+     {Uproszczony diagram prezentujący architekturę gry szachowej}
+     {fig:chess-architecture}
+     {11cm}
+\lstinputlisting[language=Swift, caption=Struktura przechowująca obecny stan rozgrywki]
                 {code/GameState.swift}
-\lstinputlisting[language=Swift, caption=Protokół kamery]
+\subsection{Aranżacja sceny}
+\lstinputlisting[language=Swift, caption=Funkcja realizująca wczytywanie modeli]
+                {code/SceneBuilder.swift}
+\subsection{Przetwarzanie wejścia}
+\lstinputlisting[language=Swift, caption=Właściwości kontrolera widoku]
                 {code/ViewController.swift}
-                \lstinputlisting[language=Swift, caption=Protokół kamery]
+\lstinputlisting[language=Swift, caption=Logika przetwarzania interakcji]
                 {code/ViewController-Logic.swift}
