@@ -41,6 +41,10 @@ Zdecydowano się zrezygnować z tego kroku, ponieważ własnoręcznie modelowani
 Aplikacja zawiera pełną implementację logiki szachowej z uwzględnieniem \textit{el passant}, roszady oraz promocji figur.
 Użytkownicy mogą anulować wybór figury i zmienić ją już po wybraniu.
 Nie poddano restrykcji czasowej także czasu przeznaczonego na turę zawodnika.
+\fig{images/chess/choice.png}
+    {Gra szachowa stworzona na potrzeby projektu}
+    {fig:chess}
+    {10cm}
 \par
 Rozgrywka zakończyć może się wygraną jednego z graczy bądź remisem.
 Wygrana stwierdzana jest w sytuacji gdy nastąpi szach-mat na królu zawodnika.
@@ -72,5 +76,17 @@ Zamknięcie okna lub całej aplikacji wiąże się z bezpowrotnym utraceniem sta
     {Interfejs pozwalający na tworzenie wielu sesji}
     {fig:chess-sessions}
     {10cm}
-% \section{Implementacja}
-% tutaj powinienem opisać co i jak
+\section{Implementacja}
+\fig{images/chess/diagram.png}
+    {Interfejs pozwalający na tworzenie wielu sesji}
+    {fig:chess-sessions}
+    {10cm}
+\subsection{Aranżacja sceny}
+\lstinputlisting[language=Swift, caption=Protokół kamery]
+                {code/SceneBuilder.swift}
+\lstinputlisting[language=Swift, caption=Protokół kamery]
+                {code/GameState.swift}
+\lstinputlisting[language=Swift, caption=Protokół kamery]
+                {code/ViewController.swift}
+                \lstinputlisting[language=Swift, caption=Protokół kamery]
+                {code/ViewController-Logic.swift}
