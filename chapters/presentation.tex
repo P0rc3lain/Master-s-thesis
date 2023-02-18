@@ -32,6 +32,8 @@ Producent wymaga, aby były one podpisane za pomocą certyfikatu poświadczonego
 Czytelnicy pracy z tego względu mogą własnoręcznie skompilować projekt i utworzyć paczkę w oparciu o swoje dane deweloperskie.
 Alternatywnie, przygotowano uprzednio zbudowany plik binarny podpisany przez autora pracy.
 Uczestnictwo w programie deweloperskim Apple sprawia, że plik uruchomiony może być nie tylko na osobistej maszynie osoby kompilującej kod, ale także na innych.
+% \par
+% napisać, że to jest single-view application i że można byłoby wprowadzić dodatkowe ekrany do konfiguracji
 \subsection{Materiały}
 Modele figur, planszy, a także tekstury użyte w pracy stanowią własność intelektualną osób trzecich.
 Upewniono się, że licencje dostarczane wraz z nimi umożliwiają nieodpłatne wykorzystanie w celach naukowych.
@@ -77,18 +79,52 @@ Zamknięcie okna lub całej aplikacji wiąże się z bezpowrotnym utraceniem sta
     {fig:chess-sessions}
     {9cm}
 \section{Implementacja}
+Niniejsza sekcja nakreśla pokrótce architekturę aplikacji zaprojektowaną na potrzeby wersji demonstracyjnej.
+Starano się w niej zwrócić uwagę na sposób komunikacji deweloperów ze stworzoną biblioteką.
+Ma to za zadanie posłużyć jako forma sugestii w jaki sposób dokonywać interakcji z technologią, ale także pozwolić dostrzec potencjalne niedoskonałości.
 \subsection{Architektura}
+Aplikacja stworzona została o oparciu o tradycyjne podejście komunikacji dla platformy - \textit{Model-View-Controller}.
+Kontroler koordynuje interakcje pomiędzy użytkownikiem a logiką gry.
+Przechowuje jej stan i na podstawie wyborów użytkownika dokonywanych za pośrednictwem kursora wysyła zapytania dotyczące poprawności ruchu do klasy obsługującej zasady rozgrywki.
+W przypadku wykonania poprawnej akcji kontroler inicjuje zmianę pozycji figur na scenie, a następnie aktualizuje dane dotyczące obecnego stanu gry.
+Wreszcie, posiada on także referencje do klas mogących modyfikować położenie kamery na scenie i dedukujących intencje gracza na podstawie zachowania kursora.
 \figh{images/chess/diagram.png}
      {Uproszczony diagram prezentujący architekturę gry szachowej}
      {fig:chess-architecture}
      {11cm}
+\par
+Stan rozgrywki przechowywany jest w klasie \textit{GameState}.
+Poza obecnym stanem przechowuje ona wszystkie poprzednie.
+Konieczne jest to ze względu na upewnienie się o przestrzeganiu samych zasad, ale potencjalnie posłużyć mogłoby także do obsługi cofania ruchu.
+Stan, poza informacją na temat relacji pomiędzy pozycjami na planszy, a figurami określa też czy któryś z pionków został wybrany przez gracza, wskazuje turę zawodnika i określa oczekiwania co do jego zachowania.
+Ruch przebiega w trzech etapach. 
+Pierwszym jest określenie, że intencją użytkownika powinno być wybranie figury.
+Drugi, wskazanie na konkretną z nich, zgodną z zasadami gry.
+Ostatnia, zmiana pozycji.
 \lstinputlisting[language=Swift, caption=Struktura przechowująca obecny stan rozgrywki]
                 {code/GameState.swift}
 \subsection{Aranżacja sceny}
+Scena komponowana jest jednorazowo, podczas wczytywania widoku.
+Wykorzystano materiały reprezentujące odpowiednio mahoń oraz sapele.
+Są one wczytane pojedynczo oraz reużywane dla wszystkich modeli.
+Podobne podejście zastosowano w przypadku figur.
+Każdy z rodzajów występuje w pamięci dokładnie raz, ale za pomocą dodatkowych węzłów w drzewie powielany jest i odpowiednio umiejscawiany.
+Figurom podczas tego procesu nadawany jest identyfikator, który określa jej kolor, rodzaj oraz id instancji w przypadku gdy powtarza się ona na planszy.
+Zdecydowano się zrezygnować z mapy otoczenia, by nie odciągać uwagi użytkowników od rozgrywki.
+W tym wypadku polega ona na ustaleniu jednolitej barwy i wygenerowania mapy otoczenia na jej podstawie.
+Scena posiada dwa źródła światła \longpause ambientowe oraz kierunkowe.
+Klasa sceny zapewnia integralność danych.
+Przekazanie jej do silnika sprawi, że dostosuje on swoje wewnętrzne struktury do jej renderowania i nie zachodzi potrzeba konfigurowania dodatkowych pól manualnie.
 \lstinputlisting[language=Swift, caption=Funkcja realizująca wczytywanie modeli]
                 {code/SceneBuilder.swift}
 \subsection{Przetwarzanie wejścia}
-\lstinputlisting[language=Swift, caption=Właściwości kontrolera widoku]
-                {code/ViewController.swift}
+Ze względu na specyfikę gry szachowej postęp rozgrywki bezpośrednio wynika z akcji dokonanej przez użytkownika.
+W przypadku kontrolera stworzonego na potrzeby gry logikę delegacji osadzono bezpośrednio w funkcji wywoływanej po skorzystaniu z przycisku kursora.
+Analizowany jest wówczas stan gry.
+W przypadku jej końca, zaniechane jest dalsze procesowanie.
+Gdy jednak rozgrywka nadal się toczy następuje określenie modelu, który został wybrany na podstawie współrzędnej punktu 2D wykrytego na ekranie.
+W dalszym kroku następuje jego przełożenie na figurę będącą na planszy gry.
+Weryfikowana jest poprawność ruchu i w momencie stwierdzenia jego dopuszczalności aktualizowany jest stan gry i uruchamiana animacja.
+Analiza kończy się, a możliwość rozgrywki otrzymuje drugi gracz.
 \lstinputlisting[language=Swift, caption=Logika przetwarzania interakcji]
                 {code/ViewController-Logic.swift}
