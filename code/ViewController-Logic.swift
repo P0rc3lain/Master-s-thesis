@@ -10,7 +10,6 @@
         guard let camera = camera else {
             return
         }
-        let frame = view.frame
         var moves = [Move]()
         let selected = state.selectedPiece
         let location = CGPoint(x: sender!.location(in: view).x,
