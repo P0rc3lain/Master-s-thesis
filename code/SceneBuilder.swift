@@ -1,5 +1,3 @@
-[...]
-
 class SceneBuilder {
     [...]
     func build(board: Board) -> PNScene {
@@ -11,11 +9,15 @@ class SceneBuilder {
                         color: simd_float3(1, 1, 1),
                         position: [0, 0, 0])
         scene.rootNode.add(child: cameraNode())
-        let pieces = loadPieces(board: board, blackMaterial: mahoganyMaterial, whiteMaterial: sapeleMaterial)
+        let pieces = loadPieces(board: board, 
+                                blackMaterial: mahoganyMaterial, 
+                                whiteMaterial: sapeleMaterial)
         let boardPiece = loadBoard(material: sapeleMaterial)
-        let all = PNScenePiece.make(data: PNISceneNode(transform: .compose(translation: [0, 0, -2],
-                                                                           scale: [0.5, 0.5, 0.5])))
-        let fields = loadBoardFields(mahogany: mahoganyMaterial, sapele: sapeleMaterial)
+        let mainNode = PNISceneNode(transform: .compose(translation: [0, 0, -2],
+                                                        scale: [0.5, 0.5, 0.5]))
+        let all = PNScenePiece.make(data: mainNode)
+        let fields = loadBoardFields(mahogany: mahoganyMaterial, 
+                                     sapele: sapeleMaterial)
         all.add(children: pieces, boardPiece, fields)
         scene.rootNode.add(child: all)
         scene.environmentMap = device.makeTextureSolidCube(color: [1, 1, 1, 1])
