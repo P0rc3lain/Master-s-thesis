@@ -13,18 +13,20 @@ class SceneBuilder {
                                 blackMaterial: mahoganyMaterial, 
                                 whiteMaterial: sapeleMaterial)
         let boardPiece = loadBoard(material: sapeleMaterial)
-        let mainNode = PNISceneNode(transform: .compose(translation: [0, 0, -2],
-                                                        scale: [0.5, 0.5, 0.5]))
+        let transform = PNTransform.compose(translation: [0, 0, -2],
+                                            scale: [0.5, 0.5, 0.5])
+        let mainNode = PNISceneNode(transform: transform)
         let all = PNScenePiece.make(data: mainNode)
         let fields = loadBoardFields(mahogany: mahoganyMaterial, 
                                      sapele: sapeleMaterial)
         all.add(children: pieces, boardPiece, fields)
         scene.rootNode.add(child: all)
         scene.environmentMap = device.makeTextureSolidCube(color: [1, 1, 1, 1])
-        scene.directionalLights.append(PNIDirectionalLight(color: [1, 1, 1],
-                                                           intensity: 1.5,
-                                                           direction: simd_float3(0, -1, 0).normalized,
-                                                           castsShadows: false))
+        let light = PNIDirectionalLight(color: [1, 1, 1],
+                                        intensity: 1.5,
+                                        direction: simd_float3(0, -1, 0).normalized,
+                                        castsShadows: false)
+        scene.directionalLights.append(light)
         return scene
     }
     [...]
