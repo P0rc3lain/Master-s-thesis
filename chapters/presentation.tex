@@ -4,8 +4,8 @@
 
 \chapter{Prezentacja działania}
 Ostatni rozdział pracy poświęcony jest przedstawieniu wykorzystania biblioteki w prawdziwym zastosowaniu.
-Decyzja pozwoli sprawdzić stabilność, wydajność oraz przystępność interfejsu.
-Będzie także okazją na dostrzeżenie potencjalnych problemów oraz nakreślenie kierunku przyszłego rozwoju.
+Decyzja pozwoli sprawdzić stabilność, użyteczność oraz przystępność interfejsu.
+Będzie także okazją na dostrzeżenie potencjalnych problemów oraz nakreślenie kierunku przyszłej rozbudowy.
 \section{Aplikacja demonstracyjna}
 W trakcie rozwijania projektu tworzono wiele scen poglądowych, które w zamyśle miały weryfikować i pokazywać możliwości.
 Były one jednak często ściśle skrojone pod daną funkcjonalność i nie dawały pełnego obrazu w kwestii jakości integracji pomiędzy aplikacją, a biblioteką.
@@ -21,28 +21,29 @@ Aplikacja stworzona została z przeznaczeniem na ekosystem Apple.
 Projekt zawiera w sobie wariant dla platform macOS, iOS, iPadOS oraz tvOS.
 Każdy z nich pozwala na uruchomienie gry z widokiem planszy oraz swobodną rozgrywkę.
 Największy nacisk położono jednak na wersję stacjonarną, przez wzgląd na najefektywniejsze programowanie.
-Z tego względu opis obejmie jej perspektywę, choć pamiętać należy, że adaptacja rozwiązań na urządzenia mobilne nie stanowiłaby problemu zważywszy na fakt, że silnik uruchamia się i funkcjonuje poprawnie.
+Z tego względu opis obejmie jej perspektywę, choć pamiętać należy, że adaptacja rozwiązań na urządzenia mobilne nie stanowiłaby problemu, zważywszy na fakt, że silnik uruchamia się i funkcjonuje poprawnie.
 \par
-Renderowanie grafiki wymagało skorzystanie z interfejsu okienkowego.
+Renderowanie grafiki wymagało skorzystania z interfejsu okienkowego.
 Dostęp do niego uzyskać można zarówno w momencie rozwoju aplikacji uruchamianej z wiersza poleceń, jak i natywnej dla systemu paczki \textit{.app}.
 Silne ukierunkowanie na ekosystem sprawiło, że zdecydowano się użyć drugiej możliwości.
 \par
 Dystrybucja w postaci pliku \textit{.app} niesie za sobą dodatkowe konsekwencje.
 Producent wymaga, aby były one podpisane za pomocą certyfikatu poświadczonego przez niego samego.
+Przez wzgląd na ilość środków koniecznych do nabycia licencji nie zdecydowano się tego uczynić.
 Czytelnicy pracy z tego względu mogą własnoręcznie skompilować projekt i utworzyć paczkę w oparciu o swoje dane deweloperskie.
-Alternatywnie, przygotowano uprzednio zbudowany plik binarny podpisany przez autora pracy.
-Uczestnictwo w programie deweloperskim Apple sprawia, że plik uruchomiony może być nie tylko na osobistej maszynie osoby kompilującej kod, ale także na innych.
-% \par
-% napisać, że to jest single-view application i że można byłoby wprowadzić dodatkowe ekrany do konfiguracji
+\par
+Aplikacja jest nieskomplikowana.
+Posiada pojedynczy ekran prezentujący rozgrywkę mogący występować w mnogiej liczbie w celu zapewnienia równoległej obsługi wielu sesji.
+Nie istnieje możliwość dostosowania zasad, choć rozszerzenie jej o tę opcje wydaje się nie wymagać znacznego nakładu pracy.
+Zdecydowano się jednak zrezygnować z tej możliwości przez wzgląd na demonstracyjne zastosowanie projektu.
 \subsection{Materiały}
 Modele figur, planszy, a także tekstury użyte w pracy stanowią własność intelektualną osób trzecich.
 Upewniono się, że licencje dostarczane wraz z nimi umożliwiają nieodpłatne wykorzystanie w celach naukowych.
-Nie zostały stworzone one na potrzeby rozwoju aplikacji.
-Zdecydowano się zrezygnować z tego kroku, ponieważ własnoręcznie modelowanie nie wpłynęłoby na cel, który starano się osiągnąć.
+Zdecydowano się zrezygnować z własnoręcznego wykonania tego kroku, ponieważ modelowanie nie wpłynęłoby na cel, który starano się osiągnąć.
 \subsection{Logika gry}
 Aplikacja zawiera pełną implementację logiki szachowej z uwzględnieniem \textit{el passant}, roszady oraz promocji figur.
-Użytkownicy mogą anulować wybór figury i zmienić ją już po wybraniu.
-Nie poddano restrykcji czasowej także czasu przeznaczonego na turę zawodnika.
+Dopuszczalne jest, żeby użytkownicy zmienili pierwotnie określony wybór figury.
+Nie poddano restrykcji czasu przeznaczonego na turę zawodnika.
 \fig{images/chess/choice.png}
     {Okno dialogowe pozwalające na wybór rodzaju figury podczas promocji}
     {fig:piece-choice}
@@ -55,11 +56,11 @@ Drugi przypadek opera się o zasadę pięćdziesięciu.
 Jeśli podczas kolejnych pięćdziesięciu ruchów żaden z graczy nie zmienił pozycji giermka ani przeprowadził bicia.
 Zdecydowano się nie umożliwić zawodnikom poddania się ani ogłoszenia remisu na podstawie chęci z obu stron.
 \subsection{Sterowanie}
-Interakcja z aplikacją oparta jest o wykorzystanie myszki i klawiatury.
-Za pomocą klawiszy \textit{A} oraz \textit{D} użytkownik może dokonywać rotacji kamery zmieniając pozycję z której obserwuje scenę.
+Interakcja z aplikacją oparta jest o wykorzystanie kursora i klawiatury.
+Za pomocą klawiszy \textit{A} oraz \textit{D} użytkownik może dokonywać rotacji kamery, zmieniając pozycję z której obserwuje scenę.
 Selekcja figury dokonywana jest za pomocą kursora myszy.
 Aplikacja sygnalizuje wybór unosząc figurę nieznacznie ponad obszar planszy.
-Wówczas użytkownik może wybrać docelowe pole na które chce poruszyć lub kliknąć poza obszar mapy, aby zmienić wybrany pionek.
+Wówczas użytkownik może wybrać docelowe pole na które chce ją poruszyć lub kliknąć poza obszar mapy, aby zrewidować podjętą decyzje.
 \subsection{Ruch}
 Chcąc wykorzystać możliwie dużo z możliwości biblioteki zadbano o animacje.
 Tak jak zaznaczone wcześniej wybór figury jest sygnalizowany zmianą pozycji, która następuje za pomocą płynnego ruch.
@@ -80,29 +81,29 @@ Zamknięcie okna lub całej aplikacji wiąże się z bezpowrotnym utraceniem sta
     {9cm}
 \section{Implementacja}
 Niniejsza sekcja nakreśla pokrótce architekturę aplikacji zaprojektowaną na potrzeby wersji demonstracyjnej.
-Starano się w niej zwrócić uwagę na sposób komunikacji deweloperów ze stworzoną biblioteką.
+Starano się w niej zwrócić uwagę na sposób komunikacji z opracowaną biblioteką.
 Ma to za zadanie posłużyć jako forma sugestii w jaki sposób dokonywać interakcji z technologią, ale także pozwolić dostrzec potencjalne niedoskonałości.
 \subsection{Architektura}
 Aplikacja stworzona została o oparciu o tradycyjne podejście komunikacji dla platformy - \textit{Model-View-Controller}.
 Kontroler koordynuje interakcje pomiędzy użytkownikiem a logiką gry.
 Przechowuje jej stan i na podstawie wyborów użytkownika dokonywanych za pośrednictwem kursora wysyła zapytania dotyczące poprawności ruchu do klasy obsługującej zasady rozgrywki.
-W przypadku wykonania poprawnej akcji kontroler inicjuje zmianę pozycji figur na scenie, a następnie aktualizuje dane dotyczące obecnego stanu gry.
-Wreszcie, posiada on także referencje do klas mogących modyfikować położenie kamery na scenie i dedukujących intencje gracza na podstawie zachowania kursora.
+W przypadku wykonania poprawnej akcji inicjuje zmianę pozycji figur na scenie, a następnie aktualizuje dane dotyczące obecnego stanu.
+Wreszcie, posiada referencje do klas mogących modyfikować położenie kamery na scenie i dedukujących intencje gracza na podstawie zachowania kursora.
 \figh{images/chess/diagram.png}
      {Uproszczony diagram prezentujący architekturę gry szachowej}
      {fig:chess-architecture}
      {11cm}
 \par
-Stan rozgrywki przechowywany jest w klasie \textit{GameState}.
-Poza obecnym stanem przechowuje ona wszystkie poprzednie.
-Konieczne jest to ze względu na upewnienie się o przestrzeganiu samych zasad, ale potencjalnie posłużyć mogłoby także do obsługi cofania ruchu.
-Stan, poza informacją na temat relacji pomiędzy pozycjami na planszy, a figurami określa też czy któryś z pionków został wybrany przez gracza, wskazuje turę zawodnika i określa oczekiwania co do jego zachowania.
+Kompletny stan rozgrywki przechowywany jest w klasie \textit{GameState}.
+Odnosi się do jego aktualnej wersji, przez wszystkie poprzednie aż do stanu początkowego.
+Decyzja o implementacji podparta była koniecznością upewnienia się o przestrzeganiu samych zasad, ale potencjalnie posłużyć mogłoby także do obsługi cofania ruchu.
+Stan, poza informacją na temat relacji pomiędzy pozycjami na planszy, a figurami określa też czy któryś z nich został wybrany przez gracza, wskazuje turę zawodnika i zadaje oczekiwania co do jego zachowania.
 Ruch przebiega w trzech etapach. 
 Pierwszym jest określenie, że intencją użytkownika powinno być wybranie figury.
 Drugi, wskazanie na konkretną z nich, zgodną z zasadami gry.
 Ostatnia, zmiana pozycji.
 \lstinputlisting[language=Swift, caption=Struktura przechowująca obecny stan rozgrywki]
-                {code/GameState.swift}
+                {code/chess/GameState.swift}
 \subsection{Aranżacja sceny}
 Scena komponowana jest jednorazowo, podczas wczytywania widoku.
 Wykorzystano materiały reprezentujące odpowiednio mahoń oraz sapele.
@@ -116,7 +117,7 @@ Scena posiada dwa źródła światła \longpause ambientowe oraz kierunkowe.
 Klasa sceny zapewnia integralność danych.
 Przekazanie jej do silnika sprawi, że dostosuje on swoje wewnętrzne struktury do jej renderowania i nie zachodzi potrzeba konfigurowania dodatkowych pól manualnie.
 \lstinputlisting[language=Swift, caption=Funkcja realizująca wczytywanie modeli]
-                {code/SceneBuilder.swift}
+                {code/chess/SceneBuilder.swift}
 \subsection{Przetwarzanie wejścia}
 Ze względu na specyfikę gry szachowej postęp rozgrywki bezpośrednio wynika z akcji dokonanej przez użytkownika.
 W przypadku kontrolera stworzonego na potrzeby gry logikę delegacji osadzono bezpośrednio w funkcji wywoływanej po skorzystaniu z przycisku kursora.
@@ -127,7 +128,7 @@ W dalszym kroku następuje jego przełożenie na figurę będącą na planszy gr
 Weryfikowana jest poprawność ruchu i w momencie stwierdzenia jego dopuszczalności aktualizowany jest stan gry i uruchamiana animacja.
 Analiza kończy się, a możliwość rozgrywki otrzymuje drugi gracz.
 \lstinputlisting[language=Swift, caption=Logika przetwarzania interakcji]
-                {code/ViewController-Logic.swift}
+                {code/chess/ViewController.swift}
 Gra toczy się do momentu wykrycia szach-mata lub pata.
 Zawodnik informowany jest za pomocą tekstu umieszczonego w rogu ekranu o zakończeniu gry.
 W podobny sposób przekazywana jest informacja o wykryciu szachu.
