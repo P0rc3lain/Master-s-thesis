@@ -6,6 +6,9 @@
 distribution
 auxilary
 
+# Mac
+*.DS_Store
+
 # Build artifacts
 *.log
 *.aux
