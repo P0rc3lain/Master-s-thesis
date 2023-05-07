@@ -44,7 +44,7 @@ Uwagi:
 * Wprowadzenie jest bardzo ważne, należy przyłożyć nacisk do upiększenia
 * Uzasadnić istnienie pierwszego rozdziału - napisać, że nie jest ważny z punktu widzenia pracy. 
   Struktura pracy albo na początku rozdziału
-* Kod w przykładach nie powinien być za długi
++ Kod w przykładach nie powinien być za długi
 * Zamiast zrobiono "autor pracy wykonał"
 * Cały czas podkreślam, że stworzono. Powinno być zaprojektowanie
 + Sugestia: "Wypełnia lukę stworzoną przez producenta", wypełnia "istniejącą" luką, a nie lukę stworzoną przez producenta
