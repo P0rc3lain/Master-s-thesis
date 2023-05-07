@@ -1,8 +1,6 @@
 struct PNSpotShadowJob: PNRenderJob {
     [...]
     func draw(encoder: MTLRenderCommandEncoder, supply: PNFrameSupply) {
-        let scene = supply.scene
-        let dataStore = supply.bufferStore
         let shadowCasterIndices = supply.scene.spotLights.indices.filter {
             supply.scene.spotLights[$0].castsShadows == 1
         }
@@ -11,30 +9,18 @@ struct PNSpotShadowJob: PNRenderJob {
         }
         encoder.setDepthStencilState(depthStencilState)
         encoder.setRenderPipelineState(animatedPipelineState)
-        encoder.setVertexBuffer(dataStore.spotLights,
-                                index: kAttributeSpotShadowVertexShaderBufferSpotLights)
-        encoder.setVertexBuffer(dataStore.modelCoordinateSystems,
-                                index: kAttributeSpotShadowVertexShaderBufferModelUniforms)
+        [...] // Set uniforms for shader program
         let masks = supply.mask.spotLights
         for lightIndex in shadowCasterIndices {
-            encoder.setVertexBytes(value: lightIndex,
-                                   index: kAttributeSpotShadowVertexShaderBufferInstanceId)
-            for animatedModel in scene.animatedModels {
+            [...] // Set uniforms for mesh
+            for animatedModel in supply.scene.animatedModels {
                 if !masks[lightIndex][animatedModel.idx] {
                     continue
                 }
-                let mesh = scene.meshes[animatedModel.mesh]
-                encoder.setFrontCulling(mesh.culling)
-                encoder.setVertexBuffer(mesh.vertexBuffer.buffer,
-                                        offset: mesh.vertexBuffer.offset,
-                                        index: kAttributeSpotShadowVertexShaderBufferStageIn)
-                encoder.setVertexBytes(value: animatedModel.idx,
-                                       index: kAttributeSpotShadowVertexShaderBufferObjectIndex)
-                encoder.setVertexBuffer(dataStore.matrixPalettes.buffer,
-                                        offset: scene.paletteOffset[animatedModel.skeleton],
-                                        index: kAttributeSpotShadowVertexShaderBufferMatrixPalettes)
-                for pieceDescription in mesh.pieceDescriptions {
-                    encoder.drawIndexedPrimitives(submesh: pieceDescription.drawDescription)
+                let mesh = supply.scene.meshes[animatedModel.mesh]
+                [...] // Set uniforms for submesh
+                for piece in mesh.pieceDescriptions {
+                    encoder.drawIndexedPrimitives(piece.drawDescription)
                 }
             }
             [...]
