@@ -27,10 +27,11 @@ Spotkanie 27.02.2023 - Podsumowanie
 * Podczas pliku odnoszono sie do pliku - 02202237.
 
 Uwagi:
-* "projekt" - słowo powinno mieć znaczenie “jak to projektowałem”. Zmienić koniecznie na cel i założenia “pracy”.
+* "projekt" - słowo powinno mieć znaczenie “jak to projektowałem”. 
+  Zmienić koniecznie na cel i założenia “pracy”.
   Nie powinno się odnosić do części implementacyjnej.
   Słowo “projekt” powinno być używane tylko i wyłącznie w odniesieniu do projektowania, designowania czegoś
-+ Unikać słowa “proste”!
++ Unikać słowa "proste"!
 * Błędy stylistyczne, np. "rozdział zagłębia się", powinno być "autor zagłębia się". 
   Rozdział nie powinien być podmiotem. Podobnie "Rozdział przyblia i charakteryzuje" jest niepoprawne, autor to robi.
 * Zmienić cel pracy! Przyjęto za cel reasearch, zaprojektowanie i utworzenie. 
@@ -44,6 +45,6 @@ Uwagi:
 * Uzasadnić istnienie pierwszego rozdziału - napisać, że nie jest ważny z punktu widzenia pracy. 
   Struktura pracy albo na początku rozdziału
 * Kod w przykładach nie powinien być za długi
-* Zamiast zrobiono “autor “pracy wykonał
+* Zamiast zrobiono "autor pracy wykonał"
 * Cały czas podkreślam, że stworzono. Powinno być zaprojektowanie
-* Sugestia: "Wypełnia lukę stworzoną przez producenta", wypełnia “istniejącą” luką, a nie lukę stworzoną przez producenta
++ Sugestia: "Wypełnia lukę stworzoną przez producenta", wypełnia "istniejącą" luką, a nie lukę stworzoną przez producenta
