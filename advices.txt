@@ -37,8 +37,8 @@ Uwagi:
 * Zmienić cel pracy! Przyjęto za cel reasearch, zaprojektowanie i utworzenie. 
   Uwypuklić w tekście pracę naukową - przegląd. 
   W odróżnieniu od inżynierskiej liczą się koncepcje, przegląd, uwypuklenie tego co innego tworzę.
-* Skrócić rozdział o C++, Swift. Nie pokazywać żadnych przykładów kodu z C++, Swift czy Objective-C.
-* Głównym czytelnikiem mojej pracy jest recenzent - to jest dla niego!
++ Skrócić rozdział o C++, Swift. Nie pokazywać żadnych przykładów kodu z C++, Swift czy Objective-C.
++ Głównym czytelnikiem mojej pracy jest recenzent - to jest dla niego!
 * Napisać, że to moja koncepcja, podejście inne niż istniejące
 * W celu i założeniach projektu napisał jaki jest problem, jaki zrobiłem reaserch, napisać, że zamiarem było wstrzelenie się w nisze
 * Wprowadzenie jest bardzo ważne, należy przyłożyć nacisk do upiększenia
