@@ -9,7 +9,7 @@ W przypadku chęci stworzenia gry dwu lub trzy wymiarowej sugerowano skorzystani
 Zmianę zainicjował wzrost popularności techniki AR po 2014 roku, kiedy urządzenia mobilne były w stanie zaspokoić potrzeby wydajnościowe.
 Wiedziano, że bez odgórnego wsparcia wiele aplikacji ominie platformę lub nawet doprowadzi do migracji użytkowników na konkurencyjny iOS.
 W 2018 Google wydał ARCore.
-Bibliotekę do obsługi AR, a wraz z nią silnik graficzny Filament, stworzony na potrzeby projektu.
+Bibliotekę do obsługi AR, a wraz z nią silnik graficzny Filament, stworzony na potrzeby wyświetlania grafiki.
 \par
 Nadrzędnym celem jaki rozszerzona rzeczywistość powinna spełniać jest zapewnienie immersji.
 Oznacza to realistyczne odwzorowanie modelu oświetlenia przy zachowaniu podejścia czasu rzeczywistego.
@@ -20,14 +20,14 @@ Oferowany jest jako silnik do renderowania.
 Dodatkowo, aby ułatwić proces importu modeli posiada moduł do wczytywania.
 Są to główne, ale i jedyne funkcjonalności.
 \par
-Projekt wspiera szereg systemów, jednakże największy nacisk położony jest na Android.
+Choć wspierany jest szereg systemów, jednakże największy nacisk położony jest na Android.
 Pomimo iż stworzony został w C++ integracja z Kotlinem \longpause natywnym językiem platformy \longpause stoi na wysokim poziomie.
 Użytkownik jest w stanie bezpośrednio wykonywać zapytania do API, bez pośrednich interfejsów.
 Sam projekt publicznych części biblioteki pokrywa się z schematami powszechnie przyjętymi na platformie.
 \par
 Dystrybucja prowadzona jest w oparciu o podejście open source.
 Użytkownicy mogą nieodpłatnie wykorzystać Filament do celów komercyjnych i wprowadzać w nim dalsze poprawki.
-Dziwi, że Google wprawdzie umiejscowiło projekt pod skrzydłami swojej organizacji, ale zaznacza, że nie jest on oficjalnie wspierany.
+Dziwi, że Google wprawdzie umiejscowiło repozytorium pod skrzydłami swojej organizacji, ale zaznacza, że nie jest on oficjalnie wspierany.
 \par
 Podejście do renderowania oparte o fizyczne odwzorowanie zachowania światła stało sie powszechne.
 Zupełnie wyjątkowy jest jednak sposób w jaki zaimplementowano je w bibliotece.
@@ -36,14 +36,14 @@ Przykładowo, nie ma możliwości nadania kierunkowemu światłu imitującemu s�
 W tym wypadku należy posłużyć się temperaturą barwową w Kelvinach oraz natężeniem strumienia świetlnego w lumenach.
 Rozwiązanie jest ściśle ukierunkowane na realizm i nie pozwala kreować dowolnego charakteru.
 \par
-Dokumentacja projektu oparta jest o trzy główne filary.
+Dokumentacja oparta jest o trzy główne filary.
 Pierwszy to szczegółowy opis modelu oświetlenia.
 Jego jakość jest wybitna. 
 Każdy aspekt renderowania ujęty jest w osobnej sekcji, wyjaśniony słowie wraz przykładami kodu i ilustracjami.
 Przytłaczający może wydawać się stopień włożonego wysiłku, który poświęcono by przedstawić zjawiska fizyczne przy pomocy aparatu matematycznego.
 Starano oddać się kompletny proces, bez pomijania kroków pośrednich.
 Drugi z filarów to funkcjonalne przykładowy użycia.
-Jest ich kilka, w formie projektów początkowych dla każdej z platform.
+Jest ich kilka, w formie przykładów wprowadzających dla każdej z platform.
 Nie budzą zastrzeżeń, bez problemu można je zmodyfikować i wykorzystać do swoich potrzeb.
 Zawodzi dokumentacja kodu oraz interfejsu.
 Nie udostępniono użytkownikom jej za pośrednictwem internetu, uzyskać można ją tylko przy budowie aplikacji.

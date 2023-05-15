@@ -28,7 +28,7 @@ Cieniowanie wierzchołków jest pierwszym w pełni konfigurowalnym etapem potoku
 Użytkownik dostarcza kod źródłowy realizujący zadanie w postaci pliku \textit{.metal}, który kompilowany jest do instrukcji maszynowych procesora GPU.
 Rdzenie uruchamiają program niezależnie dla wierzchołków znajdujących się w buforze danych do momentu przeprocesowania każdego z nich.
 Oczekiwanym wynikiem będącym bezpośrednim efektem działania algorytmu jest określenie ostatecznej pozycji wierzchołka w odniesieniu do obiektywu kamery.
-Przez wzgląd na fakt, że aranżacja sceny i jej wymiary są cechami indywidualnymi dla poszczególnych projektów zachodzi potrzeba wykorzystania generycznego mechanizmu, który pozwoli określić jak pozycja wierzchołka koresponduje do powierzchni na której jest wyrysowywana.
+Przez wzgląd na fakt, że aranżacja sceny i jej wymiary są cechami indywidualnymi dla poszczególnych aplikacji zachodzi potrzeba wykorzystania generycznego mechanizmu, który pozwoli określić jak pozycja wierzchołka koresponduje do powierzchni na której jest wyrysowywana.
 Zadanie to realizowane jest za pomocą użycia znormalizowanego układu współrzędnych urządzenia.
 W tym celu pozycja wierzchołka w układzie współrzędnych kamery rzutowana jest na wspominany układ urządzenia.
 Jeśli pozycja wierzchołka znajduje się wewnątrz graniastosłupa ograniczającego ten układ wierzchołek kontynuuje drogę przez potok, w przeciwnym razie jest odrzucany.
