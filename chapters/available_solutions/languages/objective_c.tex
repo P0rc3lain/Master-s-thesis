@@ -3,12 +3,6 @@
 %
 
 \subsection{Objective-C}
-Bjarne Stroustrup nie był jedynym, który dostrzegał braki w języku C i pragnął porzucić podejście proceduralne.
-We wczesnych latach osiemdziesiątych Tom Love and Brad Cox opracowali własną odpowiedź na ukłon w stronę obiektowości.
-Ich dzieło \longpause Objective-C \longpause w pierwszej wersji ukazało się w 1984 roku.
-Wybrane zostało przez firmę NeXT jako technologia służąca do stworzenia ich autorskiego systemu operacyjnego NeXTSTEP.
-Był on podstawą, użytą przez Apple do rozwijania własnego systemu \longpause znanego dzisiaj pod nazwą macOS \longpause za sprawą przejęcia firmy NeXT w 1996 roku.
-\par
 W przeciwieństwie do C++ Objective-C nie zyskało licznego grona odbiorców.
 Głównie za sprawą faktu, że prawa własności intelektualnej przynależały do Apple.
 Technologia jest szeroko-stosowana na ich własnych platformach, ale wybrakowana i niemalże nieobecna na innych.
@@ -16,14 +10,17 @@ Z punktu widzenia twórców aplikacji użycie i wybór Objective-C często podyk
 \par
 Objective-C charakteryzuje się gorszą wydajnością w porównaniu z C++.
 Wynika to z faktu zastosowania podejścia zaczerpniętego ze SmallTalka \longpause wywołanie funkcji wymaga przesyłania wiadomości do obiektu jej z nazwą w postaci łańcucha znakowego i listy argumentów.
-C++ osiąga ten cel wykorzystując tablice funkcji wirtualnych, które do wywołania metody wymagają wykonania mniejszej liczby operacji.
 \par
-Dodatkowo, Objective-C zniechęca swoją składnią, niespotykaną w żadnym innym języku.
+Dodatkowo, Objective-C zniechęca swoją składnią.
 Sygnatury metod przypominają nieco język naturalny.
-W przeciwieństwie do C czy C++ każdy parametr opatrzony jest stosowną etykietą.
-Programista w teorii powinien być w stanie lepiej zrozumieć działanie algorytmu, jednak podejście takie ma także negatywne skutki.
-Przede wszystkim wywołania metod są długie, a konieczność zamykania każdego z nich w nawiasy kwadratowe sprawia, że niekiedy sekwencja zabiera wiele linii w pliku źródłowym.
-
+Każdy parametr opatrzony jest stosowną etykietą.
+Programista w teorii powinien być w stanie lepiej zrozumieć działanie algorytmu.
+Skutkuje to jednak długimi wywołaniami metod, a konieczność zamykania każdego z nich w nawiasy kwadratowe sprawia, że niekiedy sekwencja zabiera wiele linii w pliku źródłowym.
+\par
+Wymienione czynniki nie były jedynymi, które wpłynęły negatywnie na przystępność.
+W przeciwieństwie do C czy C++ Objective-C nie posiadał jawnie publikowanych standardów, pomimo faktu iż był rozwijany i podlegał wersjonowaniu.
+O nowych funkcjach użytkownicy dowiadywali się wraz z dystrybucją nowszych wersji kompilatora.
+Nie pomagał fakt, że dokumentacja na stronie Apple opisująca język opóźniona była o wiele miesięcy, dostępna tylko w jednym języku i napisana technicznie, bez przykładów.
 % Przydałoby się więcej konkretów o Objective-C
 % Automatic garbage collector
 % Categories
