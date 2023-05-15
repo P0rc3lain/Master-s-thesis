@@ -12,11 +12,11 @@ Nieefektywnym było tworzenie szablonu modułu graficznego od zera dla każdej p
 Zarówno przez wzgląd na czas jakiego wymaga rozwój, jak i fakt, że oczekiwania w stosunku do możliwości charakteryzowały się podobieństwem.
 Wydaje się, że optymalnym rozwiązaniem byłoby wytworzenie kodu odpowiedzialnego za obsługę renderowania raz, a następnie używanie go we wszystkich innych produkcjach potrzebujących tej funkcjonalności.
 Jawne kopiowanie wymaganych fragmentów programu byłoby naiwne i obarczone wieloma problemami.
-Powszechną praktyką w takiej sytuacji jest stworzenie osobnego projektu skupiającego się na realizacji ściśle ograniczonych funkcji i dystrybuowanie go w formie biblioteki.
+Powszechną praktyką w takiej sytuacji jest stworzenie osobnego bytu, skupiającego się na realizacji ściśle ograniczonych funkcji i dystrybuowanie go w formie biblioteki.
 Twórcom gier oraz aplikacji daje to możliwość poświęcenia uwagi faktycznemu budowaniu ich produktu, a nie infrastruktury potrzebnej do jego działania.
 Jednocześnie biblioteka potencjalnie zapewnić może wysoką jakość oraz wydajność przez wzgląd na powszechne przyjęcie.
 \par
-Zakres wymagań, który stawiany jest bibliotekom różni się w zależności od projektu.
+Zakres wymagań, który stawiany jest bibliotekom różni się w zależności od przedsięwzięcia.
 Przywołać można jednak kilka najważniejszych, przewijających się zawsze:
 \begin{itemize}
     \item Nieprzytłaczające złożonością API

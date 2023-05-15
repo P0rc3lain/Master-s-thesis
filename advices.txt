@@ -42,7 +42,7 @@ Uwagi:
 * Napisać, że to moja koncepcja, podejście inne niż istniejące
 * W celu i założeniach projektu napisał jaki jest problem, jaki zrobiłem reaserch, napisać, że zamiarem było wstrzelenie się w nisze
 * Wprowadzenie jest bardzo ważne, należy przyłożyć nacisk do upiększenia
-* Uzasadnić istnienie pierwszego rozdziału - napisać, że nie jest ważny z punktu widzenia pracy. 
++ Uzasadnić istnienie pierwszego rozdziału - napisać, że nie jest ważny z punktu widzenia pracy. 
   Struktura pracy albo na początku rozdziału
 + Kod w przykładach nie powinien być za długi
 * Zamiast zrobiono "autor pracy wykonał"

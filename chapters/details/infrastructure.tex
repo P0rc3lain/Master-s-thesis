@@ -2,8 +2,8 @@
 %  Copyright © 2022 Mateusz Stompór. All rights reserved.
 %
 
-\section{Infrastruktura projektu}
-Potencjalnie zakres projektu mógł ograniczać się do rozwoju funkcjonalności.
+\section{Infrastruktura}
+Potencjalnie zakres pracy mógł ograniczać się do rozwoju funkcjonalności.
 W trosce o jakość i przystępność zdecydowano się na skorzystanie z szeregu narzędzi pomocniczych.
 Sprawiło to jednak, że każdorazowa zmiana kodu źródłowego implikowała szereg akcji koniecznych do wykonania.
 Należało uruchomić testy dla wszystkich wspieranych platform, by później, po wcieleniu zmiany zbudować artefakty w postaci plików binarnych i dokumentacji.
@@ -14,12 +14,12 @@ W zamyśle konfiguracja oparta jest o deklaratywną definicję opisującą list�
 Rezultat akcji widoczny jest w dedykowanej zakładce na platformie GitHub grupującej akcje.
 Rozróżniono dwa scenariusze dla których stworzono dedykowane procesy automatyzacyjne.
 \par
-Pierwszym była próba wcielenia kodu do głównej gałęzi projektu \longpause za pośrednictwem \textit{pull request}.
+Pierwszym była próba wcielenia kodu do głównej gałęzi rozwoju \longpause za pośrednictwem \textit{pull request}.
 Chciano zadbać o możliwie brak możliwości wystąpienia regresji.
 Z tego względu na liście sprawdzeń obecne są kroki wywołania linterów plików Swift, yaml oraz markdown.
 Dodatkowo uruchamiane są testy jednostkowe odrębnie dla każdej ze wspieranych platform \longpause iOS, tvOS, macOS.
 Status określający sukces, bądź porażkę publikowany jest na podglądzie \textit{pull request'a}.
-W efekcie otrzymać można jawny sygnał czy propozycja zmian nie narusza integralności projektu.
+W efekcie otrzymać można jawny sygnał czy propozycja zmian nie narusza integralności.
 % \fig{images/pnengine/pipeline/tests.png}
 %     {Potok weryfikujący zmianę obecną w \textit{pull request}}
 %     {fig:tests-pipeline}
@@ -28,7 +28,7 @@ W efekcie otrzymać można jawny sygnał czy propozycja zmian nie narusza integr
 Drugi scenariusz dotyczył sytuacji po włączeniu kodu do głównej gałęzi.
 Wówczas ponownie wykonywany jest potok zawierający testy w ramach wstępnej weryfikacji.
 Jego pomyślne zakończenie sprawia, że następuje generowanie artefaktów.
-Zbudowane archiwum dokumentacji projektu \longpause \textit{.docarchive} konwertowane jest w locie na formę html, a następnie publikowane na witrynie projektu \cite{porcelain_docs}.
+Zbudowane archiwum dokumentacji \longpause \textit{.docarchive} konwertowane jest w locie na formę html, a następnie publikowane na witrynie poświęconej wytworzonej bibliotece \cite{porcelain_docs}.
 Równocześnie generowane są pliki \textit{.framework} dla każdej z platform.
 W 2021 roku Apple stworzyło jednak uniwersalny format \longpause \textit{.xcframework}, który pozwala na stworzenie paczki wspólnej dla różnych architektur.
 Zdecydowano się na skorzystanie z tej nowinki i ostatni etap zbiera wygenerowane pliki \textit{.framework} w tym celu przekształcając je w pojedynczy plik binarny.
