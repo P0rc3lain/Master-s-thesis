@@ -27,7 +27,7 @@ Spotkanie 27.02.2023 - Podsumowanie
 * Podczas pliku odnoszono sie do pliku - 02202237.
 
 Uwagi:
-* "projekt" - słowo powinno mieć znaczenie “jak to projektowałem”. 
++ "projekt" - słowo powinno mieć znaczenie “jak to projektowałem”. 
   Zmienić koniecznie na cel i założenia “pracy”.
   Nie powinno się odnosić do części implementacyjnej.
   Słowo “projekt” powinno być używane tylko i wyłącznie w odniesieniu do projektowania, designowania czegoś
