@@ -102,8 +102,9 @@ Ruch przebiega w trzech etapach.
 Pierwszym jest określenie, że intencją użytkownika powinno być wybranie figury.
 Drugi, wskazanie na konkretną z nich, zgodną z zasadami gry.
 Ostatnia, zmiana pozycji.
-\lstinputlisting[language=Swift, caption=Struktura przechowująca obecny stan rozgrywki]
-                {code/chess/GameState.swift}
+\code{Swift}
+     {Struktura przechowująca obecny stan rozgrywki}
+     {code/chess/GameState.swift}
 \subsection{Aranżacja sceny}
 Scena komponowana jest jednorazowo, podczas wczytywania widoku.
 Wykorzystano materiały reprezentujące odpowiednio mahoń oraz sapele.
@@ -116,8 +117,9 @@ W tym wypadku polega ona na ustaleniu jednolitej barwy i wygenerowania mapy otoc
 Scena posiada dwa źródła światła \longpause ambientowe oraz kierunkowe.
 Klasa sceny zapewnia integralność danych.
 Przekazanie jej do silnika sprawi, że dostosuje on swoje wewnętrzne struktury do jej renderowania i nie zachodzi potrzeba konfigurowania dodatkowych pól manualnie.
-\lstinputlisting[language=Swift, caption=Funkcja realizująca wczytywanie modeli]
-                {code/chess/SceneBuilder.swift}
+\code{Swift}
+     {Funkcja realizująca wczytywanie modeli}
+     {code/chess/SceneBuilder.swift}
 \subsection{Przetwarzanie wejścia}
 Ze względu na specyfikę gry szachowej postęp rozgrywki bezpośrednio wynika z akcji dokonanej przez użytkownika.
 W przypadku kontrolera stworzonego na potrzeby gry logikę delegacji osadzono bezpośrednio w funkcji wywoływanej po skorzystaniu z przycisku kursora.
@@ -127,8 +129,9 @@ Gdy jednak rozgrywka nadal się toczy następuje określenie modelu, który zost
 W dalszym kroku następuje jego przełożenie na figurę będącą na planszy gry.
 Weryfikowana jest poprawność ruchu i w momencie stwierdzenia jego dopuszczalności aktualizowany jest stan gry i uruchamiana animacja.
 Analiza kończy się, a możliwość rozgrywki otrzymuje drugi gracz.
-\lstinputlisting[language=Swift, caption=Logika przetwarzania interakcji]
-                {code/chess/ViewController.swift}
+\code{Swift}
+     {Logika przetwarzania interakcji}
+     {code/chess/ViewController.swift}
 Gra toczy się do momentu wykrycia szach-mata lub pata.
 Zawodnik informowany jest za pomocą tekstu umieszczonego w rogu ekranu o zakończeniu gry.
 W podobny sposób przekazywana jest informacja o wykryciu szachu.

@@ -11,9 +11,12 @@ Dzięki temu może być wykorzystana w programach cieniujących.
 W następnym kroku nagłówki C grupowane są w moduły, które kompilator XCode udostępnia do kodu Swift.
 Dzięki temu za pomocą pojedynczego importu modułu dane opisane w kodzie Swift mogą być w łatwy sposób przekazywane do GPU, a pojedyncza definicja sprawia, że ustrzec można się przed błędami w przypadku braku propagacji zmian.
 Dodatkowo Swift choć wewnętrznie zapewnia to standard nie daje gwarancji w kwestii uporządkowania pól dla struktury, co jest kluczowe w celu właściwej interpretacji danych.
-\lstinputlisting[language=C, caption=Definicja struktury w języku C]
-                {code/code_sharing/Camera.h}
-\lstinputlisting[language=Swift, caption=Deklaracja modułu Swift składającego się z kodu C]
-                {code/code_sharing/module.map}
-\lstinputlisting[language=Swift, caption=Użycie modułu w kodzie Swift]
-                {code/code_sharing/PNSceneDescription.swift}
+\code{C}
+     {Definicja struktury w języku C}
+     {code/code_sharing/Camera.h}
+\code{Swift}
+     {Deklaracja modułu Swift składającego się z kodu C}
+     {code/code_sharing/module.map}
+\code{Swift}
+     {Użycie modułu w kodzie Swift}
+     {code/code_sharing/PNSceneDescription.swift}
