@@ -11,12 +11,14 @@ Moc źródeł opisuje parametr intensywności.
 Użytkownik może skonfigurować czy dane źródło rzuca cienie.
 Wpływa to znacząco na wydajność generowanego obrazu, natomiast zwiększa jego realizm.
 W przypadku źródeł kierunkowych możliwa jest także modyfikacja ich orientacji.
-\lstinputlisting[language=Swift, caption=Protokół światła kierunkowego]
-                {code/lights/PNDirectionalLight.swift}
+\code{Swift}
+     {Protokół światła kierunkowego}
+     {code/lights/PNDirectionalLight.swift}
 \par
 Nieco odmienne przeznaczenie, choć nadal przynależące wykorzystaniem w stosunku do pozostałych świateł ma światło ambientowe.
 Podobnie jak w przypadku pozostałych źródeł charakteryzuje się je za pomocą barwy oraz intensywności.
 Działa ono jednak obszarowo w sposób stały \longpause wpływ istnieje lub nie, ale nie zmienia się on wraz ze zmianą odległości.
 Źródło ambientowe ma sprawić, że ekran nie będzie czarny w momencie gdy w danym miejscu sceny nie znajduje się żadne źródło.
-\lstinputlisting[language=Swift, caption=Interfejs źródła ambientowego]
-                {code/lights/PNAmbientLight.swift}
+\code{Swift}
+     {Interfejs źródła ambientowego}
+     {code/lights/PNAmbientLight.swift}

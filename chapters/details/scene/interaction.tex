@@ -12,6 +12,8 @@ Z tego powodu należało zadbać o wykrywanie interakcji pomiędzy użytkownikie
 Do dyspozycji oddano klasę realizującą interfejs \textit{PNScreenInteractor}.
 Przeszukuje ona graf sceny na podstawie współrzędnych punktu wybranego na ekranie.
 W przypadku powodzenia zwraca obiekt będący najbliżej kamery.
-\lstinputlisting[language=Swift, caption=Węzeł kamery]{code/PNScreenInteractor.swift}
+\code{Swift}
+     {Węzeł kamery}
+     {code/PNScreenInteractor.swift}
 W tym celu wykorzystano technikę rzucania promieni.
 Promień osadzany jest w punkcie początkowym kamery z uwzględnieniem jej transformacji, a następnie wykonywany jest algorytm przecinania półprostej z ramkami ograniczającymi modeli.
