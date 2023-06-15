@@ -78,7 +78,7 @@ W przypadku przykładowej klatki umiejscowione zostało pojedyncze źródło kie
 Na podstawie kolorów siatek, ich położenia oraz mapy wektorów normalnych obliczany jest wpływ źródła na każdy z fragmentów.
 Wcześniej jednak weryfikowane jest czy nie znajduje się on w cieniu na podstawie mapy cieni dla zadanego źródła światła.
 \figh{images/pnengine/rendering/lighting/lights-combined.jpg}
-     {Klatki poddane wpływowi źródeł światła, ambientowe (lewa), kierunkowe (prawa)}
+     {Klatki poddane wpływowi źródeł światła, ambientowemu i kierunkowemu}
      {fig:pipeline-lights}
      {13cm}
 Na oświetloną klatkę nanoszona jest mapa otoczenia.
@@ -96,7 +96,7 @@ Od najdalszego do bliskiego kamerze.
 W ich przypadku sortowanie odbywa się na poziomie ziarnistości emiterów, a nie samych cząsteczek.
 Zbyt bliskie umiejscowienie dwóch obok siebie prowadzić może do niepożądanych efektów.
 \figh{images/pnengine/rendering/combine-env-part-trans.jpg}
-     {Klatki mapowania środowiska, efektów cząsteczkowych oraz obiektów przezroczystych}
+     {Mapowanie środowiska, efekty cząsteczkowe oraz obiekty przezroczyste}
      {fig:pipeline-env-part-trans}
      {\linewidth}
 \par
@@ -113,6 +113,6 @@ Nie jest wymagane jednak aby występowała zgodność pomiędzy jej rozmiarem, a
 Finalnym krokiem jest próbkowanie obrazu źródłowego i przełożenie go na rozmiar ekranu.
 Wreszcie klatka przesyłana jest na ekran, co kończy potok.
 \figh{images/pnengine/rendering/bloom-combine.jpg}
-     {Klatki pośrednie Bloom, najjaśniejsze fragmenty (lewa), rozmazane (prawa)}
+     {Klatki pośrednie Bloom, najjaśniejsze fragmenty przed i po rozmyciu}
      {fig:pipeline-bloom}
      {\linewidth}
