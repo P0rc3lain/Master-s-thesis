@@ -3,5 +3,5 @@ public protocol PNAnimator {
     var interpolator: PNInterpolator { get set }
     var sampler: PNSampleProvider { get set }
     var windingOrder: PNTransformationWinding { get set }
-    func transform(coordinateSpace: PNAnimatedCoordinateSpace) -> PNTransform
+    func transform(space: PNAnimatedCoordinateSpace) -> PNTransform
 }

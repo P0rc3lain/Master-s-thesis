@@ -2,9 +2,6 @@ public struct PNDefaults {
     public static var shared = PNDefaults()
     public var rendering = PNRendering()
     [...]
-    fileprivate init() {
-        // Empty
-    }
     public struct PNRendering {
         public var shadowSize = PNShadowSize()
     }
