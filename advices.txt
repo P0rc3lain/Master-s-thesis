@@ -41,13 +41,11 @@ Uwagi:
 + Kod w przykładach nie powinien być za długi
 + Sugestia: "Wypełnia lukę stworzoną przez producenta", wypełnia "istniejącą" luką, a nie lukę stworzoną przez producenta
 + Zamiast zrobiono "autor pracy wykonał"
-
-TODO:
-* Cały czas podkreślam, że stworzono. Powinno być zaprojektowanie
-* Napisać, że to moja koncepcja, podejście inne niż istniejące
-* W celu i założeniach projektu napisał jaki jest problem, jaki zrobiłem reaserch, napisać, że zamiarem było wstrzelenie się w nisze
-* Wprowadzenie jest bardzo ważne, należy przyłożyć nacisk do upiększenia
-* Zmienić cel pracy! Przyjęto za cel reasearch, zaprojektowanie i utworzenie. 
++ Cały czas podkreślam, że stworzono. Powinno być zaprojektowanie
++ Napisać, że to moja koncepcja, podejście inne niż istniejące
++ W celu i założeniach projektu napisał jaki jest problem, jaki zrobiłem reaserch, napisać, że zamiarem było wstrzelenie się w nisze
++ Wprowadzenie jest bardzo ważne, należy przyłożyć nacisk do upiększenia
++ Zmienić cel pracy! Przyjęto za cel reasearch, zaprojektowanie i utworzenie. 
   Uwypuklić w tekście pracę naukową - przegląd. 
   W odróżnieniu od inżynierskiej liczą się koncepcje, przegląd, uwypuklenie tego co innego tworzę.
   
