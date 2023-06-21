@@ -7,12 +7,12 @@ Generowania dwuwymiarowych obrazów za pomocą komputera przypomina proces tworz
 Nie dziwi więc fakt, że znaczna część pojęć używanych w odniesieniu do zawartości klatki czerpie właśnie z niego.
 Nadrzędnym elementem zawierającym w sobie wszystkie pomniejsze jest scena.
 W niej zorganizowani są aktorzy rozumiani jako postacie bezpośrednio mające wpływ na akcje, jak i pozostałe fragmenty scenerii stanowiące tło.
-Za uwiecznienie toczących się wydarzeń odpowiedzialne są kamery, które przedstawiają świat z różnych perspektyw.
+Za uwiecznienie toczących się wydarzeń odpowiedzialne są kamery przedstawiające świat z różnych perspektyw.
 W zależności od wizji twórczej ich ilość może być zmienna, zawsze jednak tylko jedna rozpatrywana jest jako aktywna, a więc przekazująca aktualny obraz.
-Niezbędnym elementem, który konieczny jest, aby obserwator był w stanie dostrzec cokolwiek, jest źródło światła.
-Zaliczamy do nich wszystkie emitery, takie jak słońce, księżyc, ogień, czy żarówki elektryczne.
+Niezbędnym elementem, koniecznym, aby obserwator był w stanie cokolwiek dostrzec, jest źródło światła.
+Zaliczamy do nich emitery, takie jak słońce, księżyc, ogień, czy żarówki elektryczne.
 \par Początkowo implementacja idei była bezpośrednia. 
-Struktura sceny była płaska, a obiekty były od siebie niezależne.
+Struktura sceny była płaska, a obiekty od siebie niezależne.
 Podejście obarczone było pewnymi negatywnymi konsekwencjami.
 Najłatwiej dostrzec je posługując się przykładem.
 W tym celu rozważony zostanie fragment krótkiego scenariusza.
@@ -20,14 +20,13 @@ W tym celu rozważony zostanie fragment krótkiego scenariusza.
     \centering 
     \q{Człowiek porusza się po lesie zbierając jagody do koszyka}
 \end{quote}
-Realizując animację za pomocą komputera należałoby przygotować kilka modeli \longpause lasu, człowieka, koszyk oraz jagody.
-Podział w ten sposób podyktowany jest chęcią sprawienia, aby modele były możliwe do użycia w innych konfiguracjach \longpause sceneria pola zamiast lasu, poziomki w miejsce jagód.
-Dodatkowo, uczynienie ich niepodległymi sobie sprawia, że modyfikacja ich położenia jest ułatwiona. 
+Realizując animację za pomocą komputera należałoby przygotować kilka modeli \longpause lasu, człowieka, koszyka oraz jagód.
+Podział w ten sposób podyktowany jest chęcią sprawienia, aby istniała możliwość użycia modeli w innych konfiguracjach \longpause sceneria pola zamiast lasu, poziomki w miejsce jagód.
 Zakładając, że nie istnieje relacja posiadania pomiędzy obiektami ruch jagód, człowieka oraz koszyka byłby od siebie niezależny.
 W celu zachowania immersji koniecznym byłoby nanoszenie korekt pozycji jagód i koszyka za każdym razem gdy pozycja człowieka ulegnie zmianie.
 Jasnym staje się, że pomiędzy obiektami zachodzi relacja i ruch nadrzędnego elementu \longpause człowieka \longpause powinien mieć wpływ na podrzędne \longpause koszyk, jagody.
 W efekcie ruchu człowieka zmiana położenia koszyka, jak i znajdujących się w nim jagód powinna następować automatycznie.
-Realizacja tego pomysłu dała początek hierarchicznym grafom sceny, które wynaleziono w latach 90-tych i wykorzystywane są do dzisiaj.
+Realizacja tego pomysłu dała początek wynalezionym w latach 90-tych hierarchicznym grafom sceny, które wykorzystywane nadal współcześnie.
 \figh{images/scene-graph.png}
      {Graf sceny przedstawiający hierarchię pomiędzy obiektami}
      {fig:scene-graph}

@@ -16,7 +16,7 @@ W zależności od wybranej opcji mówić można o praworęcznym lub leworęcznym
      {10cm}
 \par
 Punkt opisany jest w odniesieniu do pewnego układu współrzędnych.
-Ten jednak, jak wyjaśniono w poprzedniej sekcji zagnieżdżony może być w innych.
+Ten jednak zagnieżdżony może być w innych.
 Część z nich jest na tyle istotna, że nie pozostają anonimowe i powiązane są z konkretną nazwą.
 Wyróżnić można kilka najważniejszych:
 \figh{images/coordinate-spaces.jpg}
@@ -29,16 +29,17 @@ Wyróżnić można kilka najważniejszych:
      {fig:tangent-space}
      {5cm}
 \paragraph{Układ modelu \eng{Model Space}} Powiązany jest z siatką modelu jako całością bądź jej mniejszymi fragmentami.
-Pomimo występującej hierarchii w samym modelu pomniejsze układy nie rozróżniane są za pomocą oddzielnych terminów.
+Pomimo występującej hierarchii w samym modelu pomniejsze układy nie są rozróżniane za pomocą oddzielnych terminów.
 \paragraph{Układ świata \eng{World Space}} Tworzy korzeń hierarchii w odniesieniu do którego opisane są pozostałe układy.
 \paragraph{Układ kamery \eng{Camera Space}} Osadza kamerę w początku układu współrzędnych. Z jego poziomu generowana jest klatka obrazu.
-\paragraph{Układ przycinania \eng{Clip Space}} Jest bezpośrednim następcą układu kamery, z którego przejście nastąpiło na skutek projekcji.
-W przypadku biblioteki Metal jest to leworęczny układ współrzędnych zadany prostopadłościanem o głębokości \textit{1} i powierzchni bocznej opisanej przy pomocy kwadratu o boku \textit{2}.
+\paragraph{Układ przycinania \eng{Clip Space}} Jest bezpośrednim następcą układu kamery, z którego nastąpiło przejście na skutek projekcji.
+W przypadku biblioteki Metal jest on leworęczny, zadany prostopadłościanem o głębokości \textit{1} i powierzchni bocznej opisanej przy pomocy kwadratu o boku \textit{2}.
 \figh{images/coordinate-systems/ndc.png}
      {Prostopadłościan opisujący znormalizowany układ współrzędnych w Metal}
      {fig:ndc-metal}
      {5cm}
-\paragraph{Układ okna \eng{Window Space}} Stanowi dyskretną przestrzeń dwuwymiarowa stojąca na szczycie w hierarchii generowania grafiki, rozciągająca się na całej powierzchni warstwy użytej do wyświetlenia obrazu.
+\paragraph{Układ okna \eng{Window Space}} Stanowi dyskretną przestrzeń dwuwymiarową i stoi na szczycie w hierarchii generowania grafiki. 
+Rozciąga się na całej powierzchni warstwy użytej do wyświetlenia obrazu.
 \figh{images/coordinate-systems/device-viewport.png}
      {Układ współrzędnych reprezentujący ekran urządzenia}
      {fig:device-viewport}

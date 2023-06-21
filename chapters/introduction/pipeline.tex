@@ -8,7 +8,7 @@ Pierwszy, coraz częściej spotykany polega na użyciu procesora grafiki w celu 
 Służy to odciążeniu zasobów procesora CPU przy jednoczesnym zwiększeniu wydajności ze względu na oddelegowanie pracy do jednostki będącej lepiej przystosowaną do tego typu zadania.
 Idea określana jest mianem GPGPU \eng{General-Purpose GPU}, a więc służy wykonaniu pracy nienastawionej bezpośrednio na tworzenie obrazu.
 Drugi, tradycyjny typ użycia to skorzystanie ze wbudowanego potoku renderowania.
-Choć interfejsy API charakteryzują się subtelnymi różnicami, to kroki obecne podczas procesu pozostają niezmienne.
+Choć interfejsy API posiadają subtelne różnice, to kroki obecne w procesie pozostają niezmienne.
 \par
 Potok renderowania przedstawiony i omówiony zostanie na podstawie ilustracji dotyczącej specyfikacji technologii Metal.
 Etapy będące jego częścią następują bezpośrednio po sobie i mają charakter sekwencyjny.
@@ -30,8 +30,8 @@ Rdzenie uruchamiają program niezależnie dla wierzchołków znajdujących się 
 Oczekiwanym wynikiem będącym bezpośrednim efektem działania algorytmu jest określenie ostatecznej pozycji wierzchołka w odniesieniu do obiektywu kamery.
 Przez wzgląd na fakt, że aranżacja sceny i jej wymiary są cechami indywidualnymi dla poszczególnych aplikacji zachodzi potrzeba wykorzystania generycznego mechanizmu, który pozwoli określić jak pozycja wierzchołka koresponduje do powierzchni na której jest wyrysowywana.
 Zadanie to realizowane jest za pomocą użycia znormalizowanego układu współrzędnych urządzenia.
-W tym celu pozycja wierzchołka w układzie współrzędnych kamery rzutowana jest na wspominany układ urządzenia.
 Jeśli pozycja wierzchołka znajduje się wewnątrz graniastosłupa ograniczającego ten układ wierzchołek kontynuuje drogę przez potok, w przeciwnym razie jest odrzucany.
+Rzutowanie z układu współrzędnych kamery na oczekiwaną przestrzeń pozostawione jest programiście.
 \paragraph*{Rasteryzacja \eng{Rasterization}}
 Zadaniem rasteryzacji jest rozwiązanie problemu widzialności~\cite{rasterization_implementation}.
 Aktualnie przetwarzane koordynaty wierzchołków rzutowane są na dyskretny układ współrzędnych obrazu wyjściowego.
@@ -42,19 +42,19 @@ W przypadku trójkątów jeżeli pole figury ma kontakt z pikselem obrazu wyjśc
      {fig:pipeline-rasterization}
      {4cm}
 \paragraph*{Cieniowanie Fragmentów \eng{Fragment Function}}
-Piksele, które służą do opisu figury po procesie rasteryzacji określane są mianem fragmentów.
+Piksele służące do opisu figury po procesie rasteryzacji określane są mianem fragmentów.
 Każdy uprzednio nieodrzucony poddany może być dalszej modyfikacji.
 Stanowi to kolejny, w pełni konfigurowalny etap potoku.
 Podobnie jak w przypadku cieniowania wierzchołków użytkownik jest zobowiązany do zapewnienia funkcji stworzonej w oparciu o MSL \eng{Metal Shading Language}.
 W tradycyjnym podejściu odpowiada ona za określenie wpływu światła na geometrię.
-Dzięki temu obserwator jest w stanie dostrzec w jaki sposób oświetlenie usytuowane na scenie oddziałuje na model.
+Dzięki temu obserwator jest w stanie dostrzec wpływ oświetlenia na usytuowany wewnątrz sceny model.
 \figh{images/phong-shading.jpeg}
      {Cieniowanie na przykładzie algorytmu Phonga}
      {fig:phong-shading}
      {6cm}
 \paragraph*{Przycinanie \eng{Scissor}}
 Zdarza się, że generowany obraz powinien być zaprezentowany w częściowej formie.
-W takim wypadku programista może określić prostokątny obszar, który powinien zostać utrwalony.
+W takim wypadku istnieje możliwość określenia prostokątnego obszaru, który powinien zostać utrwalony.
 Fragmenty usytuowane poza nim nie będą zapisywane na wyjściu.
 \figh{images/pipeline/scissoring.png}
      {Przycinanie na przykładzie obrazu trójkąta}
@@ -62,19 +62,18 @@ Fragmenty usytuowane poza nim nie będą zapisywane na wyjściu.
      {6cm}
 \paragraph*{Wielopróbkowanie \eng{Multisample}}
 Następnym, opcjonalnym krokiem w potoku renderowania jest wielopróbkowanie.
-Celem, którym ma być zrealizowany jest wygładzenie krawędzi pomiędzy różnymi obiektami na obrazie wyjściowym.
+Realizowanym celem jest wygładzenie krawędzi pomiędzy różnymi obiektami na obrazie wyjściowym.
 Efekt osiągany jest za pomocą zmiany sposobu działania algorytmu rasteryzacji.
 Zamiast opierać się na pojedynczym punkcie do określenia czy figura pokrywa dany fragment używana jest ich większa ilość.
-Cieniowanie fragmentów wciąż wykonywane jest tylko i wyłącznie dla pojedynczego elementu, jednak kolor wyjściowy który został uzyskany mieszany jest z tłem w oparciu o dane z próbkowania dla większej liczby punktów.
+Cieniowanie fragmentów wciąż wykonywane jest tylko i wyłącznie dla pojedynczego elementu, jednak uzyskany kolor wyjściowy mieszany jest z tłem w oparciu o dane z próbkowania dla większej liczby punktów.
 \figh{images/pipeline/multisampling.png}
      {Zobrazowanie idei wielopróbkowania}
      {fig:multisampling}
      {6cm}
 \paragraph*{Test szablonu \eng{Stencil Test}}
-Poza wspomnianym przycinaniem użytkownik ma dodatkową możliwość, aby ograniczyć powierzchnie obrazu, która zostanie zaprezentowana.
+Poza wspomnianym przycinaniem użytkownik ma dodatkową możliwość ograniczenia zaprezentowanej powierzchnii obrazu.
 Operacja dokonywana jest z wysoką ziarnistością \longpause dla każdego piksela obrazu.
 W tym celu wykorzystywane są maski binarne.
-Idea działania algorytmu nie jest złożona.
 Jeśli dla zadanego fragmentu wartość w buforze maski wynosi \textit{1} wówczas kontynuuje on drogę przez potok, w przeciwnym wypadku jest odrzucany.
 \figh{images/pipeline/binary-mask.png}
      {Przykład maski binarnej opisującej kształtem balon}
@@ -100,7 +99,7 @@ Uruchamiane jest ono zawsze, jednak zauważalne rezultaty przynosi w przypadku g
 W celu wykonania obliczenia rozpatrywany jest wynik widoczności po procesie testowania głębi, kolor nowo wygenerowanego fragmentu oraz ten, który już znajduje się w buforze.
 Przez wzgląd na brak przemienności operacji istotnym jest, aby charakteryzujące się przeźroczystością modele wyrysowywane były od znajdującego się najdalej kamery do najbliższego.
 \paragraph*{Bufor wyjścia \eng{Attachment}}
-W podstawowym przypadku na bufor wyjścia składają się bufory koloru, głębi oraz szablonu. 
+W podstawowym przypadku na bufor wyjścia składają się kolor, głębia oraz szablon. 
 Nie jest jednak to jedyna dozwolona kombinacja.
 Bufory głębi oraz szablonu są opcjonalne i o ile aktywne są unikalne.
 Załączników koloru natomiast może występować większa ilość.
