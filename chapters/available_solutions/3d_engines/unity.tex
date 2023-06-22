@@ -5,30 +5,30 @@
 \subsubsection{Unity}
 Najpopularniejszym silnikiem grafiki trójwymiarowej na platformie iOS jest Unity.
 Stworzony został z myślą o grach wideo.
-Dostępny jest na większości platform, zarówno mobilnych, jak i stacjonarnych, ale w głównej mierze przeznaczony jest do mniejszych produktów.
+Dostępny jest na większości platform, zarówno mobilnych, jak i stacjonarnych, ale w głównej mierze przeznaczony jest do mniej złożonych produktów.
 \par
 Rozwiązanie należy zaliczyć do płatnych, choć rozwój aplikacji wykorzystującej technologię można rozpocząć bezpłatnie.
-Użytkownik, który jednak poważnie myśli o wydaniu komercyjnie rentownej aplikacji dostrzeże mnogość ograniczeń.
+Jednak myśląc o wydaniu komercyjnie rentownej aplikacji dostrzec można mnogość ograniczeń.
 Do najpoważniejszych zaliczyć można brak możliwości zmiany ekranu ładowania widocznego podczas startu na urządzeniu czy niemożność dostępu do kodu silnika.
 \par
 Z drugiej strony Unity jest kompletne \longpause pozwala na tworzenie w technologiach 2D, 3D, VR oraz AR.
 Posiada zintegrowane moduły do obsługi fizyki, dźwięku, kontrolerów, sieci, analityki użycia, a także reklam.
 \par
-Choć rozwijany jest w języku C++ to użytkownik dokonuje interakcji za pomocą C\#.
+Choć rozwijany jest w języku C++ to interakcja odbywa się za pomocą C\#.
 W założeniach chodzi o to, aby silnik skompilować tylko raz, a każda modyfikacja była natychmiastowo odzwierciedlana pod względem przyrostowego czasu budowy.
-Mono \longpause framework wykorzystywany przez Unity w tym celu \longpause ma jednak pewne mankamenty.
+Mono \longpause framework wykorzystywany przez Unity w tym celu \longpause ma pewne mankamenty.
 Przede wszystkim użytkownicy narzekają na okazjonalne przycięcia w grach wynikające ze specyfiki zarządzania pamięcią.
-Zastanawiać może także sama obecność C\#.
+Zastanawia sama obecność C\#.
 Unity deklaruje, że najlepiej odnajduje się na mobilnych platformach, ale język skryptowy nie pokrywa się z żadną wiodącą technologią ze świata smartfonów.
-Na obronę jednak przyznać należy, że grę w unity można stworzyć bez znajomości platformy docelowej.
+Na obronę przyznać należy, że grę w Unity można stworzyć bez znajomości platformy docelowej.
 \par
 Dodatkowo, Unity jest rozszerzalne. 
 Dokonać można tego za pomocą pluginów występujących w dwóch formach.
-Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgeneralizowany oferujący funkcjonalność dla wielu platform.
+Jest to odpowiednio plugin natywny dla zadanego systemu operacyjnego, albo zgeneralizowany, oferujący funkcjonalność dla wielu platform.
 \par
-Pomimo, że Unity jest stale rozwijane to grafika wydaje się odstawać od konkurencji.
-Podkreślić należy, że potok renderowania silnika jest konfigurowalny, więc jeśli jakość dla odbiorcy jest niezadowalający istnieje możliwość dokonania korekcji we własnym zakresie.
-Otwiera to także możliwość stworzenia zupełnie unikalnego stylu graficznego, choć zaakceptować należy wysoki poziom wymaganej wiedzy do osiągnięcia tego celu.
+Pomimo ciągłego rozwoju Unity jego grafika wydaje się odstawać od konkurencji.
+Podkreślić należy, że potok renderowania silnika jest konfigurowalny, więc jeśli jakość dla odbiorcy jest niezadowalająca istnieje możliwość dokonania korekcji we własnym zakresie.
+Otwiera to możliwość stworzenia zupełnie unikalnego stylu graficznego, choć zaakceptować należy wysoki poziom wymaganej wiedzy do osiągnięcia tego celu.
 \par
 Sama dokumentacja stoi na wysokim poziomie.
 Obfita jest w liczne przykłady użycia i zawiera sugestie co do sposobu implementacji pewnych funkcjonalności w sposób zgodny z wizją autorów.
@@ -36,13 +36,13 @@ Obfita jest w liczne przykłady użycia i zawiera sugestie co do sposobu impleme
 Pierwotnie cała interakcja warstwy gry oraz silnika obsługiwana była za pomocą skryptów C\#.
 Na przestrzeni lat rozwinięto jednak interfejs graficzny środowiska, a także dodano możliwość konfigurowania przebiegu rozgrywki za pomocą programowania wizualnego.
 W założeniu podobne jest to nieco do schematów blokowych używanych do prezentacji algorytmów.
-Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier osobom niebędącym zaznajomionym z programowaniem.
-Pozornie pomysł może wydawać się oszczędzać czas i ułatwiać rozwój, mimo to grono osób nadal niechętnie korzysta z rozwiązania.
+Koncept miał za zadanie otworzyć silnik na szersze grono odbiorców i zaoferować możliwość tworzenia gier niebędącym zaznajomionym z programowaniem.
+Pozornie pomysł wydaje się oszczędzać czas i ułatwiać rozwój, mimo to odsetek osób korzystających z rozwiązania jest niewielki.
 W głównej mierze podyktowane jest to niską przejrzystością zmian dokonanych przez użytkowników w systemach kontroli wersji.
 Równie często przywoływany jest także argument wskazujący na trudność w odnajdywaniu się w logice stworzonej przy pomocy programowania wizualnego.
 Równoważna implementacja w formie skryptu określana jest jako łatwiejsza do zrozumienia.
 \par
-Za minus można uznać narzut w kwestii wagi aplikacji.
+Za minus uznać należy narzut w kwestii wagi aplikacji.
 Szablon pustego dokumentu wiąże się z koniecznością posiadania około 20 MB wolnej przestrzeni.
 Dla porównania natywny, pusty dokument iOS to zaledwie 1 MB.
 Wydawać może się to nieistotne, jednak z uwagi na fakt, że aplikacje mobilne często pobierane są za pomocą transmisji komórkowej to naturalnie waga powinna być ograniczona do minimum.
