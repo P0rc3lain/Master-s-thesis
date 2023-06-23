@@ -3,8 +3,8 @@
 %
 
 \subsubsection{Filament}
-Android, którego rozwój prowadzi Google opiera się o nieco odmienne podejście na dostarczanie dodatkowych funkcjonalności niż to, które przyjęto w Apple.
-Producent aktywnie rozwija system, dostarcza komponenty w oparciu o które można budować aplikacje, ale długi czas nie zapewniał bibliotek ułatwiających pracę w wyspecjalizowanych dziedzinach.
+Android, rozwijany przez Google opiera się o nieco odmienne podejście na dostarczanie dodatkowych funkcjonalności niż to przyjęte w Apple.
+Producent aktywnie udoskonala system, dostarcza komponenty do budowy aplikacji, ale długi czas nie zapewniał bibliotek ułatwiających pracę w wyspecjalizowanych dziedzinach.
 W przypadku chęci stworzenia gry dwu lub trzy wymiarowej sugerowano skorzystanie wprost z API graficznego i własnego rozwiązania.
 Zmianę zainicjował wzrost popularności techniki AR po 2014 roku, kiedy urządzenia mobilne były w stanie zaspokoić potrzeby wydajnościowe.
 Wiedziano, że bez odgórnego wsparcia wiele aplikacji ominie platformę lub nawet doprowadzi do migracji użytkowników na konkurencyjny iOS.
@@ -14,20 +14,20 @@ Bibliotekę do obsługi AR, a wraz z nią silnik graficzny Filament, stworzony n
 Nadrzędnym celem jaki rozszerzona rzeczywistość powinna spełniać jest zapewnienie immersji.
 Oznacza to realistyczne odwzorowanie modelu oświetlenia przy zachowaniu podejścia czasu rzeczywistego.
 Elementy wzbogacające obraz powinny wtapiać się w resztę otoczenia.
-Filament stworzony został dokładnie z myślą o opisanym scenariuszu.
+Filament stworzony został z naciskiem na opisany scenariusz.
 \par
 Oferowany jest jako silnik do renderowania.
-Dodatkowo, aby ułatwić proces importu modeli posiada moduł do wczytywania.
+W celu ułatwienia procesu importu modeli posiada moduł do wczytywania.
 Są to główne, ale i jedyne funkcjonalności.
 \par
-Choć wspierany jest szereg systemów, jednakże największy nacisk położony jest na Android.
-Pomimo iż stworzony został w C++ integracja z Kotlinem \longpause natywnym językiem platformy \longpause stoi na wysokim poziomie.
+Choć wspierany jest szereg systemów największy nacisk położony jest na Android.
+Pomimo, iż stworzony został w C++ integracja z Kotlinem \longpause natywnym językiem platformy \longpause stoi na wysokim poziomie.
 Użytkownik jest w stanie bezpośrednio wykonywać zapytania do API, bez pośrednich interfejsów.
 Sam projekt publicznych części biblioteki pokrywa się z schematami powszechnie przyjętymi na platformie.
 \par
 Dystrybucja prowadzona jest w oparciu o podejście open source.
 Użytkownicy mogą nieodpłatnie wykorzystać Filament do celów komercyjnych i wprowadzać w nim dalsze poprawki.
-Dziwi, że Google wprawdzie umiejscowiło repozytorium pod skrzydłami swojej organizacji, ale zaznacza, że nie jest on oficjalnie wspierany.
+Dziwi, że Google wprawdzie umiejscowiło repozytorium pod skrzydłami swojej organizacji, ale zaznacza, że wsparcie nie jest oficjalne.
 \par
 Podejście do renderowania oparte o fizyczne odwzorowanie zachowania światła stało sie powszechne.
 Zupełnie wyjątkowy jest jednak sposób w jaki zaimplementowano je w bibliotece.
@@ -40,17 +40,17 @@ Dokumentacja oparta jest o trzy główne filary.
 Pierwszy to szczegółowy opis modelu oświetlenia.
 Jego jakość jest wybitna. 
 Każdy aspekt renderowania ujęty jest w osobnej sekcji, wyjaśniony słowie wraz przykładami kodu i ilustracjami.
-Przytłaczający może wydawać się stopień włożonego wysiłku, który poświęcono by przedstawić zjawiska fizyczne przy pomocy aparatu matematycznego.
+Przytłaczający może wydawać się stopień włożonego wysiłku, poświęconego by przedstawić zjawiska fizyczne przy pomocy aparatu matematycznego.
 Starano oddać się kompletny proces, bez pomijania kroków pośrednich.
-Drugi z filarów to funkcjonalne przykładowy użycia.
-Jest ich kilka, w formie przykładów wprowadzających dla każdej z platform.
+Drugi z filarów to funkcjonalne przykłady użycia.
+Jest ich kilka, w formie aplikacji dla każdej z platform.
 Nie budzą zastrzeżeń, bez problemu można je zmodyfikować i wykorzystać do swoich potrzeb.
 Zawodzi dokumentacja kodu oraz interfejsu.
 Nie udostępniono użytkownikom jej za pośrednictwem internetu, uzyskać można ją tylko przy budowie aplikacji.
 W głównej mierze ogranicza się ona do jednozdaniowych opisów.
 \par
 Największą wadą z punktu widzenia użytkownika iOS jest wsparcie dla platformy.
-Wprawdzie Filament zdolny jest do pracy zarówno na OpenGL, jak i Metal, natomiast tylko do rozszerzenia obsługi o wspomniane API wydaje się ograniczać włożony nakład pracy.
+Wprawdzie Filament zdolny jest do pracy zarówno na OpenGL, jak i Metal, natomiast włożony nakład pracy wydaje się ograniczać tylko do rozszerzenia obsługi o wspomniane API.
 Nie posiada ona dedykowanego interfejsu dla platformy Apple i wszystkie jej funkcjonalności wymagają użycia C++.
 Wobec tego, aby skorzystać z biblioteki koniecznym jest oprzeć część aplikacji o Objective-C i zastosować ewentualne interfejsowanie do Swift.
 \par
@@ -62,7 +62,7 @@ Nieco burzy to powszechne konwencje C++, które sugerują użycie podejścia RAI
 Decyzja o takim projekcie jest zrozumiała z punktu widzenia osiągnięcia optymalnej wydajności i wykorzystania pamięci.
 Zdradza jednak pośrednio grupę odbiorców.
 Filament jest silnikiem graficznym wykonanym przez grafików dla grafików.
-Przeciętny programista ekosystemu Apple, który chciałby tylko skorzystać z funkcjonalności może mieć trudności w efektywnym wykorzystaniu.
+Przeciętny programista ekosystemu Apple, pragnący tylko skorzystać z funkcjonalności może mieć trudności w efektywnym wykorzystaniu.
 \figh{images/engines/filament/helmet.jpeg}
      {Przykład klatki wygenerowanej przez silnik Filament}
      {fig:filament-helmet}
