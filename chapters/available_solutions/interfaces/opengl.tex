@@ -4,30 +4,30 @@
 
 \subsection{OpenGL}
 Najnowsza wersja dostępna na stacjonarnej platformie to opublikowane w 2010 roku OpenGL 4.1.
-W przypadku urządzeń mobilnych jest to OpenGL ES 3.0, które pomimo zbieżności wielu zbieżności pozostaje podzbiorem stacjonarnego odpowiednika.
-W 2022 roku nadal istnieje możliwość stworzenia aplikacji opartej o OpenGL, choć rozwiązanie uznane jest jako przestarzałe i nierekomendowane od 2018 roku.
+W przypadku urządzeń mobilnych jest to OpenGL ES 3.0, które pomimo zbieżności pozostaje podzbiorem stacjonarnego odpowiednika.
+W 2023 roku nadal istnieje możliwość stworzenia aplikacji opartej o OpenGL, choć rozwiązanie uznane jest jako przestarzałe i nierekomendowane od 2018 roku.
 \par
-Brak wsparcia nie musi stanowić o słabości produktu jednak w przypadku OpenGL największą wadą jest podejście do komunikacji z GPU.
-W przeciwieństwie do nowoczesnych API, które synchronizują zadania CPU oraz GPU w zminimalizowany sposób OpenGL dokonuje tego znacznie częściej.
+Brak wsparcia nie musi stanowić o słabości produktu, jednak w przypadku OpenGL największą wadą jest podejście do komunikacji z GPU.
+W przeciwieństwie do nowoczesnych API synchronizujących zadania CPU oraz GPU w zminimalizowany sposób OpenGL dokonuje tego znacznie częściej.
 Każdorazowe wywołanie funkcji oznacza wykonanie zapytania do GPU.
 \par
 Pewną niedogodność stanowi także fakt, iż OpenGL oparty był o język C.
 Z tego względu wszystkie jego wywołania mają proceduralny charakter i powodują dysonans w obiektowym kodzie stworzonym w Objective-C czy Swift.
 \par
-Korzystania nie ułatwia także fakt, że zasoby uzyskane z GPU bez względu na przeznaczenie i typ przekazywane są do użytkownika za pomocą zmiennej całkowitej.
+Korzystania nie ułatwia także fakt, że zasoby uzyskane z GPU, bez względu na przeznaczenie i typ, przekazywane są do użytkownika za pomocą zmiennej całkowitej.
 Na programiście spoczywa konieczność stworzenia abstrakcji wokół pozyskanego numeru.
 \par
-Kolejną niewątpliwą wadą rozwiązania jest sama jego architektura.
+Kolejną niewątpliwą wadą jest sama architektura.
 OpenGL zaprojektowane jest jako globalna maszyna stanów.
 Choć nie jest to jawnie zabronione, podejście sprawia, że nie istnieje efektywna możliwość komunikacji z API w sposób wielowątkowy.
-W teorii dwa lub więcej wątków jest w stanie pracować współbieżnie za pomocą różnych kontekstów, ale operacje w sekcji krytycznej są nieefektywne, ponieważ każdorazowa zmiana stanu w GPU jest kosztowna czasowo.
+W teorii dwa lub więcej wątków może pracować współbieżnie za pomocą różnych kontekstów, ale operacje w sekcji krytycznej są nieefektywne, ponieważ każdorazowa zmiana stanu w GPU jest kosztowna czasowo.
 \par
 Lata dostępności na rynku wpłynęły na ilość źródeł wyjaśniających działanie API.
 Opublikowano dziesiątki książek i tutoriali przedstawiających na przykładach idee programowania grafiki.
-Pomimo, że branża odchodzi od OpenGL to społeczność stale wskazuje je jako najbardziej przystępne z pośród wszystkich dostępnych.
+Pomimo odchodzenia branży od OpenGL społeczność stale wskazuje je jako najbardziej przystępne spośród wszystkich dostępnych.
 \par
-Platformy Apple zawsze znacząco opóźnione były pod względem wspieranej wersji OpenGL w stosunku do standardu.
-Obecna posiada kilka istotnych braków.
+Platformy Apple zawsze były znacząco opóźnione pod względem wspieranej wersji OpenGL w stosunku do standardu.
+Aktualna posiada kilka istotnych braków.
 Przykładami jest niemożliwość skorzystania z programów obliczeniowych i tesalacyjnych.
 % TODO: Napisać, że opengl jest goły i dużo trzeba robić na własną rękę - tak jak kompilacja warunkowa
 % Kompilacja jest runtime, co jest słabe

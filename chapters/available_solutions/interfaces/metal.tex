@@ -4,7 +4,6 @@
 
 \subsection{Metal}
 Obecnie jedynym w pełni wspieranym API, za pośrednictwem którego programować można GPU w ekosystemie Apple jest Metal.
-Jego premiera miała miejsce w 2014 roku.
 Początkowo współistniał on wraz z OpenGL 4.1, natomiast wraz z premierą macOS Mojave traktowany jest jako główne API.
 \par
 Funkcjonalnie nie wyróżnia się w stosunku do innych popularnych API, takich jak Vulkan czy DirectX.
@@ -30,7 +29,7 @@ W tym istnieje opcja podejrzenia zasobów używanych przez GPU i wpływu wywoła
 \par
 Zadbano także o walidację.
 W wypadku próby uzyskania dostępu do bloku pamięci znajdującego się poza przydzielonym zakresem nastąpi błąd krytyczny prowadzący do zatrzymania programu.
-Podobna sytuacja wystąpi w momencie gdy w programie cieniującym zabraknie dowiązania do zasobu.
+Podobna sytuacja zaistnieje w momencie gdy w programie cieniującym zabraknie dowiązania do zasobu.
 Oznacza to, że zadeklarowana będzie chęć użycia buforu albo tekstury, ale nie zostanie zdefiniowany jego adres w pamięci.
 API jest w stanie automatycznie wyłapać tego rodzaju usterki w trakcie działania programu.
 \par
