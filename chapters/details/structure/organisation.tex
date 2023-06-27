@@ -14,17 +14,18 @@ Dodatkowo, funkcjonalności budowane w pobocznych gałęziach, pozostawały tam 
 Wcielano je do głównego strumienia po upewnieniu się, że nie powodują regresji.
 \par
 Na potrzeby pracy wykonano silnik graficzny oraz grę szachową.
-Starano się, aby możliwie uniezależnić je od siebie.
-Z tego względu stworzona na ich potrzeby dwa osobne repozytoria.
-Biblioteka graficzna jest niezależna, natomiast gra szachowa, która posiada na niej zależność używa funkcjonalności podmodułów \eng{submodule}  w celu pobrania źródeł.
+Starano się możliwie minimalizować wzajemną zależność.
+Z tego względu stworzono dwa osobne repozytoria kodu źródłowego.
+Gra szachowa używa funkcjonalności podmodułów systemu kontrli wersji w celu pobrania źródeł biblioteki.
+Zasadę działania przyrównać można do funkcjonalności linków w systemie operacyjnym.
 Dzięki temu uniknięto duplikacji i zadbano, aby repozytoria były możliwie niewielkie.
+Sama biblioteka graficzna jest niezależna.
 \par
 Komplementując zarządzanie wersją zdecydowano się na integrację z platformą GitHub.
 Za jej pośrednictwem utworzono organizację do której podpięto repozytoria~\cite{porcelain_project}.
-Dzięki temu zapewniono bezpieczeństwo na wypadek utraty danych z lokalnego dysku.
+Dzięki temu zapewniono bezpieczeństwo na wypadek utraty danych z lokalnej kopii.
 Otworzyło to także szereg możliwości zarządzania zadaniami, automatyzacji i zapewnienia jakości.
-Aspekty te, podobnie jak gra szachowa omówione zostaną w dalszej części pracy.
-Sekcja koncentrowała będzie się na stworzonej bibliotece graficznej.
+Aspekty te, podobnie jak gra szachowa, omówione zostaną w dalszej części pracy.
 \subsubsection{Hierarchia}
 \listdirs{[Engine[Core]
                  [MetalBinding]
