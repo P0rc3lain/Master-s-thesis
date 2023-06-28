@@ -10,9 +10,9 @@ Węzeł posiada informacja nie tylko odnoszące się do lokalnej pozycji i ramki
 Dzięki temu użytkownik wygodnie porównywać może pozycje obiektów między sobą, a ponieważ wartość jest przechowywana w węźle nie trzeba jej każdorazowo obliczać.
 \par
 Oprócz właściwości węzeł sceny posiada także zachowanie.
-Może on implementować metodę \textit{update()}, która wykonywana jest przy generowaniu każdej klatki.
-Przydatną między innymi do aktualizacji stanu animacji.
-Najistotniejszą jednak jest \textit{write()} służąca do zamiany hierarchicznej struktury drzewa na płaską, wydajną podczas renderowania.
+Może on implementować metodę \textit{update()}, wykonywaną jest przy generowaniu każdej klatki.
+Niezbędna okazać się może między innymi do aktualizacji stanu animacji.
+Najistotniejszą jest jednak \textit{write()}, obecna w procesie zamiany hierarchicznej struktury drzewa na płaską, wydajną podczas renderowania.
 Obiekt musi być w stanie zakodować siebie wewnątrz struktury \textit{PNSceneDescription}, opisanej w dalszej części pracy.
 \code{Swift}
      {Interfejs bazowy dla obiektów w węzłach grafu sceny}

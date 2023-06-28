@@ -9,5 +9,6 @@ public protocol PNSceneNode: AnyObject {
     var childrenMergedBoundingBox: PNSubject<PNBoundingBox?> { get }
     var intrinsicBoundingBox: PNBoundingBox? { get }
     func update()
-    func write(scene: PNSceneDescription, parentIdx: PNParentIndex) -> PNNewlyWrittenIndex
+    func write(scene: PNSceneDescription, 
+               parent: PNParentIndex) -> PNNewlyWrittenIndex
 }

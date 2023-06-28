@@ -4,22 +4,22 @@
 
 \subsection{Podejście programistyczne}
 Swift jest językiem pozwalającym operować w oparciu o wielu paradygmatów programowania.
-Z tego względu na etapie projektowania należało podjąć decyzję który z nich wykorzystać do wykonania biblioteki.
+Na etapie projektowania należało podjąć decyzję który z nich wykorzystać do wykonania biblioteki.
 Głównymi kryteriami mającymi ukierunkować wybór była chęć zapewnienia wysokiej wydajności oraz minimalizacja błędów.
 Dodatkowo, starano się sprawić by interfejs biblioteki był możliwie spójny z innymi dostępnymi rozwiązaniami.
 \par
 Początkowo rozważano użycie podejścia funkcyjnego.
 Czynników przemawiających na korzyść było kilka.
-Między innymi styl programistyczny, który wymuszony jest przez zasady sprawia, że kod w różnych obszarach aplikacji jest do siebie podobny.
+Między innymi styl programistyczny wymuszony przez zasady sprawia, że kod w różnych obszarach aplikacji jest do siebie podobny.
 Korzystanie z funkcji jasno definiujących dane wejściowe i zwracane pozytywnie wpływa też na testowalność.
 Zdecydowano jednak o odrzuceniu pomysłu.
 Programowanie funkcyjne wymagałoby wykorzystania dodatkowych bibliotek lub autorskich rozwiązań w celu sprawienia by biblioteka standardowa mogła obsłużyć paradygmat.
-W sieci znaleźć można biblioteki takie jak Swiftz czy swift-overture, które wychodzą naprzeciw w kwestii problemu.
+W sieci znaleźć można biblioteki takie jak Swiftz czy swift-overture wychodzące naprzeciw w kwestii problemu.
 % TODO: Dodaj cytowanie z linkiem do bibliografii
 Wprawdzie zniwelowałyby konieczny nakład pracy, jednak analiza przykładów ich użycia ujawnia największą wadę.
-Programowanie funkcyjne wśród technologii obecnych w Swift jest nadal ciekawostką.
+Programowanie funkcyjne wśród technologii obecnych w Swift jest ciekawostką.
 Wymagałoby nauki niszowego stylu, relatywnie trudnego w przyswojeniu.
-Pomimo iż zastosowanie podejścia byłoby wykonalne to negatywnie wpłynęłoby na odbiór rozwiązania.
+Pomimo, iż zastosowanie podejścia byłoby wykonalne to negatywnie wpłynęłoby na odbiór rozwiązania.
 \par
 Zwrócenie w stronę imperatywnego podejścia sprawiło, że do dyspozycji pozostał wyłącznie paradygmat proceduralny oraz obiektowy.
 Dążenie do spójności z ekosystemem Apple zadecydowało o wyborze stylu zorientowanego obiektowo.
@@ -44,13 +44,13 @@ Moment publikacji SwiftUI oraz Combine sprawił, że Apple oficjalnie otworzyło
 Warunkiem koniecznym do skorzystania z funkcjonalności jest oparcie części aplikacji \longpause ViewModelu \longpause o programowanie reaktywne.
 Tworzona biblioteka graficzna sama w sobie nie będzie posiadała modułów do obsługi UI.
 Jeśli użytkownik planował będzie skomponować interfejs graficzny będzie musiał oprzeć go o komponenty systemowe.
-Z tego względu konicznym będzie oddać użytkownikowi możliwość integracji z biblioteką reaktywną Combine gdzie to możliwe.
+Z tego względu konicznym będzie oddać możliwość integracji z biblioteką reaktywną Combine gdzie to możliwe.
 \par
 W większości rozwiązań rozważania na temat ogólnego podejścia można byłoby zakończyć po powyższym opisie.
-Chęć renderowania grafiki sprawia, że należy uwzględnić specyfikę działania karty graficznej w celu uzyskania optymalnej wydajności.
+Chęć renderowania grafiki wymaga uwzględnienia specyfiki działania karty graficznej w celu uzyskania optymalnej wydajności.
 Przede wszystkim komunikacja z GPU sprawia, że następować musi synchronizacja pomiędzy procesorem graficznym, a głównym.
 Maksymalna wydajność uzyskiwana jest kiedy minimalizuje się ilość tych okoliczności.
 Aplikacje chcące zapewnić wysoką wydajność powinny możliwie rzadko zmieniać używane bufory i preferować dane zorganizowane w długie fragmenty ciągłej przestrzeni adresowej.
 Programowanie budujące abstrakcje wokół sprzętu na którym aplikacja będzie operowała nazywa się data-oriented design.
-Zdecydowano się oprzeć o nie część biblioteki, która odpowiedzialna będzie za renderowanie obrazu
+Zdecydowano się oprzeć o nie część biblioteki odpowiedzialnej za renderowanie obrazu.
 Pozostanie ona niewidoczna dla użytkownika, dzięki czemu nie wpłynie to negatywnie na przystępność.

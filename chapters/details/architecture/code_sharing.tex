@@ -3,14 +3,14 @@
 %
 
 \subsection{Współdzielenie kodu}
-Programy cieniujące, podobnie jak kod wykonywany na CPU używają struktur w celu zgrupowania typów prostych w spójną abstrakcję.
-Metal nie jest kompatybilny ze Swift, w celu przesłania danych producent w przykładach stosuje dwukrotną deklarację typów dla każdego z języków.
+Programy cieniujące, podobnie jak kod wykonywany na CPU, używają struktur w celu zgrupowania typów prostych w spójną abstrakcję.
+Metal nie jest kompatybilny ze Swift, w celu przesłania danych producent w przykładach stosuje oddzielną deklarację dla każdego z języków.
 Zdecydowano się jednak wykorzystać inny pomysł, który mógłby być mniej podatny na pomyłki i zredukować ilość zduplikowanego kodu.
 Podstawowa definicja struktury stworzona jest w kodzie C, kompatybilnym z Metal.
 Dzięki temu może być wykorzystana w programach cieniujących.
-W następnym kroku nagłówki C grupowane są w moduły, które kompilator XCode udostępnia do kodu Swift.
+W następnym kroku nagłówki C grupowane są w moduły udostępnione przez kompilator XCode do kodu Swift.
 Dzięki temu za pomocą pojedynczego importu modułu dane opisane w kodzie Swift mogą być w łatwy sposób przekazywane do GPU, a pojedyncza definicja sprawia, że ustrzec można się przed błędami w przypadku braku propagacji zmian.
-Dodatkowo Swift choć wewnętrznie zapewnia to standard nie daje gwarancji w kwestii uporządkowania pól dla struktury, co jest kluczowe w celu właściwej interpretacji danych.
+Dodatkowo, standard Swift nie daje gwarancji w kwestii uporządkowania pól dla struktury, co jest kluczowe w celu właściwej interpretacji danych.
 \code{C}
      {Definicja struktury w języku C}
      {code/code_sharing/Camera.h}
