@@ -26,7 +26,7 @@ Koordynacja procesu generowania aktualnej pozycji wykonywana jest za pośrednict
 Z punktu widzenia zachowania jest on odpowiedzialny za pojedyncze zadanie.
 Na podstawie klatek kluczowych skali, rotacji oraz transformacji zamkniętej w \textit{PNAnimatedCoordinateSpace} musi wyznaczyć finalną pozycje w formie macierzy transformacji.
 Do dyspozycji użytkownika oddana została klasa \textit{PNIAnimator} implementująca interfejs.
-Może on wykorzystać ją wypełniając interesujące go parametry dzięki czemu skorzysta z gotowego koordynatora procesu.
+Może on wypełnić konieczne parametry, dzięki czemu skorzysta z gotowego koordynatora procesu.
 \code{Swift}
      {Interfejs służący do obsługi animacji}
      {code/animation/PNAnimator.swift}
@@ -60,13 +60,13 @@ W odróżnieniu od animacji bryły sztywnej wierzchołki poddane animacji szkiel
 Każdy z nich poza standardowymi parametrami posiada dodatkowo listę kości, które wpływają na jego pozycję \longpause silnik obsługuje do czterech \longpause oraz wagi wpływu każdej z nich.
 \par
 Obszerny opis techniki znaleźć można między innymi w \textit{Game Engine Architecture}~\cite{game_engine_architecture}.
-Wspomnieć warto, że szkielet opisany jest za pomocą tablicy składającej się z lokalnych transformacji dla każdej z kości.
+Wspomnieć warto, że szkielet posiada tablicę składającą się z lokalnych transformacji dla każdej z kości.
 Dodatkowo, równoliczna tablica przeznaczona jest do określenia indeksu rodzica dla każdej z transformacji.
 Składanie transformacji pozwoli uzyskać macierze pozycji spoczynkowej zmieniające układ współrzędnych z układu modelu do kości.
 \par
 Pod pewnymi względami animacja szkieletowa bardzo przypomina animację bryły sztywnej.
 Poszczególne pozycje opisane są przy pomocy klatek kluczowych, a ich próbkowanie i interpolacja przebiega w ten sam sposób.
-List zawierające aktualne transformacje kości przekazywana jest do programu cieniującego gdzie obliczana jest finalna pozycja wierzchołków.
+Lista zawierająca aktualne transformacje kości przekazywana jest do programu cieniującego gdzie obliczana jest finalna pozycja wierzchołków.
 \figh{images/pnengine/animation/skeleton.png}
      {Idea animacji szkieletowej}
      {fig:animation-skeletal}

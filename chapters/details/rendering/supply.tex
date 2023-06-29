@@ -3,9 +3,8 @@
 %
 
 \subsection{Opis klatki}
-Wygenerowanie każdej klatki wymaga dwóch składowych.
-Opisu sceny przypadającego na konkretną chwilę, w formie efektywnej do procesowania przez CPU.
-Oprócz tego konieczne jest aby informacje wymagane do renderowania przeniesione zostały na GPU.
+Wygenerowanie każdej klatki wymaga opisu sceny przypadającego na konkretną chwilę, w formie efektywnej do procesowania przez CPU.
+Oprócz tego konieczne jest aby informacje użyte do renderowania przeniesione zostały na GPU.
 Dane te każdorazowo przygotowywane są przed generowaniem klatki, a następnie przekazywane do klasy \textit{PNPipeline}.
 Dystrybucja wgłąb przebiega aż do poszczególnych klas implementujących interfejsy \textit{PNComputeJob} lub \textit{PNRenderJob}.
 \par
