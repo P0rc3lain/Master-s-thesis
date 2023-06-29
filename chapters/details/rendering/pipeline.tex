@@ -3,6 +3,10 @@
 %
 
 \subsection{Potok renderowania}
+\figh{images/pnengine/rendering/final.png}
+     {Finalna klatka obrazu}
+     {fig:pipeline-final}
+     {10cm}
 Niniejsza sekcja rozłoży na części pierwsze przykładową klatkę obrazu wygenerowaną przez bibliotekę.
 Omówione zostaną krok po kroku etapy składające się na jej stworzenie.
 \par
@@ -15,10 +19,6 @@ Kamera umiejscowiona jest w taki sposób aby zawrzeć w polu widzenia wszystkie 
 Wybór sceny oraz osadzenia obiektów motywowany był chęcią pokazania możliwie dużej liczby efektów.
 Przedstawiony potok będzie kompletny pod względem możliwych do wystąpienia kroków.
 Należy pamiętać jednak, że wszystkie możliwości silnika nie mogą zostać przedstawione przez wzgląd na obszerną ilość możliwych konfiguracji.
-\figh{images/pnengine/rendering/final.png}
-     {Finalna klatka obrazu}
-     {fig:pipeline-final}
-     {10cm}
 Potok oparty został o dwa rodzaje programów cieniujących.
 W przypadku modeli używane są programy cieniujące korzystające z tradycyjnego potoku GPU.
 Natomiast jeśli nie zachodzi potrzeba generowania siatki, a procedura wciąż odbywa się na GPU, np w przypadku efektów postprocesowych, używane są programy obliczeniowe.
