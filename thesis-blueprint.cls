@@ -55,63 +55,81 @@
 
 \newcommand{\autorZAlbumem}[2]{\begin{minipage}{0.45\textwidth}\centering{\Large\bfseries #1}\\[2mm]Numer albumu: #2\end{minipage}\ }
 	\renewcommand\maketitle{
-	  \begin{titlepage}
-		\let\footnotesize\small
-		\let\footnoterule\relax
-		\let \footnote \thanks
+	  
+		% \centering
+
+		% \centering
+		% \begin{figure}[H]
+		\thispagestyle{empty}
 		\begin{center}
-		  {\LARGE\textbf{Uniwersytet Jagielloński w Krakowie}\\
-		  	Wydzia\l{} Matematyki i Informatyki \par}
-		  \vspace{0cm plus .5fill}
-		  {Studia stacjonarne \par}
-		  \vspace{1cm plus .5fill}
-		{
-			\setlength{\parindent}{0em}
-			\centering
-			\ifx\@imienazwisko\empty\else\autorZAlbumem{\@imienazwisko}{\@album}\fi
-		}
-        \vspace{8mm plus .5fill}
-        \begin{figure}[H]
-            \begin{center}
-                \includegraphics[width=2.5cm]{images/ju-coat-of-arms.jpg}    
-            \end{center}
-        \end{figure}
-          
-		  \vspace{4mm plus .5fill}
-		  {\Huge\textbf{\@title}\par}
-		  \vspace{8mm plus .1fill}
-		  {\large\bf Praca \@rodzajpracy\\[3pt]
-			na kierunku \MakeUppercase{\@kierunek} \\
-			\@zakres \par}
-		  \vspace{2cm plus 1.5fill}
-		  \begin{flushright}\large
-			\begin{tabular}{l}
-			  Opiekun pracy:\\
-			  \bfseries \@opiekun
-			\end{tabular}
-		  \end{flushright}
-		  \vspace{1cm plus 1fill}
-		  {\large \@date\par}
+		\includegraphics[scale=0.2]{images/ju-coat-of-arms.jpg}    
 		\end{center}
-		\@thanks
-	  \end{titlepage}
-	  \begin{titlepage}
-		\c@page=2
+
+		\begin{center}
 		\large
-		\null
+		Uniwersytet Jagielloński\\
+		Wydział Matematyki i Informatyki\\
+		\smallskip
+		\huge
+		Instytut Informatyki i Matematyki Komputerowej\\
+
+		\bigskip
+		\large
+		Studia dziennie
+		\end{center}
+
+		\begin{center}
+		\large
+		Kierunek: Informatyka\\
+		Specjalność: Informatyka Stosowana
+		\end{center}
+
+		\bigskip
+		\bigskip
+		\bigskip
+		\begin{center}
+		\Large  
+		Mateusz Stompór
+		\end{center}
+
+		\bigskip
+		\bigskip
+		\begin{center}
+		\Large
+		\textbf{}
+
+		% \bigskip
+		% \bigskip
+		% \bigskip
+		% \bigskip
+		% \bigskip
+		\large
+		Praca magisterska\\
+		\medskip
+		\LARGE
+		\textbf{Projekt i implementacja silnika grafiki trójwymiarowej w środowisku sprzętowym Apple}
+		\end{center}
+
 		\vfill
-	  \end{titlepage}
-	  \setcounter{footnote}{0}
-	  \global\let\thanks\relax
-	  \global\let\maketitle\relax
-	  \global\let\@thanks\@empty
-	  \global\let\@author\@empty
-	  \global\let\@date\@empty
-	  \global\let\@title\@empty
-	  \global\let\title\relax
-	  \global\let\author\relax
-	  \global\let\date\relax
-	  \global\let\and\relax
+		\begin{center}
+		\Large
+		Opiekun: dr Henryk Telega
+		\end{center}
+
+		\medskip
+		\begin{center}
+		\footnotesize
+		Opracowano zgodnie z Ustawą o prawie autorskim i prawach pokrewnych z dnia 4 lutego 1994 r. (Dz.U.
+		1994 nr 24 poz. 83) wraz z nowelizacją z dnia 25 lipca 2003 r. (Dz.U. 2003 nr 166 poz. 1610) oraz z dnia
+		1 kwietnia 2004 r. (Dz.U. 2004 nr 91 poz. 869)
+
+		\Large
+		\medskip
+		Kraków 2023
+		\end{center}
+
+		\normalsize
+		\clearpage
 	}
 
 	\def\nralbumu#1{\gdef\@nralbumu{#1}}
