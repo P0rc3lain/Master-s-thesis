@@ -1,4 +1,4 @@
-# 📄 Master's Thesis - 3D Graphics Engine Implementation on Apple Hardware
+# 📄 Master's Thesis
 
 This repository contains the source code and documentation for my master's thesis titled:
 "Projekt i implementacja silnika grafiki trójwymiarowej w środowisku sprzętowym Apple"
