@@ -1,0 +1,47 @@
+name: Generate-and-Deploy-PDF
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  generate-pdf:
+    name: Generate PDF with thesis and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: master-s-thesis.tex
+
+      - name: Set name
+        id: rename
+        shell: bash
+        run: |
+          echo "pdf_name=master-s-thesis.pdf" >> $GITHUB_OUTPUT
+
+      - name: Create deploy directory
+        run: |
+          mkdir -p public
+          cp "${{ steps.rename.outputs.pdf_name }}" public/
+          cp "github-pages/index.html" public/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
